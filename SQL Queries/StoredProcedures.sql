@@ -338,6 +338,7 @@ BEGIN
     DECLARE @CounterF int = 0;
     DECLARE @CounterC int = 0;
     DECLARE @GoalkeeperID_F int;
+    DECLARE @GoalkeeperID_C int;
     DECLARE @NumberOfPlayersF int;
     DECLARE @NumberOfPlayersC int;
 
@@ -369,6 +370,34 @@ BEGIN
     -- Feche o cursor quando terminar
     CLOSE jogadores_cursor_F;
     DEALLOCATE jogadores_cursor_F;
+
+        --Percorre a lista de jogadores da equipa da casa até encontrar o guarda-redes
+    DECLARE jogadores_cursor_C CURSOR FOR
+    SELECT Jogador_ID FROM @JogadoresC;
+
+    OPEN jogadores_cursor_C;
+    
+    DECLARE @CurrentPlayerID_C int;
+    FETCH NEXT FROM jogadores_cursor_C INTO @CurrentPlayerID_C;
+
+    -- Percorra as linhas do cursor
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Verifique se o jogador atual é um guarda-redes
+        IF EXISTS (SELECT 1 FROM HoqueiPortugues.Jogador_GuardaRedes WHERE Jogador_ID = @CurrentPlayerID_C)
+        BEGIN
+            -- Se sim, armazene o ID do jogador e saia do loop
+            SET @GoalkeeperID_C = @CurrentPlayerID_C;
+            BREAK;
+        END;
+
+        -- Busque a próxima linha
+        FETCH NEXT FROM jogadores_cursor_C INTO @CurrentPlayerID_C;
+    END;
+
+    -- Feche o cursor quando terminar
+    CLOSE jogadores_cursor_C;
+    DEALLOCATE jogadores_cursor_C;
 
     -- Distribuir as advertencias, cartoes azuis e cartoes vermelhos pelos jogadores da equipa de fora
     WHILE EXISTS (SELECT * FROM @JogadoresF)
@@ -406,21 +435,21 @@ BEGIN
             IF @GolosMarcadosF > 0
             BEGIN
 
-                SET @Livres_Diretos_DefendidosC = 0;
-                SET @Livres_Diretos_DefendidosC = CASE WHEN RAND() < 0.80 THEN @Livres_Diretos_DefendidosC + 1 ELSE 0 END;
-                SET @Penaltis_DefendidosC = 0;
-                SET @Penaltis_DefendidosC = CASE WHEN @Livres_Diretos_DefendidosC = 0 AND RAND() < 0.80 THEN @Penaltis_DefendidosC + 1 ELSE 0 END;
+                --SET @Livres_Diretos_DefendidosC = 0;
+                SET @Livres_Diretos_DefendidosC = CASE WHEN RAND() < 0.80 THEN 1 ELSE 0 END;
+                --SET @Penaltis_DefendidosC = 0;
+                SET @Penaltis_DefendidosC = CASE WHEN @Livres_Diretos_DefendidosC = 0 AND RAND() < 0.80 THEN 1 ELSE 0 END;
 
-                UPDATE HoqueiPortugues.GuardaRedes
+                UPDATE HoqueiPortugues.Jogador_GuardaRedes
                 SET Livres_diretos_defendidos = Livres_diretos_defendidos + @Livres_Diretos_DefendidosC,
-                    Penalits_defendidos = Penaltis_defendidos + @Penaltis_DefendidosC
-                WHERE Jogador_ID = @GoalkeeperID_F;
+                    Penaltis_defendidos = Penaltis_defendidos + @Penaltis_DefendidosC
+                WHERE Jogador_ID = @GoalkeeperID_C;
 
 
                 UPDATE HoqueiPortugues.Jogador_Campo
                 SET Golos_marcados = Golos_marcados + 1,
-                    Livres_diretos_marcados = CASE WHEN @Livres_Diretos_DefendidosC = 0 THEN Livres_diretos_marcados + 1 ELSE Livres_diretos_marcados END,
-                    Penaltis_marcados = CASE WHEN @Penaltis_DefendidosC = 0 THEN Penaltis_marcados + 1 ELSE Penaltis_marcados END
+                    Livres_diretos_marcados = CASE WHEN @Livres_Diretos_DefendidosC = 0 AND @Penaltis_DefendidosC = 0 THEN Livres_diretos_marcados + 1 ELSE Livres_diretos_marcados END,
+                    Penaltis_marcados = CASE WHEN @Penaltis_DefendidosC = 0 AND @Livres_Diretos_DefendidosC = 0 THEN Penaltis_marcados + 1 ELSE Penaltis_marcados END
                 WHERE Jogador_ID = @Jogador_Id;
 
                 SET @GolosMarcadosF = @GolosMarcadosF - 1;
@@ -456,6 +485,7 @@ BEGIN
         IF EXISTS (SELECT 1 FROM HoqueiPortugues.Jogador_GuardaRedes WHERE Jogador_ID = @Jogador_Id)
         BEGIN
             SET @NumberOfPlayersC = (SELECT COUNT(*) FROM @JogadoresC);
+
             IF @CounterC = 0
             BEGIN
                 UPDATE HoqueiPortugues.Jogador_GuardaRedes
@@ -467,6 +497,8 @@ BEGIN
             BEGIN
                 DELETE FROM @JogadoresC WHERE Jogador_ID = @Jogador_Id;
             END
+
+            SET @CounterC = @CounterC + 1;
         END
         ELSE
         BEGIN
@@ -475,21 +507,34 @@ BEGIN
             IF @GolosSofridosF > 0
             BEGIN
 
-                SET @Livres_Diretos_DefendidosF = 0;
-                SET @Livres_Diretos_DefendidosF = CASE WHEN RAND() < 0.80 THEN @Livres_Diretos_DefendidosF + 1 ELSE 0 END;
+                --SET @Livres_Diretos_DefendidosF = 0;
+                SET @Livres_Diretos_DefendidosF = CASE WHEN RAND() < 0.80 THEN 1 ELSE 0 END;
+                --SET @Penaltis_DefendidosF = 0;
+                SET @Penaltis_DefendidosF = CASE WHEN @Livres_Diretos_DefendidosF = 0 AND RAND() < 0.80 THEN 1 ELSE 0 END;
 
+                UPDATE HoqueiPortugues.Jogador_GuardaRedes
+                SET Livres_diretos_defendidos = Livres_diretos_defendidos + @Livres_Diretos_DefendidosF,
+                    Penaltis_defendidos = Penaltis_defendidos + @Penaltis_DefendidosF
+                WHERE Jogador_ID = @GoalkeeperID_F;
+
+                PRINT @Livres_Diretos_DefendidosF;
+                PRINT @Penaltis_DefendidosF;
 
                 UPDATE HoqueiPortugues.Jogador_Campo
                 SET Golos_marcados = Golos_marcados + 1,
-                    Livres_diretos_marcados = CASE WHEN RAND() < 0.20 THEN Livres_diretos_marcados + 1 ELSE Livres_diretos_marcados END,
-                    Penaltis_marcados = CASE WHEN RAND() < 0.20 THEN Penaltis_marcados + 1 ELSE Penaltis_marcados END
+                    Livres_diretos_marcados = CASE WHEN @Livres_Diretos_DefendidosF = 0 AND @Penaltis_DefendidosF = 0 THEN Livres_diretos_marcados + 1 ELSE Livres_diretos_marcados END,
+                    Penaltis_marcados = CASE WHEN @Penaltis_DefendidosF = 0 AND @Livres_Diretos_DefendidosF = 0 THEN Penaltis_marcados + 1 ELSE Penaltis_marcados END
                 WHERE Jogador_ID = @Jogador_Id;
 
                 IF @AssistsC < @Resultado_C
                 BEGIN
+                   SELECT TOP 1 @Assistant_Id = Jogador_ID FROM @JogadoresC ORDER BY NEWID();
+
                    UPDATE HoqueiPortugues.Jogador_Campo
-                   SET Assists = CASE WHEN RAND() < 0.70 THEN Assists + 1 ELSE Assists END
+                   SET Assists = Assists + 1
                    WHERE Jogador_ID = @Jogador_Id;  
+
+                   SET @AssistsC = @AssistsC + 1;
                 END
 
                 SET @GolosSofridosF = @GolosSofridosF - 1;
@@ -639,6 +684,35 @@ END
 GO
 
 /*
+Adicionar árbitros ao jogo
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.adicionarArbitros', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.adicionarArbitros;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.adicionarArbitros 
+    @Jogo_ID AS int , @ArbitroPrincipal_ID AS int, @ArbitroAuxiliar_ID AS int
+AS
+BEGIN
+    --Verifica se os arbitros são diferentes pessoas
+    IF @ArbitroPrincipal_ID = @ArbitroAuxiliar_ID
+        BEGIN
+            RAISERROR('Arbitros não podem ser a mesma pessoa', 16, 1);
+            RETURN;
+        END
+
+    INSERT INTO HoqueiPortugues.e_arbitrado (Jogo_ID, Arbitro_ID)
+    VALUES (@Jogo_ID, @ArbitroPrincipal_ID),
+           (@Jogo_ID, @ArbitroAuxiliar_ID);
+
+END;
+GO  
+
+
+
+
+/*
 Obter os treinadores por jogo
 */
 
@@ -688,7 +762,7 @@ BEGIN
     JOIN HoqueiPortugues.Plantel P ON J.Plantel_C_ID = P.ID 
     JOIN HoqueiPortugues.Plantel_Jogadores PJ ON P.ID = PJ.Plantel_ID
     JOIN HoqueiPortugues.Jogador Jog ON PJ.Jogador_ID = Jog.ID
-    WHERE J.ID = @JogoID
+    WHERE J.ID = @Jogo_ID
 
     UNION
 
@@ -697,11 +771,11 @@ BEGIN
     JOIN HoqueiPortugues.Plantel P ON J.Plantel_F_ID = P.ID 
     JOIN HoqueiPortugues.Plantel_Jogadores PJ ON P.ID = PJ.Plantel_ID
     JOIN HoqueiPortugues.Jogador Jog ON PJ.Jogador_ID = Jog.ID
-    WHERE J.ID = @JogoID;
+    WHERE J.ID = @Jogo_ID;
 END;
 GO
 
-EXEC HoqueiPortugues.uspGetJogadoresPorJogo @JogoID = 1;
+EXEC HoqueiPortugues.uspGetJogadoresPorJogo @Jogo_ID = 1;
 GO
 
 /*
@@ -711,7 +785,7 @@ Consultar dados do jogo
 IF OBJECT_ID('HoqueiPortugues.consultarJogo', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.consultarJogo;
 GO
 
-CREATE PROCEDURE HoqueiPortugues.consultarJogoSimples 
+CREATE PROCEDURE HoqueiPortugues.consultarJogo 
     @Jogo_ID AS int
 AS
 BEGIN
@@ -730,4 +804,4 @@ BEGIN
     WHERE Jogo.ID = @Jogo_ID 
 END
 
-EXEC HoqueiPortugues.consultarJogoSimples @Jogo_ID = 1
+EXEC HoqueiPortugues.consultarJogo @Jogo_ID = 1
