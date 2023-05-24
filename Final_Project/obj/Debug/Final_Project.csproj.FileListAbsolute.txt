@@ -1,0 +1,12 @@
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\bin\Debug\Final_Project.exe.config
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\bin\Debug\Final_Project.exe
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\bin\Debug\Final_Project.pdb
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\obj\Debug\Final_Project.csproj.AssemblyReference.cache
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\obj\Debug\Final_Project.Properties.Resources.resources
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\obj\Debug\Final_Project.csproj.GenerateResource.cache
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\obj\Debug\Final_Project.csproj.CoreCompileInputs.cache
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\obj\Debug\Final_Project.exe
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\obj\Debug\Final_Project.pdb
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\obj\Debug\Final_Project.Login_Register.resources
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\obj\Debug\Final_Project.Main.resources
+C:\Users\jacke\OneDrive - Universidade de Aveiro\LEI - Joaquim Rosa\2ano_2semestre\BD\Projeto Final\Final_Project\obj\Debug\Final_Project.Main_Admin.resources
