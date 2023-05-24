@@ -57,7 +57,7 @@ CREATE TABLE HoqueiPortugues.Jogador(
     Posicao varchar(50) NOT NULL,
     Nacionalidade varchar(50) NOT NULL,
     Num_camisola int NOT NULL,
-    Clube_ID int NOT NULL,
+    Clube_ID int,
     advertencias int NOT NULL,
     cartoes_azuis int NOT NULL,
     cartoes_vermelhos int NOT NULL, 
@@ -88,7 +88,7 @@ CREATE TABLE HoqueiPortugues.Treinador(
     Idade int NOT NULL,
     Tipo_treinador varchar(50) NOT NULL,
     Nacionalidade varchar(50) NOT NULL,
-    Clube_ID int NOT NULL
+    Clube_ID int 
 );
 GO
 
