@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Jogador.cs" />
     <Compile Include="Jogo.cs" />
     <Compile Include="JogoInfo.cs" />
     <Compile Include="Login_Register.cs">
@@ -68,6 +69,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Treinador.cs" />
     <EmbeddedResource Include="Login_Register.resx">
       <DependentUpon>Login_Register.cs</DependentUpon>
     </EmbeddedResource>

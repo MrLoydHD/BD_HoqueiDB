@@ -8,7 +8,7 @@ namespace Final_Project
 {
     class JogoInfo
     {
-        private String _ID, _jornada, _resultado_F, _resultado_C,  _nomeClubeCasa, _idClubeCasa, _nomeClubeFora, _idClubeFora, _nomePavilhao, _treinadorCasaNome, _treinadorForaNome, _arbitroNome, _data_hora, _nomeJogador, _posicaoJogador, _nomeTreinador, _tipo_treinador;
+        private String _ID, _jornada, _resultado_F, _resultado_C,  _nomeClubeCasa, _idClubeCasa, _nomeClubeFora, _idClubeFora, _nomePavilhao, _treinadorCasaNome, _treinadorForaNome, _arbitroNome, _data_hora, _nomeJogador, _posicaoJogador, _nomeTreinador, _tipo_treinador, _idJogador;
 
         public String ID
         {
@@ -42,6 +42,8 @@ namespace Final_Project
         public String NomeJogador { get => _nomeJogador; set => _nomeJogador = value; }
 
         public String PosicaoJogador { get => _posicaoJogador; set => _posicaoJogador = value; }
+
+        public String IDJogador { get => _idJogador; set => _idJogador = value; }
 
         public String NomeTreinador { get => _nomeTreinador; set => _nomeTreinador = value; }
 
