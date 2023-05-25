@@ -38,12 +38,19 @@ namespace Final_Project
             this.panelCalendario = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.adicionarJogo5_button = new System.Windows.Forms.Button();
             this.detalhes_jogo5 = new System.Windows.Forms.Button();
+            this.adicionarJogo7_button = new System.Windows.Forms.Button();
             this.detalhes_jogo7 = new System.Windows.Forms.Button();
+            this.adicionarJogo6_button = new System.Windows.Forms.Button();
             this.detalhes_jogo6 = new System.Windows.Forms.Button();
+            this.adicionarJogo4_button = new System.Windows.Forms.Button();
             this.detalhes_jogo4 = new System.Windows.Forms.Button();
+            this.adicionarJogo3_button = new System.Windows.Forms.Button();
             this.detalhes_jogo3 = new System.Windows.Forms.Button();
+            this.adicionarJogo2_button = new System.Windows.Forms.Button();
             this.detalhes_jogo2 = new System.Windows.Forms.Button();
+            this.adicionarJogo1_button = new System.Windows.Forms.Button();
             this.detalhes_jogo1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.jornada1_textBox = new System.Windows.Forms.TextBox();
@@ -89,68 +96,129 @@ namespace Final_Project
             this.logOut_button = new System.Windows.Forms.Button();
             this.jogadores = new System.Windows.Forms.Button();
             this.panelDetalhes = new System.Windows.Forms.Panel();
-            this.detalhesJogo_label = new System.Windows.Forms.Label();
-            this.editarDetalhesJogo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.detalhesDataLabel = new System.Windows.Forms.Label();
-            this.detalhesJornadaLabel = new System.Windows.Forms.Label();
-            this.detalhesPavilhaoLabel = new System.Windows.Forms.Label();
-            this.clubeCasa_textbox = new System.Windows.Forms.TextBox();
-            this.clubeFora_textbox = new System.Windows.Forms.TextBox();
-            this.resultadoCasa_textbox = new System.Windows.Forms.TextBox();
-            this.resultadoFora_textbox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.arbitrosDetalhesLabel = new System.Windows.Forms.Label();
-            this.arbitro1_textBox = new System.Windows.Forms.TextBox();
-            this.arbitro2_textbox = new System.Windows.Forms.TextBox();
-            this.plantelCasaLabel = new System.Windows.Forms.Label();
-            this.jogador2_casa_textbox = new System.Windows.Forms.TextBox();
-            this.jogador1_casa_textbox = new System.Windows.Forms.TextBox();
-            this.jogador3_casa_textbox = new System.Windows.Forms.TextBox();
-            this.jogador4_casa_textbox = new System.Windows.Forms.TextBox();
-            this.jogador5_casa_textbox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.treinador_casa_textbox = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.jogador2_fora_textbox = new System.Windows.Forms.TextBox();
-            this.jogador3_fora_textbox = new System.Windows.Forms.TextBox();
-            this.jogador4_fora_textbox = new System.Windows.Forms.TextBox();
-            this.jogador5_fora_textbox = new System.Windows.Forms.TextBox();
-            this.jogador1_fora_textbox = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.treinador_fora_textbox = new System.Windows.Forms.TextBox();
-            this.dataHora_textbox = new System.Windows.Forms.TextBox();
-            this.jornada_textbox = new System.Windows.Forms.TextBox();
-            this.pavilhao_textbox = new System.Windows.Forms.TextBox();
-            this.treinadorAd_casa_textbox = new System.Windows.Forms.TextBox();
-            this.treinadorAd_fora_textbox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.adicionarJogo1_button = new System.Windows.Forms.Button();
-            this.adicionarJogo2_button = new System.Windows.Forms.Button();
-            this.adicionarJogo3_button = new System.Windows.Forms.Button();
-            this.adicionarJogo4_button = new System.Windows.Forms.Button();
-            this.adicionarJogo6_button = new System.Windows.Forms.Button();
-            this.adicionarJogo7_button = new System.Windows.Forms.Button();
-            this.adicionarJogo5_button = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.treinadorAd_fora_textbox = new System.Windows.Forms.TextBox();
+            this.treinadorAd_casa_textbox = new System.Windows.Forms.TextBox();
+            this.pavilhao_textbox = new System.Windows.Forms.TextBox();
+            this.jornada_textbox = new System.Windows.Forms.TextBox();
+            this.dataHora_textbox = new System.Windows.Forms.TextBox();
+            this.treinador_fora_textbox = new System.Windows.Forms.TextBox();
+            this.treinador_casa_textbox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.jogador1_fora_textbox = new System.Windows.Forms.TextBox();
+            this.jogador5_fora_textbox = new System.Windows.Forms.TextBox();
+            this.jogador1_casa_textbox = new System.Windows.Forms.TextBox();
+            this.jogador4_fora_textbox = new System.Windows.Forms.TextBox();
+            this.jogador5_casa_textbox = new System.Windows.Forms.TextBox();
+            this.jogador3_fora_textbox = new System.Windows.Forms.TextBox();
+            this.jogador4_casa_textbox = new System.Windows.Forms.TextBox();
+            this.jogador2_fora_textbox = new System.Windows.Forms.TextBox();
+            this.jogador3_casa_textbox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.jogador2_casa_textbox = new System.Windows.Forms.TextBox();
+            this.plantelCasaLabel = new System.Windows.Forms.Label();
+            this.arbitro2_textbox = new System.Windows.Forms.TextBox();
+            this.arbitro1_textBox = new System.Windows.Forms.TextBox();
+            this.arbitrosDetalhesLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.resultadoFora_textbox = new System.Windows.Forms.TextBox();
+            this.resultadoCasa_textbox = new System.Windows.Forms.TextBox();
+            this.clubeFora_textbox = new System.Windows.Forms.TextBox();
+            this.clubeCasa_textbox = new System.Windows.Forms.TextBox();
+            this.detalhesPavilhaoLabel = new System.Windows.Forms.Label();
+            this.detalhesJornadaLabel = new System.Windows.Forms.Label();
+            this.detalhesDataLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.editarDetalhesJogo = new System.Windows.Forms.Button();
+            this.detalhesJogo_label = new System.Windows.Forms.Label();
+            this.panelAdicionarJogo = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.panelAdicionarPlantelCasa = new System.Windows.Forms.Panel();
+            this.retroceder1_button = new System.Windows.Forms.Button();
+            this.TAD_casa_combobox = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.TPR_casa_combobox = new System.Windows.Forms.ComboBox();
+            this.JC1_casa_combobox = new System.Windows.Forms.ComboBox();
+            this.GR_casa_combobox = new System.Windows.Forms.ComboBox();
+            this.JC4_casa_combobox = new System.Windows.Forms.ComboBox();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.JC3_casa_combobox = new System.Windows.Forms.ComboBox();
+            this.JC2_casa_combobox = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.proximo1_button = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.panelAdicionarPlantelFora = new System.Windows.Forms.Panel();
+            this.retroceder2_button = new System.Windows.Forms.Button();
+            this.TAD_fora_combobox = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.TPR_fora_combobox = new System.Windows.Forms.ComboBox();
+            this.JC1_fora_combobox = new System.Windows.Forms.ComboBox();
+            this.GR_fora_combobox = new System.Windows.Forms.ComboBox();
+            this.JC4_fora_combobox = new System.Windows.Forms.ComboBox();
+            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.JC3_fora_combobox = new System.Windows.Forms.ComboBox();
+            this.JC2_fora_combobox = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.proximo2_button = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.retroceder4_button = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.resultadoEquipaCasa_textbox = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.guardarJogo = new System.Windows.Forms.Button();
+            this.panelAdicionarArbitros = new System.Windows.Forms.Panel();
+            this.retroceder3_button = new System.Windows.Forms.Button();
+            this.proximo3_button = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label52 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelClassificacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelCalendario.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelDetalhes.SuspendLayout();
+            this.panelAdicionarJogo.SuspendLayout();
+            this.panelAdicionarPlantelCasa.SuspendLayout();
+            this.panelAdicionarPlantelFora.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panelAdicionarArbitros.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -298,6 +366,22 @@ namespace Final_Project
             this.panel1.Size = new System.Drawing.Size(1013, 552);
             this.panel1.TabIndex = 28;
             // 
+            // adicionarJogo5_button
+            // 
+            this.adicionarJogo5_button.BackColor = System.Drawing.Color.Orange;
+            this.adicionarJogo5_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.adicionarJogo5_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adicionarJogo5_button.ForeColor = System.Drawing.Color.White;
+            this.adicionarJogo5_button.Location = new System.Drawing.Point(819, 349);
+            this.adicionarJogo5_button.Margin = new System.Windows.Forms.Padding(4);
+            this.adicionarJogo5_button.Name = "adicionarJogo5_button";
+            this.adicionarJogo5_button.Size = new System.Drawing.Size(116, 29);
+            this.adicionarJogo5_button.TabIndex = 30;
+            this.adicionarJogo5_button.Text = "Adicionar";
+            this.adicionarJogo5_button.UseVisualStyleBackColor = false;
+            this.adicionarJogo5_button.Visible = false;
+            this.adicionarJogo5_button.Click += new System.EventHandler(this.adicionarButtons_Click);
+            // 
             // detalhes_jogo5
             // 
             this.detalhes_jogo5.BackColor = System.Drawing.Color.Orange;
@@ -313,6 +397,22 @@ namespace Final_Project
             this.detalhes_jogo5.UseVisualStyleBackColor = false;
             this.detalhes_jogo5.Visible = false;
             this.detalhes_jogo5.Click += new System.EventHandler(this.detalhesButtons_Click);
+            // 
+            // adicionarJogo7_button
+            // 
+            this.adicionarJogo7_button.BackColor = System.Drawing.Color.Orange;
+            this.adicionarJogo7_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.adicionarJogo7_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adicionarJogo7_button.ForeColor = System.Drawing.Color.White;
+            this.adicionarJogo7_button.Location = new System.Drawing.Point(819, 454);
+            this.adicionarJogo7_button.Margin = new System.Windows.Forms.Padding(4);
+            this.adicionarJogo7_button.Name = "adicionarJogo7_button";
+            this.adicionarJogo7_button.Size = new System.Drawing.Size(116, 29);
+            this.adicionarJogo7_button.TabIndex = 30;
+            this.adicionarJogo7_button.Text = "Adicionar";
+            this.adicionarJogo7_button.UseVisualStyleBackColor = false;
+            this.adicionarJogo7_button.Visible = false;
+            this.adicionarJogo7_button.Click += new System.EventHandler(this.adicionarButtons_Click);
             // 
             // detalhes_jogo7
             // 
@@ -330,6 +430,22 @@ namespace Final_Project
             this.detalhes_jogo7.Visible = false;
             this.detalhes_jogo7.Click += new System.EventHandler(this.detalhesButtons_Click);
             // 
+            // adicionarJogo6_button
+            // 
+            this.adicionarJogo6_button.BackColor = System.Drawing.Color.Orange;
+            this.adicionarJogo6_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.adicionarJogo6_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adicionarJogo6_button.ForeColor = System.Drawing.Color.White;
+            this.adicionarJogo6_button.Location = new System.Drawing.Point(819, 404);
+            this.adicionarJogo6_button.Margin = new System.Windows.Forms.Padding(4);
+            this.adicionarJogo6_button.Name = "adicionarJogo6_button";
+            this.adicionarJogo6_button.Size = new System.Drawing.Size(116, 29);
+            this.adicionarJogo6_button.TabIndex = 30;
+            this.adicionarJogo6_button.Text = "Adicionar";
+            this.adicionarJogo6_button.UseVisualStyleBackColor = false;
+            this.adicionarJogo6_button.Visible = false;
+            this.adicionarJogo6_button.Click += new System.EventHandler(this.adicionarButtons_Click);
+            // 
             // detalhes_jogo6
             // 
             this.detalhes_jogo6.BackColor = System.Drawing.Color.Orange;
@@ -345,6 +461,22 @@ namespace Final_Project
             this.detalhes_jogo6.UseVisualStyleBackColor = false;
             this.detalhes_jogo6.Visible = false;
             this.detalhes_jogo6.Click += new System.EventHandler(this.detalhesButtons_Click);
+            // 
+            // adicionarJogo4_button
+            // 
+            this.adicionarJogo4_button.BackColor = System.Drawing.Color.Orange;
+            this.adicionarJogo4_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.adicionarJogo4_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adicionarJogo4_button.ForeColor = System.Drawing.Color.White;
+            this.adicionarJogo4_button.Location = new System.Drawing.Point(819, 291);
+            this.adicionarJogo4_button.Margin = new System.Windows.Forms.Padding(4);
+            this.adicionarJogo4_button.Name = "adicionarJogo4_button";
+            this.adicionarJogo4_button.Size = new System.Drawing.Size(116, 29);
+            this.adicionarJogo4_button.TabIndex = 30;
+            this.adicionarJogo4_button.Text = "Adicionar";
+            this.adicionarJogo4_button.UseVisualStyleBackColor = false;
+            this.adicionarJogo4_button.Visible = false;
+            this.adicionarJogo4_button.Click += new System.EventHandler(this.adicionarButtons_Click);
             // 
             // detalhes_jogo4
             // 
@@ -362,6 +494,22 @@ namespace Final_Project
             this.detalhes_jogo4.Visible = false;
             this.detalhes_jogo4.Click += new System.EventHandler(this.detalhesButtons_Click);
             // 
+            // adicionarJogo3_button
+            // 
+            this.adicionarJogo3_button.BackColor = System.Drawing.Color.Orange;
+            this.adicionarJogo3_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.adicionarJogo3_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adicionarJogo3_button.ForeColor = System.Drawing.Color.White;
+            this.adicionarJogo3_button.Location = new System.Drawing.Point(819, 234);
+            this.adicionarJogo3_button.Margin = new System.Windows.Forms.Padding(4);
+            this.adicionarJogo3_button.Name = "adicionarJogo3_button";
+            this.adicionarJogo3_button.Size = new System.Drawing.Size(116, 29);
+            this.adicionarJogo3_button.TabIndex = 30;
+            this.adicionarJogo3_button.Text = "Adicionar";
+            this.adicionarJogo3_button.UseVisualStyleBackColor = false;
+            this.adicionarJogo3_button.Visible = false;
+            this.adicionarJogo3_button.Click += new System.EventHandler(this.adicionarButtons_Click);
+            // 
             // detalhes_jogo3
             // 
             this.detalhes_jogo3.BackColor = System.Drawing.Color.Orange;
@@ -378,6 +526,22 @@ namespace Final_Project
             this.detalhes_jogo3.Visible = false;
             this.detalhes_jogo3.Click += new System.EventHandler(this.detalhesButtons_Click);
             // 
+            // adicionarJogo2_button
+            // 
+            this.adicionarJogo2_button.BackColor = System.Drawing.Color.Orange;
+            this.adicionarJogo2_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.adicionarJogo2_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adicionarJogo2_button.ForeColor = System.Drawing.Color.White;
+            this.adicionarJogo2_button.Location = new System.Drawing.Point(819, 181);
+            this.adicionarJogo2_button.Margin = new System.Windows.Forms.Padding(4);
+            this.adicionarJogo2_button.Name = "adicionarJogo2_button";
+            this.adicionarJogo2_button.Size = new System.Drawing.Size(116, 29);
+            this.adicionarJogo2_button.TabIndex = 30;
+            this.adicionarJogo2_button.Text = "Adicionar";
+            this.adicionarJogo2_button.UseVisualStyleBackColor = false;
+            this.adicionarJogo2_button.Visible = false;
+            this.adicionarJogo2_button.Click += new System.EventHandler(this.adicionarButtons_Click);
+            // 
             // detalhes_jogo2
             // 
             this.detalhes_jogo2.BackColor = System.Drawing.Color.Orange;
@@ -393,6 +557,22 @@ namespace Final_Project
             this.detalhes_jogo2.UseVisualStyleBackColor = false;
             this.detalhes_jogo2.Visible = false;
             this.detalhes_jogo2.Click += new System.EventHandler(this.detalhesButtons_Click);
+            // 
+            // adicionarJogo1_button
+            // 
+            this.adicionarJogo1_button.BackColor = System.Drawing.Color.Orange;
+            this.adicionarJogo1_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.adicionarJogo1_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adicionarJogo1_button.ForeColor = System.Drawing.Color.White;
+            this.adicionarJogo1_button.Location = new System.Drawing.Point(819, 133);
+            this.adicionarJogo1_button.Margin = new System.Windows.Forms.Padding(4);
+            this.adicionarJogo1_button.Name = "adicionarJogo1_button";
+            this.adicionarJogo1_button.Size = new System.Drawing.Size(116, 29);
+            this.adicionarJogo1_button.TabIndex = 30;
+            this.adicionarJogo1_button.Text = "Adicionar";
+            this.adicionarJogo1_button.UseVisualStyleBackColor = false;
+            this.adicionarJogo1_button.Visible = false;
+            this.adicionarJogo1_button.Click += new System.EventHandler(this.adicionarButtons_Click);
             // 
             // detalhes_jogo1
             // 
@@ -822,7 +1002,7 @@ namespace Final_Project
             this.label1.Location = new System.Drawing.Point(495, 140);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 32);
+            this.label1.Size = new System.Drawing.Size(24, 32);
             this.label1.TabIndex = 25;
             this.label1.Text = "-";
             this.label1.Visible = false;
@@ -834,7 +1014,7 @@ namespace Final_Project
             this.label7.Location = new System.Drawing.Point(495, 461);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 32);
+            this.label7.Size = new System.Drawing.Size(24, 32);
             this.label7.TabIndex = 25;
             this.label7.Text = "-";
             this.label7.Visible = false;
@@ -846,7 +1026,7 @@ namespace Final_Project
             this.label2.Location = new System.Drawing.Point(495, 188);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 32);
+            this.label2.Size = new System.Drawing.Size(24, 32);
             this.label2.TabIndex = 25;
             this.label2.Text = "-";
             this.label2.Visible = false;
@@ -858,7 +1038,7 @@ namespace Final_Project
             this.label6.Location = new System.Drawing.Point(495, 411);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 32);
+            this.label6.Size = new System.Drawing.Size(24, 32);
             this.label6.TabIndex = 25;
             this.label6.Text = "-";
             this.label6.Visible = false;
@@ -870,7 +1050,7 @@ namespace Final_Project
             this.label3.Location = new System.Drawing.Point(495, 241);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 32);
+            this.label3.Size = new System.Drawing.Size(24, 32);
             this.label3.TabIndex = 25;
             this.label3.Text = "-";
             this.label3.Visible = false;
@@ -882,7 +1062,7 @@ namespace Final_Project
             this.label5.Location = new System.Drawing.Point(495, 355);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 32);
+            this.label5.Size = new System.Drawing.Size(24, 32);
             this.label5.TabIndex = 25;
             this.label5.Text = "-";
             this.label5.Visible = false;
@@ -894,7 +1074,7 @@ namespace Final_Project
             this.label4.Location = new System.Drawing.Point(495, 298);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 32);
+            this.label4.Size = new System.Drawing.Size(24, 32);
             this.label4.TabIndex = 25;
             this.label4.Text = "-";
             this.label4.Visible = false;
@@ -1027,31 +1207,497 @@ namespace Final_Project
             this.panelDetalhes.TabIndex = 31;
             this.panelDetalhes.Visible = false;
             // 
-            // detalhesJogo_label
+            // label25
             // 
-            this.detalhesJogo_label.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detalhesJogo_label.ForeColor = System.Drawing.Color.DarkOrange;
-            this.detalhesJogo_label.Location = new System.Drawing.Point(0, 0);
-            this.detalhesJogo_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.detalhesJogo_label.Name = "detalhesJogo_label";
-            this.detalhesJogo_label.Size = new System.Drawing.Size(1081, 71);
-            this.detalhesJogo_label.TabIndex = 9;
-            this.detalhesJogo_label.Text = "Detalhes do Jogo";
-            this.detalhesJogo_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(1007, 562);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(33, 23);
+            this.label25.TabIndex = 44;
+            this.label25.Text = "AD";
             // 
-            // editarDetalhesJogo
+            // label24
             // 
-            this.editarDetalhesJogo.BackColor = System.Drawing.Color.DarkOrange;
-            this.editarDetalhesJogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editarDetalhesJogo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editarDetalhesJogo.ForeColor = System.Drawing.Color.White;
-            this.editarDetalhesJogo.Location = new System.Drawing.Point(932, 25);
-            this.editarDetalhesJogo.Margin = new System.Windows.Forms.Padding(4);
-            this.editarDetalhesJogo.Name = "editarDetalhesJogo";
-            this.editarDetalhesJogo.Size = new System.Drawing.Size(98, 52);
-            this.editarDetalhesJogo.TabIndex = 10;
-            this.editarDetalhesJogo.Text = "Editar";
-            this.editarDetalhesJogo.UseVisualStyleBackColor = false;
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(29, 562);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(33, 23);
+            this.label24.TabIndex = 43;
+            this.label24.Text = "AD";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(1009, 526);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(31, 23);
+            this.label23.TabIndex = 42;
+            this.label23.Text = "PR";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(29, 526);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(31, 23);
+            this.label22.TabIndex = 41;
+            this.label22.Text = "PR";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(1007, 447);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(33, 23);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "GR";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(22, 447);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(33, 23);
+            this.label20.TabIndex = 39;
+            this.label20.Text = "GR";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(1007, 419);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(28, 23);
+            this.label19.TabIndex = 38;
+            this.label19.Text = "JC";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(27, 333);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(28, 23);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "JC";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(1007, 333);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(28, 23);
+            this.label17.TabIndex = 36;
+            this.label17.Text = "JC";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(1007, 360);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(28, 23);
+            this.label16.TabIndex = 35;
+            this.label16.Text = "JC";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(1007, 391);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(28, 23);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "JC";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(27, 419);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(28, 23);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "JC";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(27, 391);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(28, 23);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "JC";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(27, 360);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(28, 23);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "JC";
+            // 
+            // treinadorAd_fora_textbox
+            // 
+            this.treinadorAd_fora_textbox.BackColor = System.Drawing.Color.White;
+            this.treinadorAd_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treinadorAd_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treinadorAd_fora_textbox.Location = new System.Drawing.Point(810, 559);
+            this.treinadorAd_fora_textbox.Name = "treinadorAd_fora_textbox";
+            this.treinadorAd_fora_textbox.ReadOnly = true;
+            this.treinadorAd_fora_textbox.Size = new System.Drawing.Size(192, 23);
+            this.treinadorAd_fora_textbox.TabIndex = 30;
+            this.treinadorAd_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // treinadorAd_casa_textbox
+            // 
+            this.treinadorAd_casa_textbox.BackColor = System.Drawing.Color.White;
+            this.treinadorAd_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treinadorAd_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treinadorAd_casa_textbox.Location = new System.Drawing.Point(69, 559);
+            this.treinadorAd_casa_textbox.Name = "treinadorAd_casa_textbox";
+            this.treinadorAd_casa_textbox.ReadOnly = true;
+            this.treinadorAd_casa_textbox.Size = new System.Drawing.Size(192, 23);
+            this.treinadorAd_casa_textbox.TabIndex = 30;
+            // 
+            // pavilhao_textbox
+            // 
+            this.pavilhao_textbox.BackColor = System.Drawing.Color.White;
+            this.pavilhao_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pavilhao_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pavilhao_textbox.Location = new System.Drawing.Point(719, 110);
+            this.pavilhao_textbox.Name = "pavilhao_textbox";
+            this.pavilhao_textbox.ReadOnly = true;
+            this.pavilhao_textbox.Size = new System.Drawing.Size(276, 23);
+            this.pavilhao_textbox.TabIndex = 29;
+            // 
+            // jornada_textbox
+            // 
+            this.jornada_textbox.BackColor = System.Drawing.Color.White;
+            this.jornada_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jornada_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jornada_textbox.Location = new System.Drawing.Point(540, 110);
+            this.jornada_textbox.Name = "jornada_textbox";
+            this.jornada_textbox.ReadOnly = true;
+            this.jornada_textbox.Size = new System.Drawing.Size(38, 23);
+            this.jornada_textbox.TabIndex = 28;
+            // 
+            // dataHora_textbox
+            // 
+            this.dataHora_textbox.BackColor = System.Drawing.Color.White;
+            this.dataHora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataHora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataHora_textbox.Location = new System.Drawing.Point(256, 110);
+            this.dataHora_textbox.Name = "dataHora_textbox";
+            this.dataHora_textbox.ReadOnly = true;
+            this.dataHora_textbox.Size = new System.Drawing.Size(188, 23);
+            this.dataHora_textbox.TabIndex = 27;
+            // 
+            // treinador_fora_textbox
+            // 
+            this.treinador_fora_textbox.BackColor = System.Drawing.Color.White;
+            this.treinador_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treinador_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treinador_fora_textbox.Location = new System.Drawing.Point(810, 523);
+            this.treinador_fora_textbox.Name = "treinador_fora_textbox";
+            this.treinador_fora_textbox.ReadOnly = true;
+            this.treinador_fora_textbox.Size = new System.Drawing.Size(192, 23);
+            this.treinador_fora_textbox.TabIndex = 26;
+            this.treinador_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // treinador_casa_textbox
+            // 
+            this.treinador_casa_textbox.BackColor = System.Drawing.Color.White;
+            this.treinador_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treinador_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treinador_casa_textbox.Location = new System.Drawing.Point(69, 523);
+            this.treinador_casa_textbox.Name = "treinador_casa_textbox";
+            this.treinador_casa_textbox.ReadOnly = true;
+            this.treinador_casa_textbox.Size = new System.Drawing.Size(192, 23);
+            this.treinador_casa_textbox.TabIndex = 26;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(923, 492);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 23);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Treinador";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(66, 492);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 23);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Treinador";
+            // 
+            // jogador1_fora_textbox
+            // 
+            this.jogador1_fora_textbox.BackColor = System.Drawing.Color.White;
+            this.jogador1_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogador1_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogador1_fora_textbox.Location = new System.Drawing.Point(810, 330);
+            this.jogador1_fora_textbox.Name = "jogador1_fora_textbox";
+            this.jogador1_fora_textbox.ReadOnly = true;
+            this.jogador1_fora_textbox.Size = new System.Drawing.Size(192, 23);
+            this.jogador1_fora_textbox.TabIndex = 24;
+            this.jogador1_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // jogador5_fora_textbox
+            // 
+            this.jogador5_fora_textbox.BackColor = System.Drawing.Color.White;
+            this.jogador5_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogador5_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogador5_fora_textbox.Location = new System.Drawing.Point(810, 444);
+            this.jogador5_fora_textbox.Name = "jogador5_fora_textbox";
+            this.jogador5_fora_textbox.ReadOnly = true;
+            this.jogador5_fora_textbox.Size = new System.Drawing.Size(192, 23);
+            this.jogador5_fora_textbox.TabIndex = 24;
+            this.jogador5_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // jogador1_casa_textbox
+            // 
+            this.jogador1_casa_textbox.BackColor = System.Drawing.Color.White;
+            this.jogador1_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogador1_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogador1_casa_textbox.Location = new System.Drawing.Point(69, 330);
+            this.jogador1_casa_textbox.Name = "jogador1_casa_textbox";
+            this.jogador1_casa_textbox.ReadOnly = true;
+            this.jogador1_casa_textbox.Size = new System.Drawing.Size(192, 23);
+            this.jogador1_casa_textbox.TabIndex = 24;
+            // 
+            // jogador4_fora_textbox
+            // 
+            this.jogador4_fora_textbox.BackColor = System.Drawing.Color.White;
+            this.jogador4_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogador4_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogador4_fora_textbox.Location = new System.Drawing.Point(810, 416);
+            this.jogador4_fora_textbox.Name = "jogador4_fora_textbox";
+            this.jogador4_fora_textbox.ReadOnly = true;
+            this.jogador4_fora_textbox.Size = new System.Drawing.Size(192, 23);
+            this.jogador4_fora_textbox.TabIndex = 24;
+            this.jogador4_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // jogador5_casa_textbox
+            // 
+            this.jogador5_casa_textbox.BackColor = System.Drawing.Color.White;
+            this.jogador5_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogador5_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogador5_casa_textbox.Location = new System.Drawing.Point(69, 444);
+            this.jogador5_casa_textbox.Name = "jogador5_casa_textbox";
+            this.jogador5_casa_textbox.ReadOnly = true;
+            this.jogador5_casa_textbox.Size = new System.Drawing.Size(192, 23);
+            this.jogador5_casa_textbox.TabIndex = 24;
+            // 
+            // jogador3_fora_textbox
+            // 
+            this.jogador3_fora_textbox.BackColor = System.Drawing.Color.White;
+            this.jogador3_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogador3_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogador3_fora_textbox.Location = new System.Drawing.Point(810, 388);
+            this.jogador3_fora_textbox.Name = "jogador3_fora_textbox";
+            this.jogador3_fora_textbox.ReadOnly = true;
+            this.jogador3_fora_textbox.Size = new System.Drawing.Size(192, 23);
+            this.jogador3_fora_textbox.TabIndex = 24;
+            this.jogador3_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // jogador4_casa_textbox
+            // 
+            this.jogador4_casa_textbox.BackColor = System.Drawing.Color.White;
+            this.jogador4_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogador4_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogador4_casa_textbox.Location = new System.Drawing.Point(69, 416);
+            this.jogador4_casa_textbox.Name = "jogador4_casa_textbox";
+            this.jogador4_casa_textbox.ReadOnly = true;
+            this.jogador4_casa_textbox.Size = new System.Drawing.Size(192, 23);
+            this.jogador4_casa_textbox.TabIndex = 24;
+            // 
+            // jogador2_fora_textbox
+            // 
+            this.jogador2_fora_textbox.BackColor = System.Drawing.Color.White;
+            this.jogador2_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogador2_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogador2_fora_textbox.Location = new System.Drawing.Point(810, 357);
+            this.jogador2_fora_textbox.Name = "jogador2_fora_textbox";
+            this.jogador2_fora_textbox.ReadOnly = true;
+            this.jogador2_fora_textbox.Size = new System.Drawing.Size(192, 23);
+            this.jogador2_fora_textbox.TabIndex = 24;
+            this.jogador2_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // jogador3_casa_textbox
+            // 
+            this.jogador3_casa_textbox.BackColor = System.Drawing.Color.White;
+            this.jogador3_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogador3_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogador3_casa_textbox.Location = new System.Drawing.Point(69, 388);
+            this.jogador3_casa_textbox.Name = "jogador3_casa_textbox";
+            this.jogador3_casa_textbox.ReadOnly = true;
+            this.jogador3_casa_textbox.Size = new System.Drawing.Size(192, 23);
+            this.jogador3_casa_textbox.TabIndex = 24;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(889, 296);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(125, 23);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Plantel de Fora";
+            // 
+            // jogador2_casa_textbox
+            // 
+            this.jogador2_casa_textbox.BackColor = System.Drawing.Color.White;
+            this.jogador2_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogador2_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogador2_casa_textbox.Location = new System.Drawing.Point(69, 357);
+            this.jogador2_casa_textbox.Name = "jogador2_casa_textbox";
+            this.jogador2_casa_textbox.ReadOnly = true;
+            this.jogador2_casa_textbox.Size = new System.Drawing.Size(192, 23);
+            this.jogador2_casa_textbox.TabIndex = 24;
+            // 
+            // plantelCasaLabel
+            // 
+            this.plantelCasaLabel.AutoSize = true;
+            this.plantelCasaLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plantelCasaLabel.Location = new System.Drawing.Point(68, 296);
+            this.plantelCasaLabel.Name = "plantelCasaLabel";
+            this.plantelCasaLabel.Size = new System.Drawing.Size(127, 23);
+            this.plantelCasaLabel.TabIndex = 23;
+            this.plantelCasaLabel.Text = "Plantel da Casa";
+            // 
+            // arbitro2_textbox
+            // 
+            this.arbitro2_textbox.BackColor = System.Drawing.Color.White;
+            this.arbitro2_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.arbitro2_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbitro2_textbox.Location = new System.Drawing.Point(479, 341);
+            this.arbitro2_textbox.Name = "arbitro2_textbox";
+            this.arbitro2_textbox.ReadOnly = true;
+            this.arbitro2_textbox.Size = new System.Drawing.Size(166, 23);
+            this.arbitro2_textbox.TabIndex = 22;
+            // 
+            // arbitro1_textBox
+            // 
+            this.arbitro1_textBox.BackColor = System.Drawing.Color.White;
+            this.arbitro1_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.arbitro1_textBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbitro1_textBox.Location = new System.Drawing.Point(479, 305);
+            this.arbitro1_textBox.Name = "arbitro1_textBox";
+            this.arbitro1_textBox.ReadOnly = true;
+            this.arbitro1_textBox.Size = new System.Drawing.Size(166, 23);
+            this.arbitro1_textBox.TabIndex = 21;
+            // 
+            // arbitrosDetalhesLabel
+            // 
+            this.arbitrosDetalhesLabel.AutoSize = true;
+            this.arbitrosDetalhesLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbitrosDetalhesLabel.Location = new System.Drawing.Point(395, 305);
+            this.arbitrosDetalhesLabel.Name = "arbitrosDetalhesLabel";
+            this.arbitrosDetalhesLabel.Size = new System.Drawing.Size(74, 23);
+            this.arbitrosDetalhesLabel.TabIndex = 20;
+            this.arbitrosDetalhesLabel.Text = "Árbitros:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(526, 218);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(26, 36);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "-";
+            // 
+            // resultadoFora_textbox
+            // 
+            this.resultadoFora_textbox.BackColor = System.Drawing.Color.White;
+            this.resultadoFora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.resultadoFora_textbox.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultadoFora_textbox.Location = new System.Drawing.Point(574, 218);
+            this.resultadoFora_textbox.Name = "resultadoFora_textbox";
+            this.resultadoFora_textbox.ReadOnly = true;
+            this.resultadoFora_textbox.Size = new System.Drawing.Size(53, 36);
+            this.resultadoFora_textbox.TabIndex = 18;
+            // 
+            // resultadoCasa_textbox
+            // 
+            this.resultadoCasa_textbox.BackColor = System.Drawing.Color.White;
+            this.resultadoCasa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.resultadoCasa_textbox.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultadoCasa_textbox.Location = new System.Drawing.Point(451, 218);
+            this.resultadoCasa_textbox.Name = "resultadoCasa_textbox";
+            this.resultadoCasa_textbox.ReadOnly = true;
+            this.resultadoCasa_textbox.Size = new System.Drawing.Size(53, 36);
+            this.resultadoCasa_textbox.TabIndex = 17;
+            this.resultadoCasa_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // clubeFora_textbox
+            // 
+            this.clubeFora_textbox.BackColor = System.Drawing.Color.White;
+            this.clubeFora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clubeFora_textbox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clubeFora_textbox.Location = new System.Drawing.Point(660, 227);
+            this.clubeFora_textbox.Name = "clubeFora_textbox";
+            this.clubeFora_textbox.ReadOnly = true;
+            this.clubeFora_textbox.Size = new System.Drawing.Size(152, 24);
+            this.clubeFora_textbox.TabIndex = 16;
+            // 
+            // clubeCasa_textbox
+            // 
+            this.clubeCasa_textbox.BackColor = System.Drawing.Color.White;
+            this.clubeCasa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clubeCasa_textbox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clubeCasa_textbox.Location = new System.Drawing.Point(278, 227);
+            this.clubeCasa_textbox.Name = "clubeCasa_textbox";
+            this.clubeCasa_textbox.ReadOnly = true;
+            this.clubeCasa_textbox.Size = new System.Drawing.Size(142, 24);
+            this.clubeCasa_textbox.TabIndex = 15;
+            this.clubeCasa_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // detalhesPavilhaoLabel
+            // 
+            this.detalhesPavilhaoLabel.AutoSize = true;
+            this.detalhesPavilhaoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detalhesPavilhaoLabel.Location = new System.Drawing.Point(634, 110);
+            this.detalhesPavilhaoLabel.Name = "detalhesPavilhaoLabel";
+            this.detalhesPavilhaoLabel.Size = new System.Drawing.Size(79, 23);
+            this.detalhesPavilhaoLabel.TabIndex = 14;
+            this.detalhesPavilhaoLabel.Text = "Pavilhão:";
+            // 
+            // detalhesJornadaLabel
+            // 
+            this.detalhesJornadaLabel.AutoSize = true;
+            this.detalhesJornadaLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detalhesJornadaLabel.Location = new System.Drawing.Point(459, 110);
+            this.detalhesJornadaLabel.Name = "detalhesJornadaLabel";
+            this.detalhesJornadaLabel.Size = new System.Drawing.Size(75, 23);
+            this.detalhesJornadaLabel.TabIndex = 13;
+            this.detalhesJornadaLabel.Text = "Jornada:";
+            // 
+            // detalhesDataLabel
+            // 
+            this.detalhesDataLabel.AutoSize = true;
+            this.detalhesDataLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detalhesDataLabel.Location = new System.Drawing.Point(146, 110);
+            this.detalhesDataLabel.Name = "detalhesDataLabel";
+            this.detalhesDataLabel.Size = new System.Drawing.Size(104, 23);
+            this.detalhesDataLabel.TabIndex = 12;
+            this.detalhesDataLabel.Text = "Data e hora:";
             // 
             // button1
             // 
@@ -1068,609 +1714,733 @@ namespace Final_Project
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // detalhesDataLabel
-            // 
-            this.detalhesDataLabel.AutoSize = true;
-            this.detalhesDataLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detalhesDataLabel.Location = new System.Drawing.Point(146, 110);
-            this.detalhesDataLabel.Name = "detalhesDataLabel";
-            this.detalhesDataLabel.Size = new System.Drawing.Size(104, 23);
-            this.detalhesDataLabel.TabIndex = 12;
-            this.detalhesDataLabel.Text = "Data e hora:";
-            // 
-            // detalhesJornadaLabel
-            // 
-            this.detalhesJornadaLabel.AutoSize = true;
-            this.detalhesJornadaLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detalhesJornadaLabel.Location = new System.Drawing.Point(459, 110);
-            this.detalhesJornadaLabel.Name = "detalhesJornadaLabel";
-            this.detalhesJornadaLabel.Size = new System.Drawing.Size(75, 23);
-            this.detalhesJornadaLabel.TabIndex = 13;
-            this.detalhesJornadaLabel.Text = "Jornada:";
-            // 
-            // detalhesPavilhaoLabel
-            // 
-            this.detalhesPavilhaoLabel.AutoSize = true;
-            this.detalhesPavilhaoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detalhesPavilhaoLabel.Location = new System.Drawing.Point(634, 110);
-            this.detalhesPavilhaoLabel.Name = "detalhesPavilhaoLabel";
-            this.detalhesPavilhaoLabel.Size = new System.Drawing.Size(79, 23);
-            this.detalhesPavilhaoLabel.TabIndex = 14;
-            this.detalhesPavilhaoLabel.Text = "Pavilhão:";
-            // 
-            // clubeCasa_textbox
-            // 
-            this.clubeCasa_textbox.BackColor = System.Drawing.Color.White;
-            this.clubeCasa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.clubeCasa_textbox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clubeCasa_textbox.Location = new System.Drawing.Point(278, 227);
-            this.clubeCasa_textbox.Name = "clubeCasa_textbox";
-            this.clubeCasa_textbox.ReadOnly = true;
-            this.clubeCasa_textbox.Size = new System.Drawing.Size(142, 24);
-            this.clubeCasa_textbox.TabIndex = 15;
-            this.clubeCasa_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // clubeFora_textbox
-            // 
-            this.clubeFora_textbox.BackColor = System.Drawing.Color.White;
-            this.clubeFora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.clubeFora_textbox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clubeFora_textbox.Location = new System.Drawing.Point(660, 227);
-            this.clubeFora_textbox.Name = "clubeFora_textbox";
-            this.clubeFora_textbox.ReadOnly = true;
-            this.clubeFora_textbox.Size = new System.Drawing.Size(152, 24);
-            this.clubeFora_textbox.TabIndex = 16;
-            // 
-            // resultadoCasa_textbox
-            // 
-            this.resultadoCasa_textbox.BackColor = System.Drawing.Color.White;
-            this.resultadoCasa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.resultadoCasa_textbox.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultadoCasa_textbox.Location = new System.Drawing.Point(451, 218);
-            this.resultadoCasa_textbox.Name = "resultadoCasa_textbox";
-            this.resultadoCasa_textbox.ReadOnly = true;
-            this.resultadoCasa_textbox.Size = new System.Drawing.Size(53, 36);
-            this.resultadoCasa_textbox.TabIndex = 17;
-            this.resultadoCasa_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // resultadoFora_textbox
-            // 
-            this.resultadoFora_textbox.BackColor = System.Drawing.Color.White;
-            this.resultadoFora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.resultadoFora_textbox.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultadoFora_textbox.Location = new System.Drawing.Point(574, 218);
-            this.resultadoFora_textbox.Name = "resultadoFora_textbox";
-            this.resultadoFora_textbox.ReadOnly = true;
-            this.resultadoFora_textbox.Size = new System.Drawing.Size(53, 36);
-            this.resultadoFora_textbox.TabIndex = 18;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(526, 218);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(26, 36);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "-";
-            // 
-            // arbitrosDetalhesLabel
-            // 
-            this.arbitrosDetalhesLabel.AutoSize = true;
-            this.arbitrosDetalhesLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbitrosDetalhesLabel.Location = new System.Drawing.Point(395, 305);
-            this.arbitrosDetalhesLabel.Name = "arbitrosDetalhesLabel";
-            this.arbitrosDetalhesLabel.Size = new System.Drawing.Size(74, 23);
-            this.arbitrosDetalhesLabel.TabIndex = 20;
-            this.arbitrosDetalhesLabel.Text = "Árbitros:";
-            // 
-            // arbitro1_textBox
-            // 
-            this.arbitro1_textBox.BackColor = System.Drawing.Color.White;
-            this.arbitro1_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.arbitro1_textBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbitro1_textBox.Location = new System.Drawing.Point(479, 305);
-            this.arbitro1_textBox.Name = "arbitro1_textBox";
-            this.arbitro1_textBox.ReadOnly = true;
-            this.arbitro1_textBox.Size = new System.Drawing.Size(166, 23);
-            this.arbitro1_textBox.TabIndex = 21;
-            // 
-            // arbitro2_textbox
-            // 
-            this.arbitro2_textbox.BackColor = System.Drawing.Color.White;
-            this.arbitro2_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.arbitro2_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbitro2_textbox.Location = new System.Drawing.Point(479, 341);
-            this.arbitro2_textbox.Name = "arbitro2_textbox";
-            this.arbitro2_textbox.ReadOnly = true;
-            this.arbitro2_textbox.Size = new System.Drawing.Size(166, 23);
-            this.arbitro2_textbox.TabIndex = 22;
-            // 
-            // plantelCasaLabel
-            // 
-            this.plantelCasaLabel.AutoSize = true;
-            this.plantelCasaLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plantelCasaLabel.Location = new System.Drawing.Point(68, 296);
-            this.plantelCasaLabel.Name = "plantelCasaLabel";
-            this.plantelCasaLabel.Size = new System.Drawing.Size(127, 23);
-            this.plantelCasaLabel.TabIndex = 23;
-            this.plantelCasaLabel.Text = "Plantel da Casa";
-            // 
-            // jogador2_casa_textbox
-            // 
-            this.jogador2_casa_textbox.BackColor = System.Drawing.Color.White;
-            this.jogador2_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jogador2_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogador2_casa_textbox.Location = new System.Drawing.Point(69, 357);
-            this.jogador2_casa_textbox.Name = "jogador2_casa_textbox";
-            this.jogador2_casa_textbox.ReadOnly = true;
-            this.jogador2_casa_textbox.Size = new System.Drawing.Size(192, 23);
-            this.jogador2_casa_textbox.TabIndex = 24;
-            // 
-            // jogador1_casa_textbox
-            // 
-            this.jogador1_casa_textbox.BackColor = System.Drawing.Color.White;
-            this.jogador1_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jogador1_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogador1_casa_textbox.Location = new System.Drawing.Point(69, 330);
-            this.jogador1_casa_textbox.Name = "jogador1_casa_textbox";
-            this.jogador1_casa_textbox.ReadOnly = true;
-            this.jogador1_casa_textbox.Size = new System.Drawing.Size(192, 23);
-            this.jogador1_casa_textbox.TabIndex = 24;
-            // 
-            // jogador3_casa_textbox
-            // 
-            this.jogador3_casa_textbox.BackColor = System.Drawing.Color.White;
-            this.jogador3_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jogador3_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogador3_casa_textbox.Location = new System.Drawing.Point(69, 388);
-            this.jogador3_casa_textbox.Name = "jogador3_casa_textbox";
-            this.jogador3_casa_textbox.ReadOnly = true;
-            this.jogador3_casa_textbox.Size = new System.Drawing.Size(192, 23);
-            this.jogador3_casa_textbox.TabIndex = 24;
-            // 
-            // jogador4_casa_textbox
-            // 
-            this.jogador4_casa_textbox.BackColor = System.Drawing.Color.White;
-            this.jogador4_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jogador4_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogador4_casa_textbox.Location = new System.Drawing.Point(69, 416);
-            this.jogador4_casa_textbox.Name = "jogador4_casa_textbox";
-            this.jogador4_casa_textbox.ReadOnly = true;
-            this.jogador4_casa_textbox.Size = new System.Drawing.Size(192, 23);
-            this.jogador4_casa_textbox.TabIndex = 24;
-            // 
-            // jogador5_casa_textbox
-            // 
-            this.jogador5_casa_textbox.BackColor = System.Drawing.Color.White;
-            this.jogador5_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jogador5_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogador5_casa_textbox.Location = new System.Drawing.Point(69, 444);
-            this.jogador5_casa_textbox.Name = "jogador5_casa_textbox";
-            this.jogador5_casa_textbox.ReadOnly = true;
-            this.jogador5_casa_textbox.Size = new System.Drawing.Size(192, 23);
-            this.jogador5_casa_textbox.TabIndex = 24;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(66, 492);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 23);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Treinador";
-            // 
-            // treinador_casa_textbox
-            // 
-            this.treinador_casa_textbox.BackColor = System.Drawing.Color.White;
-            this.treinador_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treinador_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treinador_casa_textbox.Location = new System.Drawing.Point(69, 523);
-            this.treinador_casa_textbox.Name = "treinador_casa_textbox";
-            this.treinador_casa_textbox.ReadOnly = true;
-            this.treinador_casa_textbox.Size = new System.Drawing.Size(192, 23);
-            this.treinador_casa_textbox.TabIndex = 26;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(889, 296);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(125, 23);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Plantel de Fora";
-            // 
-            // jogador2_fora_textbox
-            // 
-            this.jogador2_fora_textbox.BackColor = System.Drawing.Color.White;
-            this.jogador2_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jogador2_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogador2_fora_textbox.Location = new System.Drawing.Point(810, 357);
-            this.jogador2_fora_textbox.Name = "jogador2_fora_textbox";
-            this.jogador2_fora_textbox.ReadOnly = true;
-            this.jogador2_fora_textbox.Size = new System.Drawing.Size(192, 23);
-            this.jogador2_fora_textbox.TabIndex = 24;
-            this.jogador2_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // jogador3_fora_textbox
-            // 
-            this.jogador3_fora_textbox.BackColor = System.Drawing.Color.White;
-            this.jogador3_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jogador3_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogador3_fora_textbox.Location = new System.Drawing.Point(810, 388);
-            this.jogador3_fora_textbox.Name = "jogador3_fora_textbox";
-            this.jogador3_fora_textbox.ReadOnly = true;
-            this.jogador3_fora_textbox.Size = new System.Drawing.Size(192, 23);
-            this.jogador3_fora_textbox.TabIndex = 24;
-            this.jogador3_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // jogador4_fora_textbox
-            // 
-            this.jogador4_fora_textbox.BackColor = System.Drawing.Color.White;
-            this.jogador4_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jogador4_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogador4_fora_textbox.Location = new System.Drawing.Point(810, 416);
-            this.jogador4_fora_textbox.Name = "jogador4_fora_textbox";
-            this.jogador4_fora_textbox.ReadOnly = true;
-            this.jogador4_fora_textbox.Size = new System.Drawing.Size(192, 23);
-            this.jogador4_fora_textbox.TabIndex = 24;
-            this.jogador4_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // jogador5_fora_textbox
-            // 
-            this.jogador5_fora_textbox.BackColor = System.Drawing.Color.White;
-            this.jogador5_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jogador5_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogador5_fora_textbox.Location = new System.Drawing.Point(810, 444);
-            this.jogador5_fora_textbox.Name = "jogador5_fora_textbox";
-            this.jogador5_fora_textbox.ReadOnly = true;
-            this.jogador5_fora_textbox.Size = new System.Drawing.Size(192, 23);
-            this.jogador5_fora_textbox.TabIndex = 24;
-            this.jogador5_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // jogador1_fora_textbox
-            // 
-            this.jogador1_fora_textbox.BackColor = System.Drawing.Color.White;
-            this.jogador1_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jogador1_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogador1_fora_textbox.Location = new System.Drawing.Point(810, 330);
-            this.jogador1_fora_textbox.Name = "jogador1_fora_textbox";
-            this.jogador1_fora_textbox.ReadOnly = true;
-            this.jogador1_fora_textbox.Size = new System.Drawing.Size(192, 23);
-            this.jogador1_fora_textbox.TabIndex = 24;
-            this.jogador1_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(923, 492);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 23);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Treinador";
-            // 
-            // treinador_fora_textbox
-            // 
-            this.treinador_fora_textbox.BackColor = System.Drawing.Color.White;
-            this.treinador_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treinador_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treinador_fora_textbox.Location = new System.Drawing.Point(810, 523);
-            this.treinador_fora_textbox.Name = "treinador_fora_textbox";
-            this.treinador_fora_textbox.ReadOnly = true;
-            this.treinador_fora_textbox.Size = new System.Drawing.Size(192, 23);
-            this.treinador_fora_textbox.TabIndex = 26;
-            this.treinador_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // dataHora_textbox
-            // 
-            this.dataHora_textbox.BackColor = System.Drawing.Color.White;
-            this.dataHora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataHora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataHora_textbox.Location = new System.Drawing.Point(256, 110);
-            this.dataHora_textbox.Name = "dataHora_textbox";
-            this.dataHora_textbox.ReadOnly = true;
-            this.dataHora_textbox.Size = new System.Drawing.Size(188, 23);
-            this.dataHora_textbox.TabIndex = 27;
-            // 
-            // jornada_textbox
-            // 
-            this.jornada_textbox.BackColor = System.Drawing.Color.White;
-            this.jornada_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jornada_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jornada_textbox.Location = new System.Drawing.Point(540, 110);
-            this.jornada_textbox.Name = "jornada_textbox";
-            this.jornada_textbox.ReadOnly = true;
-            this.jornada_textbox.Size = new System.Drawing.Size(38, 23);
-            this.jornada_textbox.TabIndex = 28;
-            // 
-            // pavilhao_textbox
-            // 
-            this.pavilhao_textbox.BackColor = System.Drawing.Color.White;
-            this.pavilhao_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pavilhao_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pavilhao_textbox.Location = new System.Drawing.Point(719, 110);
-            this.pavilhao_textbox.Name = "pavilhao_textbox";
-            this.pavilhao_textbox.ReadOnly = true;
-            this.pavilhao_textbox.Size = new System.Drawing.Size(276, 23);
-            this.pavilhao_textbox.TabIndex = 29;
-            // 
-            // treinadorAd_casa_textbox
-            // 
-            this.treinadorAd_casa_textbox.BackColor = System.Drawing.Color.White;
-            this.treinadorAd_casa_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treinadorAd_casa_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treinadorAd_casa_textbox.Location = new System.Drawing.Point(69, 559);
-            this.treinadorAd_casa_textbox.Name = "treinadorAd_casa_textbox";
-            this.treinadorAd_casa_textbox.ReadOnly = true;
-            this.treinadorAd_casa_textbox.Size = new System.Drawing.Size(192, 23);
-            this.treinadorAd_casa_textbox.TabIndex = 30;
-            // 
-            // treinadorAd_fora_textbox
-            // 
-            this.treinadorAd_fora_textbox.BackColor = System.Drawing.Color.White;
-            this.treinadorAd_fora_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treinadorAd_fora_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treinadorAd_fora_textbox.Location = new System.Drawing.Point(810, 559);
-            this.treinadorAd_fora_textbox.Name = "treinadorAd_fora_textbox";
-            this.treinadorAd_fora_textbox.ReadOnly = true;
-            this.treinadorAd_fora_textbox.Size = new System.Drawing.Size(192, 23);
-            this.treinadorAd_fora_textbox.TabIndex = 30;
-            this.treinadorAd_fora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(27, 360);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(28, 23);
-            this.label12.TabIndex = 31;
-            this.label12.Text = "JC";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(27, 391);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 23);
-            this.label13.TabIndex = 32;
-            this.label13.Text = "JC";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(27, 419);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(28, 23);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "JC";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(1007, 391);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(28, 23);
-            this.label15.TabIndex = 34;
-            this.label15.Text = "JC";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(1007, 360);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(28, 23);
-            this.label16.TabIndex = 35;
-            this.label16.Text = "JC";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(1007, 333);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(28, 23);
-            this.label17.TabIndex = 36;
-            this.label17.Text = "JC";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(27, 333);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(28, 23);
-            this.label18.TabIndex = 37;
-            this.label18.Text = "JC";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(1007, 419);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(28, 23);
-            this.label19.TabIndex = 38;
-            this.label19.Text = "JC";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(22, 447);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(33, 23);
-            this.label20.TabIndex = 39;
-            this.label20.Text = "GR";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(1007, 447);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(33, 23);
-            this.label21.TabIndex = 40;
-            this.label21.Text = "GR";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(29, 526);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(31, 23);
-            this.label22.TabIndex = 41;
-            this.label22.Text = "PR";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(1009, 526);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(31, 23);
-            this.label23.TabIndex = 42;
-            this.label23.Text = "PR";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(29, 562);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(33, 23);
-            this.label24.TabIndex = 43;
-            this.label24.Text = "AD";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(1007, 562);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(33, 23);
-            this.label25.TabIndex = 44;
-            this.label25.Text = "AD";
-            // 
-            // adicionarJogo1_button
-            // 
-            this.adicionarJogo1_button.BackColor = System.Drawing.Color.Orange;
-            this.adicionarJogo1_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adicionarJogo1_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adicionarJogo1_button.ForeColor = System.Drawing.Color.White;
-            this.adicionarJogo1_button.Location = new System.Drawing.Point(819, 133);
-            this.adicionarJogo1_button.Margin = new System.Windows.Forms.Padding(4);
-            this.adicionarJogo1_button.Name = "adicionarJogo1_button";
-            this.adicionarJogo1_button.Size = new System.Drawing.Size(116, 29);
-            this.adicionarJogo1_button.TabIndex = 30;
-            this.adicionarJogo1_button.Text = "Adicionar";
-            this.adicionarJogo1_button.UseVisualStyleBackColor = false;
-            this.adicionarJogo1_button.Visible = false;
-            this.adicionarJogo1_button.Click += new System.EventHandler(this.detalhesButtons_Click);
-            // 
-            // adicionarJogo2_button
-            // 
-            this.adicionarJogo2_button.BackColor = System.Drawing.Color.Orange;
-            this.adicionarJogo2_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adicionarJogo2_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adicionarJogo2_button.ForeColor = System.Drawing.Color.White;
-            this.adicionarJogo2_button.Location = new System.Drawing.Point(819, 181);
-            this.adicionarJogo2_button.Margin = new System.Windows.Forms.Padding(4);
-            this.adicionarJogo2_button.Name = "adicionarJogo2_button";
-            this.adicionarJogo2_button.Size = new System.Drawing.Size(116, 29);
-            this.adicionarJogo2_button.TabIndex = 30;
-            this.adicionarJogo2_button.Text = "Adicionar";
-            this.adicionarJogo2_button.UseVisualStyleBackColor = false;
-            this.adicionarJogo2_button.Visible = false;
-            this.adicionarJogo2_button.Click += new System.EventHandler(this.detalhesButtons_Click);
-            // 
-            // adicionarJogo3_button
-            // 
-            this.adicionarJogo3_button.BackColor = System.Drawing.Color.Orange;
-            this.adicionarJogo3_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adicionarJogo3_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adicionarJogo3_button.ForeColor = System.Drawing.Color.White;
-            this.adicionarJogo3_button.Location = new System.Drawing.Point(819, 234);
-            this.adicionarJogo3_button.Margin = new System.Windows.Forms.Padding(4);
-            this.adicionarJogo3_button.Name = "adicionarJogo3_button";
-            this.adicionarJogo3_button.Size = new System.Drawing.Size(116, 29);
-            this.adicionarJogo3_button.TabIndex = 30;
-            this.adicionarJogo3_button.Text = "Adicionar";
-            this.adicionarJogo3_button.UseVisualStyleBackColor = false;
-            this.adicionarJogo3_button.Visible = false;
-            this.adicionarJogo3_button.Click += new System.EventHandler(this.detalhesButtons_Click);
-            // 
-            // adicionarJogo4_button
-            // 
-            this.adicionarJogo4_button.BackColor = System.Drawing.Color.Orange;
-            this.adicionarJogo4_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adicionarJogo4_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adicionarJogo4_button.ForeColor = System.Drawing.Color.White;
-            this.adicionarJogo4_button.Location = new System.Drawing.Point(819, 291);
-            this.adicionarJogo4_button.Margin = new System.Windows.Forms.Padding(4);
-            this.adicionarJogo4_button.Name = "adicionarJogo4_button";
-            this.adicionarJogo4_button.Size = new System.Drawing.Size(116, 29);
-            this.adicionarJogo4_button.TabIndex = 30;
-            this.adicionarJogo4_button.Text = "Adicionar";
-            this.adicionarJogo4_button.UseVisualStyleBackColor = false;
-            this.adicionarJogo4_button.Visible = false;
-            this.adicionarJogo4_button.Click += new System.EventHandler(this.detalhesButtons_Click);
-            // 
-            // adicionarJogo6_button
-            // 
-            this.adicionarJogo6_button.BackColor = System.Drawing.Color.Orange;
-            this.adicionarJogo6_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adicionarJogo6_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adicionarJogo6_button.ForeColor = System.Drawing.Color.White;
-            this.adicionarJogo6_button.Location = new System.Drawing.Point(819, 404);
-            this.adicionarJogo6_button.Margin = new System.Windows.Forms.Padding(4);
-            this.adicionarJogo6_button.Name = "adicionarJogo6_button";
-            this.adicionarJogo6_button.Size = new System.Drawing.Size(116, 29);
-            this.adicionarJogo6_button.TabIndex = 30;
-            this.adicionarJogo6_button.Text = "Adicionar";
-            this.adicionarJogo6_button.UseVisualStyleBackColor = false;
-            this.adicionarJogo6_button.Visible = false;
-            this.adicionarJogo6_button.Click += new System.EventHandler(this.detalhesButtons_Click);
-            // 
-            // adicionarJogo7_button
-            // 
-            this.adicionarJogo7_button.BackColor = System.Drawing.Color.Orange;
-            this.adicionarJogo7_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adicionarJogo7_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adicionarJogo7_button.ForeColor = System.Drawing.Color.White;
-            this.adicionarJogo7_button.Location = new System.Drawing.Point(819, 454);
-            this.adicionarJogo7_button.Margin = new System.Windows.Forms.Padding(4);
-            this.adicionarJogo7_button.Name = "adicionarJogo7_button";
-            this.adicionarJogo7_button.Size = new System.Drawing.Size(116, 29);
-            this.adicionarJogo7_button.TabIndex = 30;
-            this.adicionarJogo7_button.Text = "Adicionar";
-            this.adicionarJogo7_button.UseVisualStyleBackColor = false;
-            this.adicionarJogo7_button.Visible = false;
-            this.adicionarJogo7_button.Click += new System.EventHandler(this.detalhesButtons_Click);
-            // 
-            // adicionarJogo5_button
-            // 
-            this.adicionarJogo5_button.BackColor = System.Drawing.Color.Orange;
-            this.adicionarJogo5_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adicionarJogo5_button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adicionarJogo5_button.ForeColor = System.Drawing.Color.White;
-            this.adicionarJogo5_button.Location = new System.Drawing.Point(819, 349);
-            this.adicionarJogo5_button.Margin = new System.Windows.Forms.Padding(4);
-            this.adicionarJogo5_button.Name = "adicionarJogo5_button";
-            this.adicionarJogo5_button.Size = new System.Drawing.Size(116, 29);
-            this.adicionarJogo5_button.TabIndex = 30;
-            this.adicionarJogo5_button.Text = "Adicionar";
-            this.adicionarJogo5_button.UseVisualStyleBackColor = false;
-            this.adicionarJogo5_button.Visible = false;
-            this.adicionarJogo5_button.Click += new System.EventHandler(this.detalhesButtons_Click);
+            // editarDetalhesJogo
+            // 
+            this.editarDetalhesJogo.BackColor = System.Drawing.Color.DarkOrange;
+            this.editarDetalhesJogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editarDetalhesJogo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editarDetalhesJogo.ForeColor = System.Drawing.Color.White;
+            this.editarDetalhesJogo.Location = new System.Drawing.Point(932, 25);
+            this.editarDetalhesJogo.Margin = new System.Windows.Forms.Padding(4);
+            this.editarDetalhesJogo.Name = "editarDetalhesJogo";
+            this.editarDetalhesJogo.Size = new System.Drawing.Size(98, 52);
+            this.editarDetalhesJogo.TabIndex = 10;
+            this.editarDetalhesJogo.Text = "Editar";
+            this.editarDetalhesJogo.UseVisualStyleBackColor = false;
+            // 
+            // detalhesJogo_label
+            // 
+            this.detalhesJogo_label.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detalhesJogo_label.ForeColor = System.Drawing.Color.DarkOrange;
+            this.detalhesJogo_label.Location = new System.Drawing.Point(0, 0);
+            this.detalhesJogo_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.detalhesJogo_label.Name = "detalhesJogo_label";
+            this.detalhesJogo_label.Size = new System.Drawing.Size(1081, 71);
+            this.detalhesJogo_label.TabIndex = 9;
+            this.detalhesJogo_label.Text = "Detalhes do Jogo";
+            this.detalhesJogo_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelAdicionarJogo
+            // 
+            this.panelAdicionarJogo.Controls.Add(this.label26);
+            this.panelAdicionarJogo.Controls.Add(this.panelAdicionarPlantelCasa);
+            this.panelAdicionarJogo.Controls.Add(this.panelAdicionarPlantelFora);
+            this.panelAdicionarJogo.Controls.Add(this.panel3);
+            this.panelAdicionarJogo.Controls.Add(this.panelAdicionarArbitros);
+            this.panelAdicionarJogo.Location = new System.Drawing.Point(2, 93);
+            this.panelAdicionarJogo.Name = "panelAdicionarJogo";
+            this.panelAdicionarJogo.Size = new System.Drawing.Size(1088, 619);
+            this.panelAdicionarJogo.TabIndex = 31;
+            this.panelAdicionarJogo.Visible = false;
+            // 
+            // label26
+            // 
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label26.Location = new System.Drawing.Point(0, -22);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(1091, 71);
+            this.label26.TabIndex = 9;
+            this.label26.Text = "Adicionar Jogo";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelAdicionarPlantelCasa
+            // 
+            this.panelAdicionarPlantelCasa.Controls.Add(this.retroceder1_button);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.TAD_casa_combobox);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.comboBox6);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.TPR_casa_combobox);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.JC1_casa_combobox);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.GR_casa_combobox);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.JC4_casa_combobox);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.comboBox7);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.JC3_casa_combobox);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.JC2_casa_combobox);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label37);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.proximo1_button);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label27);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label35);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label36);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label28);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label29);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label30);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label31);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label32);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label34);
+            this.panelAdicionarPlantelCasa.Controls.Add(this.label33);
+            this.panelAdicionarPlantelCasa.Location = new System.Drawing.Point(30, 51);
+            this.panelAdicionarPlantelCasa.Name = "panelAdicionarPlantelCasa";
+            this.panelAdicionarPlantelCasa.Size = new System.Drawing.Size(1032, 550);
+            this.panelAdicionarPlantelCasa.TabIndex = 60;
+            // 
+            // retroceder1_button
+            // 
+            this.retroceder1_button.BackColor = System.Drawing.Color.Orange;
+            this.retroceder1_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retroceder1_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.retroceder1_button.ForeColor = System.Drawing.Color.White;
+            this.retroceder1_button.Location = new System.Drawing.Point(43, 24);
+            this.retroceder1_button.Margin = new System.Windows.Forms.Padding(4);
+            this.retroceder1_button.Name = "retroceder1_button";
+            this.retroceder1_button.Size = new System.Drawing.Size(151, 51);
+            this.retroceder1_button.TabIndex = 62;
+            this.retroceder1_button.Text = "Retroceder";
+            this.retroceder1_button.UseVisualStyleBackColor = false;
+            this.retroceder1_button.Click += new System.EventHandler(this.retroceder1_button_Click);
+            // 
+            // TAD_casa_combobox
+            // 
+            this.TAD_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TAD_casa_combobox.FormattingEnabled = true;
+            this.TAD_casa_combobox.Location = new System.Drawing.Point(657, 205);
+            this.TAD_casa_combobox.Name = "TAD_casa_combobox";
+            this.TAD_casa_combobox.Size = new System.Drawing.Size(208, 36);
+            this.TAD_casa_combobox.TabIndex = 61;
+            this.TAD_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.TAD_casa_combobox_SelectedIndexChanged);
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(657, 201);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(208, 36);
+            this.comboBox6.TabIndex = 61;
+            // 
+            // TPR_casa_combobox
+            // 
+            this.TPR_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPR_casa_combobox.FormattingEnabled = true;
+            this.TPR_casa_combobox.Location = new System.Drawing.Point(657, 165);
+            this.TPR_casa_combobox.Name = "TPR_casa_combobox";
+            this.TPR_casa_combobox.Size = new System.Drawing.Size(208, 36);
+            this.TPR_casa_combobox.TabIndex = 61;
+            this.TPR_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.TPR_casa_combobox_SelectedIndexChanged);
+            // 
+            // JC1_casa_combobox
+            // 
+            this.JC1_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JC1_casa_combobox.FormattingEnabled = true;
+            this.JC1_casa_combobox.Location = new System.Drawing.Point(216, 164);
+            this.JC1_casa_combobox.Name = "JC1_casa_combobox";
+            this.JC1_casa_combobox.Size = new System.Drawing.Size(208, 36);
+            this.JC1_casa_combobox.TabIndex = 61;
+            this.JC1_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC1_casa_combobox_SelectedIndexChanged);
+            // 
+            // GR_casa_combobox
+            // 
+            this.GR_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GR_casa_combobox.FormattingEnabled = true;
+            this.GR_casa_combobox.Location = new System.Drawing.Point(216, 326);
+            this.GR_casa_combobox.Name = "GR_casa_combobox";
+            this.GR_casa_combobox.Size = new System.Drawing.Size(208, 36);
+            this.GR_casa_combobox.TabIndex = 61;
+            this.GR_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.GR_casa_combobox_SelectedIndexChanged);
+            // 
+            // JC4_casa_combobox
+            // 
+            this.JC4_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JC4_casa_combobox.FormattingEnabled = true;
+            this.JC4_casa_combobox.Location = new System.Drawing.Point(216, 281);
+            this.JC4_casa_combobox.Name = "JC4_casa_combobox";
+            this.JC4_casa_combobox.Size = new System.Drawing.Size(208, 36);
+            this.JC4_casa_combobox.TabIndex = 61;
+            this.JC4_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC4_casa_combobox_SelectedIndexChanged);
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(216, 281);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(185, 36);
+            this.comboBox7.TabIndex = 61;
+            // 
+            // JC3_casa_combobox
+            // 
+            this.JC3_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JC3_casa_combobox.FormattingEnabled = true;
+            this.JC3_casa_combobox.Location = new System.Drawing.Point(216, 242);
+            this.JC3_casa_combobox.Name = "JC3_casa_combobox";
+            this.JC3_casa_combobox.Size = new System.Drawing.Size(208, 36);
+            this.JC3_casa_combobox.TabIndex = 61;
+            this.JC3_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC3_casa_combobox_SelectedIndexChanged);
+            // 
+            // JC2_casa_combobox
+            // 
+            this.JC2_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JC2_casa_combobox.FormattingEnabled = true;
+            this.JC2_casa_combobox.Location = new System.Drawing.Point(216, 201);
+            this.JC2_casa_combobox.Name = "JC2_casa_combobox";
+            this.JC2_casa_combobox.Size = new System.Drawing.Size(208, 36);
+            this.JC2_casa_combobox.TabIndex = 61;
+            this.JC2_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC2_casa_combobox_SelectedIndexChanged);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(612, 208);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(41, 28);
+            this.label37.TabIndex = 59;
+            this.label37.Text = "AD";
+            // 
+            // proximo1_button
+            // 
+            this.proximo1_button.BackColor = System.Drawing.Color.Orange;
+            this.proximo1_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.proximo1_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.proximo1_button.ForeColor = System.Drawing.Color.White;
+            this.proximo1_button.Location = new System.Drawing.Point(880, 475);
+            this.proximo1_button.Margin = new System.Windows.Forms.Padding(4);
+            this.proximo1_button.Name = "proximo1_button";
+            this.proximo1_button.Size = new System.Drawing.Size(108, 51);
+            this.proximo1_button.TabIndex = 60;
+            this.proximo1_button.Text = "Próximo";
+            this.proximo1_button.UseVisualStyleBackColor = false;
+            this.proximo1_button.Click += new System.EventHandler(this.proximo1_button_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(612, 204);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(41, 28);
+            this.label27.TabIndex = 59;
+            this.label27.Text = "AD";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(210, 115);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(175, 31);
+            this.label35.TabIndex = 44;
+            this.label35.Text = "Plantel da Casa";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(169, 329);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(39, 28);
+            this.label36.TabIndex = 57;
+            this.label36.Text = "GR";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(612, 168);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(37, 28);
+            this.label28.TabIndex = 58;
+            this.label28.Text = "PR";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(169, 321);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(39, 28);
+            this.label29.TabIndex = 57;
+            this.label29.Text = "GR";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(174, 167);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(33, 28);
+            this.label30.TabIndex = 56;
+            this.label30.Text = "JC";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(174, 285);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(33, 28);
+            this.label31.TabIndex = 55;
+            this.label31.Text = "JC";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(174, 245);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(33, 28);
+            this.label32.TabIndex = 54;
+            this.label32.Text = "JC";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(651, 115);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(116, 31);
+            this.label34.TabIndex = 50;
+            this.label34.Text = "Treinador";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(174, 204);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(33, 28);
+            this.label33.TabIndex = 53;
+            this.label33.Text = "JC";
+            // 
+            // panelAdicionarPlantelFora
+            // 
+            this.panelAdicionarPlantelFora.Controls.Add(this.retroceder2_button);
+            this.panelAdicionarPlantelFora.Controls.Add(this.TAD_fora_combobox);
+            this.panelAdicionarPlantelFora.Controls.Add(this.comboBox3);
+            this.panelAdicionarPlantelFora.Controls.Add(this.TPR_fora_combobox);
+            this.panelAdicionarPlantelFora.Controls.Add(this.JC1_fora_combobox);
+            this.panelAdicionarPlantelFora.Controls.Add(this.GR_fora_combobox);
+            this.panelAdicionarPlantelFora.Controls.Add(this.JC4_fora_combobox);
+            this.panelAdicionarPlantelFora.Controls.Add(this.comboBox10);
+            this.panelAdicionarPlantelFora.Controls.Add(this.JC3_fora_combobox);
+            this.panelAdicionarPlantelFora.Controls.Add(this.JC2_fora_combobox);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label38);
+            this.panelAdicionarPlantelFora.Controls.Add(this.proximo2_button);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label39);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label40);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label41);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label42);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label43);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label44);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label45);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label46);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label47);
+            this.panelAdicionarPlantelFora.Controls.Add(this.label48);
+            this.panelAdicionarPlantelFora.Location = new System.Drawing.Point(33, 54);
+            this.panelAdicionarPlantelFora.Name = "panelAdicionarPlantelFora";
+            this.panelAdicionarPlantelFora.Size = new System.Drawing.Size(1026, 547);
+            this.panelAdicionarPlantelFora.TabIndex = 63;
+            // 
+            // retroceder2_button
+            // 
+            this.retroceder2_button.BackColor = System.Drawing.Color.Orange;
+            this.retroceder2_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retroceder2_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.retroceder2_button.ForeColor = System.Drawing.Color.White;
+            this.retroceder2_button.Location = new System.Drawing.Point(40, 34);
+            this.retroceder2_button.Margin = new System.Windows.Forms.Padding(4);
+            this.retroceder2_button.Name = "retroceder2_button";
+            this.retroceder2_button.Size = new System.Drawing.Size(151, 51);
+            this.retroceder2_button.TabIndex = 83;
+            this.retroceder2_button.Text = "Retroceder";
+            this.retroceder2_button.UseVisualStyleBackColor = false;
+            this.retroceder2_button.Click += new System.EventHandler(this.retroceder2_button_Click);
+            // 
+            // TAD_fora_combobox
+            // 
+            this.TAD_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TAD_fora_combobox.FormattingEnabled = true;
+            this.TAD_fora_combobox.Location = new System.Drawing.Point(654, 212);
+            this.TAD_fora_combobox.Name = "TAD_fora_combobox";
+            this.TAD_fora_combobox.Size = new System.Drawing.Size(208, 36);
+            this.TAD_fora_combobox.TabIndex = 82;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(654, 208);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(208, 36);
+            this.comboBox3.TabIndex = 80;
+            // 
+            // TPR_fora_combobox
+            // 
+            this.TPR_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPR_fora_combobox.FormattingEnabled = true;
+            this.TPR_fora_combobox.Location = new System.Drawing.Point(654, 172);
+            this.TPR_fora_combobox.Name = "TPR_fora_combobox";
+            this.TPR_fora_combobox.Size = new System.Drawing.Size(208, 36);
+            this.TPR_fora_combobox.TabIndex = 79;
+            // 
+            // JC1_fora_combobox
+            // 
+            this.JC1_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JC1_fora_combobox.FormattingEnabled = true;
+            this.JC1_fora_combobox.Location = new System.Drawing.Point(213, 171);
+            this.JC1_fora_combobox.Name = "JC1_fora_combobox";
+            this.JC1_fora_combobox.Size = new System.Drawing.Size(208, 36);
+            this.JC1_fora_combobox.TabIndex = 78;
+            // 
+            // GR_fora_combobox
+            // 
+            this.GR_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GR_fora_combobox.FormattingEnabled = true;
+            this.GR_fora_combobox.Location = new System.Drawing.Point(213, 333);
+            this.GR_fora_combobox.Name = "GR_fora_combobox";
+            this.GR_fora_combobox.Size = new System.Drawing.Size(208, 36);
+            this.GR_fora_combobox.TabIndex = 77;
+            // 
+            // JC4_fora_combobox
+            // 
+            this.JC4_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JC4_fora_combobox.FormattingEnabled = true;
+            this.JC4_fora_combobox.Location = new System.Drawing.Point(213, 288);
+            this.JC4_fora_combobox.Name = "JC4_fora_combobox";
+            this.JC4_fora_combobox.Size = new System.Drawing.Size(208, 36);
+            this.JC4_fora_combobox.TabIndex = 76;
+            // 
+            // comboBox10
+            // 
+            this.comboBox10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox10.FormattingEnabled = true;
+            this.comboBox10.Location = new System.Drawing.Point(213, 288);
+            this.comboBox10.Name = "comboBox10";
+            this.comboBox10.Size = new System.Drawing.Size(185, 36);
+            this.comboBox10.TabIndex = 75;
+            // 
+            // JC3_fora_combobox
+            // 
+            this.JC3_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JC3_fora_combobox.FormattingEnabled = true;
+            this.JC3_fora_combobox.Location = new System.Drawing.Point(213, 249);
+            this.JC3_fora_combobox.Name = "JC3_fora_combobox";
+            this.JC3_fora_combobox.Size = new System.Drawing.Size(208, 36);
+            this.JC3_fora_combobox.TabIndex = 74;
+            // 
+            // JC2_fora_combobox
+            // 
+            this.JC2_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JC2_fora_combobox.FormattingEnabled = true;
+            this.JC2_fora_combobox.Location = new System.Drawing.Point(213, 208);
+            this.JC2_fora_combobox.Name = "JC2_fora_combobox";
+            this.JC2_fora_combobox.Size = new System.Drawing.Size(208, 36);
+            this.JC2_fora_combobox.TabIndex = 81;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(609, 215);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(41, 28);
+            this.label38.TabIndex = 72;
+            this.label38.Text = "AD";
+            // 
+            // proximo2_button
+            // 
+            this.proximo2_button.BackColor = System.Drawing.Color.Orange;
+            this.proximo2_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.proximo2_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.proximo2_button.ForeColor = System.Drawing.Color.White;
+            this.proximo2_button.Location = new System.Drawing.Point(893, 469);
+            this.proximo2_button.Margin = new System.Windows.Forms.Padding(4);
+            this.proximo2_button.Name = "proximo2_button";
+            this.proximo2_button.Size = new System.Drawing.Size(108, 51);
+            this.proximo2_button.TabIndex = 73;
+            this.proximo2_button.Text = "Próximo";
+            this.proximo2_button.UseVisualStyleBackColor = false;
+            this.proximo2_button.Click += new System.EventHandler(this.proximo2_button_Click);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(609, 211);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(41, 28);
+            this.label39.TabIndex = 71;
+            this.label39.Text = "AD";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(207, 122);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(174, 31);
+            this.label40.TabIndex = 62;
+            this.label40.Text = "Plantel de Fora";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(166, 336);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(39, 28);
+            this.label41.TabIndex = 69;
+            this.label41.Text = "GR";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(609, 175);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(37, 28);
+            this.label42.TabIndex = 70;
+            this.label42.Text = "PR";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(166, 328);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(39, 28);
+            this.label43.TabIndex = 68;
+            this.label43.Text = "GR";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(171, 174);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(33, 28);
+            this.label44.TabIndex = 67;
+            this.label44.Text = "JC";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(171, 292);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(33, 28);
+            this.label45.TabIndex = 66;
+            this.label45.Text = "JC";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(171, 252);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(33, 28);
+            this.label46.TabIndex = 65;
+            this.label46.Text = "JC";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(648, 122);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(116, 31);
+            this.label47.TabIndex = 63;
+            this.label47.Text = "Treinador";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(171, 211);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(33, 28);
+            this.label48.TabIndex = 64;
+            this.label48.Text = "JC";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.retroceder4_button);
+            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.resultadoEquipaCasa_textbox);
+            this.panel3.Controls.Add(this.label51);
+            this.panel3.Controls.Add(this.label50);
+            this.panel3.Controls.Add(this.label49);
+            this.panel3.Controls.Add(this.guardarJogo);
+            this.panel3.Location = new System.Drawing.Point(33, 51);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1029, 547);
+            this.panel3.TabIndex = 91;
+            // 
+            // retroceder4_button
+            // 
+            this.retroceder4_button.BackColor = System.Drawing.Color.Orange;
+            this.retroceder4_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retroceder4_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.retroceder4_button.ForeColor = System.Drawing.Color.White;
+            this.retroceder4_button.Location = new System.Drawing.Point(40, 19);
+            this.retroceder4_button.Margin = new System.Windows.Forms.Padding(4);
+            this.retroceder4_button.Name = "retroceder4_button";
+            this.retroceder4_button.Size = new System.Drawing.Size(151, 51);
+            this.retroceder4_button.TabIndex = 88;
+            this.retroceder4_button.Text = "Retroceder";
+            this.retroceder4_button.UseVisualStyleBackColor = false;
+            this.retroceder4_button.Click += new System.EventHandler(this.retroceder4_button_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(660, 232);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(49, 51);
+            this.textBox2.TabIndex = 87;
+            // 
+            // resultadoEquipaCasa_textbox
+            // 
+            this.resultadoEquipaCasa_textbox.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultadoEquipaCasa_textbox.Location = new System.Drawing.Point(336, 232);
+            this.resultadoEquipaCasa_textbox.Name = "resultadoEquipaCasa_textbox";
+            this.resultadoEquipaCasa_textbox.Size = new System.Drawing.Size(49, 51);
+            this.resultadoEquipaCasa_textbox.TabIndex = 87;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(580, 169);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(228, 41);
+            this.label51.TabIndex = 86;
+            this.label51.Text = "Equipa de Fora";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(245, 169);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(230, 41);
+            this.label50.TabIndex = 85;
+            this.label50.Text = "Equipa da Casa";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(440, 107);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(158, 41);
+            this.label49.TabIndex = 84;
+            this.label49.Text = "Resultado";
+            // 
+            // guardarJogo
+            // 
+            this.guardarJogo.BackColor = System.Drawing.Color.Orange;
+            this.guardarJogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardarJogo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardarJogo.ForeColor = System.Drawing.Color.White;
+            this.guardarJogo.Location = new System.Drawing.Point(898, 468);
+            this.guardarJogo.Margin = new System.Windows.Forms.Padding(4);
+            this.guardarJogo.Name = "guardarJogo";
+            this.guardarJogo.Size = new System.Drawing.Size(103, 51);
+            this.guardarJogo.TabIndex = 74;
+            this.guardarJogo.Text = "Guardar";
+            this.guardarJogo.UseVisualStyleBackColor = false;
+            this.guardarJogo.Click += new System.EventHandler(this.guardarJogo_Click);
+            // 
+            // panelAdicionarArbitros
+            // 
+            this.panelAdicionarArbitros.Controls.Add(this.retroceder3_button);
+            this.panelAdicionarArbitros.Controls.Add(this.proximo3_button);
+            this.panelAdicionarArbitros.Controls.Add(this.comboBox2);
+            this.panelAdicionarArbitros.Controls.Add(this.comboBox4);
+            this.panelAdicionarArbitros.Controls.Add(this.comboBox5);
+            this.panelAdicionarArbitros.Controls.Add(this.label52);
+            this.panelAdicionarArbitros.Location = new System.Drawing.Point(33, 51);
+            this.panelAdicionarArbitros.Name = "panelAdicionarArbitros";
+            this.panelAdicionarArbitros.Size = new System.Drawing.Size(1029, 550);
+            this.panelAdicionarArbitros.TabIndex = 83;
+            // 
+            // retroceder3_button
+            // 
+            this.retroceder3_button.BackColor = System.Drawing.Color.Orange;
+            this.retroceder3_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retroceder3_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.retroceder3_button.ForeColor = System.Drawing.Color.White;
+            this.retroceder3_button.Location = new System.Drawing.Point(40, 24);
+            this.retroceder3_button.Margin = new System.Windows.Forms.Padding(4);
+            this.retroceder3_button.Name = "retroceder3_button";
+            this.retroceder3_button.Size = new System.Drawing.Size(151, 51);
+            this.retroceder3_button.TabIndex = 91;
+            this.retroceder3_button.Text = "Retroceder";
+            this.retroceder3_button.UseVisualStyleBackColor = false;
+            this.retroceder3_button.Click += new System.EventHandler(this.retroceder3_button_Click);
+            // 
+            // proximo3_button
+            // 
+            this.proximo3_button.BackColor = System.Drawing.Color.Orange;
+            this.proximo3_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.proximo3_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.proximo3_button.ForeColor = System.Drawing.Color.White;
+            this.proximo3_button.Location = new System.Drawing.Point(877, 468);
+            this.proximo3_button.Margin = new System.Windows.Forms.Padding(4);
+            this.proximo3_button.Name = "proximo3_button";
+            this.proximo3_button.Size = new System.Drawing.Size(108, 51);
+            this.proximo3_button.TabIndex = 90;
+            this.proximo3_button.Text = "Próximo";
+            this.proximo3_button.UseVisualStyleBackColor = false;
+            this.proximo3_button.Click += new System.EventHandler(this.proximo3_button_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(422, 256);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(208, 36);
+            this.comboBox2.TabIndex = 89;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(422, 252);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(208, 36);
+            this.comboBox4.TabIndex = 88;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(422, 207);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(208, 36);
+            this.comboBox5.TabIndex = 87;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(415, 148);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(134, 41);
+            this.label52.TabIndex = 83;
+            this.label52.Text = "Árbitros";
             // 
             // Main_Admin
             // 
@@ -1684,6 +2454,7 @@ namespace Final_Project
             this.Controls.Add(this.calendario_button);
             this.Controls.Add(this.classificacaoButton);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panelAdicionarJogo);
             this.Controls.Add(this.panelCalendario);
             this.Controls.Add(this.panelClassificacao);
             this.Controls.Add(this.panelDetalhes);
@@ -1700,6 +2471,15 @@ namespace Final_Project
             this.panel1.PerformLayout();
             this.panelDetalhes.ResumeLayout(false);
             this.panelDetalhes.PerformLayout();
+            this.panelAdicionarJogo.ResumeLayout(false);
+            this.panelAdicionarPlantelCasa.ResumeLayout(false);
+            this.panelAdicionarPlantelCasa.PerformLayout();
+            this.panelAdicionarPlantelFora.ResumeLayout(false);
+            this.panelAdicionarPlantelFora.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panelAdicionarArbitros.ResumeLayout(false);
+            this.panelAdicionarArbitros.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1821,5 +2601,68 @@ namespace Final_Project
         private System.Windows.Forms.Button adicionarJogo3_button;
         private System.Windows.Forms.Button adicionarJogo2_button;
         private System.Windows.Forms.Button adicionarJogo1_button;
+        private System.Windows.Forms.Panel panelAdicionarJogo;
+        private System.Windows.Forms.Panel panelAdicionarPlantelCasa;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox TAD_casa_combobox;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox TPR_casa_combobox;
+        private System.Windows.Forms.ComboBox JC1_casa_combobox;
+        private System.Windows.Forms.Panel panelAdicionarArbitros;
+        private System.Windows.Forms.Button proximo3_button;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.ComboBox GR_casa_combobox;
+        private System.Windows.Forms.ComboBox JC4_casa_combobox;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox JC3_casa_combobox;
+        private System.Windows.Forms.ComboBox JC2_casa_combobox;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Button proximo1_button;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Panel panelAdicionarPlantelFora;
+        private System.Windows.Forms.ComboBox TAD_fora_combobox;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox TPR_fora_combobox;
+        private System.Windows.Forms.ComboBox JC1_fora_combobox;
+        private System.Windows.Forms.ComboBox GR_fora_combobox;
+        private System.Windows.Forms.ComboBox JC4_fora_combobox;
+        private System.Windows.Forms.ComboBox comboBox10;
+        private System.Windows.Forms.ComboBox JC3_fora_combobox;
+        private System.Windows.Forms.ComboBox JC2_fora_combobox;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button proximo2_button;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox resultadoEquipaCasa_textbox;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Button guardarJogo;
+        private System.Windows.Forms.Button retroceder3_button;
+        private System.Windows.Forms.Button retroceder1_button;
+        private System.Windows.Forms.Button retroceder2_button;
+        private System.Windows.Forms.Button retroceder4_button;
     }
 }
