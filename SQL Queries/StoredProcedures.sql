@@ -570,8 +570,6 @@ END
 GO
 
 
-
-
 CREATE PROCEDURE HoqueiPortugues.spCriarPlatelJogadoresTreinadores(
     @clube_id int, 
     @JogadorCampo1_ID int,
@@ -587,6 +585,7 @@ AS
 BEGIN
     INSERT INTO HoqueiPortugues.Plantel (Clube_ID) VALUES (@clube_id);
     SET @PLANTEL_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Plantel); -- ID do plantel que acabou de ser criado
+
 
     INSERT INTO HoqueiPortugues.Plantel_Jogadores (Plantel_ID, Jogador_ID) 
     VALUES (@PLANTEL_ID, @JogadorCampo1_ID),
@@ -607,31 +606,31 @@ Eliminar o ultimo plantel criado
 
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.eliminarUltimoPlantel', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.eliminarUltimoPlantel;
+IF OBJECT_ID('HoqueiPortugues.STeliminarUltimoPlantel', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.STeliminarUltimoPlantel;
 GO
 
-CREATE PROCEDURE HoqueiPortugues.eliminarUltimoPlantel 
+CREATE PROCEDURE HoqueiPortugues.STeliminarUltimoPlantel 
 AS
 BEGIN 
     DELETE TOP (1) FROM HoqueiPortugues.Plantel WHERE ID = (SELECT MAX(ID) FROM HoqueiPortugues.Plantel);
 END
 GO
 
+EXEC HoqueiPortugues.STeliminarUltimoPlantel;
+
 /*
 Eliminar os dois ultimos planteis criados
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.eliminarUltimosPlanteis', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.eliminarUltimosPlanteis;
+IF OBJECT_ID('HoqueiPortugues.STeliminarUltimosPlanteis', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.STeliminarUltimosPlanteis;
 GO
 
-CREATE PROCEDURE HoqueiPortugues.eliminarUltimosPlanteis
+CREATE PROCEDURE HoqueiPortugues.STeliminarUltimosPlanteis
 AS
 BEGIN 
     DELETE TOP (2) FROM HoqueiPortugues.Plantel WHERE ID IN (SELECT TOP (2) ID FROM HoqueiPortugues.Plantel ORDER BY ID DESC);
 END
-
-
 
 
 /*
@@ -658,7 +657,27 @@ BEGIN
            (@Jogo_ID, @ArbitroAuxiliar_ID);
 
 END;
-GO  
+GO
+
+EXEC HoqueiPortugues.adicionarArbitros @Jogo_ID = 21, @ArbitroPrincipal_ID = 1, @ArbitroAuxiliar_ID = 2;
+
+
+/*
+Eliminar os árbitros do ultimo jogo
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.eliminarArbitros', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.eliminarArbitros;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.eliminarArbitros 
+AS 
+BEGIN
+    DELETE TOP (2) FROM HoqueiPortugues.e_arbitrado WHERE Jogo_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Jogo);
+END
+GO    
+
+EXEC HoqueiPortugues.eliminarArbitros;
 
 
 /*
@@ -754,3 +773,24 @@ BEGIN
 END
 
 EXEC HoqueiPortugues.consultarJogo @Jogo_ID = 1
+
+/*
+Ver calendário de jogos de uma equipa
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.verCalendarioEquipa', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.verCalendarioEquipa;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.verCalendarioEquipa 
+    @Clube_ID AS int
+AS
+BEGIN
+    SELECT Jogo.ID, Jogo.Jornada, Pavilhao.Nome AS NomePavilhao, 
+        ClubeCasa.Nome AS NomeClubeCasa, ClubeFora.Nome AS NomeClubeFora, 
+        ClubeCasa.ID AS ClubeCasaID, ClubeFora.ID AS ClubeForaID, 
+        Jogo.Resultado_C, Jogo.Resultado_F, 
+        Arbitro.Nome AS ArbitroNome, 
+        Jogo.Data_hora
+    FROM HoqueiPortugues.Jogo
+END
