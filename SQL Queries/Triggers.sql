@@ -30,6 +30,30 @@ END;
 GO
 
 /*
+Remover treinador de um clube
+*/
+
+--Cria um trigger se ele não existir
+IF OBJECT_ID('HoqueiPortugues.TeliminarTreinador', 'TR') IS NOT NULL
+    DROP TRIGGER HoqueiPortugues.TeliminarTreinador;
+GO
+
+CREATE TRIGGER HoqueiPortugues.TeliminarTreinador
+ON HoqueiPortugues.Treinador
+INSTEAD OF DELETE
+AS
+BEGIN
+    -- DELETE na tabela Plantel_Treinadores
+    DELETE FROM HoqueiPortugues.Plantel_Treinadores 
+    WHERE Treinador_ID IN (SELECT ID FROM DELETED);
+
+    -- DELETE na tabela Treinador
+    DELETE FROM HoqueiPortugues.Treinador
+    WHERE ID IN (SELECT ID FROM DELETED);
+END;
+
+
+/*
 Elininar o platenl de um clube
 */
 

@@ -1,7 +1,7 @@
 # BD_HoqueiDB
 
 ## Todo:
-  - filtrar jogadores (nacionalidade, clube, etc)
+  - filtrar jogadores (nacionalidade, clube, etc) DONE
   - adicionar planteis_jogadores e planteis_treinadore ao plantel DONE
   - contratar um treinador
   - criar alguma cena em que os medicos sejam uteis (tenho uma ideia)

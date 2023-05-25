@@ -5,6 +5,14 @@ go
 -- This file is a SQL script that creates the schema for the HoqueiPortugues database.
 -- It is meant to be run on Microsoft SQL Server Management Studio.
 
+
+
+
+/*
+PAGINA CLASSIFICAÇÃO
+Retorna a classificação dos clubes
+*/
+
 -- Exclui o procedimento se ele já existir
 IF OBJECT_ID('HoqueiPortugues.calcularClassificacao', 'P') IS NOT NULL
     DROP PROCEDURE HoqueiPortugues.calcularClassificacao;
@@ -76,10 +84,10 @@ Contratar um jogador do estrangeiro DONE
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.contratarJogadorEstrangeiro', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarJogadorEstrangeiro;
+IF OBJECT_ID('HoqueiPortugues.contratarJogador', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarJogador;
 GO
 
-CREATE PROCEDURE HoqueiPortugues.contratarJogadorEstrangeiro 
+CREATE PROCEDURE HoqueiPortugues.contratarJogador 
     @Nome AS varchar(50), @Idade AS int, @Posicao AS varchar(50), @Nacionalidade AS varchar(50), @Num_camisola AS int, @Clube_ID AS int
 AS  
 BEGIN
@@ -95,6 +103,12 @@ BEGIN
     --    RAISERROR('Numero da camisola inválido (1-99)', 16, 1);
     --    RETURN;
     -- END
+
+    IF (@Posicao != 'Jogador de Campo' AND @Posicao != 'Guarda-Redes')  --Tb nao sei se é melhor passar para o front-end
+    BEGIN
+        RAISERROR('Posição inválida', 16, 1);
+        RETURN;
+    END
     
     --Verifica se o numero da camisola já não está ocupado
     IF EXISTS (SELECT * FROM HoqueiPortugues.Jogador WHERE Num_camisola = @Num_camisola) 
@@ -103,28 +117,28 @@ BEGIN
             RETURN;
         END
     ELSE 
-        BEGIN
-            DECLARE @Jogador_ID int;
-            SET @Jogador_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Jogador) + 1;
-            INSERT INTO HoqueiPortugues.Jogador (ID, Nome, Idade, Posicao, Nacionalidade, Num_camisola, Clube_ID, advertencias, cartoes_azuis, cartoes_vermelhos)
-			VALUES (@Jogador_ID, @Nome, @Idade, @Posicao, @Nacionalidade, @Num_camisola, @Clube_ID, 0, 0, 0);
-        END
+    BEGIN
+        DECLARE @Jogador_ID int;
+        SET @Jogador_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Jogador) + 1;
+        INSERT INTO HoqueiPortugues.Jogador (ID, Nome, Idade, Posicao, Nacionalidade, Num_camisola, Clube_ID, advertencias, cartoes_azuis, cartoes_vermelhos)
+		VALUES (@Jogador_ID, @Nome, @Idade, @Posicao, @Nacionalidade, @Num_camisola, @Clube_ID, 0, 0, 0);
     --Se for um jogador de campo
-    IF @Posicao = 'Jogador de Campo'
-    BEGIN
-       INSERT INTO HoqueiPortugues.Jogador_Campo(Jogador_ID, Golos_marcados, Assists, Penaltis_marcados, Livres_diretos_marcados) 
-       VALUES (@Jogador_ID, 0, 0 , 0 , 0);
-    END 
-    IF @Posicao = 'Guarda-Redes'
-    BEGIN
-        INSERT INTO HoqueiPortugues.Jogador_GuardaRedes(Jogador_ID, Golos_sofridos, Penaltis_defendidos, Livres_diretos_defendidos) 
-        VALUES (@Jogador_ID, 0, 0 , 0);
+        IF @Posicao = 'Jogador de Campo'
+        BEGIN
+        INSERT INTO HoqueiPortugues.Jogador_Campo(Jogador_ID, Golos_marcados, Assists, Penaltis_marcados, Livres_diretos_marcados) 
+        VALUES (@Jogador_ID, 0, 0 , 0 , 0);
+        END 
+        IF @Posicao = 'Guarda-Redes'
+        BEGIN
+            INSERT INTO HoqueiPortugues.Jogador_GuardaRedes(Jogador_ID, Golos_sofridos, Penaltis_defendidos, Livres_diretos_defendidos) 
+            VALUES (@Jogador_ID, 0, 0 , 0);
+        END
     END
     
 END;
 GO
 
-EXEC HoqueiPortugues.contratarJogadorEstrangeiro 'Jogador1', 20, 'Jogador de Campo', 'Portugal', 100, 1
+EXEC HoqueiPortugues.contratarJogador 'Jogador1', 20, 'Jogador de Campo', 'Portugal', 100, 1
 GO
 
 select * from HoqueiPortugues.Jogador
@@ -173,46 +187,6 @@ EXEC HoqueiPortugues.contratarJogadorClube 199, 'Jogador1', 1, 2
 
 
 /*
-Remover um jogador de um clube
-*/
-
---Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.removerJogador', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.removerJogador;
-GO
-
-CREATE PROCEDURE HoqueiPortugues.removerJogador 
-    @Jogador_ID AS int , @Clube_ID AS int
-AS
-BEGIN
-    --Verifica se o jogador existe
-    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Jogador WHERE ID = @Jogador_ID)
-        BEGIN
-            RAISERROR('Jogador não existe', 16, 1);
-            RETURN;
-        END
-    
-    --Verifica se o clube existe
-    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Clube WHERE ID = @Clube_ID)
-        BEGIN
-            RAISERROR('Clube não existe', 16, 1);
-            RETURN;
-        END
-
-    --Verifica se o jogador pertence ao clube
-    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Jogador WHERE ID = @Jogador_ID AND Clube_ID = @Clube_ID)
-        BEGIN
-            RAISERROR('Jogador não pertence ao clube', 16, 1);
-            RETURN;
-        END
-    ELSE
-        BEGIN
-            DELETE FROM HoqueiPortugues.Jogador WHERE ID = @Jogador_ID AND Clube_ID = @Clube_ID;
-        END
-END;
-
-EXEC HoqueiPortugues.removerJogador 199, 2
-
-/*
 Jogador sai do clube passando a estar sem clube
 */
 
@@ -235,6 +209,13 @@ BEGIN
     IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Clube WHERE ID = @Clube_ID)
         BEGIN
             RAISERROR('Clube não existe', 16, 1);
+            RETURN;
+        END
+
+    --Verifica se o clube ficaria sem jogadores suficientes (8)
+    IF (SELECT COUNT(*) FROM HoqueiPortugues.Jogador WHERE Clube_ID = @Clube_ID) = 8
+        BEGIN
+            RAISERROR('O clube não pode ficar só com 8 jogadores', 16, 1);
             RETURN;
         END
 
@@ -279,7 +260,7 @@ BEGIN
     --Verifica se o jogador pertence ao clube
     IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Jogador WHERE ID = @Jogador_ID AND Clube_ID IS NULL)
         BEGIN
-            RAISERROR('Jogador não pertence ao clube', 16, 1);
+            RAISERROR('Não existem jogadores sem Clube', 16, 1);
             RETURN;
         END
     ELSE
@@ -290,6 +271,263 @@ END;
 
 EXEC HoqueiPortugues.contratarJogadorSemClube 199, 2
 
+/*
+Contratar um treinador do estrangeiro
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.contratarTreinador', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarTreinador;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.contratarTreinador 
+    @Nome AS varchar(50), @Idade AS int, @Tipo_treinador AS varchar(50), @Nacionalidade AS varchar(50), @Clube_ID AS int
+AS
+BEGIN
+    --Verifica se o clube já existe
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Clube WHERE ID = @Clube_ID)
+        BEGIN
+            RAISERROR('Clube não existe', 16, 1);
+            RETURN;
+        END
+    
+    --Verifica se o clube já tem 3 treinadores
+    IF (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_ID) >= 3
+    BEGIN
+        RAISERROR('O clube já tem 3 treinadores', 16, 1);
+        RETURN;
+    END
+
+        -- Verifica se o clube já tem 2 treinadores principais e o novo treinador é um treinador principal
+    IF (@tipo = 'principal' AND (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_ID AND Tipo_treinador = 'principal') >= 2)
+        BEGIN
+            RAISERROR('O clube já tem 2 treinadores principais', 16, 1);
+            RETURN;
+        END
+
+    -- Verifica se o clube já tem 2 treinadores adjuntos e o novo treinador é um treinador adjunto
+    IF (@tipo = 'adjunto' AND (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_ID AND Tipo_treinador = 'adjunto') >= 2)
+        BEGIN
+            RAISERROR('O clube já tem 2 treinadores adjuntos', 16, 1);
+            RETURN;
+        END
+
+    DECLARE @Treinador_ID int;
+
+    SET @Treinador_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Treinador) + 1;
+
+    INSERT INTO HoqueiPortugues.Treinador (ID, Nome, Idade, Tipo_treinador, Nacionalidade, Clube_ID)
+    VALUES (@Treinador_ID, @Nome, @Idade, @Tipo_treinador, @Nacionalidade, @Clube_ID);
+
+END
+
+/*
+Contratar um treinador de outro clube
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.contratarTreinadorClube', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarTreinadorClube;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.contratarTreinadorClube 
+    @Treinador_ID AS int , @Nome AS varchar(50), @Clube_Antigo AS int, @Clube_Novo AS int
+AS
+BEGIN
+    --Verifica se o treinador existe
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Treinador WHERE ID = @Treinador_ID)
+        BEGIN
+            RAISERROR('Treinador não existe', 16, 1);
+            RETURN;
+        END
+    
+    --Verifica se o clube existe
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Clube WHERE ID = @Clube_Novo)
+        BEGIN
+            RAISERROR('Clube não existe', 16, 1);
+            RETURN;
+        END
+
+    --Veririfica se o clube de onde saiu ficaria apenas com um treinador principal e um treinador adjunto
+    IF (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_Antigo AND Tipo_treinador = 'Principal') = 1 AND (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_Antigo AND Tipo_treinador = 'Adjunto') = 1
+        BEGIN
+            RAISERROR('O clube não pode ficar só com um treinador principal ou só um adjunto', 16, 1);
+            RETURN;
+        END
+
+    IF (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_Novo) > 3
+        BEGIN
+            RAISERROR('O clube já tem 3 treinadores', 16, 1);
+            RETURN;
+        END
+
+    --Verifica se o treinador pertence ao clube
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Treinador WHERE ID = @Treinador_ID AND Clube_ID = @Clube_Antigo)
+        BEGIN
+            RAISERROR('Treinador não pertence ao clube', 16, 1);
+            RETURN;
+        END
+    ELSE
+        BEGIN
+            UPDATE HoqueiPortugues.Treinador SET Clube_ID = @Clube_Novo WHERE ID = @Treinador_ID AND Clube_ID = @Clube_Antigo;
+        END
+END;
+
+/*
+Treinador sai do clube passando a estar sem clube
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.treinadorSemClube', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.treinadorSemClube;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.treinadorSemClube 
+    @Treinador_ID AS int , @Clube_ID AS int
+AS
+BEGIN
+    --Verifica se o treinador existe
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Treinador WHERE ID = @Treinador_ID)
+        BEGIN
+            RAISERROR('Treinador não existe', 16, 1);
+            RETURN;
+        END
+    
+    --Verifica se o clube existe
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Clube WHERE ID = @Clube_ID)
+        BEGIN
+            RAISERROR('Clube não existe', 16, 1);
+            RETURN;
+        END
+    
+    --Tem que ter pelo menos um treinador principal e um adjunto
+    IF (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_ID AND Tipo_treinador = 'Principal') = 1 AND (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_ID AND Tipo_treinador = 'Adjunto') = 1
+        BEGIN
+            RAISERROR('O clube não pode ficar só com um treinador principal ou só um adjunto', 16, 1);
+            RETURN;
+        END
+
+    --Verifica se o treinador pertence ao clube
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Treinador WHERE ID = @Treinador_ID AND Clube_ID = @Clube_ID)
+        BEGIN
+            RAISERROR('Treinador não pertence ao clube', 16, 1);
+            RETURN;
+        END
+    ELSE
+        BEGIN
+            UPDATE HoqueiPortugues.Treinador SET Clube_ID = NULL WHERE ID = @Treinador_ID AND Clube_ID = @Clube_ID;
+        END
+END;
+
+/*
+Contratar um treinador que não tem clube
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.contratarTreinadorSemClube', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarTreinadorSemClube;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.contratarTreinadorSemClube 
+    @Treinador_ID AS int , @Clube_Novo AS int
+AS
+BEGIN
+    --Verifica se o treinador existe
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Treinador WHERE ID = @Treinador_ID)
+        BEGIN
+            RAISERROR('Treinador não existe', 16, 1);
+            RETURN;
+        END
+    
+    --Verifica se o clube existe
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Clube WHERE ID = @Clube_Novo)
+        BEGIN
+            RAISERROR('Clube não existe', 16, 1);
+            RETURN;
+        END
+
+    --Verifica se o treinador pertence ao clube
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Treinador WHERE ID = @Treinador_ID AND Clube_ID IS NULL)
+        BEGIN
+            RAISERROR('Não existem treinadores sem Clube', 16, 1);
+            RETURN;
+        END
+    ELSE
+        BEGIN
+            UPDATE HoqueiPortugues.Treinador SET Clube_ID = @Clube_Novo WHERE ID = @Treinador_ID AND Clube_ID IS NULL;
+        END
+END;
+
+/*
+Adicionar especialista técnico a equipa
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.adicionarEspecialistaTecnico', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.adicionarEspecialistaTecnico;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.adicionarEspecialistaTecnico 
+    @Especialista_ID AS int , 
+    @idade int,
+    @especialidade varchar(50), 
+    @nacionalidade varchar(50),
+    @Clube_ID AS int
+AS
+BEGIN
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Clube WHERE ID = @Clube_ID)
+        BEGIN
+            RAISERROR('Clube não existe', 16, 1);
+            RETURN;
+        END
+
+    -- Verifica se a especialidade é válida
+    IF @especialidade NOT IN ('Mecânico', 'Massagista', 'Fisioterapeuta')
+        BEGIN
+            RAISERROR('Especialidade inválida', 16, 1);
+            RETURN;
+        END
+    
+    -- Insere o especialista técnico
+    DECLARE @EspecialistaTecnico_ID int;
+    SET @EspecialistaTecnico_ID = (SELECT MAX(ID) FROM HoqueiPortugues.EspecialistaTecnico) + 1;
+
+    INSERT INTO HoqueiPortugues.EspecialistaTecnico (ID, idade, especialidade, nacionalidade, Clube_ID)
+    VALUES (@EspecialistaTecnico_ID, @idade, @especialidade, @nacionalidade, @Clube_ID);
+END
+GO
+
+/*
+Remover um especialista técnio
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.removerEspecialistaTecnico', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.removerEspecialistaTecnico;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.removerEspecialistaTecnico 
+    @Especialista_ID AS int , 
+    @Clube_ID AS int
+AS
+BEGIN
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Clube WHERE ID = @Clube_ID)
+        BEGIN
+            RAISERROR('Clube não existe', 16, 1);
+            RETURN;
+        END
+
+    -- Verifica se o especialista técnico existe
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.EspecialistaTecnico WHERE ID = @Especialista_ID)
+        BEGIN
+            RAISERROR('Especialista técnico não existe', 16, 1);
+            RETURN;
+        END
+
+    -- Verifica se o especialista técnico pertence ao clube
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.EspecialistaTecnico WHERE ID = @Especialista_ID AND Clube_ID = @Clube_ID)
+        BEGIN
+            RAISERROR('Especialista técnico não pertence ao clube', 16, 1);
+            RETURN;
+        END
+
+    -- Remove o especialista técnico
+    DELETE FROM HoqueiPortugues.EspecialistaTecnico WHERE ID = @Especialista_ID;
+END
 
 /*
 Simular jogo dando como input o resultado
@@ -514,14 +752,18 @@ GO
 
 CREATE PROCEDURE HoqueiPortugues.PesquisaJogadoresCampo
     @nome varchar(50),
-    @orderby varchar(50)
+    @orderby varchar(50),
+    @nacionalidade varchar(50) = NULL,
+    @nome_clube varchar(50) = NULL
 AS
 BEGIN
     SELECT J.ID, J.Nome, C.ID as Clube_ID, C.Nome as Clube_Nome, JC.Golos_marcados, JC.Assists, J.advertencias, J.cartoes_azuis, J.cartoes_vermelhos, JC.Penaltis_marcados, JC.Livres_diretos_marcados
     FROM HoqueiPortugues.Jogador J
     INNER JOIN HoqueiPortugues.Jogador_Campo JC ON J.ID = JC.Jogador_ID
     INNER JOIN HoqueiPortugues.Clube C ON J.Clube_ID = C.ID
-    WHERE J.Nome LIKE '%' + @Nome + '%'
+    WHERE J.Nome LIKE '%' + @Nome + '%' AND
+        (@nacionalidade IS NULL OR J.Nacionalidade = @nacionalidade) AND 
+        (@nome_clube IS NULL OR C.Nome = '%' + @nome_clube + '%')
     ORDER BY 
         CASE 
             WHEN @orderby = 'Golos_Marcados' THEN JC.Golos_marcados
@@ -555,7 +797,9 @@ BEGIN
     FROM HoqueiPortugues.Jogador J
     INNER JOIN HoqueiPortugues.Jogador_GuardaRedes JG ON J.ID = JG.Jogador_ID
     INNER JOIN HoqueiPortugues.Clube C ON J.Clube_ID = C.ID
-    WHERE J.Nome LIKE '%' + @Nome + '%'
+    WHERE J.Nome LIKE '%' + @Nome + '%' AND
+        (@nacionalidade IS NULL OR J.Nacionalidade = @nacionalidade) AND 
+        (@nome_clube IS NULL OR C.Nome = '%' + @nome_clube + '%')
     ORDER BY
         CASE 
             WHEN @orderby = 'Golos_Sofridos' THEN JG.Golos_sofridos
@@ -583,9 +827,9 @@ CREATE PROCEDURE HoqueiPortugues.spCriarPlatelJogadoresTreinadores(
 )
 AS
 BEGIN
-    INSERT INTO HoqueiPortugues.Plantel (Clube_ID) VALUES (@clube_id);
-    SET @PLANTEL_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Plantel); -- ID do plantel que acabou de ser criado
-
+    SET @PLANTEL_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Plantel) + 1;
+    INSERT INTO HoqueiPortugues.Plantel (ID, Clube_ID) VALUES (@PLANTEL_ID, @clube_id);
+    --Set plantel id max(id)+1
 
     INSERT INTO HoqueiPortugues.Plantel_Jogadores (Plantel_ID, Jogador_ID) 
     VALUES (@PLANTEL_ID, @JogadorCampo1_ID),
@@ -773,6 +1017,32 @@ BEGIN
 END
 
 EXEC HoqueiPortugues.consultarJogo @Jogo_ID = 1
+
+/*
+Dar update ao resultado de um jogo que já tenha acontecido
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.updateResultado', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.updateResultado;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.updateResultado 
+    @Jogo_ID AS int , @Resultado_F AS int, @Resultado_C AS int
+AS
+BEGIN
+    --Verifica se o jogo já aconteceu
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Jogo WHERE ID = @Jogo_ID AND JogoRealizado = 1)
+        BEGIN
+            RAISERROR('Jogo ainda não aconteceu', 16, 1);
+            RETURN;
+        END
+
+    UPDATE HoqueiPortugues.Jogo 
+    SET Resultado_F = @Resultado_F, 
+    Resultado_C = @Resultado_C
+    WHERE ID = @Jogo_ID;
+END;
+GO
 
 /*
 Ver calendário de jogos de uma equipa
