@@ -29,3 +29,36 @@ BEGIN
 END;
 GO
 
+/*
+Elininar o platenl de um clube
+*/
+
+--Cria um trigger se ele não existir
+IF OBJECT_ID('HoqueiPortugues.eliminarUltimoPlantel', 'TR') IS NOT NULL
+    DROP TRIGGER HoqueiPortugues.elinimarUltimoPlantel;
+GO
+
+CREATE TRIGGER HoqueiPortugues.eliminarUltimoPlantel
+ON HoqueiPortugues.Plantel
+INSTEAD OF DELETE
+AS
+BEGIN
+    --DELETE na tabela Plantel_Jogadores
+    DELETE FROM HoqueiPortugues.Plantel_Jogadores 
+    WHERE Plantel_ID IN (SELECT ID FROM DELETED);
+
+    -- DELETE na tabela Plantel_Treinadores
+    DELETE FROM HoqueiPortugues.Plantel_Treinadores 
+    WHERE Plantel_ID IN (SELECT ID FROM DELETED);
+
+    -- DELETE na tabela Plantel
+    DELETE FROM HoqueiPortugues.Plantel
+    WHERE ID IN (SELECT ID FROM DELETED);
+END;
+
+/*
+Eliminar os dois ultimos planteis
+*/
+
+
+
