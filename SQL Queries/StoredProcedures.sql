@@ -814,36 +814,6 @@ END
 GO
 
 
-CREATE PROCEDURE HoqueiPortugues.spCriarPlatelJogadoresTreinadores(
-    @clube_id int, 
-    @JogadorCampo1_ID int,
-    @JogadorCampo2_ID int,
-    @JogadorCampo3_ID int,
-    @JogadorCampo4_ID int,
-    @GuardaRedes_ID int,
-    @TreinadorPrincipal_ID int,
-    @TreinadorAdjunto_ID int,
-    @PLANTEL_ID int OUTPUT
-)
-AS
-BEGIN
-    SET @PLANTEL_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Plantel) + 1;
-    INSERT INTO HoqueiPortugues.Plantel (ID, Clube_ID) VALUES (@PLANTEL_ID, @clube_id);
-    --Set plantel id max(id)+1
-
-    INSERT INTO HoqueiPortugues.Plantel_Jogadores (Plantel_ID, Jogador_ID) 
-    VALUES (@PLANTEL_ID, @JogadorCampo1_ID),
-           (@PLANTEL_ID, @JogadorCampo2_ID),
-           (@PLANTEL_ID, @JogadorCampo3_ID),
-           (@PLANTEL_ID, @JogadorCampo4_ID),
-           (@PLANTEL_ID, @GuardaRedes_ID);
-    
-    INSERT INTO HoqueiPortugues.Plantel_Treinadores (Plantel_ID, Treinador_ID)
-    VALUES (@PLANTEL_ID, @TreinadorPrincipal_ID),
-           (@PLANTEL_ID, @TreinadorAdjunto_ID);
-END
-GO
-
 /*
 Eliminar o ultimo plantel criado
 */
@@ -915,13 +885,12 @@ IF OBJECT_ID('HoqueiPortugues.eliminarArbitros', 'P') IS NOT NULL DROP PROCEDURE
 GO
 
 CREATE PROCEDURE HoqueiPortugues.eliminarArbitros 
+    @Jogo_ID AS int
 AS 
 BEGIN
-    DELETE TOP (2) FROM HoqueiPortugues.e_arbitrado WHERE Jogo_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Jogo);
+    DELETE TOP (2) FROM HoqueiPortugues.e_arbitrado WHERE Jogo_ID = @Jogo_ID;
 END
-GO    
-
-EXEC HoqueiPortugues.eliminarArbitros;
+GO 
 
 
 /*

@@ -1,7 +1,4 @@
--- USE p4g7;
--- GO
-
-USE Test_Hoquei;
+USE p4g7;
 GO
 
 
