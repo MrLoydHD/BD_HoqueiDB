@@ -30,12 +30,36 @@ END;
 GO
 
 /*
+Remover treinador de um clube
+*/
+
+--Cria um trigger se ele não existir
+IF OBJECT_ID('HoqueiPortugues.TeliminarTreinador', 'TR') IS NOT NULL
+    DROP TRIGGER HoqueiPortugues.TeliminarTreinador;
+GO
+
+CREATE TRIGGER HoqueiPortugues.TeliminarTreinador
+ON HoqueiPortugues.Treinador
+INSTEAD OF DELETE
+AS
+BEGIN
+    -- DELETE na tabela Plantel_Treinadores
+    DELETE FROM HoqueiPortugues.Plantel_Treinadores 
+    WHERE Treinador_ID IN (SELECT ID FROM DELETED);
+
+    -- DELETE na tabela Treinador
+    DELETE FROM HoqueiPortugues.Treinador
+    WHERE ID IN (SELECT ID FROM DELETED);
+END;
+
+
+/*
 Elininar o platenl de um clube
 */
 
 --Cria um trigger se ele não existir
 IF OBJECT_ID('HoqueiPortugues.eliminarUltimoPlantel', 'TR') IS NOT NULL
-    DROP TRIGGER HoqueiPortugues.elinimarUltimoPlantel;
+    DROP TRIGGER HoqueiPortugues.eliminarUltimoPlantel;
 GO
 
 CREATE TRIGGER HoqueiPortugues.eliminarUltimoPlantel
@@ -43,6 +67,11 @@ ON HoqueiPortugues.Plantel
 INSTEAD OF DELETE
 AS
 BEGIN
+    --UPDATE na tabela Jogo
+    UPDATE HoqueiPortugues.Jogo 
+    SET Plantel_F_ID = NULL, Plantel_C_ID = NULL
+    WHERE Plantel_F_ID IN (SELECT ID FROM DELETED) OR Plantel_C_ID IN (SELECT ID FROM DELETED);
+
     --DELETE na tabela Plantel_Jogadores
     DELETE FROM HoqueiPortugues.Plantel_Jogadores 
     WHERE Plantel_ID IN (SELECT ID FROM DELETED);
@@ -55,7 +84,6 @@ BEGIN
     DELETE FROM HoqueiPortugues.Plantel
     WHERE ID IN (SELECT ID FROM DELETED);
 END;
-
 
 /*
 Não permite inserir um arbitro que já tenha sido inserido naquela jornada

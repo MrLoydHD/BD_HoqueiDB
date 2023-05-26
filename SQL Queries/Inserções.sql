@@ -1,4 +1,4 @@
-use Test_Hoquei;
+use p4g7;
 go
 
 /* Clube insertion*/
@@ -419,8 +419,8 @@ INSERT INTO HoqueiPortugues.Plantel VALUES (26,12)
 INSERT INTO HoqueiPortugues.Plantel VALUES (27,10)
 INSERT INTO HoqueiPortugues.Plantel VALUES (28,14)
 --Teste (1vs6)
-INSERT INTO HoqueiPortugues.Plantel VALUES (29,1)
-INSERT INTO HoqueiPortugues.Plantel VALUES (30,6)
+-- INSERT INTO HoqueiPortugues.Plantel VALUES (29,1)
+-- INSERT INTO HoqueiPortugues.Plantel VALUES (30,6)
 go
 
 /*Jogos insertion*/
@@ -753,20 +753,20 @@ INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (28, 189)
 INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (28, 190)
 go
 
---Clube 1 (Teste)
-INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (29, 1)
-INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (29, 5)
-INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (29, 6)
-INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (29, 7)
-INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (29, 8)
-go
+-- --Clube 1 (Teste)
+-- INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (29, 1)
+-- INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (29, 5)
+-- INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (29, 6)
+-- INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (29, 7)
+-- INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (29, 8)
+-- go
 
---Clube 6 (Teste)
-INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (30, 71)
-INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (30, 75)
-INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (30, 76)
-INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (30, 77)
-INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (30, 78)
+-- --Clube 6 (Teste)
+-- INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (30, 71)
+-- INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (30, 75)
+-- INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (30, 76)
+-- INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (30, 77)
+-- INSERT INTO HoqueiPortugues.Plantel_Jogadores VALUES (30, 78)
 
 
 /*Insert Plantel_Treinadores*/
@@ -829,11 +829,11 @@ INSERT INTO HoqueiPortugues.Plantel_Treinadores VALUES (28, 28)
 
 
 --TESTE (1VS6)
-INSERT INTO HoqueiPortugues.Plantel_Treinadores VALUES (29, 1)
-INSERT INTO HoqueiPortugues.Plantel_Treinadores VALUES (29, 2)
+-- INSERT INTO HoqueiPortugues.Plantel_Treinadores VALUES (29, 1)
+-- INSERT INTO HoqueiPortugues.Plantel_Treinadores VALUES (29, 2)
 
-INSERT INTO HoqueiPortugues.Plantel_Treinadores VALUES (30, 11)
-INSERT INTO HoqueiPortugues.Plantel_Treinadores VALUES (30, 12)
+-- INSERT INTO HoqueiPortugues.Plantel_Treinadores VALUES (30, 11)
+-- INSERT INTO HoqueiPortugues.Plantel_Treinadores VALUES (30, 12)
 
 
 /*Insert é_arbitrado*/
