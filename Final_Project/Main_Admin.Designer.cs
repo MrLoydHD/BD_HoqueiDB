@@ -187,15 +187,14 @@ namespace Final_Project
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelAdicionarResultadoJogo = new System.Windows.Forms.Panel();
             this.retroceder4_button = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.resultadoEquipaFora_textbox = new System.Windows.Forms.TextBox();
             this.resultadoEquipaCasa_textbox = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
@@ -204,9 +203,8 @@ namespace Final_Project
             this.panelAdicionarArbitros = new System.Windows.Forms.Panel();
             this.retroceder3_button = new System.Windows.Forms.Button();
             this.proximo3_button = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.arbitro2_combobox = new System.Windows.Forms.ComboBox();
+            this.arbitro1_combobox = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelClassificacao.SuspendLayout();
@@ -217,7 +215,7 @@ namespace Final_Project
             this.panelAdicionarJogo.SuspendLayout();
             this.panelAdicionarPlantelCasa.SuspendLayout();
             this.panelAdicionarPlantelFora.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelAdicionarResultadoJogo.SuspendLayout();
             this.panelAdicionarArbitros.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1743,10 +1741,10 @@ namespace Final_Project
             // panelAdicionarJogo
             // 
             this.panelAdicionarJogo.Controls.Add(this.label26);
+            this.panelAdicionarJogo.Controls.Add(this.panelAdicionarResultadoJogo);
+            this.panelAdicionarJogo.Controls.Add(this.panelAdicionarArbitros);
             this.panelAdicionarJogo.Controls.Add(this.panelAdicionarPlantelCasa);
             this.panelAdicionarJogo.Controls.Add(this.panelAdicionarPlantelFora);
-            this.panelAdicionarJogo.Controls.Add(this.panel3);
-            this.panelAdicionarJogo.Controls.Add(this.panelAdicionarArbitros);
             this.panelAdicionarJogo.Location = new System.Drawing.Point(2, 93);
             this.panelAdicionarJogo.Name = "panelAdicionarJogo";
             this.panelAdicionarJogo.Size = new System.Drawing.Size(1088, 619);
@@ -1793,6 +1791,7 @@ namespace Final_Project
             this.panelAdicionarPlantelCasa.Name = "panelAdicionarPlantelCasa";
             this.panelAdicionarPlantelCasa.Size = new System.Drawing.Size(1032, 550);
             this.panelAdicionarPlantelCasa.TabIndex = 60;
+            this.panelAdicionarPlantelCasa.Visible = false;
             // 
             // retroceder1_button
             // 
@@ -1811,16 +1810,18 @@ namespace Final_Project
             // 
             // TAD_casa_combobox
             // 
+            this.TAD_casa_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TAD_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TAD_casa_combobox.FormattingEnabled = true;
             this.TAD_casa_combobox.Location = new System.Drawing.Point(657, 205);
             this.TAD_casa_combobox.Name = "TAD_casa_combobox";
             this.TAD_casa_combobox.Size = new System.Drawing.Size(208, 36);
             this.TAD_casa_combobox.TabIndex = 61;
-            this.TAD_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.TAD_casa_combobox_SelectedIndexChanged);
+            this.TAD_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.TAD_combobox_SelectedIndexChanged);
             // 
             // comboBox6
             // 
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(657, 201);
@@ -1830,46 +1831,51 @@ namespace Final_Project
             // 
             // TPR_casa_combobox
             // 
+            this.TPR_casa_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TPR_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPR_casa_combobox.FormattingEnabled = true;
             this.TPR_casa_combobox.Location = new System.Drawing.Point(657, 165);
             this.TPR_casa_combobox.Name = "TPR_casa_combobox";
             this.TPR_casa_combobox.Size = new System.Drawing.Size(208, 36);
             this.TPR_casa_combobox.TabIndex = 61;
-            this.TPR_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.TPR_casa_combobox_SelectedIndexChanged);
+            this.TPR_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.TPR_combobox_SelectedIndexChanged);
             // 
             // JC1_casa_combobox
             // 
+            this.JC1_casa_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JC1_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JC1_casa_combobox.FormattingEnabled = true;
             this.JC1_casa_combobox.Location = new System.Drawing.Point(216, 164);
             this.JC1_casa_combobox.Name = "JC1_casa_combobox";
             this.JC1_casa_combobox.Size = new System.Drawing.Size(208, 36);
             this.JC1_casa_combobox.TabIndex = 61;
-            this.JC1_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC1_casa_combobox_SelectedIndexChanged);
+            this.JC1_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC1_combobox_SelectedIndexChanged);
             // 
             // GR_casa_combobox
             // 
+            this.GR_casa_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GR_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GR_casa_combobox.FormattingEnabled = true;
             this.GR_casa_combobox.Location = new System.Drawing.Point(216, 326);
             this.GR_casa_combobox.Name = "GR_casa_combobox";
             this.GR_casa_combobox.Size = new System.Drawing.Size(208, 36);
             this.GR_casa_combobox.TabIndex = 61;
-            this.GR_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.GR_casa_combobox_SelectedIndexChanged);
+            this.GR_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.GR_combobox_SelectedIndexChanged);
             // 
             // JC4_casa_combobox
             // 
+            this.JC4_casa_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JC4_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JC4_casa_combobox.FormattingEnabled = true;
             this.JC4_casa_combobox.Location = new System.Drawing.Point(216, 281);
             this.JC4_casa_combobox.Name = "JC4_casa_combobox";
             this.JC4_casa_combobox.Size = new System.Drawing.Size(208, 36);
             this.JC4_casa_combobox.TabIndex = 61;
-            this.JC4_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC4_casa_combobox_SelectedIndexChanged);
+            this.JC4_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC4_combobox_SelectedIndexChanged);
             // 
             // comboBox7
             // 
+            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Location = new System.Drawing.Point(216, 281);
@@ -1879,23 +1885,25 @@ namespace Final_Project
             // 
             // JC3_casa_combobox
             // 
+            this.JC3_casa_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JC3_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JC3_casa_combobox.FormattingEnabled = true;
             this.JC3_casa_combobox.Location = new System.Drawing.Point(216, 242);
             this.JC3_casa_combobox.Name = "JC3_casa_combobox";
             this.JC3_casa_combobox.Size = new System.Drawing.Size(208, 36);
             this.JC3_casa_combobox.TabIndex = 61;
-            this.JC3_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC3_casa_combobox_SelectedIndexChanged);
+            this.JC3_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC3_combobox_SelectedIndexChanged);
             // 
             // JC2_casa_combobox
             // 
+            this.JC2_casa_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JC2_casa_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JC2_casa_combobox.FormattingEnabled = true;
             this.JC2_casa_combobox.Location = new System.Drawing.Point(216, 201);
             this.JC2_casa_combobox.Name = "JC2_casa_combobox";
             this.JC2_casa_combobox.Size = new System.Drawing.Size(208, 36);
             this.JC2_casa_combobox.TabIndex = 61;
-            this.JC2_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC2_casa_combobox_SelectedIndexChanged);
+            this.JC2_casa_combobox.SelectedIndexChanged += new System.EventHandler(this.JC2_combobox_SelectedIndexChanged);
             // 
             // label37
             // 
@@ -1916,7 +1924,7 @@ namespace Final_Project
             this.proximo1_button.Location = new System.Drawing.Point(880, 475);
             this.proximo1_button.Margin = new System.Windows.Forms.Padding(4);
             this.proximo1_button.Name = "proximo1_button";
-            this.proximo1_button.Size = new System.Drawing.Size(108, 51);
+            this.proximo1_button.Size = new System.Drawing.Size(124, 51);
             this.proximo1_button.TabIndex = 60;
             this.proximo1_button.Text = "Próximo";
             this.proximo1_button.UseVisualStyleBackColor = false;
@@ -2040,7 +2048,6 @@ namespace Final_Project
             this.panelAdicionarPlantelFora.Controls.Add(this.label40);
             this.panelAdicionarPlantelFora.Controls.Add(this.label41);
             this.panelAdicionarPlantelFora.Controls.Add(this.label42);
-            this.panelAdicionarPlantelFora.Controls.Add(this.label43);
             this.panelAdicionarPlantelFora.Controls.Add(this.label44);
             this.panelAdicionarPlantelFora.Controls.Add(this.label45);
             this.panelAdicionarPlantelFora.Controls.Add(this.label46);
@@ -2050,6 +2057,7 @@ namespace Final_Project
             this.panelAdicionarPlantelFora.Name = "panelAdicionarPlantelFora";
             this.panelAdicionarPlantelFora.Size = new System.Drawing.Size(1026, 547);
             this.panelAdicionarPlantelFora.TabIndex = 63;
+            this.panelAdicionarPlantelFora.Visible = false;
             // 
             // retroceder2_button
             // 
@@ -2068,15 +2076,18 @@ namespace Final_Project
             // 
             // TAD_fora_combobox
             // 
+            this.TAD_fora_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TAD_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TAD_fora_combobox.FormattingEnabled = true;
             this.TAD_fora_combobox.Location = new System.Drawing.Point(654, 212);
             this.TAD_fora_combobox.Name = "TAD_fora_combobox";
             this.TAD_fora_combobox.Size = new System.Drawing.Size(208, 36);
             this.TAD_fora_combobox.TabIndex = 82;
+            this.TAD_fora_combobox.SelectedIndexChanged += new System.EventHandler(this.TAD_fora_combobox_SelectedIndexChanged);
             // 
             // comboBox3
             // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(654, 208);
@@ -2086,42 +2097,51 @@ namespace Final_Project
             // 
             // TPR_fora_combobox
             // 
+            this.TPR_fora_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TPR_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPR_fora_combobox.FormattingEnabled = true;
             this.TPR_fora_combobox.Location = new System.Drawing.Point(654, 172);
             this.TPR_fora_combobox.Name = "TPR_fora_combobox";
             this.TPR_fora_combobox.Size = new System.Drawing.Size(208, 36);
             this.TPR_fora_combobox.TabIndex = 79;
+            this.TPR_fora_combobox.SelectedIndexChanged += new System.EventHandler(this.TPR_fora_combobox_SelectedIndexChanged);
             // 
             // JC1_fora_combobox
             // 
+            this.JC1_fora_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JC1_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JC1_fora_combobox.FormattingEnabled = true;
             this.JC1_fora_combobox.Location = new System.Drawing.Point(213, 171);
             this.JC1_fora_combobox.Name = "JC1_fora_combobox";
             this.JC1_fora_combobox.Size = new System.Drawing.Size(208, 36);
             this.JC1_fora_combobox.TabIndex = 78;
+            this.JC1_fora_combobox.SelectedIndexChanged += new System.EventHandler(this.JC1_fora_combobox_SelectedIndexChanged);
             // 
             // GR_fora_combobox
             // 
+            this.GR_fora_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GR_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GR_fora_combobox.FormattingEnabled = true;
             this.GR_fora_combobox.Location = new System.Drawing.Point(213, 333);
             this.GR_fora_combobox.Name = "GR_fora_combobox";
             this.GR_fora_combobox.Size = new System.Drawing.Size(208, 36);
             this.GR_fora_combobox.TabIndex = 77;
+            this.GR_fora_combobox.SelectedIndexChanged += new System.EventHandler(this.GR_fora_combobox_SelectedIndexChanged);
             // 
             // JC4_fora_combobox
             // 
+            this.JC4_fora_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JC4_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JC4_fora_combobox.FormattingEnabled = true;
             this.JC4_fora_combobox.Location = new System.Drawing.Point(213, 288);
             this.JC4_fora_combobox.Name = "JC4_fora_combobox";
             this.JC4_fora_combobox.Size = new System.Drawing.Size(208, 36);
             this.JC4_fora_combobox.TabIndex = 76;
+            this.JC4_fora_combobox.SelectedIndexChanged += new System.EventHandler(this.JC4_fora_combobox_SelectedIndexChanged);
             // 
             // comboBox10
             // 
+            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox10.FormattingEnabled = true;
             this.comboBox10.Location = new System.Drawing.Point(213, 288);
@@ -2131,21 +2151,25 @@ namespace Final_Project
             // 
             // JC3_fora_combobox
             // 
+            this.JC3_fora_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JC3_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JC3_fora_combobox.FormattingEnabled = true;
             this.JC3_fora_combobox.Location = new System.Drawing.Point(213, 249);
             this.JC3_fora_combobox.Name = "JC3_fora_combobox";
             this.JC3_fora_combobox.Size = new System.Drawing.Size(208, 36);
             this.JC3_fora_combobox.TabIndex = 74;
+            this.JC3_fora_combobox.SelectedIndexChanged += new System.EventHandler(this.JC3_fora_combobox_SelectedIndexChanged);
             // 
             // JC2_fora_combobox
             // 
+            this.JC2_fora_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JC2_fora_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JC2_fora_combobox.FormattingEnabled = true;
             this.JC2_fora_combobox.Location = new System.Drawing.Point(213, 208);
             this.JC2_fora_combobox.Name = "JC2_fora_combobox";
             this.JC2_fora_combobox.Size = new System.Drawing.Size(208, 36);
             this.JC2_fora_combobox.TabIndex = 81;
+            this.JC2_fora_combobox.SelectedIndexChanged += new System.EventHandler(this.JC2_fora_combobox_SelectedIndexChanged);
             // 
             // label38
             // 
@@ -2166,7 +2190,7 @@ namespace Final_Project
             this.proximo2_button.Location = new System.Drawing.Point(893, 469);
             this.proximo2_button.Margin = new System.Windows.Forms.Padding(4);
             this.proximo2_button.Name = "proximo2_button";
-            this.proximo2_button.Size = new System.Drawing.Size(108, 51);
+            this.proximo2_button.Size = new System.Drawing.Size(118, 51);
             this.proximo2_button.TabIndex = 73;
             this.proximo2_button.Text = "Próximo";
             this.proximo2_button.UseVisualStyleBackColor = false;
@@ -2211,16 +2235,6 @@ namespace Final_Project
             this.label42.Size = new System.Drawing.Size(37, 28);
             this.label42.TabIndex = 70;
             this.label42.Text = "PR";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(166, 328);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(39, 28);
-            this.label43.TabIndex = 68;
-            this.label43.Text = "GR";
             // 
             // label44
             // 
@@ -2272,19 +2286,20 @@ namespace Final_Project
             this.label48.TabIndex = 64;
             this.label48.Text = "JC";
             // 
-            // panel3
+            // panelAdicionarResultadoJogo
             // 
-            this.panel3.Controls.Add(this.retroceder4_button);
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Controls.Add(this.resultadoEquipaCasa_textbox);
-            this.panel3.Controls.Add(this.label51);
-            this.panel3.Controls.Add(this.label50);
-            this.panel3.Controls.Add(this.label49);
-            this.panel3.Controls.Add(this.guardarJogo);
-            this.panel3.Location = new System.Drawing.Point(33, 51);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1029, 547);
-            this.panel3.TabIndex = 91;
+            this.panelAdicionarResultadoJogo.Controls.Add(this.retroceder4_button);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.resultadoEquipaFora_textbox);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.resultadoEquipaCasa_textbox);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.label51);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.label50);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.label49);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.guardarJogo);
+            this.panelAdicionarResultadoJogo.Location = new System.Drawing.Point(33, 51);
+            this.panelAdicionarResultadoJogo.Name = "panelAdicionarResultadoJogo";
+            this.panelAdicionarResultadoJogo.Size = new System.Drawing.Size(1029, 547);
+            this.panelAdicionarResultadoJogo.TabIndex = 91;
+            this.panelAdicionarResultadoJogo.Visible = false;
             // 
             // retroceder4_button
             // 
@@ -2301,13 +2316,13 @@ namespace Final_Project
             this.retroceder4_button.UseVisualStyleBackColor = false;
             this.retroceder4_button.Click += new System.EventHandler(this.retroceder4_button_Click);
             // 
-            // textBox2
+            // resultadoEquipaFora_textbox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(660, 232);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(49, 51);
-            this.textBox2.TabIndex = 87;
+            this.resultadoEquipaFora_textbox.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultadoEquipaFora_textbox.Location = new System.Drawing.Point(660, 232);
+            this.resultadoEquipaFora_textbox.Name = "resultadoEquipaFora_textbox";
+            this.resultadoEquipaFora_textbox.Size = new System.Drawing.Size(49, 51);
+            this.resultadoEquipaFora_textbox.TabIndex = 87;
             // 
             // resultadoEquipaCasa_textbox
             // 
@@ -2353,10 +2368,10 @@ namespace Final_Project
             this.guardarJogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.guardarJogo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardarJogo.ForeColor = System.Drawing.Color.White;
-            this.guardarJogo.Location = new System.Drawing.Point(898, 468);
+            this.guardarJogo.Location = new System.Drawing.Point(893, 468);
             this.guardarJogo.Margin = new System.Windows.Forms.Padding(4);
             this.guardarJogo.Name = "guardarJogo";
-            this.guardarJogo.Size = new System.Drawing.Size(103, 51);
+            this.guardarJogo.Size = new System.Drawing.Size(108, 51);
             this.guardarJogo.TabIndex = 74;
             this.guardarJogo.Text = "Guardar";
             this.guardarJogo.UseVisualStyleBackColor = false;
@@ -2366,14 +2381,14 @@ namespace Final_Project
             // 
             this.panelAdicionarArbitros.Controls.Add(this.retroceder3_button);
             this.panelAdicionarArbitros.Controls.Add(this.proximo3_button);
-            this.panelAdicionarArbitros.Controls.Add(this.comboBox2);
-            this.panelAdicionarArbitros.Controls.Add(this.comboBox4);
-            this.panelAdicionarArbitros.Controls.Add(this.comboBox5);
+            this.panelAdicionarArbitros.Controls.Add(this.arbitro2_combobox);
+            this.panelAdicionarArbitros.Controls.Add(this.arbitro1_combobox);
             this.panelAdicionarArbitros.Controls.Add(this.label52);
             this.panelAdicionarArbitros.Location = new System.Drawing.Point(33, 51);
             this.panelAdicionarArbitros.Name = "panelAdicionarArbitros";
             this.panelAdicionarArbitros.Size = new System.Drawing.Size(1029, 550);
             this.panelAdicionarArbitros.TabIndex = 83;
+            this.panelAdicionarArbitros.Visible = false;
             // 
             // retroceder3_button
             // 
@@ -2399,38 +2414,33 @@ namespace Final_Project
             this.proximo3_button.Location = new System.Drawing.Point(877, 468);
             this.proximo3_button.Margin = new System.Windows.Forms.Padding(4);
             this.proximo3_button.Name = "proximo3_button";
-            this.proximo3_button.Size = new System.Drawing.Size(108, 51);
+            this.proximo3_button.Size = new System.Drawing.Size(124, 51);
             this.proximo3_button.TabIndex = 90;
             this.proximo3_button.Text = "Próximo";
             this.proximo3_button.UseVisualStyleBackColor = false;
             this.proximo3_button.Click += new System.EventHandler(this.proximo3_button_Click);
             // 
-            // comboBox2
+            // arbitro2_combobox
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(422, 256);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(208, 36);
-            this.comboBox2.TabIndex = 89;
+            this.arbitro2_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.arbitro2_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbitro2_combobox.FormattingEnabled = true;
+            this.arbitro2_combobox.Location = new System.Drawing.Point(422, 260);
+            this.arbitro2_combobox.Name = "arbitro2_combobox";
+            this.arbitro2_combobox.Size = new System.Drawing.Size(208, 36);
+            this.arbitro2_combobox.TabIndex = 89;
+            this.arbitro2_combobox.SelectedIndexChanged += new System.EventHandler(this.arbitro2_combobox_SelectedIndexChanged);
             // 
-            // comboBox4
+            // arbitro1_combobox
             // 
-            this.comboBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(422, 252);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(208, 36);
-            this.comboBox4.TabIndex = 88;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(422, 207);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(208, 36);
-            this.comboBox5.TabIndex = 87;
+            this.arbitro1_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.arbitro1_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbitro1_combobox.FormattingEnabled = true;
+            this.arbitro1_combobox.Location = new System.Drawing.Point(422, 207);
+            this.arbitro1_combobox.Name = "arbitro1_combobox";
+            this.arbitro1_combobox.Size = new System.Drawing.Size(208, 36);
+            this.arbitro1_combobox.TabIndex = 87;
+            this.arbitro1_combobox.SelectedIndexChanged += new System.EventHandler(this.arbitro1_combobox_SelectedIndexChanged);
             // 
             // label52
             // 
@@ -2476,8 +2486,8 @@ namespace Final_Project
             this.panelAdicionarPlantelCasa.PerformLayout();
             this.panelAdicionarPlantelFora.ResumeLayout(false);
             this.panelAdicionarPlantelFora.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelAdicionarResultadoJogo.ResumeLayout(false);
+            this.panelAdicionarResultadoJogo.PerformLayout();
             this.panelAdicionarArbitros.ResumeLayout(false);
             this.panelAdicionarArbitros.PerformLayout();
             this.ResumeLayout(false);
@@ -2619,9 +2629,8 @@ namespace Final_Project
         private System.Windows.Forms.ComboBox JC1_casa_combobox;
         private System.Windows.Forms.Panel panelAdicionarArbitros;
         private System.Windows.Forms.Button proximo3_button;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox arbitro2_combobox;
+        private System.Windows.Forms.ComboBox arbitro1_combobox;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.ComboBox GR_casa_combobox;
         private System.Windows.Forms.ComboBox JC4_casa_combobox;
@@ -2647,14 +2656,13 @@ namespace Final_Project
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Panel panelAdicionarResultadoJogo;
+        private System.Windows.Forms.TextBox resultadoEquipaFora_textbox;
         private System.Windows.Forms.TextBox resultadoEquipaCasa_textbox;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label50;
