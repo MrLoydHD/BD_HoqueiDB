@@ -528,7 +528,7 @@ BEGIN
     -- Remove o especialista técnico
     DELETE FROM HoqueiPortugues.EspecialistaTecnico WHERE ID = @Especialista_ID;
 END
-
+GO
 /*
 Simular jogo dando como input o resultado
 */
@@ -538,9 +538,15 @@ IF OBJECT_ID('HoqueiPortugues.simularJogo', 'P') IS NOT NULL DROP PROCEDURE Hoqu
 GO
 
 CREATE PROCEDURE HoqueiPortugues.simularJogo 
-    @Jogo_ID AS int , @Resultado_F AS int, @Resultado_C AS int, @Plantel_F_ID AS int, @Plantel_C_ID AS int
+    @Jogo_ID AS int , @Resultado_F AS int, @Resultado_C AS int
 AS
 BEGIN
+    DECLARE @Plantel_F_ID int, @Plantel_C_ID int;
+
+    SELECT TOP 2 @Plantel_F_ID = ID, @Plantel_C_ID = LAG(ID,1,0) OVER (ORDER BY ID)
+    FROM HoqueiPortugues.Plantel
+    ORDER BY ID DESC;
+
     UPDATE HoqueiPortugues.Jogo 
     SET Resultado_F = @Resultado_F, 
     Resultado_C = @Resultado_C,
@@ -1033,3 +1039,30 @@ BEGIN
         Jogo.Data_hora
     FROM HoqueiPortugues.Jogo
 END
+
+/*
+Inserir dois arbitros no e_arbitrado
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.inserirArbitros', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.inserirArbitros;
+
+GO
+
+CREATE PROCEDURE HoqueiPortugues.inserirArbitros 
+    @Jogo_ID AS int , @ArbitroPrincipal_ID AS int, @ArbitroAuxiliar_ID AS int
+
+AS
+BEGIN
+    --Verifica se os arbitros são diferentes pessoas
+    IF @ArbitroPrincipal_ID = @ArbitroAuxiliar_ID
+        BEGIN
+            RAISERROR('Arbitros não podem ser a mesma pessoa', 16, 1);
+            RETURN;
+        END
+
+    INSERT INTO HoqueiPortugues.e_arbitrado (Jogo_ID, Arbitro_ID)
+    VALUES (@Jogo_ID, @ArbitroPrincipal_ID),
+           (@Jogo_ID, @ArbitroAuxiliar_ID);
+
+END;
