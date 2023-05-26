@@ -1039,30 +1039,3 @@ BEGIN
         Jogo.Data_hora
     FROM HoqueiPortugues.Jogo
 END
-
-/*
-Inserir dois arbitros no e_arbitrado
-*/
-
---Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.inserirArbitros', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.inserirArbitros;
-
-GO
-
-CREATE PROCEDURE HoqueiPortugues.inserirArbitros 
-    @Jogo_ID AS int , @ArbitroPrincipal_ID AS int, @ArbitroAuxiliar_ID AS int
-
-AS
-BEGIN
-    --Verifica se os arbitros são diferentes pessoas
-    IF @ArbitroPrincipal_ID = @ArbitroAuxiliar_ID
-        BEGIN
-            RAISERROR('Arbitros não podem ser a mesma pessoa', 16, 1);
-            RETURN;
-        END
-
-    INSERT INTO HoqueiPortugues.e_arbitrado (Jogo_ID, Arbitro_ID)
-    VALUES (@Jogo_ID, @ArbitroPrincipal_ID),
-           (@Jogo_ID, @ArbitroAuxiliar_ID);
-
-END;
