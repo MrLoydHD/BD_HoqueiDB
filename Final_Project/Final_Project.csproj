@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arbitro.cs" />
+    <Compile Include="ButtonData.cs" />
     <Compile Include="Jogador.cs" />
     <Compile Include="Jogo.cs" />
     <Compile Include="JogoInfo.cs" />

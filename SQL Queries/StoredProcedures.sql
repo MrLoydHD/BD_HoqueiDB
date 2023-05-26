@@ -671,13 +671,14 @@ IF OBJECT_ID('HoqueiPortugues.eliminarArbitros', 'P') IS NOT NULL DROP PROCEDURE
 GO
 
 CREATE PROCEDURE HoqueiPortugues.eliminarArbitros 
+    @Jogo_ID AS int
 AS 
 BEGIN
-    DELETE TOP (2) FROM HoqueiPortugues.e_arbitrado WHERE Jogo_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Jogo);
+    DELETE TOP (2) FROM HoqueiPortugues.e_arbitrado WHERE Jogo_ID = @Jogo_ID;
 END
 GO    
 
-EXEC HoqueiPortugues.eliminarArbitros;
+EXEC HoqueiPortugues.eliminarArbitros @Jogo_ID = 21;
 
 
 /*

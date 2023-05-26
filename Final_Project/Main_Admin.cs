@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace Final_Project
 {
@@ -73,6 +74,8 @@ namespace Final_Project
                 dataTable.Columns.Add("Posição", typeof(int));
 
                 dataTable.Load(reader);
+
+                reader.Close();
 
                 // Preencher coluna "Posição" com números das linhas
                 for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -176,6 +179,7 @@ namespace Final_Project
                 i++;
             }
 
+            reader.Close();
             cn.Close();
         }
 
@@ -341,6 +345,9 @@ namespace Final_Project
                 i++;
             }
 
+            reader.Close();
+            reader1.Close();
+            reader2.Close();
             cn.Close();
             cn1.Close();
             cn2.Close();
@@ -364,34 +371,55 @@ namespace Final_Project
             panelCalendario.Visible = false;
             panelDetalhes.Visible = false;
             panelAdicionarJogo.Visible = true;
-            addJogo(jogoID);
-        }
-
-        private void addJogo(int jogoID)
-        {
-            loadAddPlantel1(jogoID);
+            panelAdicionarPlantelCasa.Visible = true;
+            panelAdicionarPlantelFora.Visible = false;
+            panelAdicionarArbitros.Visible = false;
+            panelAdicionarResultadoJogo.Visible = false;
+            classificacaoButton.Visible = false;
+            calendario_button.Visible = false;
+            Equipa_button.Visible = false;
+            jogadores.Visible = false;
+            pictureBox1.Visible = false;
+            loadAddPlantel(jogoID, "C");
         }
 
         private Dictionary<string, Jogador> jogadoresSelecionadosMap = new Dictionary<string, Jogador>
         {
-            { "JC1_casa_selected", null },
-            { "JC2_casa_selected", null },
-            { "JC3_casa_selected", null },
-            { "JC4_casa_selected", null },
-            { "GR_casa_selected", null },
+            { "JC1_selected", null },
+            { "JC2_selected", null },
+            { "JC3_selected", null },
+            { "JC4_selected", null },
+            { "GR_selected", null },
         };
 
         private Dictionary<string, Treinador> treinadoresSelecionadosMap = new Dictionary<string, Treinador>
         {
-            { "TPR_casa_selected", null },
-            { "TAD_casa_selected", null },
+            { "TPR_selected", null },
+            { "TAD_selected", null },
         };
-        private void loadAddPlantel1(int jogoID)
+
+        private void clearDic (Dictionary<string, Jogador> dic, Dictionary<string, Treinador> dic1)
         {
-            jogadoresSelecionadosMap.Clear();
-            treinadoresSelecionadosMap.Clear();
+            List<string> keys = new List<string>(dic.Keys);
+            foreach (string key in keys)
+            {
+                dic[key] = null;
+            }
+
+            List<string> keys1 = new List<string>(dic1.Keys);
+            foreach (string key in keys1)
+            {
+                dic1[key] = null;
+            }
+        }
+        private void loadAddPlantel(int jogoID, String casa_ou_fora)
+        {
+            clearDic(jogadoresSelecionadosMap, treinadoresSelecionadosMap);
 
             cn = getSGBDConnection();
+
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
 
             if (!verifySGBDConnection())
                 return;
@@ -399,47 +427,50 @@ namespace Final_Project
             SqlConnection cn1 = getSGBDConnection();
             cn1.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT Clube_C_ID, Jogador.ID AS JogadorID, Jogador.Nome AS NomeJogador, Jogador.Posicao FROM HoqueiPortugues.Jogo JOIN HoqueiPortugues.Clube ON Jogo.Clube_C_ID = Clube.ID JOIN HoqueiPortugues.Jogador ON Clube.ID = Jogador.Clube_ID WHERE Jogo.ID = @jogoID", cn);
+            SqlCommand cmd = new SqlCommand($"SELECT Clube_{(casa_ou_fora)}_ID, Jogador.ID AS JogadorID, Jogador.Nome AS NomeJogador, Jogador.Posicao FROM HoqueiPortugues.Jogo JOIN HoqueiPortugues.Clube ON Jogo.Clube_{(casa_ou_fora)}_ID = Clube.ID JOIN HoqueiPortugues.Jogador ON Clube.ID = Jogador.Clube_ID WHERE Jogo.ID = @jogoID", cn);
             cmd.Parameters.AddWithValue("@jogoID", jogoID);
             SqlDataReader reader = cmd.ExecuteReader();
 
-            SqlCommand cmd1 = new SqlCommand("SELECT Clube_C_ID, Treinador.ID AS TreinadorID, Treinador.Nome AS NomeTreinador, Treinador.Tipo_treinador FROM HoqueiPortugues.Jogo JOIN HoqueiPortugues.Clube ON Jogo.Clube_C_ID = Clube.ID JOIN HoqueiPortugues.Treinador ON Clube.ID = Treinador.Clube_ID WHERE Jogo.ID = @jogoID", cn1);
+            SqlCommand cmd1 = new SqlCommand($"SELECT Clube_{(casa_ou_fora)}_ID, Treinador.ID AS TreinadorID, Treinador.Nome AS NomeTreinador, Treinador.Tipo_treinador FROM HoqueiPortugues.Jogo JOIN HoqueiPortugues.Clube ON Jogo.Clube_{(casa_ou_fora)}_ID = Clube.ID JOIN HoqueiPortugues.Treinador ON Clube.ID = Treinador.Clube_ID WHERE Jogo.ID = @jogoID", cn1);
             cmd1.Parameters.AddWithValue("@jogoID", jogoID);
             SqlDataReader reader1 = cmd1.ExecuteReader();
 
-            //SqlCommand cmd1 = new SqlCommand("INSERT INTO HoqueiPortugues.Plantel (Clube_ID) VALUES (@clube_id)");
-            //cmd1.Parameters.AddWithValue("@clube_id", reader["Clube_C_ID"]);
-            //cmd1.Connection = cn;
-
-            //SqlCommand cmd2 = new SqlCommand("SET @PLANTEL_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Plantel)");
-            //cmd2.Connection = cn;
-
-            //try
-            //{
-            //    cmd2.ExecuteNonQuery();
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new Exception("Failed to update contact in database. \n ERROR MESSAGE: \n" + ex.Message);
-            //}
-
             while (reader.Read())
             {
-                proximo1_button.Tag = reader["Clube_C_ID"];
+                if(casa_ou_fora == "C")
+                {
+                    proximo1_button.Tag = new ButtonData(jogoID, int.Parse(reader[$"Clube_{(casa_ou_fora)}_ID"].ToString()));
+                }
+                else
+                {
+                    proximo2_button.Tag = new ButtonData(jogoID, int.Parse(reader[$"Clube_{(casa_ou_fora)}_ID"].ToString()));
+
+                }
                 int idJogador = Int32.Parse(reader["JogadorID"].ToString());
                 string nomeJogador = reader["NomeJogador"].ToString();
                 Jogador jogador = new Jogador(idJogador, nomeJogador);
 
-                if (reader["Posicao"].ToString() == "Jogador de Campo")
+                if (reader["Posicao"].ToString() == "Jogador de Campo" && casa_ou_fora == "C")
                 {
                     JC1_casa_combobox.Items.Add(jogador);
                     JC2_casa_combobox.Items.Add(jogador);
                     JC3_casa_combobox.Items.Add(jogador);
                     JC4_casa_combobox.Items.Add(jogador);
                 }
-                else
+                else if (reader["Posicao"].ToString() == "Guarda-Redes" && casa_ou_fora == "C")
                 {
                     GR_casa_combobox.Items.Add(jogador);
+                }
+                else if (reader["Posicao"].ToString() == "Jogador de Campo" && casa_ou_fora == "F")
+                {
+                    JC1_fora_combobox.Items.Add(jogador);
+                    JC2_fora_combobox.Items.Add(jogador);
+                    JC3_fora_combobox.Items.Add(jogador);
+                    JC4_fora_combobox.Items.Add(jogador);
+                }
+                else
+                {
+                    GR_fora_combobox.Items.Add(jogador);
                 }
             }
 
@@ -449,114 +480,678 @@ namespace Final_Project
                 string nomeTreinador = reader1["NomeTreinador"].ToString();
                 Treinador treinador = new Treinador(idTreinador, nomeTreinador);
             
-                if (reader1["Tipo_treinador"].ToString() == "Principal")
+                if (reader1["Tipo_treinador"].ToString() == "Principal" && casa_ou_fora == "C")
                 {
                     TPR_casa_combobox.Items.Add(treinador);
                 }
-                else
+                else if (reader1["Tipo_treinador"].ToString() == "Adjunto" && casa_ou_fora == "C")
                 {
                     TAD_casa_combobox.Items.Add(treinador);
                 }
+                else if (reader1["Tipo_treinador"].ToString() == "Principal" && casa_ou_fora == "F")
+                {
+                    TPR_fora_combobox.Items.Add(treinador);
+                }
+                else
+                {
+                    TAD_fora_combobox.Items.Add(treinador);
+                }
             }
 
+            reader.Close();
+            reader1.Close();
             cn.Close();
             cn1.Close();
         }
 
+        private Dictionary<string, Arbitro> arbitrosSelecionadosMap = new Dictionary<string, Arbitro>
+        {
+            { "Arbitro1_selected", null },
+            { "Arbitro2_selected", null },
+        };
+
+        private void clearArbitros(Dictionary<string, Arbitro> dic)
+        {
+            List<string> keys1 = new List<string>(dic.Keys);
+            foreach (string key in keys1)
+            {
+                dic[key] = null;
+            }
+        }
+
+        private void loadAddArbitros(int jogoID)
+        {
+            clearArbitros(arbitrosSelecionadosMap);
+
+            retroceder4_button.Tag = jogoID;
+            guardarJogo.Tag = jogoID;
+
+            cn = getSGBDConnection();
+
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand("SELECT ID, Nome FROM HoqueiPortugues.Arbitro", cn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            proximo3_button.Tag = jogoID;
+
+            while (reader.Read())
+            {
+                int idArbitro = Int32.Parse(reader["ID"].ToString());
+                string nomeArbitro = reader["Nome"].ToString();
+                Arbitro arbitro = new Arbitro(idArbitro, nomeArbitro);
+
+                arbitro1_combobox.Items.Add(arbitro);
+                arbitro2_combobox.Items.Add(arbitro);
+            }
+
+            reader.Close();
+            cn.Close();
+        }
+
         private void retroceder1_button_Click(object sender, EventArgs e)
         {
-            // Volta à pagina dos jogos
+            // Volta à pagina dos jogos, limpa os comboboxes e o texto
+            JC1_casa_combobox.Items.Clear();
+            JC2_casa_combobox.Items.Clear();
+            JC3_casa_combobox.Items.Clear();
+            JC4_casa_combobox.Items.Clear();
+            GR_casa_combobox.Items.Clear();
+            TPR_casa_combobox.Items.Clear();
+            TAD_casa_combobox.Items.Clear();
+            JC1_casa_combobox.Text = "";
+            JC2_casa_combobox.Text = "";
+            JC3_casa_combobox.Text = "";
+            JC4_casa_combobox.Text = "";
+            GR_casa_combobox.Text = "";
+            TPR_casa_combobox.Text = "";
+            TAD_casa_combobox.Text = "";
             panelClassificacao.Visible = false;
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
             panelAdicionarJogo.Visible = false;
+            classificacaoButton.Visible = true;
+            calendario_button.Visible = true;
+            Equipa_button.Visible = true;
+            jogadores.Visible = true;
+            pictureBox1.Visible = true;
         }
 
         private void retroceder2_button_Click(object sender, EventArgs e)
         {
-            // Elimina o ultimo plantel e volta à pagina dos jogos
+            // Elimina o ultimo plantel e volta à pagina dos jogos e limpa os comboboxes e o texto dos 2 panels
+            SqlConnection cn = getSGBDConnection();
+            cn.Open();
+
+            SqlCommand cmd = new SqlCommand("HoqueiPortugues.STeliminarUltimoPlantel", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to delete plantel in database. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            JC1_casa_combobox.Items.Clear();
+            JC2_casa_combobox.Items.Clear();
+            JC3_casa_combobox.Items.Clear();
+            JC4_casa_combobox.Items.Clear();
+            GR_casa_combobox.Items.Clear();
+            TPR_casa_combobox.Items.Clear();
+            TAD_casa_combobox.Items.Clear();
+            JC1_casa_combobox.Text = "";
+            JC2_casa_combobox.Text = "";
+            JC3_casa_combobox.Text = "";
+            JC4_casa_combobox.Text = "";
+            GR_casa_combobox.Text = "";
+            TPR_casa_combobox.Text = "";
+            TAD_casa_combobox.Text = "";
+            JC1_fora_combobox.Items.Clear();
+            JC2_fora_combobox.Items.Clear();
+            JC3_fora_combobox.Items.Clear();
+            JC4_fora_combobox.Items.Clear();
+            GR_fora_combobox.Items.Clear();
+            TPR_fora_combobox.Items.Clear();
+            TAD_fora_combobox.Items.Clear();
+            JC1_fora_combobox.Text = "";
+            JC2_fora_combobox.Text = "";
+            JC3_fora_combobox.Text = "";
+            JC4_fora_combobox.Text = "";
+            GR_fora_combobox.Text = "";
+            TPR_fora_combobox.Text = "";
+            TAD_fora_combobox.Text = "";
+            panelClassificacao.Visible = false;
+            panelCalendario.Visible = true;
+            panelDetalhes.Visible = false;
+            panelAdicionarJogo.Visible = false;
+            classificacaoButton.Visible = true;
+            calendario_button.Visible = true;
+            Equipa_button.Visible = true;
+            jogadores.Visible = true;
+            pictureBox1.Visible = true;
+
         }
 
         private void retroceder4_button_Click(object sender, EventArgs e)
         {
-            // Elimina os ultimos 2 planteis e o e_arbitrado e volta à pagina dos jogos
+            // Elimina os ultimos 2 planteis e o e_arbitrado e volta à pagina dos jogos e limpa os comboboxes e o texto de todos os panels
+            Button retroceder4_button = (Button)sender;
+            int jogoID = int.Parse(retroceder4_button.Tag.ToString());
+
+            SqlConnection cn = getSGBDConnection();
+            SqlConnection cn1 = getSGBDConnection();
+            cn.Open();
+            cn1.Open();
+
+            SqlCommand cmd = new SqlCommand("HoqueiPortugues.STeliminarUltimosPlanteis", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to delete plantel in database. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            SqlCommand cmd1 = new SqlCommand("HoqueiPortugues.eliminarArbitros", cn1);
+            cmd1.CommandType = CommandType.StoredProcedure;
+            cmd1.Parameters.Add(new SqlParameter("@Jogo_ID", jogoID));
+            try
+            {
+                cmd1.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to delete e_arbitrado in database. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn1.Close();
+            }
+
+            JC1_casa_combobox.Items.Clear();
+            JC2_casa_combobox.Items.Clear();
+            JC3_casa_combobox.Items.Clear();
+            JC4_casa_combobox.Items.Clear();
+            GR_casa_combobox.Items.Clear();
+            TPR_casa_combobox.Items.Clear();
+            TAD_casa_combobox.Items.Clear();
+            JC1_casa_combobox.Text = "";
+            JC2_casa_combobox.Text = "";
+            JC3_casa_combobox.Text = "";
+            JC4_casa_combobox.Text = "";
+            GR_casa_combobox.Text = "";
+            TPR_casa_combobox.Text = "";
+            TAD_casa_combobox.Text = "";
+            JC1_fora_combobox.Items.Clear();
+            JC2_fora_combobox.Items.Clear();
+            JC3_fora_combobox.Items.Clear();
+            JC4_fora_combobox.Items.Clear();
+            GR_fora_combobox.Items.Clear();
+            TPR_fora_combobox.Items.Clear();
+            TAD_fora_combobox.Items.Clear();
+            JC1_fora_combobox.Text = "";
+            JC2_fora_combobox.Text = "";
+            JC3_fora_combobox.Text = "";
+            JC4_fora_combobox.Text = "";
+            GR_fora_combobox.Text = "";
+            TPR_fora_combobox.Text = "";
+            TAD_fora_combobox.Text = "";
+            arbitro1_combobox.Items.Clear();
+            arbitro2_combobox.Items.Clear();
+            arbitro1_combobox.Text = "";
+            arbitro2_combobox.Text = "";
+            resultadoEquipaCasa_textbox.Text = "";
+            resultadoEquipaFora_textbox.Text = "";
+            panelClassificacao.Visible = false;
+            panelCalendario.Visible = true;
+            panelDetalhes.Visible = false;
+            panelAdicionarJogo.Visible = false;
+            classificacaoButton.Visible = true;
+            calendario_button.Visible = true;
+            Equipa_button.Visible = true;
+            jogadores.Visible = true;
+            pictureBox1.Visible = true;
+
+
         }
 
         private void retroceder3_button_Click(object sender, EventArgs e)
         {
-            // Elimina os ultimos 2 planteis e volta a pagina dos jogos
+            // Elimina os ultimos 2 planteis e volta a pagina dos jogos e limpa os comboboxes e o texto dos 3 panels
+            SqlConnection cn = getSGBDConnection();
+            cn.Open();
+
+            SqlCommand cmd = new SqlCommand("HoqueiPortugues.STeliminarUltimosPlanteis", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to delete plantel in database. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            JC1_casa_combobox.Items.Clear();
+            JC2_casa_combobox.Items.Clear();
+            JC3_casa_combobox.Items.Clear();
+            JC4_casa_combobox.Items.Clear();
+            GR_casa_combobox.Items.Clear();
+            TPR_casa_combobox.Items.Clear();
+            TAD_casa_combobox.Items.Clear();
+            JC1_casa_combobox.Text = "";
+            JC2_casa_combobox.Text = "";
+            JC3_casa_combobox.Text = "";
+            JC4_casa_combobox.Text = "";
+            GR_casa_combobox.Text = "";
+            TPR_casa_combobox.Text = "";
+            TAD_casa_combobox.Text = "";
+            JC1_fora_combobox.Items.Clear();
+            JC2_fora_combobox.Items.Clear();
+            JC3_fora_combobox.Items.Clear();
+            JC4_fora_combobox.Items.Clear();
+            GR_fora_combobox.Items.Clear();
+            TPR_fora_combobox.Items.Clear();
+            TAD_fora_combobox.Items.Clear();
+            JC1_fora_combobox.Text = "";
+            JC2_fora_combobox.Text = "";
+            JC3_fora_combobox.Text = "";
+            JC4_fora_combobox.Text = "";
+            GR_fora_combobox.Text = "";
+            TPR_fora_combobox.Text = "";
+            TAD_fora_combobox.Text = "";
+            arbitro1_combobox.Items.Clear();
+            arbitro2_combobox.Items.Clear();
+            arbitro1_combobox.Text = "";
+            arbitro2_combobox.Text = "";
+            panelClassificacao.Visible = false;
+            panelCalendario.Visible = true;
+            panelDetalhes.Visible = false;
+            panelAdicionarJogo.Visible = false;
+            classificacaoButton.Visible = true;
+            calendario_button.Visible = true;
+            Equipa_button.Visible = true;
+            jogadores.Visible = true;
+            pictureBox1.Visible = true;
+
         }
 
         private void proximo1_button_Click(object sender, EventArgs e)
         {
+            SqlConnection cn = getSGBDConnection();
             SqlConnection cn1 = getSGBDConnection();
+            SqlConnection cn2 = getSGBDConnection();
+            SqlConnection cn3 = getSGBDConnection();
+            cn.Open();
             cn1.Open();
+            cn2.Open();
+            cn3.Open();
+
+            int idJogo = ((ButtonData)proximo1_button.Tag).IDJogo;
+
             //verificar se todos os jogadores e treinadores foram selecionados
             //criar plantel
             if (JC1_casa_combobox.SelectedItem != null && JC2_casa_combobox.SelectedItem != null && JC3_casa_combobox.SelectedItem != null && JC4_casa_combobox.SelectedItem != null && GR_casa_combobox.SelectedItem != null && TPR_casa_combobox.SelectedItem != null && TAD_casa_combobox.SelectedItem != null)
             {
-                Button proximo1_button = (Button)sender;
-                int idClube = int.Parse(proximo1_button.Tag.ToString());
-                int idJogador1 = jogadoresSelecionadosMap["JC1_casa_selected"].ID;
-                int idJogador2 = jogadoresSelecionadosMap["JC2_casa_selected"].ID;
-                int idJogador3 = jogadoresSelecionadosMap["JC3_casa_selected"].ID;
-                int idJogador4 = jogadoresSelecionadosMap["JC4_casa_selected"].ID;
-                int idJogadorGR = jogadoresSelecionadosMap["GR_casa_selected"].ID;
-                int idTreinadorPR = treinadoresSelecionadosMap["TPR_casa_selected"].ID;
-                int idTreinadorAD = treinadoresSelecionadosMap["TAD_casa_selected"].ID;
+                ButtonData buttonData = (ButtonData)proximo1_button.Tag;
+                int idClube = buttonData.IDClube;
+                int idJogador1 = jogadoresSelecionadosMap["JC1_selected"].ID;
+                int idJogador2 = jogadoresSelecionadosMap["JC2_selected"].ID;
+                int idJogador3 = jogadoresSelecionadosMap["JC3_selected"].ID;
+                int idJogador4 = jogadoresSelecionadosMap["JC4_selected"].ID;
+                int idJogadorGR = jogadoresSelecionadosMap["GR_selected"].ID;
+                int idTreinadorPR = treinadoresSelecionadosMap["TPR_selected"].ID;
+                int idTreinadorAD = treinadoresSelecionadosMap["TAD_selected"].ID;
 
                 //criar plantel
                 SqlCommand cmd1 = new SqlCommand("SELECT MAX(ID) AS LastID FROM HoqueiPortugues.Plantel", cn1);
                 SqlDataReader reader1 = cmd1.ExecuteReader();
                 reader1.Read();
                 int idPlantel = int.Parse(reader1["LastID"].ToString()) + 1;
+                reader1.Close();
 
                 SqlCommand cmd = new SqlCommand("INSERT INTO HoqueiPortugues.Plantel VALUES (@plantel_id,@clube_id)");
                 cmd.Parameters.AddWithValue("@plantel_id", idPlantel);
                 cmd.Parameters.AddWithValue("@clube_id", idClube);
                 cmd.Connection = cn;
                 cmd.CommandType = CommandType.Text;
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to update plantel in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+
+                SqlCommand cmd2 = new SqlCommand("INSERT INTO HoqueiPortugues.Plantel_Jogadores (Plantel_ID, Jogador_ID) VALUES (@PLANTEL_ID, @JogadorCampo1_ID), (@PLANTEL_ID, @JogadorCampo2_ID), (@PLANTEL_ID, @JogadorCampo3_ID), (@PLANTEL_ID, @JogadorCampo4_ID), (@PLANTEL_ID, @GuardaRedes_ID)");
+                cmd2.Parameters.AddWithValue("@PLANTEL_ID", idPlantel);
+                cmd2.Parameters.AddWithValue("@JogadorCampo1_ID", idJogador1);
+                cmd2.Parameters.AddWithValue("@JogadorCampo2_ID", idJogador2);
+                cmd2.Parameters.AddWithValue("@JogadorCampo3_ID", idJogador3);
+                cmd2.Parameters.AddWithValue("@JogadorCampo4_ID", idJogador4);
+                cmd2.Parameters.AddWithValue("@GuardaRedes_ID", idJogadorGR);
+                cmd2.Connection = cn2;
+                cmd2.CommandType = CommandType.Text;
+
+                try
+                {
+                    cmd2.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to update plantel in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn2.Close();
+                }
+
+                SqlCommand cmd3 = new SqlCommand("INSERT INTO HoqueiPortugues.Plantel_Treinadores (Plantel_ID, Treinador_ID) VALUES (@PLANTEL_ID, @TreinadorPrincipal_ID), (@PLANTEL_ID, @TreinadorAdjunto_ID)");
+                cmd3.Parameters.AddWithValue("@PLANTEL_ID", idPlantel);
+                cmd3.Parameters.AddWithValue("@TreinadorPrincipal_ID", idTreinadorPR);
+                cmd3.Parameters.AddWithValue("@TreinadorAdjunto_ID", idTreinadorAD);
+                cmd3.Connection = cn3;
+                cmd3.CommandType = CommandType.Text;
+
+                try
+                {
+                    cmd3.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to update plantel in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn3.Close();
+                }
             }
             else
             {
                 MessageBox.Show("Por favor selecione todos os jogadores e treinadores");
             }
 
+            panelAdicionarPlantelCasa.Visible = false;
+            panelAdicionarPlantelFora.Visible = true;
+            loadAddPlantel(idJogo, "F");
+
             cn1.Close();
         }
 
         private void proximo2_button_Click(object sender, EventArgs e)
         {
+            SqlConnection cn = getSGBDConnection();
+            SqlConnection cn1 = getSGBDConnection();
+            SqlConnection cn2 = getSGBDConnection();
+            SqlConnection cn3 = getSGBDConnection();
+            cn.Open();
+            cn1.Open();
+            cn2.Open();
+            cn3.Open();
 
+            int idJogo = ((ButtonData)proximo2_button.Tag).IDJogo;
+
+            //verificar se todos os jogadores e treinadores foram selecionados
+            //criar plantel
+            if (JC1_fora_combobox.SelectedItem != null && JC2_fora_combobox.SelectedItem != null && JC3_fora_combobox.SelectedItem != null && JC4_fora_combobox.SelectedItem != null && GR_fora_combobox.SelectedItem != null && TPR_fora_combobox.SelectedItem != null && TAD_fora_combobox.SelectedItem != null)
+            {
+                ButtonData buttonData = (ButtonData)proximo2_button.Tag;
+                int idClube = buttonData.IDClube;
+                int idJogador1 = jogadoresSelecionadosMap["JC1_selected"].ID;
+                int idJogador2 = jogadoresSelecionadosMap["JC2_selected"].ID;
+                int idJogador3 = jogadoresSelecionadosMap["JC3_selected"].ID;
+                int idJogador4 = jogadoresSelecionadosMap["JC4_selected"].ID;
+                int idJogadorGR = jogadoresSelecionadosMap["GR_selected"].ID;
+                int idTreinadorPR = treinadoresSelecionadosMap["TPR_selected"].ID;
+                int idTreinadorAD = treinadoresSelecionadosMap["TAD_selected"].ID;
+
+                //criar plantel
+                SqlCommand cmd1 = new SqlCommand("SELECT MAX(ID) AS LastID FROM HoqueiPortugues.Plantel", cn1);
+                SqlDataReader reader1 = cmd1.ExecuteReader();
+                reader1.Read();
+                int idPlantel = int.Parse(reader1["LastID"].ToString()) + 1;
+                reader1.Close();
+
+                SqlCommand cmd = new SqlCommand("INSERT INTO HoqueiPortugues.Plantel VALUES (@plantel_id,@clube_id)");
+                cmd.Parameters.AddWithValue("@plantel_id", idPlantel);
+                cmd.Parameters.AddWithValue("@clube_id", idClube);
+                cmd.Connection = cn;
+                cmd.CommandType = CommandType.Text;
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to update plantel in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+
+                SqlCommand cmd2 = new SqlCommand("INSERT INTO HoqueiPortugues.Plantel_Jogadores (Plantel_ID, Jogador_ID) VALUES (@PLANTEL_ID, @JogadorCampo1_ID), (@PLANTEL_ID, @JogadorCampo2_ID), (@PLANTEL_ID, @JogadorCampo3_ID), (@PLANTEL_ID, @JogadorCampo4_ID), (@PLANTEL_ID, @GuardaRedes_ID)");
+                cmd2.Parameters.AddWithValue("@PLANTEL_ID", idPlantel);
+                cmd2.Parameters.AddWithValue("@JogadorCampo1_ID", idJogador1);
+                cmd2.Parameters.AddWithValue("@JogadorCampo2_ID", idJogador2);
+                cmd2.Parameters.AddWithValue("@JogadorCampo3_ID", idJogador3);
+                cmd2.Parameters.AddWithValue("@JogadorCampo4_ID", idJogador4);
+                cmd2.Parameters.AddWithValue("@GuardaRedes_ID", idJogadorGR);
+                cmd2.Connection = cn2;
+                cmd2.CommandType = CommandType.Text;
+
+                try
+                {
+                    cmd2.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to update plantel in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn2.Close();
+                }
+
+                SqlCommand cmd3 = new SqlCommand("INSERT INTO HoqueiPortugues.Plantel_Treinadores (Plantel_ID, Treinador_ID) VALUES (@PLANTEL_ID, @TreinadorPrincipal_ID), (@PLANTEL_ID, @TreinadorAdjunto_ID)");
+                cmd3.Parameters.AddWithValue("@PLANTEL_ID", idPlantel);
+                cmd3.Parameters.AddWithValue("@TreinadorPrincipal_ID", idTreinadorPR);
+                cmd3.Parameters.AddWithValue("@TreinadorAdjunto_ID", idTreinadorAD);
+                cmd3.Connection = cn3;
+                cmd3.CommandType = CommandType.Text;
+
+                try
+                {
+                    cmd3.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to update plantel in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn3.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor selecione todos os jogadores e treinadores");
+            }
+
+            panelAdicionarPlantelFora.Visible = false;
+            panelAdicionarArbitros.Visible = true;
+            loadAddArbitros(idJogo);
+
+            cn1.Close();
         }
 
         private void guardarJogo_Click(object sender, EventArgs e)
         {
+            Button guardar = (Button)sender;
+            int jogoID = int.Parse(guardar.Tag.ToString());
 
+            if (!string.IsNullOrEmpty(resultadoEquipaCasa_textbox.Text) && int.TryParse(resultadoEquipaCasa_textbox.Text, out int num) && !string.IsNullOrEmpty(resultadoEquipaFora_textbox.Text) && int.TryParse(resultadoEquipaFora_textbox.Text, out int num1))
+            {
+                SqlConnection cn = getSGBDConnection();
+                cn.Open();
+
+                SqlCommand cmd = new SqlCommand("HoqueiPortugues.simularJogo", cn);
+                cmd.Parameters.Add(new SqlParameter("@Jogo_ID", jogoID));
+                cmd.Parameters.Add(new SqlParameter("@Resultado_F", int.Parse(resultadoEquipaCasa_textbox.Text)));
+                cmd.Parameters.Add(new SqlParameter("@Resultado_C", int.Parse(resultadoEquipaFora_textbox.Text)));
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to update Jogo in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor insira um resultado válido");
+            }
+
+            JC1_casa_combobox.Items.Clear();
+            JC2_casa_combobox.Items.Clear();
+            JC3_casa_combobox.Items.Clear();
+            JC4_casa_combobox.Items.Clear();
+            GR_casa_combobox.Items.Clear();
+            TPR_casa_combobox.Items.Clear();
+            TAD_casa_combobox.Items.Clear();
+            JC1_casa_combobox.Text = "";
+            JC2_casa_combobox.Text = "";
+            JC3_casa_combobox.Text = "";
+            JC4_casa_combobox.Text = "";
+            GR_casa_combobox.Text = "";
+            TPR_casa_combobox.Text = "";
+            TAD_casa_combobox.Text = "";
+            JC1_fora_combobox.Items.Clear();
+            JC2_fora_combobox.Items.Clear();
+            JC3_fora_combobox.Items.Clear();
+            JC4_fora_combobox.Items.Clear();
+            GR_fora_combobox.Items.Clear();
+            TPR_fora_combobox.Items.Clear();
+            TAD_fora_combobox.Items.Clear();
+            JC1_fora_combobox.Text = "";
+            JC2_fora_combobox.Text = "";
+            JC3_fora_combobox.Text = "";
+            JC4_fora_combobox.Text = "";
+            GR_fora_combobox.Text = "";
+            TPR_fora_combobox.Text = "";
+            TAD_fora_combobox.Text = "";
+            arbitro1_combobox.Items.Clear();
+            arbitro2_combobox.Items.Clear();
+            arbitro1_combobox.Text = "";
+            arbitro2_combobox.Text = "";
+            resultadoEquipaCasa_textbox.Text = "";
+            resultadoEquipaFora_textbox.Text = "";
+            panelClassificacao.Visible = false;
+            panelCalendario.Visible = true;
+            panelDetalhes.Visible = false;
+            panelAdicionarJogo.Visible = false;
+            classificacaoButton.Visible = true;
+            calendario_button.Visible = true;
+            Equipa_button.Visible = true;
+            jogadores.Visible = true;
+            pictureBox1.Visible = true;
         }
 
         private void proximo3_button_Click(object sender, EventArgs e)
         {
+            SqlConnection cn = getSGBDConnection();
+            cn.Open();
 
+            Button proximo3_button = (Button)sender;
+            int jogoID = int.Parse(proximo3_button.Tag.ToString());
+
+            if (arbitro1_combobox.SelectedItem != null && arbitro2_combobox.SelectedItem != null)
+            {
+                int idArbitro1 = arbitrosSelecionadosMap["Arbitro1_selected"].ID;
+                int idArbitro2 = arbitrosSelecionadosMap["Arbitro2_selected"].ID;
+
+                SqlCommand cmd = new SqlCommand("INSERT INTO HoqueiPortugues.e_arbitrado (Jogo_ID, Arbitro_ID) VALUES (@Jogo_ID, @ArbitroPrincipal_ID), (@Jogo_ID, @ArbitroAuxiliar_ID)");
+                cmd.Parameters.AddWithValue("@Jogo_ID", jogoID);
+                cmd.Parameters.AddWithValue("@ArbitroPrincipal_ID", idArbitro1);
+                cmd.Parameters.AddWithValue("@ArbitroAuxiliar_ID", idArbitro2);
+                cmd.Connection = cn;
+                cmd.CommandType = CommandType.Text;
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    if (ex.Number == 50000)
+                    {
+                        MessageBox.Show("Um dos árbitros já arbitrou um jogo nesta jornada");
+                    }
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor selecione os dois árbitros");
+            }
+
+            panelAdicionarArbitros.Visible = false;
+            panelAdicionarResultadoJogo.Visible = true;
         }
 
-        private void JC1_casa_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        private void JC1_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (JC1_casa_combobox.SelectedItem != null)
             {
                 Jogador jogadorSelecionado = (Jogador)JC1_casa_combobox.SelectedItem;
 
-                if (!jogadoresSelecionadosMap.Values.Any(j => j.ID == jogadorSelecionado.ID))
+                if (jogadoresSelecionadosMap?.Values.Any(j => j?.ID == jogadorSelecionado.ID) == false)
                 {
-                    if (jogadoresSelecionadosMap.ContainsKey("JC1_casa_selected"))
+                    if (jogadoresSelecionadosMap.ContainsKey("JC1_selected"))
                     {
                         // Atualize a entrada do dicionário se ela já existir
-                        jogadoresSelecionadosMap["JC1_casa_selected"] = jogadorSelecionado;
+                        jogadoresSelecionadosMap["JC1_selected"] = jogadorSelecionado;
                     }
                     else
                     {
                         // Adicione a entrada ao dicionário se ela ainda não existir
-                        jogadoresSelecionadosMap.Add("JC1_casa_selected", jogadorSelecionado);
+                        jogadoresSelecionadosMap.Add("JC1_selected", jogadorSelecionado);
                     }
                 }
                 else
@@ -567,23 +1162,23 @@ namespace Final_Project
             }
         }
 
-        private void JC2_casa_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        private void JC2_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (JC2_casa_combobox.SelectedItem != null)
             {
                 Jogador jogadorSelecionado = (Jogador)JC2_casa_combobox.SelectedItem;
 
-                if (!jogadoresSelecionadosMap.Values.Any(j => j.ID == jogadorSelecionado.ID))
+                if (jogadoresSelecionadosMap?.Values.Any(j => j?.ID == jogadorSelecionado.ID) == false)
                 {
-                    if (jogadoresSelecionadosMap.ContainsKey("JC2_casa_selected"))
+                    if (jogadoresSelecionadosMap.ContainsKey("JC2_selected"))
                     {
                         // Atualize a entrada do dicionário se ela já existir
-                        jogadoresSelecionadosMap["JC2_casa_selected"] = jogadorSelecionado;
+                        jogadoresSelecionadosMap["JC2_selected"] = jogadorSelecionado;
                     }
                     else
                     {
                         // Adicione a entrada ao dicionário se ela ainda não existir
-                        jogadoresSelecionadosMap.Add("JC2_casa_selected", jogadorSelecionado);
+                        jogadoresSelecionadosMap.Add("JC2_selected", jogadorSelecionado);
                     }
                 }
                 else
@@ -594,23 +1189,23 @@ namespace Final_Project
             }
         }
 
-        private void JC3_casa_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        private void JC3_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (JC3_casa_combobox.SelectedItem != null)
             {
                 Jogador jogadorSelecionado = (Jogador)JC3_casa_combobox.SelectedItem;
 
-                if (!jogadoresSelecionadosMap.Values.Any(j => j.ID == jogadorSelecionado.ID))
+                if (jogadoresSelecionadosMap?.Values.Any(j => j?.ID == jogadorSelecionado.ID) == false)
                 {
-                    if (jogadoresSelecionadosMap.ContainsKey("JC3_casa_selected"))
+                    if (jogadoresSelecionadosMap.ContainsKey("JC3_selected"))
                     {
                         // Atualize a entrada do dicionário se ela já existir
-                        jogadoresSelecionadosMap["JC3_casa_selected"] = jogadorSelecionado;
+                        jogadoresSelecionadosMap["JC3_selected"] = jogadorSelecionado;
                     }
                     else
                     {
                         // Adicione a entrada ao dicionário se ela ainda não existir
-                        jogadoresSelecionadosMap.Add("JC3_casa_selected", jogadorSelecionado);
+                        jogadoresSelecionadosMap.Add("JC3_selected", jogadorSelecionado);
                     }
                 }
                 else
@@ -621,23 +1216,23 @@ namespace Final_Project
             }
         }
 
-        private void JC4_casa_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        private void JC4_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (JC4_casa_combobox.SelectedItem != null)
             {
                 Jogador jogadorSelecionado = (Jogador)JC4_casa_combobox.SelectedItem;
 
-                if (!jogadoresSelecionadosMap.Values.Any(j => j.ID == jogadorSelecionado.ID))
+                if (jogadoresSelecionadosMap?.Values.Any(j => j?.ID == jogadorSelecionado.ID) == false)
                 {
-                    if (jogadoresSelecionadosMap.ContainsKey("JC4_casa_selected"))
+                    if (jogadoresSelecionadosMap.ContainsKey("JC4_selected"))
                     {
                         // Atualize a entrada do dicionário se ela já existir
-                        jogadoresSelecionadosMap["JC4_casa_selected"] = jogadorSelecionado;
+                        jogadoresSelecionadosMap["JC4_selected"] = jogadorSelecionado;
                     }
                     else
                     {
                         // Adicione a entrada ao dicionário se ela ainda não existir
-                        jogadoresSelecionadosMap.Add("JC4_casa_selected", jogadorSelecionado);
+                        jogadoresSelecionadosMap.Add("JC4_selected", jogadorSelecionado);
                     }
                 }
                 else
@@ -648,23 +1243,23 @@ namespace Final_Project
             }
         }
 
-        private void GR_casa_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        private void GR_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (GR_casa_combobox.SelectedItem != null)
             {
                 Jogador jogadorSelecionado = (Jogador)GR_casa_combobox.SelectedItem;
 
-                if (!jogadoresSelecionadosMap.Values.Any(j => j.ID == jogadorSelecionado.ID))
+                if (jogadoresSelecionadosMap?.Values.Any(j => j?.ID == jogadorSelecionado.ID) == false)
                 {
-                    if (jogadoresSelecionadosMap.ContainsKey("GR_casa_selected"))
+                    if (jogadoresSelecionadosMap.ContainsKey("GR_selected"))
                     {
                         // Atualize a entrada do dicionário se ela já existir
-                        jogadoresSelecionadosMap["GR_casa_selected"] = jogadorSelecionado;
+                        jogadoresSelecionadosMap["GR_selected"] = jogadorSelecionado;
                     }
                     else
                     {
                         // Adicione a entrada ao dicionário se ela ainda não existir
-                        jogadoresSelecionadosMap.Add("GR_casa_selected", jogadorSelecionado);
+                        jogadoresSelecionadosMap.Add("GR_selected", jogadorSelecionado);
                     }
                 }
                 else
@@ -675,35 +1270,256 @@ namespace Final_Project
             }
         }
 
-        private void TPR_casa_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        private void TPR_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Treinador treinadorSelecionado = (Treinador)TPR_casa_combobox.SelectedItem;
 
-            if(treinadoresSelecionadosMap.ContainsKey("TPR_casa_selected"))
+            if(treinadoresSelecionadosMap.ContainsKey("TPR_selected"))
             {
                 // Atualize a entrada do dicionário se ela já existir
-                treinadoresSelecionadosMap["TPR_casa_selected"] = treinadorSelecionado;
+                treinadoresSelecionadosMap["TPR_selected"] = treinadorSelecionado;
             }
             else
             {
                 // Adicione a entrada ao dicionário se ela ainda não existir
-                treinadoresSelecionadosMap.Add("TPR_casa_selected", treinadorSelecionado);
+                treinadoresSelecionadosMap.Add("TPR_selected", treinadorSelecionado);
             }
         }
 
-        private void TAD_casa_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        private void TAD_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Treinador treinadorSelecionado = (Treinador)TAD_casa_combobox.SelectedItem;
 
-            if (treinadoresSelecionadosMap.ContainsKey("TAD_casa_selected"))
+            if (treinadoresSelecionadosMap.ContainsKey("TAD_selected"))
             {
                 // Atualize a entrada do dicionário se ela já existir
-                treinadoresSelecionadosMap["TAD_casa_selected"] = treinadorSelecionado;
+                treinadoresSelecionadosMap["TAD_selected"] = treinadorSelecionado;
             }
             else
             {
                 // Adicione a entrada ao dicionário se ela ainda não existir
-                treinadoresSelecionadosMap.Add("TAD_casa_selected", treinadorSelecionado);
+                treinadoresSelecionadosMap.Add("TAD_selected", treinadorSelecionado);
+            }
+        }
+
+        private void JC1_fora_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (JC1_fora_combobox.SelectedItem != null)
+            {
+                Jogador jogadorSelecionado = (Jogador)JC1_fora_combobox.SelectedItem;
+
+                if (jogadoresSelecionadosMap?.Values.Any(j => j?.ID == jogadorSelecionado.ID) == false)
+                {
+                    if (jogadoresSelecionadosMap.ContainsKey("JC1_selected"))
+                    {
+                        // Atualize a entrada do dicionário se ela já existir
+                        jogadoresSelecionadosMap["JC1_selected"] = jogadorSelecionado;
+                    }
+                    else
+                    {
+                        // Adicione a entrada ao dicionário se ela ainda não existir
+                        jogadoresSelecionadosMap.Add("JC1_selected", jogadorSelecionado);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O jogador selecionado já foi selecionado noutro lugar!");
+                    JC1_fora_combobox.SelectedItem = null; // Limpe a seleção se o jogador já foi selecionado antes
+                }
+            }
+        }
+
+        private void JC2_fora_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (JC2_fora_combobox.SelectedItem != null)
+            {
+                Jogador jogadorSelecionado = (Jogador)JC2_fora_combobox.SelectedItem;
+
+                if (jogadoresSelecionadosMap?.Values.Any(j => j?.ID == jogadorSelecionado.ID) == false)
+                {
+                    if (jogadoresSelecionadosMap.ContainsKey("JC2_selected"))
+                    {
+                        // Atualize a entrada do dicionário se ela já existir
+                        jogadoresSelecionadosMap["JC2_selected"] = jogadorSelecionado;
+                    }
+                    else
+                    {
+                        // Adicione a entrada ao dicionário se ela ainda não existir
+                        jogadoresSelecionadosMap.Add("JC2_selected", jogadorSelecionado);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O jogador selecionado já foi selecionado noutro lugar!");
+                    JC2_fora_combobox.SelectedItem = null; // Limpe a seleção se o jogador já foi selecionado antes
+                }
+            }
+        }
+
+        private void JC3_fora_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (JC3_fora_combobox.SelectedItem != null)
+            {
+                Jogador jogadorSelecionado = (Jogador)JC3_fora_combobox.SelectedItem;
+
+                if (jogadoresSelecionadosMap?.Values.Any(j => j?.ID == jogadorSelecionado.ID) == false)
+                {
+                    if (jogadoresSelecionadosMap.ContainsKey("JC3_selected"))
+                    {
+                        // Atualize a entrada do dicionário se ela já existir
+                        jogadoresSelecionadosMap["JC3_selected"] = jogadorSelecionado;
+                    }
+                    else
+                    {
+                        // Adicione a entrada ao dicionário se ela ainda não existir
+                        jogadoresSelecionadosMap.Add("JC3_selected", jogadorSelecionado);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O jogador selecionado já foi selecionado noutro lugar!");
+                    JC3_fora_combobox.SelectedItem = null; // Limpe a seleção se o jogador já foi selecionado antes
+                }
+            }
+        }
+
+        private void JC4_fora_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (JC4_fora_combobox.SelectedItem != null)
+            {
+                Jogador jogadorSelecionado = (Jogador)JC4_fora_combobox.SelectedItem;
+
+                if (jogadoresSelecionadosMap?.Values.Any(j => j?.ID == jogadorSelecionado.ID) == false)
+                {
+                    if (jogadoresSelecionadosMap.ContainsKey("JC4_selected"))
+                    {
+                        // Atualize a entrada do dicionário se ela já existir
+                        jogadoresSelecionadosMap["JC4_selected"] = jogadorSelecionado;
+                    }
+                    else
+                    {
+                        // Adicione a entrada ao dicionário se ela ainda não existir
+                        jogadoresSelecionadosMap.Add("JC4_selected", jogadorSelecionado);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O jogador selecionado já foi selecionado noutro lugar!");
+                    JC4_fora_combobox.SelectedItem = null; // Limpe a seleção se o jogador já foi selecionado antes
+                }
+            }
+        }
+
+        private void GR_fora_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (GR_fora_combobox.SelectedItem != null)
+            {
+                Jogador jogadorSelecionado = (Jogador)GR_fora_combobox.SelectedItem;
+
+                if (jogadoresSelecionadosMap?.Values.Any(j => j?.ID == jogadorSelecionado.ID) == false)
+                {
+                    if (jogadoresSelecionadosMap.ContainsKey("GR_selected"))
+                    {
+                        // Atualize a entrada do dicionário se ela já existir
+                        jogadoresSelecionadosMap["GR_selected"] = jogadorSelecionado;
+                    }
+                    else
+                    {
+                        // Adicione a entrada ao dicionário se ela ainda não existir
+                        jogadoresSelecionadosMap.Add("GR_selected", jogadorSelecionado);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O jogador selecionado já foi selecionado noutro lugar!");
+                    GR_fora_combobox.SelectedItem = null; // Limpe a seleção se o jogador já foi selecionado antes
+                }
+            }
+        }
+
+        private void TPR_fora_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Treinador treinadorSelecionado = (Treinador)TPR_fora_combobox.SelectedItem;
+
+            if (treinadoresSelecionadosMap.ContainsKey("TPR_selected"))
+            {
+                // Atualize a entrada do dicionário se ela já existir
+                treinadoresSelecionadosMap["TPR_selected"] = treinadorSelecionado;
+            }
+            else
+            {
+                // Adicione a entrada ao dicionário se ela ainda não existir
+                treinadoresSelecionadosMap.Add("TPR_selected", treinadorSelecionado);
+            }
+        }
+
+        private void TAD_fora_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Treinador treinadorSelecionado = (Treinador)TAD_fora_combobox.SelectedItem;
+
+            if (treinadoresSelecionadosMap.ContainsKey("TAD_selected"))
+            {
+                // Atualize a entrada do dicionário se ela já existir
+                treinadoresSelecionadosMap["TAD_selected"] = treinadorSelecionado;
+            }
+            else
+            {
+                // Adicione a entrada ao dicionário se ela ainda não existir
+                treinadoresSelecionadosMap.Add("TAD_selected", treinadorSelecionado);
+            }
+        }
+
+        private void arbitro1_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (arbitro1_combobox.SelectedItem != null)
+            {
+                Arbitro arbitroSelecionado = (Arbitro)arbitro1_combobox.SelectedItem;
+
+                if (arbitrosSelecionadosMap?.Values.Any(j => j?.ID == arbitroSelecionado.ID) == false)
+                {
+                    if (arbitrosSelecionadosMap.ContainsKey("Arbitro1_selected"))
+                    {
+                        // Atualize a entrada do dicionário se ela já existir
+                        arbitrosSelecionadosMap["Arbitro1_selected"] = arbitroSelecionado;
+                    }
+                    else
+                    {
+                        // Adicione a entrada ao dicionário se ela ainda não existir
+                        arbitrosSelecionadosMap.Add("Arbitro1_selected", arbitroSelecionado);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O arbitro selecionado já foi selecionado noutro lugar!");
+                    arbitro1_combobox.SelectedItem = null; 
+                }
+            }
+        }
+
+        private void arbitro2_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (arbitro2_combobox.SelectedItem != null)
+            {
+                Arbitro arbitroSelecionado = (Arbitro)arbitro2_combobox.SelectedItem;
+
+                if (arbitrosSelecionadosMap?.Values.Any(j => j?.ID == arbitroSelecionado.ID) == false)
+                {
+                    if (arbitrosSelecionadosMap.ContainsKey("Arbitro2_selected"))
+                    {
+                        // Atualize a entrada do dicionário se ela já existir
+                        arbitrosSelecionadosMap["Arbitro2_selected"] = arbitroSelecionado;
+                    }
+                    else
+                    {
+                        // Adicione a entrada ao dicionário se ela ainda não existir
+                        arbitrosSelecionadosMap.Add("Arbitro2_selected", arbitroSelecionado);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O arbitro selecionado já foi selecionado noutro lugar!");
+                    arbitro2_combobox.SelectedItem = null;
+                }
             }
         }
     }
