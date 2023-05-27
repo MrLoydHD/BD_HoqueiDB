@@ -1038,31 +1038,12 @@ BEGIN
         Arbitro.Nome AS ArbitroNome, 
         Jogo.Data_hora
     FROM HoqueiPortugues.Jogo
-END
-
-/*
-Inserir dois arbitros no e_arbitrado
-*/
-
---Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.inserirArbitros', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.inserirArbitros;
-
-GO
-
-CREATE PROCEDURE HoqueiPortugues.inserirArbitros 
-    @Jogo_ID AS int , @ArbitroPrincipal_ID AS int, @ArbitroAuxiliar_ID AS int
-
-AS
-BEGIN
-    --Verifica se os arbitros são diferentes pessoas
-    IF @ArbitroPrincipal_ID = @ArbitroAuxiliar_ID
-        BEGIN
-            RAISERROR('Arbitros não podem ser a mesma pessoa', 16, 1);
-            RETURN;
-        END
-
-    INSERT INTO HoqueiPortugues.e_arbitrado (Jogo_ID, Arbitro_ID)
-    VALUES (@Jogo_ID, @ArbitroPrincipal_ID),
-           (@Jogo_ID, @ArbitroAuxiliar_ID);
+    JOIN HoqueiPortugues.e_arbitrado ON Jogo.ID = HoqueiPortugues.e_arbitrado.Jogo_ID
+    JOIN HoqueiPortugues.Arbitro ON e_arbitrado.Arbitro_ID = Arbitro.ID
+    JOIN HoqueiPortugues.Pavilhao ON Jogo.Pavilhao_ID = Pavilhao.ID
+    JOIN HoqueiPortugues.Clube AS ClubeCasa ON Jogo.Clube_C_ID = ClubeCasa.ID
+    JOIN HoqueiPortugues.Clube AS ClubeFora ON Jogo.Clube_F_ID = ClubeFora.ID
+    WHERE ClubeCasa.ID = @Clube_ID OR ClubeFora.ID = @Clube_ID
 
 END;
+GO
