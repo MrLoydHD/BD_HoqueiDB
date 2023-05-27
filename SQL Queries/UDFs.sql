@@ -18,7 +18,3 @@ RETURN
 );
 GO
 
-
-/*
-Pesquisa de jogadores de campo por nome
-*/

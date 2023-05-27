@@ -1038,4 +1038,12 @@ BEGIN
         Arbitro.Nome AS ArbitroNome, 
         Jogo.Data_hora
     FROM HoqueiPortugues.Jogo
-END
+    JOIN HoqueiPortugues.e_arbitrado ON Jogo.ID = HoqueiPortugues.e_arbitrado.Jogo_ID
+    JOIN HoqueiPortugues.Arbitro ON e_arbitrado.Arbitro_ID = Arbitro.ID
+    JOIN HoqueiPortugues.Pavilhao ON Jogo.Pavilhao_ID = Pavilhao.ID
+    JOIN HoqueiPortugues.Clube AS ClubeCasa ON Jogo.Clube_C_ID = ClubeCasa.ID
+    JOIN HoqueiPortugues.Clube AS ClubeFora ON Jogo.Clube_F_ID = ClubeFora.ID
+    WHERE ClubeCasa.ID = @Clube_ID OR ClubeFora.ID = @Clube_ID
+
+END;
+GO
