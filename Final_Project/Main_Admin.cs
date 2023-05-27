@@ -27,10 +27,6 @@ namespace Final_Project
             if (!verifySGBDConnection())
                 return;
 
-            //listPanel.Add(panelInicial);
-            //listPanel.Add(panelClassificacao);
-            //listPanel[0].BringToFront();
-
             cn.Close();
         }
 
@@ -53,6 +49,10 @@ namespace Final_Project
         private void classificacaoButton_Click(object sender, EventArgs e)
         {
             panelCalendario.Visible = false;
+            panelDetalhes.Visible = false;
+            panelEquipas.Visible = false;
+            panelAdicionarJogo.Visible = false;
+            editarResultadoPanel.Visible = false;
             panelClassificacao.Visible = true;
             loadClassificacao();
         }
@@ -115,15 +115,19 @@ namespace Final_Project
 
         private void calendario_button_Click(object sender, EventArgs e)
         {
-            panelClassificacao.Visible = false;
-            panelDetalhes.Visible = false;
-            panelAdicionarJogo.Visible = false;
             panelCalendario.Visible = true;
+            panelDetalhes.Visible = false;
+            panelEquipas.Visible = false;
+            panelAdicionarJogo.Visible = false;
+            editarResultadoPanel.Visible = false;
+            panelClassificacao.Visible = false;
             loadJornada(0);
         }
 
         private void loadJornada(int jornadaSelecionada)
         {
+            button1.Tag = jornadaSelecionada;
+
             cn = getSGBDConnection();
 
             if (!verifySGBDConnection())
@@ -172,7 +176,13 @@ namespace Final_Project
                     if (!J.JogoRealizado)
                     {
                         adicionar_buttons[i].Visible = true;
-                        adicionar_buttons[i].Tag = J.ID;
+                        detalhes_buttons[i].Visible = false;
+                        adicionar_buttons[i].Tag = new ButtonData(int.Parse(J.ID), int.Parse(J.Jornada_num));
+                    }
+                    else
+                    {
+                        detalhes_buttons[i].Visible = true;
+                        adicionar_buttons[i].Visible = false;
                     }
                 }
 
@@ -181,12 +191,6 @@ namespace Final_Project
 
             reader.Close();
             cn.Close();
-        }
-
-
-        private void jogadores_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -200,13 +204,6 @@ namespace Final_Project
                 label5.Visible = true;
                 label6.Visible = true;
                 label7.Visible = true;
-                detalhes_jogo1.Visible = true;
-                detalhes_jogo2.Visible = true;
-                detalhes_jogo3.Visible = true;
-                detalhes_jogo4.Visible = true;
-                detalhes_jogo5.Visible = true;
-                detalhes_jogo6.Visible = true;
-                detalhes_jogo7.Visible = true;
                 loadJornada(jornadaSelecionada);
             }
             else
@@ -220,15 +217,19 @@ namespace Final_Project
             Button detalhesButton = (Button)sender;
             int jogoID = int.Parse(detalhesButton.Tag.ToString());
 
-            panelClassificacao.Visible = false;
             panelCalendario.Visible = false;
-            panelAdicionarJogo.Visible = false;
             panelDetalhes.Visible = true;
+            panelEquipas.Visible = false;
+            panelAdicionarJogo.Visible = false;
+            editarResultadoPanel.Visible = false;
+            panelClassificacao.Visible = false;
             loadDetalhesJogo(jogoID);
         }
 
         private void loadDetalhesJogo(int jogoID)
         {
+            updateResultado_button.Tag = jogoID;
+
             cn = getSGBDConnection();
 
             if (!verifySGBDConnection())
@@ -355,17 +356,78 @@ namespace Final_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            panelClassificacao.Visible = false;
-            panelDetalhes.Visible = false;
-            panelAdicionarJogo.Visible = false;
+            Button retrocederParaCalendario = (Button)sender;
+            int jornada = int.Parse(retrocederParaCalendario.Tag.ToString());
             panelCalendario.Visible = true;
-            loadJornada(0);
+            panelDetalhes.Visible = false;
+            panelEquipas.Visible = false;
+            panelAdicionarJogo.Visible = false;
+            editarResultadoPanel.Visible = false;
+            panelClassificacao.Visible = false;
+            loadJornada(jornada);
+        }
+
+        private void editarResultado_click(object sender, EventArgs e)
+        {
+            editarResultadoPanel.Visible = true;
+        }
+
+        private void updateResultado_button_Click(object sender, EventArgs e)
+        {
+            Button guardar = (Button)sender;
+            int jogoID = int.Parse(guardar.Tag.ToString());
+
+            if (!string.IsNullOrEmpty(editarResultadoCasa_textbox.Text) && int.TryParse(editarResultadoCasa_textbox.Text, out int num) && !string.IsNullOrEmpty(editarResultadoFora_textbox.Text) && int.TryParse(editarResultadoFora_textbox.Text, out int num1))
+            {
+                SqlConnection cn = getSGBDConnection();
+                cn.Open();
+
+                SqlCommand cmd = new SqlCommand("HoqueiPortugues.updateResultado", cn);
+                cmd.Parameters.Add(new SqlParameter("@Jogo_ID", jogoID));
+                cmd.Parameters.Add(new SqlParameter("@Resultado_F", num1));
+                cmd.Parameters.Add(new SqlParameter("@Resultado_C", num));
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to update Jogo in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor insira um resultado válido");
+            }
+
+            editarResultadoPanel.Visible = false;
+            editarResultadoFora_textbox.Text = "";
+            editarResultadoCasa_textbox.Text = "";
+            loadDetalhesJogo(jogoID);
+        }
+
+        private void editarRetroceder_button_Click(object sender, EventArgs e)
+        {
+            editarResultadoPanel.Visible = false;
+            editarResultadoFora_textbox.Text = "";
+            editarResultadoCasa_textbox.Text = "";
         }
 
         private void adicionarButtons_Click(object sender, EventArgs e)
         {
             Button adicionarButton = (Button)sender;
-            int jogoID = int.Parse(adicionarButton.Tag.ToString());
+
+            ButtonData addButton = (ButtonData)adicionarButton.Tag;
+            int jogoID = int.Parse(addButton.IDJogo.ToString());
+            int jornada = int.Parse(addButton.IDClube.ToString()); // AQUI GUARDA A JORNADA
+
+            ButtonData buttonData = new ButtonData(jogoID, jornada);
+            guardarJogo.Tag = buttonData;
 
             panelClassificacao.Visible = false;
             panelCalendario.Visible = false;
@@ -524,7 +586,6 @@ namespace Final_Project
             clearArbitros(arbitrosSelecionadosMap);
 
             retroceder4_button.Tag = jogoID;
-            guardarJogo.Tag = jogoID;
 
             cn = getSGBDConnection();
 
@@ -574,6 +635,7 @@ namespace Final_Project
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
             panelAdicionarJogo.Visible = false;
+            panelEquipas.Visible = false;
             classificacaoButton.Visible = true;
             calendario_button.Visible = true;
             Equipa_button.Visible = true;
@@ -634,6 +696,7 @@ namespace Final_Project
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
             panelAdicionarJogo.Visible = false;
+            panelEquipas.Visible = false;
             classificacaoButton.Visible = true;
             calendario_button.Visible = true;
             Equipa_button.Visible = true;
@@ -722,6 +785,7 @@ namespace Final_Project
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
             panelAdicionarJogo.Visible = false;
+            panelEquipas.Visible = false;
             classificacaoButton.Visible = true;
             calendario_button.Visible = true;
             Equipa_button.Visible = true;
@@ -788,6 +852,7 @@ namespace Final_Project
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
             panelAdicionarJogo.Visible = false;
+            panelEquipas.Visible = false;
             classificacaoButton.Visible = true;
             calendario_button.Visible = true;
             Equipa_button.Visible = true;
@@ -1015,7 +1080,9 @@ namespace Final_Project
         private void guardarJogo_Click(object sender, EventArgs e)
         {
             Button guardar = (Button)sender;
-            int jogoID = int.Parse(guardar.Tag.ToString());
+            ButtonData buttonData = (ButtonData)guardar.Tag;
+            int jogoID = buttonData.IDJogo;
+            int jornada = buttonData.IDClube;  //É A JORNADA
 
             if (!string.IsNullOrEmpty(resultadoEquipaCasa_textbox.Text) && int.TryParse(resultadoEquipaCasa_textbox.Text, out int num) && !string.IsNullOrEmpty(resultadoEquipaFora_textbox.Text) && int.TryParse(resultadoEquipaFora_textbox.Text, out int num1))
             {
@@ -1083,11 +1150,14 @@ namespace Final_Project
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
             panelAdicionarJogo.Visible = false;
+            panelEquipas.Visible = false;
             classificacaoButton.Visible = true;
             calendario_button.Visible = true;
             Equipa_button.Visible = true;
             jogadores.Visible = true;
             pictureBox1.Visible = true;
+
+            loadJornada(jornada);
         }
 
         private void proximo3_button_Click(object sender, EventArgs e)
@@ -1113,6 +1183,8 @@ namespace Final_Project
                 try
                 {
                     cmd.ExecuteNonQuery();
+                    panelAdicionarArbitros.Visible = false;
+                    panelAdicionarResultadoJogo.Visible = true;
                 }
                 catch (SqlException ex)
                 {
@@ -1130,9 +1202,6 @@ namespace Final_Project
             {
                 MessageBox.Show("Por favor selecione os dois árbitros");
             }
-
-            panelAdicionarArbitros.Visible = false;
-            panelAdicionarResultadoJogo.Visible = true;
         }
 
         private void JC1_combobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1521,6 +1590,106 @@ namespace Final_Project
                     arbitro2_combobox.SelectedItem = null;
                 }
             }
+        }
+
+        private void Equipa_button_Click(object sender, EventArgs e)
+        {
+            panelEquipas.Visible = true;
+            loadEquipas();
+        }
+
+        private int currentClube;
+        private void loadEquipas()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand("SELECT Clube.ID AS ClubeID, Clube.Nome AS ClubeNome, Clube.Ano_fund AS AnoFund, Pavilhao.Nome AS PavilhaoNome FROM HoqueiPortugues.Clube JOIN HoqueiPortugues.Pavilhao ON Clube.ID=Pavilhao.Clube_ID", cn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            listBoxEquipas.Items.Clear();
+
+            while (reader.Read())
+            {
+                Equipa E = new Equipa();
+                E.ID = reader["ClubeID"].ToString();
+                E.Nome = reader["ClubeNome"].ToString();
+                E.AnoFundacao = reader["AnoFund"].ToString();
+                E.Pavilhao = reader["PavilhaoNome"].ToString();
+
+                listBoxEquipas.Items.Add(E);
+            }
+
+            currentClube = 0;
+            cn.Close();
+        }
+
+        private void listBoxEquipas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxEquipas.SelectedIndex > 0)
+            {
+                currentClube = listBoxEquipas.SelectedIndex;
+            }
+            equipasEquipa_button.Visible = true;
+            equipasTecnicos_button.Visible = true;
+            equipasJogos_button.Visible = true;
+            label56.Visible = true;
+            label57.Visible = true;
+            textboxNomeEquipa.Text = ((Equipa)listBoxEquipas.SelectedItem).Nome;
+            anoFundacao_textbox.Text = ((Equipa)listBoxEquipas.SelectedItem).AnoFundacao;
+            pavilhaoNome_textbox.Text = ((Equipa)listBoxEquipas.SelectedItem).Pavilhao;
+        }
+
+        private void equipasJogos_button_Click(object sender, EventArgs e)
+        {
+            dataGridViewJogosEquipa.Visible = true;
+
+            int clubeID = Int32.Parse(((Equipa)listBoxEquipas.SelectedItem).ID);
+
+            cn = getSGBDConnection();
+            cn.Open();
+
+            using (SqlCommand command = new SqlCommand("HoqueiPortugues.", cn))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                DataTable dataTable = new DataTable();
+
+                dataTable.Load(reader);
+
+                reader.Close();
+
+                dataGridViewJogosEquipa.DataSource = dataTable;
+            }
+
+            // Renomear colunas e alterar largura
+            dataGridView1.Columns[0].HeaderText = "Posição";
+            dataGridView1.Columns[0].Width = 60;
+
+            cn.Close();
+        }
+
+        private void equipasEquipa_button_Click(object sender, EventArgs e)
+        {
+            dataGridViewJogosEquipa.Visible = false;
+
+            loadClubeEquipa();
+        }
+
+        private void loadClubeEquipa()
+        {
+
+        }
+
+
+
+
+        private void jogadores_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -96,6 +96,14 @@ namespace Final_Project
             this.logOut_button = new System.Windows.Forms.Button();
             this.jogadores = new System.Windows.Forms.Button();
             this.panelDetalhes = new System.Windows.Forms.Panel();
+            this.editarResultadoPanel = new System.Windows.Forms.Panel();
+            this.editarRetroceder_button = new System.Windows.Forms.Button();
+            this.editarResultadoFora_textbox = new System.Windows.Forms.TextBox();
+            this.editarResultadoCasa_textbox = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.updateResultado_button = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -143,10 +151,24 @@ namespace Final_Project
             this.detalhesJornadaLabel = new System.Windows.Forms.Label();
             this.detalhesDataLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.editarDetalhesJogo = new System.Windows.Forms.Button();
+            this.editarResultado_button = new System.Windows.Forms.Button();
             this.detalhesJogo_label = new System.Windows.Forms.Label();
             this.panelAdicionarJogo = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
+            this.panelAdicionarResultadoJogo = new System.Windows.Forms.Panel();
+            this.retroceder4_button = new System.Windows.Forms.Button();
+            this.resultadoEquipaFora_textbox = new System.Windows.Forms.TextBox();
+            this.resultadoEquipaCasa_textbox = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.guardarJogo = new System.Windows.Forms.Button();
+            this.panelAdicionarArbitros = new System.Windows.Forms.Panel();
+            this.retroceder3_button = new System.Windows.Forms.Button();
+            this.proximo3_button = new System.Windows.Forms.Button();
+            this.arbitro2_combobox = new System.Windows.Forms.ComboBox();
+            this.arbitro1_combobox = new System.Windows.Forms.ComboBox();
+            this.label52 = new System.Windows.Forms.Label();
             this.panelAdicionarPlantelCasa = new System.Windows.Forms.Panel();
             this.retroceder1_button = new System.Windows.Forms.Button();
             this.TAD_casa_combobox = new System.Windows.Forms.ComboBox();
@@ -192,31 +214,41 @@ namespace Final_Project
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.panelAdicionarResultadoJogo = new System.Windows.Forms.Panel();
-            this.retroceder4_button = new System.Windows.Forms.Button();
-            this.resultadoEquipaFora_textbox = new System.Windows.Forms.TextBox();
-            this.resultadoEquipaCasa_textbox = new System.Windows.Forms.TextBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.guardarJogo = new System.Windows.Forms.Button();
-            this.panelAdicionarArbitros = new System.Windows.Forms.Panel();
-            this.retroceder3_button = new System.Windows.Forms.Button();
-            this.proximo3_button = new System.Windows.Forms.Button();
-            this.arbitro2_combobox = new System.Windows.Forms.ComboBox();
-            this.arbitro1_combobox = new System.Windows.Forms.ComboBox();
-            this.label52 = new System.Windows.Forms.Label();
+            this.panelEquipas = new System.Windows.Forms.Panel();
+            this.dataGridViewJogosEquipa = new System.Windows.Forms.DataGridView();
+            this.equipasTecnicos_button = new System.Windows.Forms.Button();
+            this.equipasEquipa_button = new System.Windows.Forms.Button();
+            this.equipasJogos_button = new System.Windows.Forms.Button();
+            this.textboxNomeEquipa = new System.Windows.Forms.TextBox();
+            this.listBoxEquipas = new System.Windows.Forms.ListBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.anoFundacao_textbox = new System.Windows.Forms.TextBox();
+            this.pavilhaoNome_textbox = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.jogadoresCampo = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelClassificacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelCalendario.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelDetalhes.SuspendLayout();
+            this.editarResultadoPanel.SuspendLayout();
             this.panelAdicionarJogo.SuspendLayout();
-            this.panelAdicionarPlantelCasa.SuspendLayout();
-            this.panelAdicionarPlantelFora.SuspendLayout();
             this.panelAdicionarResultadoJogo.SuspendLayout();
             this.panelAdicionarArbitros.SuspendLayout();
+            this.panelAdicionarPlantelCasa.SuspendLayout();
+            this.panelAdicionarPlantelFora.SuspendLayout();
+            this.panelEquipas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJogosEquipa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -1115,8 +1147,9 @@ namespace Final_Project
             this.Equipa_button.Name = "Equipa_button";
             this.Equipa_button.Size = new System.Drawing.Size(113, 57);
             this.Equipa_button.TabIndex = 9;
-            this.Equipa_button.Text = "Equipa";
+            this.Equipa_button.Text = "Equipas";
             this.Equipa_button.UseVisualStyleBackColor = false;
+            this.Equipa_button.Click += new System.EventHandler(this.Equipa_button_Click);
             // 
             // logOut_button
             // 
@@ -1150,6 +1183,7 @@ namespace Final_Project
             // 
             // panelDetalhes
             // 
+            this.panelDetalhes.Controls.Add(this.editarResultadoPanel);
             this.panelDetalhes.Controls.Add(this.label25);
             this.panelDetalhes.Controls.Add(this.label24);
             this.panelDetalhes.Controls.Add(this.label23);
@@ -1197,13 +1231,106 @@ namespace Final_Project
             this.panelDetalhes.Controls.Add(this.detalhesJornadaLabel);
             this.panelDetalhes.Controls.Add(this.detalhesDataLabel);
             this.panelDetalhes.Controls.Add(this.button1);
-            this.panelDetalhes.Controls.Add(this.editarDetalhesJogo);
+            this.panelDetalhes.Controls.Add(this.editarResultado_button);
             this.panelDetalhes.Controls.Add(this.detalhesJogo_label);
             this.panelDetalhes.Location = new System.Drawing.Point(6, 93);
             this.panelDetalhes.Name = "panelDetalhes";
             this.panelDetalhes.Size = new System.Drawing.Size(1081, 619);
             this.panelDetalhes.TabIndex = 31;
             this.panelDetalhes.Visible = false;
+            // 
+            // editarResultadoPanel
+            // 
+            this.editarResultadoPanel.Controls.Add(this.editarRetroceder_button);
+            this.editarResultadoPanel.Controls.Add(this.editarResultadoFora_textbox);
+            this.editarResultadoPanel.Controls.Add(this.editarResultadoCasa_textbox);
+            this.editarResultadoPanel.Controls.Add(this.label43);
+            this.editarResultadoPanel.Controls.Add(this.label53);
+            this.editarResultadoPanel.Controls.Add(this.label54);
+            this.editarResultadoPanel.Controls.Add(this.updateResultado_button);
+            this.editarResultadoPanel.Location = new System.Drawing.Point(6, 3);
+            this.editarResultadoPanel.Name = "editarResultadoPanel";
+            this.editarResultadoPanel.Size = new System.Drawing.Size(1067, 581);
+            this.editarResultadoPanel.TabIndex = 92;
+            this.editarResultadoPanel.Visible = false;
+            // 
+            // editarRetroceder_button
+            // 
+            this.editarRetroceder_button.BackColor = System.Drawing.Color.Orange;
+            this.editarRetroceder_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editarRetroceder_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editarRetroceder_button.ForeColor = System.Drawing.Color.White;
+            this.editarRetroceder_button.Location = new System.Drawing.Point(40, 19);
+            this.editarRetroceder_button.Margin = new System.Windows.Forms.Padding(4);
+            this.editarRetroceder_button.Name = "editarRetroceder_button";
+            this.editarRetroceder_button.Size = new System.Drawing.Size(151, 51);
+            this.editarRetroceder_button.TabIndex = 88;
+            this.editarRetroceder_button.Text = "Retroceder";
+            this.editarRetroceder_button.UseVisualStyleBackColor = false;
+            this.editarRetroceder_button.Click += new System.EventHandler(this.editarRetroceder_button_Click);
+            // 
+            // editarResultadoFora_textbox
+            // 
+            this.editarResultadoFora_textbox.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editarResultadoFora_textbox.Location = new System.Drawing.Point(660, 232);
+            this.editarResultadoFora_textbox.Name = "editarResultadoFora_textbox";
+            this.editarResultadoFora_textbox.Size = new System.Drawing.Size(49, 51);
+            this.editarResultadoFora_textbox.TabIndex = 87;
+            this.editarResultadoFora_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // editarResultadoCasa_textbox
+            // 
+            this.editarResultadoCasa_textbox.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editarResultadoCasa_textbox.Location = new System.Drawing.Point(336, 232);
+            this.editarResultadoCasa_textbox.Name = "editarResultadoCasa_textbox";
+            this.editarResultadoCasa_textbox.Size = new System.Drawing.Size(49, 51);
+            this.editarResultadoCasa_textbox.TabIndex = 87;
+            this.editarResultadoCasa_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(580, 169);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(228, 41);
+            this.label43.TabIndex = 86;
+            this.label43.Text = "Equipa de Fora";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(245, 169);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(230, 41);
+            this.label53.TabIndex = 85;
+            this.label53.Text = "Equipa da Casa";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(410, 103);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(242, 41);
+            this.label54.TabIndex = 84;
+            this.label54.Text = "Novo Resultado";
+            // 
+            // updateResultado_button
+            // 
+            this.updateResultado_button.BackColor = System.Drawing.Color.Orange;
+            this.updateResultado_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateResultado_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateResultado_button.ForeColor = System.Drawing.Color.White;
+            this.updateResultado_button.Location = new System.Drawing.Point(920, 493);
+            this.updateResultado_button.Margin = new System.Windows.Forms.Padding(4);
+            this.updateResultado_button.Name = "updateResultado_button";
+            this.updateResultado_button.Size = new System.Drawing.Size(108, 51);
+            this.updateResultado_button.TabIndex = 74;
+            this.updateResultado_button.Text = "Guardar";
+            this.updateResultado_button.UseVisualStyleBackColor = false;
+            this.updateResultado_button.Click += new System.EventHandler(this.updateResultado_button_Click);
             // 
             // label25
             // 
@@ -1712,19 +1839,20 @@ namespace Final_Project
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // editarDetalhesJogo
+            // editarResultado_button
             // 
-            this.editarDetalhesJogo.BackColor = System.Drawing.Color.DarkOrange;
-            this.editarDetalhesJogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editarDetalhesJogo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editarDetalhesJogo.ForeColor = System.Drawing.Color.White;
-            this.editarDetalhesJogo.Location = new System.Drawing.Point(932, 25);
-            this.editarDetalhesJogo.Margin = new System.Windows.Forms.Padding(4);
-            this.editarDetalhesJogo.Name = "editarDetalhesJogo";
-            this.editarDetalhesJogo.Size = new System.Drawing.Size(98, 52);
-            this.editarDetalhesJogo.TabIndex = 10;
-            this.editarDetalhesJogo.Text = "Editar";
-            this.editarDetalhesJogo.UseVisualStyleBackColor = false;
+            this.editarResultado_button.BackColor = System.Drawing.Color.DarkOrange;
+            this.editarResultado_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editarResultado_button.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editarResultado_button.ForeColor = System.Drawing.Color.White;
+            this.editarResultado_button.Location = new System.Drawing.Point(850, 25);
+            this.editarResultado_button.Margin = new System.Windows.Forms.Padding(4);
+            this.editarResultado_button.Name = "editarResultado_button";
+            this.editarResultado_button.Size = new System.Drawing.Size(180, 52);
+            this.editarResultado_button.TabIndex = 10;
+            this.editarResultado_button.Text = "Editar Resultado";
+            this.editarResultado_button.UseVisualStyleBackColor = false;
+            this.editarResultado_button.Click += new System.EventHandler(this.editarResultado_click);
             // 
             // detalhesJogo_label
             // 
@@ -1762,6 +1890,172 @@ namespace Final_Project
             this.label26.TabIndex = 9;
             this.label26.Text = "Adicionar Jogo";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelAdicionarResultadoJogo
+            // 
+            this.panelAdicionarResultadoJogo.Controls.Add(this.retroceder4_button);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.resultadoEquipaFora_textbox);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.resultadoEquipaCasa_textbox);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.label51);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.label50);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.label49);
+            this.panelAdicionarResultadoJogo.Controls.Add(this.guardarJogo);
+            this.panelAdicionarResultadoJogo.Location = new System.Drawing.Point(33, 51);
+            this.panelAdicionarResultadoJogo.Name = "panelAdicionarResultadoJogo";
+            this.panelAdicionarResultadoJogo.Size = new System.Drawing.Size(1029, 547);
+            this.panelAdicionarResultadoJogo.TabIndex = 91;
+            this.panelAdicionarResultadoJogo.Visible = false;
+            // 
+            // retroceder4_button
+            // 
+            this.retroceder4_button.BackColor = System.Drawing.Color.Orange;
+            this.retroceder4_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retroceder4_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.retroceder4_button.ForeColor = System.Drawing.Color.White;
+            this.retroceder4_button.Location = new System.Drawing.Point(40, 19);
+            this.retroceder4_button.Margin = new System.Windows.Forms.Padding(4);
+            this.retroceder4_button.Name = "retroceder4_button";
+            this.retroceder4_button.Size = new System.Drawing.Size(151, 51);
+            this.retroceder4_button.TabIndex = 88;
+            this.retroceder4_button.Text = "Retroceder";
+            this.retroceder4_button.UseVisualStyleBackColor = false;
+            this.retroceder4_button.Click += new System.EventHandler(this.retroceder4_button_Click);
+            // 
+            // resultadoEquipaFora_textbox
+            // 
+            this.resultadoEquipaFora_textbox.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultadoEquipaFora_textbox.Location = new System.Drawing.Point(660, 232);
+            this.resultadoEquipaFora_textbox.Name = "resultadoEquipaFora_textbox";
+            this.resultadoEquipaFora_textbox.Size = new System.Drawing.Size(49, 51);
+            this.resultadoEquipaFora_textbox.TabIndex = 87;
+            // 
+            // resultadoEquipaCasa_textbox
+            // 
+            this.resultadoEquipaCasa_textbox.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultadoEquipaCasa_textbox.Location = new System.Drawing.Point(336, 232);
+            this.resultadoEquipaCasa_textbox.Name = "resultadoEquipaCasa_textbox";
+            this.resultadoEquipaCasa_textbox.Size = new System.Drawing.Size(49, 51);
+            this.resultadoEquipaCasa_textbox.TabIndex = 87;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(580, 169);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(228, 41);
+            this.label51.TabIndex = 86;
+            this.label51.Text = "Equipa de Fora";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(245, 169);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(230, 41);
+            this.label50.TabIndex = 85;
+            this.label50.Text = "Equipa da Casa";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(440, 107);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(158, 41);
+            this.label49.TabIndex = 84;
+            this.label49.Text = "Resultado";
+            // 
+            // guardarJogo
+            // 
+            this.guardarJogo.BackColor = System.Drawing.Color.Orange;
+            this.guardarJogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardarJogo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardarJogo.ForeColor = System.Drawing.Color.White;
+            this.guardarJogo.Location = new System.Drawing.Point(893, 468);
+            this.guardarJogo.Margin = new System.Windows.Forms.Padding(4);
+            this.guardarJogo.Name = "guardarJogo";
+            this.guardarJogo.Size = new System.Drawing.Size(108, 51);
+            this.guardarJogo.TabIndex = 74;
+            this.guardarJogo.Text = "Guardar";
+            this.guardarJogo.UseVisualStyleBackColor = false;
+            this.guardarJogo.Click += new System.EventHandler(this.guardarJogo_Click);
+            // 
+            // panelAdicionarArbitros
+            // 
+            this.panelAdicionarArbitros.Controls.Add(this.retroceder3_button);
+            this.panelAdicionarArbitros.Controls.Add(this.proximo3_button);
+            this.panelAdicionarArbitros.Controls.Add(this.arbitro2_combobox);
+            this.panelAdicionarArbitros.Controls.Add(this.arbitro1_combobox);
+            this.panelAdicionarArbitros.Controls.Add(this.label52);
+            this.panelAdicionarArbitros.Location = new System.Drawing.Point(33, 51);
+            this.panelAdicionarArbitros.Name = "panelAdicionarArbitros";
+            this.panelAdicionarArbitros.Size = new System.Drawing.Size(1029, 550);
+            this.panelAdicionarArbitros.TabIndex = 83;
+            this.panelAdicionarArbitros.Visible = false;
+            // 
+            // retroceder3_button
+            // 
+            this.retroceder3_button.BackColor = System.Drawing.Color.Orange;
+            this.retroceder3_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retroceder3_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.retroceder3_button.ForeColor = System.Drawing.Color.White;
+            this.retroceder3_button.Location = new System.Drawing.Point(40, 24);
+            this.retroceder3_button.Margin = new System.Windows.Forms.Padding(4);
+            this.retroceder3_button.Name = "retroceder3_button";
+            this.retroceder3_button.Size = new System.Drawing.Size(151, 51);
+            this.retroceder3_button.TabIndex = 91;
+            this.retroceder3_button.Text = "Retroceder";
+            this.retroceder3_button.UseVisualStyleBackColor = false;
+            this.retroceder3_button.Click += new System.EventHandler(this.retroceder3_button_Click);
+            // 
+            // proximo3_button
+            // 
+            this.proximo3_button.BackColor = System.Drawing.Color.Orange;
+            this.proximo3_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.proximo3_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.proximo3_button.ForeColor = System.Drawing.Color.White;
+            this.proximo3_button.Location = new System.Drawing.Point(877, 468);
+            this.proximo3_button.Margin = new System.Windows.Forms.Padding(4);
+            this.proximo3_button.Name = "proximo3_button";
+            this.proximo3_button.Size = new System.Drawing.Size(124, 51);
+            this.proximo3_button.TabIndex = 90;
+            this.proximo3_button.Text = "Próximo";
+            this.proximo3_button.UseVisualStyleBackColor = false;
+            this.proximo3_button.Click += new System.EventHandler(this.proximo3_button_Click);
+            // 
+            // arbitro2_combobox
+            // 
+            this.arbitro2_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.arbitro2_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbitro2_combobox.FormattingEnabled = true;
+            this.arbitro2_combobox.Location = new System.Drawing.Point(422, 260);
+            this.arbitro2_combobox.Name = "arbitro2_combobox";
+            this.arbitro2_combobox.Size = new System.Drawing.Size(208, 36);
+            this.arbitro2_combobox.TabIndex = 89;
+            this.arbitro2_combobox.SelectedIndexChanged += new System.EventHandler(this.arbitro2_combobox_SelectedIndexChanged);
+            // 
+            // arbitro1_combobox
+            // 
+            this.arbitro1_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.arbitro1_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbitro1_combobox.FormattingEnabled = true;
+            this.arbitro1_combobox.Location = new System.Drawing.Point(422, 207);
+            this.arbitro1_combobox.Name = "arbitro1_combobox";
+            this.arbitro1_combobox.Size = new System.Drawing.Size(208, 36);
+            this.arbitro1_combobox.TabIndex = 87;
+            this.arbitro1_combobox.SelectedIndexChanged += new System.EventHandler(this.arbitro1_combobox_SelectedIndexChanged);
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(415, 148);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(134, 41);
+            this.label52.TabIndex = 83;
+            this.label52.Text = "Árbitros";
             // 
             // panelAdicionarPlantelCasa
             // 
@@ -2286,171 +2580,221 @@ namespace Final_Project
             this.label48.TabIndex = 64;
             this.label48.Text = "JC";
             // 
-            // panelAdicionarResultadoJogo
+            // panelEquipas
             // 
-            this.panelAdicionarResultadoJogo.Controls.Add(this.retroceder4_button);
-            this.panelAdicionarResultadoJogo.Controls.Add(this.resultadoEquipaFora_textbox);
-            this.panelAdicionarResultadoJogo.Controls.Add(this.resultadoEquipaCasa_textbox);
-            this.panelAdicionarResultadoJogo.Controls.Add(this.label51);
-            this.panelAdicionarResultadoJogo.Controls.Add(this.label50);
-            this.panelAdicionarResultadoJogo.Controls.Add(this.label49);
-            this.panelAdicionarResultadoJogo.Controls.Add(this.guardarJogo);
-            this.panelAdicionarResultadoJogo.Location = new System.Drawing.Point(33, 51);
-            this.panelAdicionarResultadoJogo.Name = "panelAdicionarResultadoJogo";
-            this.panelAdicionarResultadoJogo.Size = new System.Drawing.Size(1029, 547);
-            this.panelAdicionarResultadoJogo.TabIndex = 91;
-            this.panelAdicionarResultadoJogo.Visible = false;
+            this.panelEquipas.Controls.Add(this.dataGridView4);
+            this.panelEquipas.Controls.Add(this.textBox3);
+            this.panelEquipas.Controls.Add(this.dataGridView3);
+            this.panelEquipas.Controls.Add(this.textBox2);
+            this.panelEquipas.Controls.Add(this.dataGridView2);
+            this.panelEquipas.Controls.Add(this.jogadoresCampo);
+            this.panelEquipas.Controls.Add(this.label57);
+            this.panelEquipas.Controls.Add(this.label56);
+            this.panelEquipas.Controls.Add(this.pavilhaoNome_textbox);
+            this.panelEquipas.Controls.Add(this.anoFundacao_textbox);
+            this.panelEquipas.Controls.Add(this.dataGridViewJogosEquipa);
+            this.panelEquipas.Controls.Add(this.equipasTecnicos_button);
+            this.panelEquipas.Controls.Add(this.equipasEquipa_button);
+            this.panelEquipas.Controls.Add(this.equipasJogos_button);
+            this.panelEquipas.Controls.Add(this.textboxNomeEquipa);
+            this.panelEquipas.Controls.Add(this.listBoxEquipas);
+            this.panelEquipas.Controls.Add(this.label55);
+            this.panelEquipas.Location = new System.Drawing.Point(2, 93);
+            this.panelEquipas.Name = "panelEquipas";
+            this.panelEquipas.Size = new System.Drawing.Size(1091, 622);
+            this.panelEquipas.TabIndex = 32;
+            this.panelEquipas.Visible = false;
             // 
-            // retroceder4_button
+            // dataGridViewJogosEquipa
             // 
-            this.retroceder4_button.BackColor = System.Drawing.Color.Orange;
-            this.retroceder4_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.retroceder4_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.retroceder4_button.ForeColor = System.Drawing.Color.White;
-            this.retroceder4_button.Location = new System.Drawing.Point(40, 19);
-            this.retroceder4_button.Margin = new System.Windows.Forms.Padding(4);
-            this.retroceder4_button.Name = "retroceder4_button";
-            this.retroceder4_button.Size = new System.Drawing.Size(151, 51);
-            this.retroceder4_button.TabIndex = 88;
-            this.retroceder4_button.Text = "Retroceder";
-            this.retroceder4_button.UseVisualStyleBackColor = false;
-            this.retroceder4_button.Click += new System.EventHandler(this.retroceder4_button_Click);
+            this.dataGridViewJogosEquipa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewJogosEquipa.Location = new System.Drawing.Point(319, 84);
+            this.dataGridViewJogosEquipa.Name = "dataGridViewJogosEquipa";
+            this.dataGridViewJogosEquipa.RowHeadersWidth = 51;
+            this.dataGridViewJogosEquipa.RowTemplate.Height = 24;
+            this.dataGridViewJogosEquipa.Size = new System.Drawing.Size(754, 532);
+            this.dataGridViewJogosEquipa.TabIndex = 17;
+            this.dataGridViewJogosEquipa.Visible = false;
             // 
-            // resultadoEquipaFora_textbox
+            // equipasTecnicos_button
             // 
-            this.resultadoEquipaFora_textbox.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultadoEquipaFora_textbox.Location = new System.Drawing.Point(660, 232);
-            this.resultadoEquipaFora_textbox.Name = "resultadoEquipaFora_textbox";
-            this.resultadoEquipaFora_textbox.Size = new System.Drawing.Size(49, 51);
-            this.resultadoEquipaFora_textbox.TabIndex = 87;
+            this.equipasTecnicos_button.BackColor = System.Drawing.Color.DarkOrange;
+            this.equipasTecnicos_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.equipasTecnicos_button.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipasTecnicos_button.ForeColor = System.Drawing.Color.White;
+            this.equipasTecnicos_button.Location = new System.Drawing.Point(973, 3);
+            this.equipasTecnicos_button.Margin = new System.Windows.Forms.Padding(4);
+            this.equipasTecnicos_button.Name = "equipasTecnicos_button";
+            this.equipasTecnicos_button.Size = new System.Drawing.Size(100, 44);
+            this.equipasTecnicos_button.TabIndex = 16;
+            this.equipasTecnicos_button.Text = "Técnicos";
+            this.equipasTecnicos_button.UseVisualStyleBackColor = false;
+            this.equipasTecnicos_button.Visible = false;
             // 
-            // resultadoEquipaCasa_textbox
+            // equipasEquipa_button
             // 
-            this.resultadoEquipaCasa_textbox.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultadoEquipaCasa_textbox.Location = new System.Drawing.Point(336, 232);
-            this.resultadoEquipaCasa_textbox.Name = "resultadoEquipaCasa_textbox";
-            this.resultadoEquipaCasa_textbox.Size = new System.Drawing.Size(49, 51);
-            this.resultadoEquipaCasa_textbox.TabIndex = 87;
+            this.equipasEquipa_button.BackColor = System.Drawing.Color.DarkOrange;
+            this.equipasEquipa_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.equipasEquipa_button.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipasEquipa_button.ForeColor = System.Drawing.Color.White;
+            this.equipasEquipa_button.Location = new System.Drawing.Point(875, 3);
+            this.equipasEquipa_button.Margin = new System.Windows.Forms.Padding(4);
+            this.equipasEquipa_button.Name = "equipasEquipa_button";
+            this.equipasEquipa_button.Size = new System.Drawing.Size(100, 44);
+            this.equipasEquipa_button.TabIndex = 15;
+            this.equipasEquipa_button.Text = "Equipa";
+            this.equipasEquipa_button.UseVisualStyleBackColor = false;
+            this.equipasEquipa_button.Visible = false;
+            this.equipasEquipa_button.Click += new System.EventHandler(this.equipasEquipa_button_Click);
             // 
-            // label51
+            // equipasJogos_button
             // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(580, 169);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(228, 41);
-            this.label51.TabIndex = 86;
-            this.label51.Text = "Equipa de Fora";
+            this.equipasJogos_button.BackColor = System.Drawing.Color.DarkOrange;
+            this.equipasJogos_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.equipasJogos_button.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipasJogos_button.ForeColor = System.Drawing.Color.White;
+            this.equipasJogos_button.Location = new System.Drawing.Point(781, 3);
+            this.equipasJogos_button.Margin = new System.Windows.Forms.Padding(4);
+            this.equipasJogos_button.Name = "equipasJogos_button";
+            this.equipasJogos_button.Size = new System.Drawing.Size(95, 44);
+            this.equipasJogos_button.TabIndex = 14;
+            this.equipasJogos_button.Text = "Jogos";
+            this.equipasJogos_button.UseVisualStyleBackColor = false;
+            this.equipasJogos_button.Visible = false;
+            this.equipasJogos_button.Click += new System.EventHandler(this.equipasJogos_button_Click);
             // 
-            // label50
+            // textboxNomeEquipa
             // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(245, 169);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(230, 41);
-            this.label50.TabIndex = 85;
-            this.label50.Text = "Equipa da Casa";
+            this.textboxNomeEquipa.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxNomeEquipa.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxNomeEquipa.Location = new System.Drawing.Point(319, 4);
+            this.textboxNomeEquipa.Name = "textboxNomeEquipa";
+            this.textboxNomeEquipa.Size = new System.Drawing.Size(285, 36);
+            this.textboxNomeEquipa.TabIndex = 13;
             // 
-            // label49
+            // listBoxEquipas
             // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(440, 107);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(158, 41);
-            this.label49.TabIndex = 84;
-            this.label49.Text = "Resultado";
+            this.listBoxEquipas.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxEquipas.FormattingEnabled = true;
+            this.listBoxEquipas.ItemHeight = 23;
+            this.listBoxEquipas.Location = new System.Drawing.Point(21, 84);
+            this.listBoxEquipas.Name = "listBoxEquipas";
+            this.listBoxEquipas.Size = new System.Drawing.Size(285, 349);
+            this.listBoxEquipas.TabIndex = 12;
+            this.listBoxEquipas.SelectedIndexChanged += new System.EventHandler(this.listBoxEquipas_SelectedIndexChanged);
             // 
-            // guardarJogo
+            // label55
             // 
-            this.guardarJogo.BackColor = System.Drawing.Color.Orange;
-            this.guardarJogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guardarJogo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardarJogo.ForeColor = System.Drawing.Color.White;
-            this.guardarJogo.Location = new System.Drawing.Point(893, 468);
-            this.guardarJogo.Margin = new System.Windows.Forms.Padding(4);
-            this.guardarJogo.Name = "guardarJogo";
-            this.guardarJogo.Size = new System.Drawing.Size(108, 51);
-            this.guardarJogo.TabIndex = 74;
-            this.guardarJogo.Text = "Guardar";
-            this.guardarJogo.UseVisualStyleBackColor = false;
-            this.guardarJogo.Click += new System.EventHandler(this.guardarJogo_Click);
+            this.label55.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label55.Location = new System.Drawing.Point(18, 13);
+            this.label55.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(287, 71);
+            this.label55.TabIndex = 10;
+            this.label55.Text = "Equipas";
+            this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelAdicionarArbitros
+            // anoFundacao_textbox
             // 
-            this.panelAdicionarArbitros.Controls.Add(this.retroceder3_button);
-            this.panelAdicionarArbitros.Controls.Add(this.proximo3_button);
-            this.panelAdicionarArbitros.Controls.Add(this.arbitro2_combobox);
-            this.panelAdicionarArbitros.Controls.Add(this.arbitro1_combobox);
-            this.panelAdicionarArbitros.Controls.Add(this.label52);
-            this.panelAdicionarArbitros.Location = new System.Drawing.Point(33, 51);
-            this.panelAdicionarArbitros.Name = "panelAdicionarArbitros";
-            this.panelAdicionarArbitros.Size = new System.Drawing.Size(1029, 550);
-            this.panelAdicionarArbitros.TabIndex = 83;
-            this.panelAdicionarArbitros.Visible = false;
+            this.anoFundacao_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.anoFundacao_textbox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.anoFundacao_textbox.Location = new System.Drawing.Point(421, 57);
+            this.anoFundacao_textbox.Name = "anoFundacao_textbox";
+            this.anoFundacao_textbox.Size = new System.Drawing.Size(44, 18);
+            this.anoFundacao_textbox.TabIndex = 18;
+            this.anoFundacao_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // retroceder3_button
+            // pavilhaoNome_textbox
             // 
-            this.retroceder3_button.BackColor = System.Drawing.Color.Orange;
-            this.retroceder3_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.retroceder3_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.retroceder3_button.ForeColor = System.Drawing.Color.White;
-            this.retroceder3_button.Location = new System.Drawing.Point(40, 24);
-            this.retroceder3_button.Margin = new System.Windows.Forms.Padding(4);
-            this.retroceder3_button.Name = "retroceder3_button";
-            this.retroceder3_button.Size = new System.Drawing.Size(151, 51);
-            this.retroceder3_button.TabIndex = 91;
-            this.retroceder3_button.Text = "Retroceder";
-            this.retroceder3_button.UseVisualStyleBackColor = false;
-            this.retroceder3_button.Click += new System.EventHandler(this.retroceder3_button_Click);
+            this.pavilhaoNome_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pavilhaoNome_textbox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pavilhaoNome_textbox.Location = new System.Drawing.Point(544, 57);
+            this.pavilhaoNome_textbox.Name = "pavilhaoNome_textbox";
+            this.pavilhaoNome_textbox.Size = new System.Drawing.Size(287, 18);
+            this.pavilhaoNome_textbox.TabIndex = 19;
             // 
-            // proximo3_button
+            // label56
             // 
-            this.proximo3_button.BackColor = System.Drawing.Color.Orange;
-            this.proximo3_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.proximo3_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proximo3_button.ForeColor = System.Drawing.Color.White;
-            this.proximo3_button.Location = new System.Drawing.Point(877, 468);
-            this.proximo3_button.Margin = new System.Windows.Forms.Padding(4);
-            this.proximo3_button.Name = "proximo3_button";
-            this.proximo3_button.Size = new System.Drawing.Size(124, 51);
-            this.proximo3_button.TabIndex = 90;
-            this.proximo3_button.Text = "Próximo";
-            this.proximo3_button.UseVisualStyleBackColor = false;
-            this.proximo3_button.Click += new System.EventHandler(this.proximo3_button_Click);
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(316, 57);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(99, 17);
+            this.label56.TabIndex = 20;
+            this.label56.Text = "Ano Fundação:";
+            this.label56.Visible = false;
             // 
-            // arbitro2_combobox
+            // label57
             // 
-            this.arbitro2_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.arbitro2_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbitro2_combobox.FormattingEnabled = true;
-            this.arbitro2_combobox.Location = new System.Drawing.Point(422, 260);
-            this.arbitro2_combobox.Name = "arbitro2_combobox";
-            this.arbitro2_combobox.Size = new System.Drawing.Size(208, 36);
-            this.arbitro2_combobox.TabIndex = 89;
-            this.arbitro2_combobox.SelectedIndexChanged += new System.EventHandler(this.arbitro2_combobox_SelectedIndexChanged);
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(471, 56);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(62, 17);
+            this.label57.TabIndex = 21;
+            this.label57.Text = "Pavilhão:";
+            this.label57.Visible = false;
             // 
-            // arbitro1_combobox
+            // jogadoresCampo
             // 
-            this.arbitro1_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.arbitro1_combobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbitro1_combobox.FormattingEnabled = true;
-            this.arbitro1_combobox.Location = new System.Drawing.Point(422, 207);
-            this.arbitro1_combobox.Name = "arbitro1_combobox";
-            this.arbitro1_combobox.Size = new System.Drawing.Size(208, 36);
-            this.arbitro1_combobox.TabIndex = 87;
-            this.arbitro1_combobox.SelectedIndexChanged += new System.EventHandler(this.arbitro1_combobox_SelectedIndexChanged);
+            this.jogadoresCampo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jogadoresCampo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogadoresCampo.Location = new System.Drawing.Point(335, 94);
+            this.jogadoresCampo.Name = "jogadoresCampo";
+            this.jogadoresCampo.Size = new System.Drawing.Size(285, 27);
+            this.jogadoresCampo.TabIndex = 22;
+            this.jogadoresCampo.Text = "Jogadores de Campo";
             // 
-            // label52
+            // dataGridView2
             // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(415, 148);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(134, 41);
-            this.label52.TabIndex = 83;
-            this.label52.Text = "Árbitros";
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(335, 132);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(724, 202);
+            this.dataGridView2.TabIndex = 23;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(335, 344);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(285, 27);
+            this.textBox2.TabIndex = 24;
+            this.textBox2.Text = "Guarda-Redes";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(335, 384);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(724, 111);
+            this.dataGridView3.TabIndex = 25;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(335, 503);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(285, 27);
+            this.textBox3.TabIndex = 26;
+            this.textBox3.Text = "Treinadores";
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(335, 536);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 51;
+            this.dataGridView4.RowTemplate.Height = 24;
+            this.dataGridView4.Size = new System.Drawing.Size(724, 80);
+            this.dataGridView4.TabIndex = 27;
             // 
             // Main_Admin
             // 
@@ -2458,16 +2802,17 @@ namespace Final_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1092, 715);
+            this.Controls.Add(this.panelEquipas);
             this.Controls.Add(this.jogadores);
             this.Controls.Add(this.logOut_button);
             this.Controls.Add(this.Equipa_button);
             this.Controls.Add(this.calendario_button);
             this.Controls.Add(this.classificacaoButton);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panelAdicionarJogo);
             this.Controls.Add(this.panelCalendario);
             this.Controls.Add(this.panelClassificacao);
             this.Controls.Add(this.panelDetalhes);
+            this.Controls.Add(this.panelAdicionarJogo);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main_Admin";
             this.Text = "Main_Admin";
@@ -2481,15 +2826,23 @@ namespace Final_Project
             this.panel1.PerformLayout();
             this.panelDetalhes.ResumeLayout(false);
             this.panelDetalhes.PerformLayout();
+            this.editarResultadoPanel.ResumeLayout(false);
+            this.editarResultadoPanel.PerformLayout();
             this.panelAdicionarJogo.ResumeLayout(false);
-            this.panelAdicionarPlantelCasa.ResumeLayout(false);
-            this.panelAdicionarPlantelCasa.PerformLayout();
-            this.panelAdicionarPlantelFora.ResumeLayout(false);
-            this.panelAdicionarPlantelFora.PerformLayout();
             this.panelAdicionarResultadoJogo.ResumeLayout(false);
             this.panelAdicionarResultadoJogo.PerformLayout();
             this.panelAdicionarArbitros.ResumeLayout(false);
             this.panelAdicionarArbitros.PerformLayout();
+            this.panelAdicionarPlantelCasa.ResumeLayout(false);
+            this.panelAdicionarPlantelCasa.PerformLayout();
+            this.panelAdicionarPlantelFora.ResumeLayout(false);
+            this.panelAdicionarPlantelFora.PerformLayout();
+            this.panelEquipas.ResumeLayout(false);
+            this.panelEquipas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJogosEquipa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2576,7 +2929,7 @@ namespace Final_Project
         private System.Windows.Forms.Label detalhesJornadaLabel;
         private System.Windows.Forms.Label detalhesDataLabel;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button editarDetalhesJogo;
+        private System.Windows.Forms.Button editarResultado_button;
         private System.Windows.Forms.TextBox pavilhao_textbox;
         private System.Windows.Forms.TextBox jornada_textbox;
         private System.Windows.Forms.TextBox dataHora_textbox;
@@ -2672,5 +3025,31 @@ namespace Final_Project
         private System.Windows.Forms.Button retroceder1_button;
         private System.Windows.Forms.Button retroceder2_button;
         private System.Windows.Forms.Button retroceder4_button;
+        private System.Windows.Forms.Panel editarResultadoPanel;
+        private System.Windows.Forms.Button editarRetroceder_button;
+        private System.Windows.Forms.TextBox editarResultadoFora_textbox;
+        private System.Windows.Forms.TextBox editarResultadoCasa_textbox;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Button updateResultado_button;
+        private System.Windows.Forms.Panel panelEquipas;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.TextBox textboxNomeEquipa;
+        private System.Windows.Forms.ListBox listBoxEquipas;
+        private System.Windows.Forms.Button equipasTecnicos_button;
+        private System.Windows.Forms.Button equipasEquipa_button;
+        private System.Windows.Forms.Button equipasJogos_button;
+        private System.Windows.Forms.DataGridView dataGridViewJogosEquipa;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TextBox pavilhaoNome_textbox;
+        private System.Windows.Forms.TextBox anoFundacao_textbox;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox jogadoresCampo;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
