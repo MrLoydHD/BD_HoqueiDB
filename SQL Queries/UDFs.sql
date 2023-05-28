@@ -18,3 +18,19 @@ RETURN
 );
 GO
 
+/*
+UFDF que retorna os treinadores que não têm clube
+*/
+
+IF OBJECT_ID('HoqueiPortugues.ufnTreinadoresSemClube') IS NOT NULL
+    DROP FUNCTION HoqueiPortugues.ufnTreinadoresSemClube;
+GO
+
+CREATE FUNCTION HoqueiPortugues.ufnTreinadoresSemClube()
+RETURNS TABLE
+AS
+RETURN 
+(
+    SELECT * FROM HoqueiPortugues.Treinador WHERE Clube_ID IS NULL
+);
+

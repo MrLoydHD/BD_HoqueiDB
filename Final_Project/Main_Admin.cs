@@ -2345,7 +2345,347 @@ namespace Final_Project
 
         private void addTreinador_button_Click(object sender, EventArgs e)
         {
+            panelAddTreinador.Visible = true;
+            // mete os elementos da pagina anterior invisiveis
+            label56.Visible = false;
+            label57.Visible = false;
+            dataGridViewJC.Visible = false;
+            dataGridViewGR.Visible = false;
+            dataGridViewT.Visible = false;
+            jogadoresCampo_label.Visible = false;
+            guardaRedes_label.Visible = false;
+            treinadores_label.Visible = false;
+            addJogador_button.Visible = false;
+            addTreinador_button.Visible = false;
+            removerJogador_button.Visible = false;
+            removerTreinador_button.Visible = false;
+            // mete os elementos da pagina addTreinador invisiveis
+            label101.Visible = false;
+            label98.Visible = false;
+            label99.Visible = false;
+            label100.Visible = false;
+            addNovoTNome_textBox.Visible = false;
+            addNovoTIdade_comboBox.Visible = false;
+            addNovoTNacio_textBox.Visible = false;
+            addNovoTTipo_comboBox.Visible = false;
+            addTreinador_comboBox.SelectedItem = null;
+            label92.Visible = false;
+            label93.Visible = false;
+            label94.Visible = false;
+            nomeAddTOutroClube_comboBox.Visible = false;
+            treinadoresSemClube_comboBox.Visible = false;
+            clubeAntigoAddT_comboBox.Visible = false;
 
+        }
+
+        private void comboBoxAddTreinador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        ComboBox comboBox = (ComboBox)sender;
+
+        // Dependendo do item selecionado, faça algo diferente
+        string selectedOption = (string)comboBox.SelectedItem;
+
+        switch (selectedOption)
+        {
+            case "Adicionar um novo treinador":
+                label101.Visible = true;
+                label98.Visible = true;
+                label99.Visible = true;
+                label100.Visible = true;
+                addNovoTNome_textBox.Text = "";
+                addNovoTIdade_comboBox.SelectedItem = null;
+                addNovoTNacio_textBox.Text = "";
+                addNovoTTipo_comboBox.SelectedItem = null;
+                addNovoTNome_textBox.Visible = true;
+                addNovoTIdade_comboBox.Visible = true;
+                addNovoTTipo_comboBox.Visible = true;
+                addNovoTNacio_textBox.Visible = true;
+                // esconde e reseta os elementos de treinador de outro clube
+                label92.Visible = false;
+                label93.Visible = false;
+                clubeAntigoAddT_comboBox.Visible = false;
+                nomeAddTOutroClube_comboBox.Visible = false;
+                // esconde e reseta os elementos de treinador sem clube
+                label94.Visible = false;
+                treinadoresSemClube_comboBox.Visible = false;
+
+                break;
+            case "Adicionar treinador de outro clube":
+                label92.Visible = true;
+                label93.Visible = true;
+                clubeAntigoAddT_comboBox.Visible = true;
+                nomeAddTOutroClube_comboBox.Visible = true;
+                clubeAntigoAddT_comboBox.Items.Clear();
+                nomeAddTOutroClube_comboBox.Items.Clear();
+                nomeAddTOutroClube_comboBox.Enabled = false;
+                nomeAddTOutroClube_comboBox.SelectedItem = null;
+                // esconde os elementos do treinador novo
+                label101.Visible = false;
+                label98.Visible = false;
+                label99.Visible = false;
+                label100.Visible = false;
+                addNovoTNome_textBox.Visible = false;
+                addNovoTIdade_comboBox.Visible = false;
+                addNovoTNacio_textBox.Visible = false;
+                addNovoTTipo_comboBox.Visible = false;
+                // esconde os elementos de treinador sem clube
+                label94.Visible = false;
+                treinadoresSemClube_comboBox.Visible = false;
+
+                cn = getSGBDConnection();
+
+                if (cn.State != ConnectionState.Open)
+                    cn.Open();
+
+                if (!verifySGBDConnection())
+                    return;
+
+                SqlCommand cmd = new SqlCommand("SELECT ID, Nome FROM HoqueiPortugues.Clube WHERE ID <> @Clube_ID", cn);
+                cmd.Parameters.AddWithValue("@Clube_ID", ((Equipa)listBoxEquipas.SelectedItem).ID);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string idClube = reader["ID"].ToString();
+                    string nomeClube = reader["Nome"].ToString();
+                    Equipa E = new Equipa(idClube, nomeClube);
+
+                    clubeAntigoAddT_comboBox.Items.Add(E);
+                }
+
+                break;
+
+            case "Adicionar treinador sem clube":
+                // esconde e reseta os elementos de treinador outro clube
+                label92.Visible = false;
+                label93.Visible = false;
+                clubeAntigoAddT_comboBox.Visible = false;
+                nomeAddTOutroClube_comboBox.Visible = false;
+                // esconde e reseta os elementos do treinador novo
+                label101.Visible = false;
+                label98.Visible = false;
+                label99.Visible = false;
+                label100.Visible = false;
+                addNovoTNome_textBox.Visible = false;
+                addNovoTIdade_comboBox.Visible = false;
+                addNovoTNacio_textBox.Visible = false;
+                addNovoTTipo_comboBox.Visible = false;
+
+                label94.Visible = true;
+                treinadoresSemClube_comboBox.Visible = true;
+                treinadoresSemClube_comboBox.Items.Clear();
+                treinadoresSemClube_comboBox.SelectedItem = null;
+
+                SqlConnection cn1 = getSGBDConnection();
+
+                if (cn1.State != ConnectionState.Open)
+                    cn1.Open();
+
+                if (!verifySGBDConnection())
+                    return;
+
+                SqlCommand cmd1 = new SqlCommand("SELECT * FROM HoqueiPortugues.ufnTreinadoresSemClube()", cn1);
+
+                SqlDataReader reader1 = cmd1.ExecuteReader();
+
+                while (reader1.Read())
+                {
+                    Treinador treinador = new Treinador(int.Parse(reader1["ID"].ToString()), reader1["Nome"].ToString());
+                    treinadoresSemClube_comboBox.Items.Add(treinador);
+                }
+
+                break;
+
+            default:
+                break;
+            }
+        }
+
+        private void clubeAntigoAddT_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            nomeAddTOutroClube_comboBox.Enabled = true;
+
+            SqlConnection cn1 = getSGBDConnection();
+
+            if (cn1.State != ConnectionState.Open)
+                cn1.Open();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd1 = new SqlCommand("SELECT Treinador.ID, Treinador.Nome FROM HoqueiPortugues.Treinador WHERE Treinador.Clube_ID = @Clube_ID", cn1);
+            cmd1.Parameters.AddWithValue("@Clube_ID", ((Equipa)clubeAntigoAddT_comboBox.SelectedItem).ID);
+            SqlDataReader reader1 = cmd1.ExecuteReader();
+
+            while (reader1.Read())
+            {
+                string idTreinador = reader1["ID"].ToString();
+                string nomeTreinador = reader1["Nome"].ToString();
+                Treinador T = new Treinador(int.Parse(idTreinador), nomeTreinador);
+
+                nomeAddTOutroClube_comboBox.Items.Add(T);
+            }
+        }
+
+        private void addTreinadorGuardar_button_Click(object sender, EventArgs e)
+        {
+            switch (addTreinador_comboBox.SelectedItem)
+            {
+                case "Adicionar um novo treinador":
+                    if (addNovoTIdade_comboBox.SelectedItem != null && addNovoTNome_textBox.Text != "" && addNovoTIdade_comboBox.SelectedItem != null && addNovoTNacio_textBox.Text != "")
+                    {
+                        SqlConnection cn = getSGBDConnection();
+                        cn.Open();
+
+                        SqlCommand cmd = new SqlCommand("HoqueiPortugues.contratarTreinador", cn);
+                        cmd.Parameters.AddWithValue("@Nome", addNovoTNome_textBox.Text);
+                        cmd.Parameters.AddWithValue("@Idade", int.Parse(addNovoTIdade_comboBox.Text));
+                        cmd.Parameters.AddWithValue("@Tipo_treinador", addNovoTTipo_comboBox.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@Nacionalidade", addNovoTNacio_textBox.Text);
+                        cmd.Parameters.AddWithValue("@Clube_ID", int.Parse(((Equipa)listBoxEquipas.SelectedItem).ID));
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Failed to add Treinador in database. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            cn.Close();
+                            MessageBox.Show("Treinador adicionado com sucesso!");
+                            panelAddTreinador.Visible = false;
+                            dataGridViewJC.Visible = true;
+                            dataGridViewGR.Visible = true;
+                            dataGridViewT.Visible = true;
+                            jogadoresCampo_label.Visible = true;
+                            guardaRedes_label.Visible = true;
+                            treinadores_label.Visible = true;
+                            addJogador_button.Visible = true;
+                            addTreinador_button.Visible = true;
+                            removerJogador_button.Visible = true;
+                            removerTreinador_button.Visible = true;
+                            label56.Visible = true;
+                            label57.Visible = true;
+                            loadClubeEquipa();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Preencha todos os campos corretamente!");
+                    }
+                    break;
+
+                case "Adicionar treinador de outro clube":
+                    if(nomeAddTOutroClube_comboBox.SelectedItem != null && clubeAntigoAddT_comboBox.SelectedItem != null)
+                    {
+                        SqlConnection cn = getSGBDConnection();
+                        cn.Open();
+
+                        SqlCommand cmd = new SqlCommand("HoqueiPortugues.contratarTreinadorClube", cn);
+                        cmd.Parameters.AddWithValue("@Treinador_ID", ((Treinador)nomeAddTOutroClube_comboBox.SelectedItem).ID);
+                        cmd.Parameters.AddWithValue("@Nome", ((Treinador)nomeAddTOutroClube_comboBox.SelectedItem).Nome);
+                        cmd.Parameters.AddWithValue("@Clube_Novo", int.Parse(((Equipa)listBoxEquipas.SelectedItem).ID));
+                        cmd.Parameters.AddWithValue("@Clube_Antigo", int.Parse(((Equipa)clubeAntigoAddT_comboBox.SelectedItem).ID));
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Failed to add Treinador in database. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            cn.Close();
+                            MessageBox.Show("Treinador adicionado com sucesso!");
+                            panelAddTreinador.Visible = false;
+                            dataGridViewJC.Visible = true;
+                            dataGridViewGR.Visible = true;
+                            dataGridViewT.Visible = true;
+                            jogadoresCampo_label.Visible = true;
+                            guardaRedes_label.Visible = true;
+                            treinadores_label.Visible = true;
+                            addJogador_button.Visible = true;
+                            addTreinador_button.Visible = true;
+                            removerJogador_button.Visible = true;
+                            removerTreinador_button.Visible = true;
+                            label56.Visible = true;
+                            label57.Visible = true;
+                            loadClubeEquipa();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Preencha todos os campos!");
+                    }
+                    break;
+                case "Adicionar treinador sem clube":
+                    if(treinadoresSemClube_comboBox.SelectedItem != null)
+                    {
+                        SqlConnection cn = getSGBDConnection();
+                        cn.Open();
+
+                        SqlCommand cmd = new SqlCommand("HoqueiPortugues.contratarTreinadorSemClube", cn);
+                        cmd.Parameters.AddWithValue("@Treinador_ID", ((Treinador)treinadoresSemClube_comboBox.SelectedItem).ID);
+                        cmd.Parameters.AddWithValue("@Clube_Novo", int.Parse(((Equipa)listBoxEquipas.SelectedItem).ID));
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Failed to add Treinador in database. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            cn.Close();
+                            MessageBox.Show("Treinador adicionado com sucesso!");
+                            panelAddTreinador.Visible = false;
+                            dataGridViewJC.Visible = true;
+                            dataGridViewGR.Visible = true;
+                            dataGridViewT.Visible = true;
+                            jogadoresCampo_label.Visible = true;
+                            guardaRedes_label.Visible = true;
+                            treinadores_label.Visible = true;
+                            addJogador_button.Visible = true;
+                            addTreinador_button.Visible = true;
+                            removerJogador_button.Visible = true;
+                            removerTreinador_button.Visible = true;
+                            label56.Visible = true;
+                            label57.Visible = true;
+                            loadClubeEquipa();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione um treinador!");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void retrocederAddTreinador_button_Click(object sender, EventArgs e)
+        {
+            panelAddTreinador.Visible = false;
+            dataGridViewJC.Visible = true;
+            dataGridViewGR.Visible = true;
+            dataGridViewT.Visible = true;
+            jogadoresCampo_label.Visible = true;
+            guardaRedes_label.Visible = true;
+            treinadores_label.Visible = true;
+            addJogador_button.Visible = true;
+            addTreinador_button.Visible = true;
+            removerJogador_button.Visible = true;
+            removerTreinador_button.Visible = true;
+            label56.Visible = true;
+            label57.Visible = true;
+            loadClubeEquipa();
         }
 
         private void removerTreinador_button_Click(object sender, EventArgs e)
@@ -2582,6 +2922,8 @@ namespace Final_Project
         {
             panelEquipas.Visible = false;
             panelJogadores.Visible = true;
+            panelJogadoresCampo.Visible = false;
+            panelVerGR.Visible = false;
             panelClassificacao.Visible = false;
             panelCalendario.Visible = false;
             panelDetalhes.Visible = false;
