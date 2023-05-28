@@ -1031,15 +1031,12 @@ CREATE PROCEDURE HoqueiPortugues.verCalendarioEquipa
     @Clube_ID AS int
 AS
 BEGIN
-    SELECT Jogo.ID, Jogo.Jornada, Pavilhao.Nome AS NomePavilhao, 
+    SELECT Jogo.Jornada,
         ClubeCasa.Nome AS NomeClubeCasa, ClubeFora.Nome AS NomeClubeFora, 
-        ClubeCasa.ID AS ClubeCasaID, ClubeFora.ID AS ClubeForaID, 
         Jogo.Resultado_C, Jogo.Resultado_F, 
-        Arbitro.Nome AS ArbitroNome, 
+        Pavilhao.Nome AS NomePavilhao, 
         Jogo.Data_hora
     FROM HoqueiPortugues.Jogo
-    JOIN HoqueiPortugues.e_arbitrado ON Jogo.ID = HoqueiPortugues.e_arbitrado.Jogo_ID
-    JOIN HoqueiPortugues.Arbitro ON e_arbitrado.Arbitro_ID = Arbitro.ID
     JOIN HoqueiPortugues.Pavilhao ON Jogo.Pavilhao_ID = Pavilhao.ID
     JOIN HoqueiPortugues.Clube AS ClubeCasa ON Jogo.Clube_C_ID = ClubeCasa.ID
     JOIN HoqueiPortugues.Clube AS ClubeFora ON Jogo.Clube_F_ID = ClubeFora.ID

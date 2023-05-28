@@ -12,6 +12,12 @@ namespace Final_Project
         private string _id, _nome, _anoFundacao, _pavilhao;
         private List<String> _jogadores, _treinadores;
 
+        public Equipa(string id, string nome)
+        {
+            _id = id;
+            _nome = nome;
+        }
+
         public string ID
         {
             get => _id; set => _id = value;
