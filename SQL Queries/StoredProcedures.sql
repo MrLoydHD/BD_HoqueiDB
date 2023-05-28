@@ -153,7 +153,7 @@ IF OBJECT_ID('HoqueiPortugues.contratarJogadorClube', 'P') IS NOT NULL DROP PROC
 GO
 
 CREATE PROCEDURE HoqueiPortugues.contratarJogadorClube 
-    @Jogador_ID AS int , @Nome AS varchar(50), @Clube_Antigo AS int, @Clube_Novo AS int
+    @Jogador_ID AS int , @Nome AS varchar(50), @NumeroCamisola int, @Clube_Antigo AS int, @Clube_Novo AS int
 AS
 BEGIN
     --Verifica se o jogador existe
@@ -178,7 +178,7 @@ BEGIN
         END
     ELSE
         BEGIN
-            UPDATE HoqueiPortugues.Jogador SET Clube_ID = @Clube_Novo WHERE ID = @Jogador_ID AND Clube_ID = @Clube_Antigo;
+            UPDATE HoqueiPortugues.Jogador SET Clube_ID = @Clube_Novo, Num_camisola=@NumeroCamisola WHERE ID = @Jogador_ID AND Clube_ID = @Clube_Antigo;
         END
 END;
 GO
@@ -227,7 +227,7 @@ BEGIN
         END
     ELSE
         BEGIN
-            UPDATE HoqueiPortugues.Jogador SET Clube_ID = NULL WHERE ID = @Jogador_ID AND Clube_ID = @Clube_ID;
+            UPDATE HoqueiPortugues.Jogador SET Clube_ID = NULL, Num_camisola = NULL WHERE ID = @Jogador_ID AND Clube_ID = @Clube_ID;
         END
 END;
 
@@ -240,7 +240,7 @@ IF OBJECT_ID('HoqueiPortugues.contratarJogadorSemClube', 'P') IS NOT NULL DROP P
 GO
 
 CREATE PROCEDURE HoqueiPortugues.contratarJogadorSemClube 
-    @Jogador_ID AS int , @Clube_Novo AS int
+    @Jogador_ID AS int , @Clube_Novo AS int, @NumeroCamisola int
 AS
 BEGIN
     --Verifica se o jogador existe
@@ -265,7 +265,7 @@ BEGIN
         END
     ELSE
         BEGIN
-            UPDATE HoqueiPortugues.Jogador SET Clube_ID = @Clube_Novo WHERE ID = @Jogador_ID AND Clube_ID IS NULL;
+            UPDATE HoqueiPortugues.Jogador SET Clube_ID = @Clube_Novo, Num_camisola=@NumeroCamisola WHERE ID = @Jogador_ID AND Clube_ID IS NULL;
         END
 END;
 
