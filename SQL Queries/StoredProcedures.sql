@@ -396,13 +396,6 @@ BEGIN
             RAISERROR('Clube não existe', 16, 1);
             RETURN;
         END
-    
-    --Tem que ter pelo menos um treinador principal e um adjunto
-    IF (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_ID AND Tipo_treinador = 'Principal') = 1 AND (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_ID AND Tipo_treinador = 'Adjunto') = 1
-        BEGIN
-            RAISERROR('O clube não pode ficar só com um treinador principal ou só um adjunto', 16, 1);
-            RETURN;
-        END
 
     --Verifica se o treinador pertence ao clube
     IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Treinador WHERE ID = @Treinador_ID AND Clube_ID = @Clube_ID)

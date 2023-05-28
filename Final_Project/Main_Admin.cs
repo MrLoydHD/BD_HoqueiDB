@@ -2311,6 +2311,24 @@ namespace Final_Project
             }
         }
 
+        private void removerJogadorRetroceder_Click(object sender, EventArgs e)
+        {
+            panelRemoverJogador.Visible = false;
+            dataGridViewJC.Visible = true;
+            dataGridViewGR.Visible = true;
+            dataGridViewT.Visible = true;
+            jogadoresCampo_label.Visible = true;
+            guardaRedes_label.Visible = true;
+            treinadores_label.Visible = true;
+            addJogador_button.Visible = true;
+            addTreinador_button.Visible = true;
+            removerJogador_button.Visible = true;
+            removerTreinador_button.Visible = true;
+            label56.Visible = true;
+            label57.Visible = true;
+            loadClubeEquipa();
+        }
+
         private void addTreinador_button_Click(object sender, EventArgs e)
         {
 
@@ -2318,7 +2336,102 @@ namespace Final_Project
 
         private void removerTreinador_button_Click(object sender, EventArgs e)
         {
+            panelRemoverTreinador.Visible = true;
+            removerTreinador_combox.Items.Clear();
+            // mete os elementos da pagina anterior invisiveis
+            label56.Visible = false;
+            label57.Visible = false;
+            dataGridViewJC.Visible = false;
+            dataGridViewGR.Visible = false;
+            dataGridViewT.Visible = false;
+            jogadoresCampo_label.Visible = false;
+            guardaRedes_label.Visible = false;
+            treinadores_label.Visible = false;
+            addJogador_button.Visible = false;
+            addTreinador_button.Visible = false;
+            removerJogador_button.Visible = false;
+            removerTreinador_button.Visible = false;
 
+            // preenche a combobox com os jogadores da equipa
+            SqlConnection cn1 = getSGBDConnection();
+
+            if (cn1.State != ConnectionState.Open)
+                cn1.Open();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd1 = new SqlCommand("SELECT Treinador.ID, Treinador.Nome FROM HoqueiPortugues.Treinador WHERE Treinador.Clube_ID = @Clube_ID", cn1);
+            cmd1.Parameters.AddWithValue("@Clube_ID", ((Equipa)listBoxEquipas.SelectedItem).ID);
+            SqlDataReader reader1 = cmd1.ExecuteReader();
+
+            while (reader1.Read())
+            {
+                string idTreinador = reader1["ID"].ToString();
+                string nomeTreinador = reader1["Nome"].ToString();
+                Treinador T = new Treinador(int.Parse(idTreinador), nomeTreinador);
+
+                removerTreinador_combox.Items.Add(T);
+            }
+        }
+
+        private void removerTreinadorGuardar_Click(object sender, EventArgs e)
+        {
+            if (removerTreinador_combox.SelectedItem != null)
+            {
+                SqlConnection cn = getSGBDConnection();
+                cn.Open();
+
+                SqlCommand cmd = new SqlCommand("HoqueiPortugues.treinadorSemClube", cn);
+                cmd.Parameters.AddWithValue("@Treinador_ID", ((Treinador)removerTreinador_combox.SelectedItem).ID);
+                cmd.Parameters.AddWithValue("@Clube_ID", int.Parse(((Equipa)listBoxEquipas.SelectedItem).ID));
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to remove Treinador in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                    MessageBox.Show("Treinador removido com sucesso!");
+                    panelRemoverTreinador.Visible = false;
+                    dataGridViewJC.Visible = true;
+                    dataGridViewGR.Visible = true;
+                    dataGridViewT.Visible = true;
+                    jogadoresCampo_label.Visible = true;
+                    guardaRedes_label.Visible = true;
+                    treinadores_label.Visible = true;
+                    addJogador_button.Visible = true;
+                    addTreinador_button.Visible = true;
+                    removerJogador_button.Visible = true;
+                    removerTreinador_button.Visible = true;
+                    label56.Visible = true;
+                    label57.Visible = true;
+                    loadClubeEquipa();
+                }
+            }
+        }
+
+        private void removerTreinadorRetroceder_Click(object sender, EventArgs e)
+        {
+            panelRemoverTreinador.Visible = false;
+            dataGridViewJC.Visible = true;
+            dataGridViewGR.Visible = true;
+            dataGridViewT.Visible = true;
+            jogadoresCampo_label.Visible = true;
+            guardaRedes_label.Visible = true;
+            treinadores_label.Visible = true;
+            addJogador_button.Visible = true;
+            addTreinador_button.Visible = true;
+            removerJogador_button.Visible = true;
+            removerTreinador_button.Visible = true;
+            label56.Visible = true;
+            label57.Visible = true;
+            loadClubeEquipa();
         }
 
         private void addTecnico_button_Click(object sender, EventArgs e)
