@@ -267,6 +267,12 @@ namespace Final_Project
             this.jogadorSemClube_combobox = new System.Windows.Forms.ComboBox();
             this.label69 = new System.Windows.Forms.Label();
             this.jogadorSemClubeNum_comboBox = new System.Windows.Forms.ComboBox();
+            this.panelRemoverJogador = new System.Windows.Forms.Panel();
+            this.label70 = new System.Windows.Forms.Label();
+            this.removerJogadorRetroceder = new System.Windows.Forms.Button();
+            this.removerJogadorGuardar = new System.Windows.Forms.Button();
+            this.label71 = new System.Windows.Forms.Label();
+            this.removerJogador_comboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelClassificacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -286,6 +292,7 @@ namespace Final_Project
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJogosEquipa)).BeginInit();
+            this.panelRemoverJogador.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -3600,12 +3607,87 @@ namespace Final_Project
             this.jogadorSemClubeNum_comboBox.TabIndex = 17;
             this.jogadorSemClubeNum_comboBox.Visible = false;
             // 
+            // panelRemoverJogador
+            // 
+            this.panelRemoverJogador.Controls.Add(this.removerJogadorGuardar);
+            this.panelRemoverJogador.Controls.Add(this.label71);
+            this.panelRemoverJogador.Controls.Add(this.removerJogadorRetroceder);
+            this.panelRemoverJogador.Controls.Add(this.label70);
+            this.panelRemoverJogador.Controls.Add(this.removerJogador_comboBox);
+            this.panelRemoverJogador.Location = new System.Drawing.Point(5, 90);
+            this.panelRemoverJogador.Name = "panelRemoverJogador";
+            this.panelRemoverJogador.Size = new System.Drawing.Size(1088, 674);
+            this.panelRemoverJogador.TabIndex = 20;
+            this.panelRemoverJogador.Visible = false;
+            // 
+            // label70
+            // 
+            this.label70.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label70.Location = new System.Drawing.Point(-1, -13);
+            this.label70.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(1088, 71);
+            this.label70.TabIndex = 12;
+            this.label70.Text = "Remover jogador";
+            this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // removerJogadorRetroceder
+            // 
+            this.removerJogadorRetroceder.BackColor = System.Drawing.Color.Orange;
+            this.removerJogadorRetroceder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removerJogadorRetroceder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removerJogadorRetroceder.ForeColor = System.Drawing.Color.White;
+            this.removerJogadorRetroceder.Location = new System.Drawing.Point(33, 28);
+            this.removerJogadorRetroceder.Margin = new System.Windows.Forms.Padding(4);
+            this.removerJogadorRetroceder.Name = "removerJogadorRetroceder";
+            this.removerJogadorRetroceder.Size = new System.Drawing.Size(148, 47);
+            this.removerJogadorRetroceder.TabIndex = 15;
+            this.removerJogadorRetroceder.Text = "Retroceder";
+            this.removerJogadorRetroceder.UseVisualStyleBackColor = false;
+            // 
+            // removerJogadorGuardar
+            // 
+            this.removerJogadorGuardar.BackColor = System.Drawing.Color.DarkOrange;
+            this.removerJogadorGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removerJogadorGuardar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removerJogadorGuardar.ForeColor = System.Drawing.Color.White;
+            this.removerJogadorGuardar.Location = new System.Drawing.Point(938, 565);
+            this.removerJogadorGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.removerJogadorGuardar.Name = "removerJogadorGuardar";
+            this.removerJogadorGuardar.Size = new System.Drawing.Size(120, 57);
+            this.removerJogadorGuardar.TabIndex = 16;
+            this.removerJogadorGuardar.Text = "Guardar";
+            this.removerJogadorGuardar.UseVisualStyleBackColor = false;
+            this.removerJogadorGuardar.Click += new System.EventHandler(this.removerJogadorGuardar_Click);
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label71.Location = new System.Drawing.Point(357, 283);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(91, 28);
+            this.label71.TabIndex = 19;
+            this.label71.Text = "Jogador:";
+            // 
+            // removerJogador_comboBox
+            // 
+            this.removerJogador_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.removerJogador_comboBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removerJogador_comboBox.FormattingEnabled = true;
+            this.removerJogador_comboBox.Location = new System.Drawing.Point(459, 284);
+            this.removerJogador_comboBox.Name = "removerJogador_comboBox";
+            this.removerJogador_comboBox.Size = new System.Drawing.Size(239, 31);
+            this.removerJogador_comboBox.TabIndex = 17;
+            // 
             // Main_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1092, 763);
+            this.Controls.Add(this.panelRemoverJogador);
             this.Controls.Add(this.jogadores);
             this.Controls.Add(this.logOut_button);
             this.Controls.Add(this.Equipa_button);
@@ -3651,6 +3733,8 @@ namespace Final_Project
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJogosEquipa)).EndInit();
+            this.panelRemoverJogador.ResumeLayout(false);
+            this.panelRemoverJogador.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3894,5 +3978,11 @@ namespace Final_Project
         private System.Windows.Forms.ComboBox jogadorSemClube_combobox;
         private System.Windows.Forms.ComboBox jogadorSemClubeNum_comboBox;
         private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Panel panelRemoverJogador;
+        private System.Windows.Forms.Button removerJogadorGuardar;
+        private System.Windows.Forms.Button removerJogadorRetroceder;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.ComboBox removerJogador_comboBox;
     }
 }
