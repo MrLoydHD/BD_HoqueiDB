@@ -2436,12 +2436,129 @@ namespace Final_Project
 
         private void addTecnico_button_Click(object sender, EventArgs e)
         {
+            panelAddTecnico.Visible = true;
+            nomeTecnico_textBox.Text = "";
+            nacionalidadeTecnico_textbox.Text = "";
+            idadeTecnico_textBox.Text = "";
+            especialidade_textBox.Text = "";
+            // mete os elementos da pagina anterior invisiveis
+            label56.Visible = false;
+            label57.Visible = false;
+            dataGridViewJC.Visible = false;
+            dataGridViewGR.Visible = false;
+            dataGridViewT.Visible = false;
+            jogadoresCampo_label.Visible = false;
+            guardaRedes_label.Visible = false;
+            treinadores_label.Visible = false;
+            addJogador_button.Visible = false;
+            addTreinador_button.Visible = false;
+            removerJogador_button.Visible = false;
+            removerTreinador_button.Visible = false;
+        }
 
+        private void adicionarTecnicoGuardar_button_Click(object sender, EventArgs e)
+        {
+            if(nomeTecnico_textBox.Text != "" && nacionalidadeTecnico_textbox.Text != "" && idadeTecnico_textBox.Text != "" && especialidade_textBox.Text != "")
+            {
+                SqlConnection cn = getSGBDConnection();
+                cn.Open();
+
+                SqlCommand cmd = new SqlCommand("HoqueiPortugues.adicionarEspecialistaTecnico", cn);
+                cmd.Parameters.AddWithValue("@Nome", nomeTecnico_textBox.Text);
+                cmd.Parameters.AddWithValue("@nacionalidade", nacionalidadeTecnico_textbox.Text);
+                cmd.Parameters.AddWithValue("@idade", int.Parse(idadeTecnico_textBox.Text));
+                cmd.Parameters.AddWithValue("@especialidade", especialidade_textBox.Text);
+                cmd.Parameters.AddWithValue("@Clube_ID", int.Parse(((Equipa)listBoxEquipas.SelectedItem).ID));
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to add Tecnico in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                    MessageBox.Show("Especialista Técnico adicionado com sucesso!");
+                    panelAddTecnico.Visible = false;
+                    label56.Visible = true;
+                    label57.Visible = true;
+                    loadTecnicos();
+                }
+            }
+        }
+
+        private void retrocederAdicionarTecnico_button_Click(object sender, EventArgs e)
+        {
+            panelAddTecnico.Visible = false;
+            label56.Visible = true;
+            label57.Visible = true;
+            loadTecnicos();
         }
 
         private void removerTecnico_button_Click(object sender, EventArgs e)
         {
+            panelRemoverTecnico.Visible = true;
+            removerTecnico_comboBox.Items.Clear();
 
+            SqlConnection cn = getSGBDConnection();
+            cn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT ID, Nome FROM HoqueiPortugues.Especialista_Tecnico WHERE Clube_ID = @Clube_ID", cn);
+            cmd.Parameters.AddWithValue("@Clube_ID", int.Parse(((Equipa)listBoxEquipas.SelectedItem).ID));
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int idTecnico = Int32.Parse(reader["ID"].ToString());
+                string nomeTecnico = reader["Nome"].ToString();
+                Tecnico tecnico = new Tecnico(idTecnico, nomeTecnico);
+
+                removerTecnico_comboBox.Items.Add(tecnico);
+            }
+
+        }
+
+        private void retrocederRemoverTecnico_button_Click(object sender, EventArgs e)
+        {
+            panelRemoverTecnico.Visible = false;
+            label56.Visible = true;
+            label57.Visible = true;
+            loadTecnicos();
+        }
+
+        private void removerTecnicoGuardar_button_Click(object sender, EventArgs e)
+        {
+            if(removerTecnico_comboBox.SelectedItem != null)
+            {
+                SqlConnection cn = getSGBDConnection();
+                cn.Open();
+
+                SqlCommand cmd = new SqlCommand("HoqueiPortugues.removerEspecialistaTecnico", cn);
+                cmd.Parameters.AddWithValue("@Especialista_ID", ((Tecnico)removerTecnico_comboBox.SelectedItem).ID);
+                cmd.Parameters.AddWithValue("@Clube_ID", int.Parse(((Equipa)listBoxEquipas.SelectedItem).ID));
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to remove Tecnico in database. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                    MessageBox.Show("Especialista Técnico removido com sucesso!");
+                    panelRemoverTecnico.Visible = false;
+                    label56.Visible = true;
+                    label57.Visible = true;
+                    loadTecnicos();
+                }
+            }
         }
 
 
@@ -2449,5 +2566,6 @@ namespace Final_Project
         {
 
         }
+
     }
 }

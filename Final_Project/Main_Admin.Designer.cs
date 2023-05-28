@@ -279,6 +279,24 @@ namespace Final_Project
             this.retrocederRemoverTreinador = new System.Windows.Forms.Button();
             this.label73 = new System.Windows.Forms.Label();
             this.removerTreinador_combox = new System.Windows.Forms.ComboBox();
+            this.panelAddTecnico = new System.Windows.Forms.Panel();
+            this.guardarAddTecnico = new System.Windows.Forms.Button();
+            this.label80 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.idadeTecnico_textBox = new System.Windows.Forms.TextBox();
+            this.especialidade_textBox = new System.Windows.Forms.TextBox();
+            this.nomeTecnico_textBox = new System.Windows.Forms.TextBox();
+            this.retrocederAddTecnico = new System.Windows.Forms.Button();
+            this.label85 = new System.Windows.Forms.Label();
+            this.nacionalidadeTecnico_textbox = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.panelRemoverTecnico = new System.Windows.Forms.Panel();
+            this.removerTecnicoGuardar = new System.Windows.Forms.Button();
+            this.label78 = new System.Windows.Forms.Label();
+            this.removerTecnicoRetroceder = new System.Windows.Forms.Button();
+            this.label79 = new System.Windows.Forms.Label();
+            this.removerTecnico_comboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelClassificacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -300,6 +318,8 @@ namespace Final_Project
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJogosEquipa)).BeginInit();
             this.panelRemoverJogador.SuspendLayout();
             this.panelRemoverTreinador.SuspendLayout();
+            this.panelAddTecnico.SuspendLayout();
+            this.panelRemoverTecnico.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -3074,7 +3094,7 @@ namespace Final_Project
             this.dataGridViewTec.Name = "dataGridViewTec";
             this.dataGridViewTec.RowHeadersWidth = 51;
             this.dataGridViewTec.RowTemplate.Height = 24;
-            this.dataGridViewTec.Size = new System.Drawing.Size(617, 166);
+            this.dataGridViewTec.Size = new System.Drawing.Size(598, 155);
             this.dataGridViewTec.TabIndex = 29;
             this.dataGridViewTec.Visible = false;
             // 
@@ -3764,26 +3784,236 @@ namespace Final_Project
             this.removerTreinador_combox.Size = new System.Drawing.Size(239, 31);
             this.removerTreinador_combox.TabIndex = 17;
             // 
+            // panelAddTecnico
+            // 
+            this.panelAddTecnico.Controls.Add(this.guardarAddTecnico);
+            this.panelAddTecnico.Controls.Add(this.label74);
+            this.panelAddTecnico.Controls.Add(this.label80);
+            this.panelAddTecnico.Controls.Add(this.label82);
+            this.panelAddTecnico.Controls.Add(this.label83);
+            this.panelAddTecnico.Controls.Add(this.idadeTecnico_textBox);
+            this.panelAddTecnico.Controls.Add(this.nacionalidadeTecnico_textbox);
+            this.panelAddTecnico.Controls.Add(this.especialidade_textBox);
+            this.panelAddTecnico.Controls.Add(this.nomeTecnico_textBox);
+            this.panelAddTecnico.Controls.Add(this.retrocederAddTecnico);
+            this.panelAddTecnico.Controls.Add(this.label85);
+            this.panelAddTecnico.Location = new System.Drawing.Point(2, 90);
+            this.panelAddTecnico.Name = "panelAddTecnico";
+            this.panelAddTecnico.Size = new System.Drawing.Size(1082, 674);
+            this.panelAddTecnico.TabIndex = 34;
+            this.panelAddTecnico.Visible = false;
+            // 
+            // guardarAddTecnico
+            // 
+            this.guardarAddTecnico.BackColor = System.Drawing.Color.DarkOrange;
+            this.guardarAddTecnico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardarAddTecnico.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardarAddTecnico.ForeColor = System.Drawing.Color.White;
+            this.guardarAddTecnico.Location = new System.Drawing.Point(924, 565);
+            this.guardarAddTecnico.Margin = new System.Windows.Forms.Padding(4);
+            this.guardarAddTecnico.Name = "guardarAddTecnico";
+            this.guardarAddTecnico.Size = new System.Drawing.Size(120, 57);
+            this.guardarAddTecnico.TabIndex = 13;
+            this.guardarAddTecnico.Text = "Guardar";
+            this.guardarAddTecnico.UseVisualStyleBackColor = false;
+            this.guardarAddTecnico.Click += new System.EventHandler(this.adicionarTecnicoGuardar_button_Click);
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label80.Location = new System.Drawing.Point(251, 355);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(138, 28);
+            this.label80.TabIndex = 16;
+            this.label80.Text = "Especialidade:";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label82.Location = new System.Drawing.Point(321, 278);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(68, 28);
+            this.label82.TabIndex = 16;
+            this.label82.Text = "Idade:";
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label83.Location = new System.Drawing.Point(316, 204);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(73, 28);
+            this.label83.TabIndex = 16;
+            this.label83.Text = "Nome:";
+            // 
+            // idadeTecnico_textBox
+            // 
+            this.idadeTecnico_textBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idadeTecnico_textBox.Location = new System.Drawing.Point(421, 280);
+            this.idadeTecnico_textBox.Name = "idadeTecnico_textBox";
+            this.idadeTecnico_textBox.Size = new System.Drawing.Size(72, 30);
+            this.idadeTecnico_textBox.TabIndex = 15;
+            // 
+            // especialidade_textBox
+            // 
+            this.especialidade_textBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.especialidade_textBox.Location = new System.Drawing.Point(421, 354);
+            this.especialidade_textBox.Name = "especialidade_textBox";
+            this.especialidade_textBox.Size = new System.Drawing.Size(239, 30);
+            this.especialidade_textBox.TabIndex = 15;
+            // 
+            // nomeTecnico_textBox
+            // 
+            this.nomeTecnico_textBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomeTecnico_textBox.Location = new System.Drawing.Point(421, 206);
+            this.nomeTecnico_textBox.Name = "nomeTecnico_textBox";
+            this.nomeTecnico_textBox.Size = new System.Drawing.Size(239, 30);
+            this.nomeTecnico_textBox.TabIndex = 15;
+            // 
+            // retrocederAddTecnico
+            // 
+            this.retrocederAddTecnico.BackColor = System.Drawing.Color.Orange;
+            this.retrocederAddTecnico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retrocederAddTecnico.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.retrocederAddTecnico.ForeColor = System.Drawing.Color.White;
+            this.retrocederAddTecnico.Location = new System.Drawing.Point(25, 9);
+            this.retrocederAddTecnico.Margin = new System.Windows.Forms.Padding(4);
+            this.retrocederAddTecnico.Name = "retrocederAddTecnico";
+            this.retrocederAddTecnico.Size = new System.Drawing.Size(148, 47);
+            this.retrocederAddTecnico.TabIndex = 14;
+            this.retrocederAddTecnico.Text = "Retroceder";
+            this.retrocederAddTecnico.UseVisualStyleBackColor = false;
+            this.retrocederAddTecnico.Click += new System.EventHandler(this.retrocederAdicionarTecnico_button_Click);
+            // 
+            // label85
+            // 
+            this.label85.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label85.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label85.Location = new System.Drawing.Point(1, -6);
+            this.label85.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(1088, 71);
+            this.label85.TabIndex = 11;
+            this.label85.Text = "Adicionar Especialista Técnico";
+            this.label85.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nacionalidadeTecnico_textbox
+            // 
+            this.nacionalidadeTecnico_textbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nacionalidadeTecnico_textbox.Location = new System.Drawing.Point(421, 429);
+            this.nacionalidadeTecnico_textbox.Name = "nacionalidadeTecnico_textbox";
+            this.nacionalidadeTecnico_textbox.Size = new System.Drawing.Size(239, 30);
+            this.nacionalidadeTecnico_textbox.TabIndex = 15;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label74.Location = new System.Drawing.Point(244, 427);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(145, 28);
+            this.label74.TabIndex = 16;
+            this.label74.Text = "Nacionalidade:";
+            // 
+            // panelRemoverTecnico
+            // 
+            this.panelRemoverTecnico.Controls.Add(this.removerTecnico_comboBox);
+            this.panelRemoverTecnico.Controls.Add(this.removerTecnicoGuardar);
+            this.panelRemoverTecnico.Controls.Add(this.label78);
+            this.panelRemoverTecnico.Controls.Add(this.removerTecnicoRetroceder);
+            this.panelRemoverTecnico.Controls.Add(this.label79);
+            this.panelRemoverTecnico.Location = new System.Drawing.Point(7, 86);
+            this.panelRemoverTecnico.Name = "panelRemoverTecnico";
+            this.panelRemoverTecnico.Size = new System.Drawing.Size(1082, 674);
+            this.panelRemoverTecnico.TabIndex = 34;
+            this.panelRemoverTecnico.Visible = false;
+            // 
+            // removerTecnicoGuardar
+            // 
+            this.removerTecnicoGuardar.BackColor = System.Drawing.Color.DarkOrange;
+            this.removerTecnicoGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removerTecnicoGuardar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removerTecnicoGuardar.ForeColor = System.Drawing.Color.White;
+            this.removerTecnicoGuardar.Location = new System.Drawing.Point(924, 565);
+            this.removerTecnicoGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.removerTecnicoGuardar.Name = "removerTecnicoGuardar";
+            this.removerTecnicoGuardar.Size = new System.Drawing.Size(120, 57);
+            this.removerTecnicoGuardar.TabIndex = 13;
+            this.removerTecnicoGuardar.Text = "Guardar";
+            this.removerTecnicoGuardar.UseVisualStyleBackColor = false;
+            this.removerTecnicoGuardar.Click += new System.EventHandler(this.removerTecnicoGuardar_button_Click);
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label78.Location = new System.Drawing.Point(358, 293);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(73, 28);
+            this.label78.TabIndex = 16;
+            this.label78.Text = "Nome:";
+            // 
+            // removerTecnicoRetroceder
+            // 
+            this.removerTecnicoRetroceder.BackColor = System.Drawing.Color.Orange;
+            this.removerTecnicoRetroceder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removerTecnicoRetroceder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removerTecnicoRetroceder.ForeColor = System.Drawing.Color.White;
+            this.removerTecnicoRetroceder.Location = new System.Drawing.Point(25, 9);
+            this.removerTecnicoRetroceder.Margin = new System.Windows.Forms.Padding(4);
+            this.removerTecnicoRetroceder.Name = "removerTecnicoRetroceder";
+            this.removerTecnicoRetroceder.Size = new System.Drawing.Size(148, 47);
+            this.removerTecnicoRetroceder.TabIndex = 14;
+            this.removerTecnicoRetroceder.Text = "Retroceder";
+            this.removerTecnicoRetroceder.UseVisualStyleBackColor = false;
+            this.removerTecnicoRetroceder.Click += new System.EventHandler(this.retrocederRemoverTecnico_button_Click);
+            // 
+            // label79
+            // 
+            this.label79.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label79.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label79.Location = new System.Drawing.Point(1, -6);
+            this.label79.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(1088, 71);
+            this.label79.TabIndex = 11;
+            this.label79.Text = "Remover Especialista Técnico";
+            this.label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // removerTecnico_comboBox
+            // 
+            this.removerTecnico_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.removerTecnico_comboBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removerTecnico_comboBox.FormattingEnabled = true;
+            this.removerTecnico_comboBox.Location = new System.Drawing.Point(454, 290);
+            this.removerTecnico_comboBox.Name = "removerTecnico_comboBox";
+            this.removerTecnico_comboBox.Size = new System.Drawing.Size(254, 36);
+            this.removerTecnico_comboBox.TabIndex = 17;
+            // 
             // Main_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1092, 763);
-            this.Controls.Add(this.panelRemoverTreinador);
-            this.Controls.Add(this.panelRemoverJogador);
             this.Controls.Add(this.jogadores);
             this.Controls.Add(this.logOut_button);
             this.Controls.Add(this.Equipa_button);
             this.Controls.Add(this.calendario_button);
             this.Controls.Add(this.classificacaoButton);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panelRemoverTecnico);
+            this.Controls.Add(this.panelAddTecnico);
             this.Controls.Add(this.panelAddJogador);
+            this.Controls.Add(this.panelDetalhes);
             this.Controls.Add(this.panelEquipas);
             this.Controls.Add(this.panelCalendario);
             this.Controls.Add(this.panelClassificacao);
-            this.Controls.Add(this.panelDetalhes);
             this.Controls.Add(this.panelAdicionarJogo);
+            this.Controls.Add(this.panelRemoverTreinador);
+            this.Controls.Add(this.panelRemoverJogador);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main_Admin";
             this.Text = "Main_Admin";
@@ -3821,6 +4051,10 @@ namespace Final_Project
             this.panelRemoverJogador.PerformLayout();
             this.panelRemoverTreinador.ResumeLayout(false);
             this.panelRemoverTreinador.PerformLayout();
+            this.panelAddTecnico.ResumeLayout(false);
+            this.panelAddTecnico.PerformLayout();
+            this.panelRemoverTecnico.ResumeLayout(false);
+            this.panelRemoverTecnico.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4076,5 +4310,23 @@ namespace Final_Project
         private System.Windows.Forms.Button retrocederRemoverTreinador;
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.ComboBox removerTreinador_combox;
+        private System.Windows.Forms.Panel panelAddTecnico;
+        private System.Windows.Forms.Button guardarAddTecnico;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.TextBox idadeTecnico_textBox;
+        private System.Windows.Forms.TextBox nacionalidadeTecnico_textbox;
+        private System.Windows.Forms.TextBox especialidade_textBox;
+        private System.Windows.Forms.TextBox nomeTecnico_textBox;
+        private System.Windows.Forms.Button retrocederAddTecnico;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.Panel panelRemoverTecnico;
+        private System.Windows.Forms.ComboBox removerTecnico_comboBox;
+        private System.Windows.Forms.Button removerTecnicoGuardar;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.Button removerTecnicoRetroceder;
+        private System.Windows.Forms.Label label79;
     }
 }

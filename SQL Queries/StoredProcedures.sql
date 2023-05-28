@@ -456,7 +456,7 @@ IF OBJECT_ID('HoqueiPortugues.adicionarEspecialistaTecnico', 'P') IS NOT NULL DR
 GO
 
 CREATE PROCEDURE HoqueiPortugues.adicionarEspecialistaTecnico 
-    @Especialista_ID AS int , 
+    @Nome varchar(50) , 
     @idade int,
     @especialidade varchar(50), 
     @nacionalidade varchar(50),
@@ -468,20 +468,13 @@ BEGIN
             RAISERROR('Clube não existe', 16, 1);
             RETURN;
         END
-
-    -- Verifica se a especialidade é válida
-    IF @especialidade NOT IN ('Mecânico', 'Massagista', 'Fisioterapeuta')
-        BEGIN
-            RAISERROR('Especialidade inválida', 16, 1);
-            RETURN;
-        END
     
     -- Insere o especialista técnico
     DECLARE @EspecialistaTecnico_ID int;
-    SET @EspecialistaTecnico_ID = (SELECT MAX(ID) FROM HoqueiPortugues.EspecialistaTecnico) + 1;
+    SET @EspecialistaTecnico_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Especialista_Tecnico) + 1;
 
-    INSERT INTO HoqueiPortugues.EspecialistaTecnico (ID, idade, especialidade, nacionalidade, Clube_ID)
-    VALUES (@EspecialistaTecnico_ID, @idade, @especialidade, @nacionalidade, @Clube_ID);
+    INSERT INTO HoqueiPortugues.Especialista_Tecnico (ID, Nome, idade, especialidade, nacionalidade, Clube_ID)
+    VALUES (@EspecialistaTecnico_ID, @Nome ,@idade, @especialidade, @nacionalidade, @Clube_ID);
 END
 GO
 
@@ -505,21 +498,21 @@ BEGIN
         END
 
     -- Verifica se o especialista técnico existe
-    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.EspecialistaTecnico WHERE ID = @Especialista_ID)
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Especialista_Tecnico WHERE ID = @Especialista_ID)
         BEGIN
             RAISERROR('Especialista técnico não existe', 16, 1);
             RETURN;
         END
 
     -- Verifica se o especialista técnico pertence ao clube
-    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.EspecialistaTecnico WHERE ID = @Especialista_ID AND Clube_ID = @Clube_ID)
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Especialista_Tecnico WHERE ID = @Especialista_ID AND Clube_ID = @Clube_ID)
         BEGIN
             RAISERROR('Especialista técnico não pertence ao clube', 16, 1);
             RETURN;
         END
 
     -- Remove o especialista técnico
-    DELETE FROM HoqueiPortugues.EspecialistaTecnico WHERE ID = @Especialista_ID;
+    DELETE FROM HoqueiPortugues.Especialista_Tecnico WHERE ID = @Especialista_ID;
 END
 GO
 /*
