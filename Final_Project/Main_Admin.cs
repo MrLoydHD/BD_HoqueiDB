@@ -1091,8 +1091,8 @@ namespace Final_Project
 
                 SqlCommand cmd = new SqlCommand("HoqueiPortugues.simularJogo", cn);
                 cmd.Parameters.Add(new SqlParameter("@Jogo_ID", jogoID));
-                cmd.Parameters.Add(new SqlParameter("@Resultado_F", int.Parse(resultadoEquipaCasa_textbox.Text)));
-                cmd.Parameters.Add(new SqlParameter("@Resultado_C", int.Parse(resultadoEquipaFora_textbox.Text)));
+                cmd.Parameters.Add(new SqlParameter("@Resultado_F", num1));
+                cmd.Parameters.Add(new SqlParameter("@Resultado_C", num));
                 cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {
@@ -1880,7 +1880,17 @@ namespace Final_Project
             label66.Visible = false;
             clubeAntigo_comboBox.Visible = false;
             addJogadorOutroClube_comboBox.Visible = false;
+            addJogadorOutroClubeNumCamisola_combobox.Visible = false;
+            label67.Visible = false;
             comboBoxAddJogador.SelectedItem = null;
+            addJogadorNum_combobox.SelectedItem = null;
+            addJogadorPosicao_combobox.SelectedItem = null;
+            addJogadorOutroClube_comboBox.SelectedItem = null;
+            addJogadorOutroClubeNumCamisola_combobox.SelectedItem = null;
+            label68.Visible = false;
+            jogadorSemClube_combobox.Visible = false;
+            label69.Visible = false;
+            jogadorSemClubeNum_comboBox.Visible = false;
         }
 
         private void comboBoxAddJogador_SelectedIndexChanged(object sender, EventArgs e)
@@ -1903,6 +1913,23 @@ namespace Final_Project
                     addJogadorNacio_textbox.Visible = true;
                     addJogadorNum_combobox.Visible = true;
                     addJogadorPosicao_combobox.Visible = true;
+                    addJogadorNome_textbox.Text = "";
+                    addJogadorIdade_textbox.Text = "";
+                    addJogadorNacio_textbox.Text = "";
+                    addJogadorNum_combobox.SelectedItem = null;
+                    addJogadorPosicao_combobox.SelectedItem = null;
+
+                    label65.Visible = false;
+                    label66.Visible = false;
+                    clubeAntigo_comboBox.Visible = false;
+                    addJogadorOutroClube_comboBox.Visible = false;
+                    addJogadorOutroClubeNumCamisola_combobox.Visible = false;
+                    label67.Visible = false;
+
+                    label68.Visible = false;
+                    jogadorSemClube_combobox.Visible = false;
+                    label69.Visible = false;
+                    jogadorSemClubeNum_comboBox.Visible = false;
 
                     break;
                 case "Adicionar jogador de outro clube":
@@ -1910,6 +1937,29 @@ namespace Final_Project
                     label66.Visible = true;
                     clubeAntigo_comboBox.Visible = true;
                     addJogadorOutroClube_comboBox.Visible = true;
+                    addJogadorOutroClubeNumCamisola_combobox.Visible = true;
+                    label67.Visible = true;
+                    clubeAntigo_comboBox.Items.Clear();
+                    addJogadorOutroClube_comboBox.Items.Clear();
+                    addJogadorOutroClube_comboBox.Enabled = false;
+                    addJogadorOutroClubeNumCamisola_combobox.Enabled = false;
+                    addJogadorOutroClubeNumCamisola_combobox.SelectedItem = null;
+
+                    label60.Visible = false;
+                    label61.Visible = false;
+                    label62.Visible = false;
+                    label63.Visible = false;
+                    label64.Visible = false;
+                    addJogadorNome_textbox.Visible = false;
+                    addJogadorIdade_textbox.Visible = false;
+                    addJogadorNacio_textbox.Visible = false;
+                    addJogadorNum_combobox.Visible = false;
+                    addJogadorPosicao_combobox.Visible = false;
+
+                    label68.Visible = false;
+                    jogadorSemClube_combobox.Visible = false;
+                    label69.Visible = false;
+                    jogadorSemClubeNum_comboBox.Visible = false;
 
                     cn = getSGBDConnection();
 
@@ -1935,8 +1985,51 @@ namespace Final_Project
                     break;
 
                 case "Adicionar jogador sem clube":
-           
+                    label65.Visible = false;
+                    label66.Visible = false;
+                    clubeAntigo_comboBox.Visible = false;
+                    addJogadorOutroClube_comboBox.Visible = false;
+                    addJogadorOutroClubeNumCamisola_combobox.Visible = false;
+                    label67.Visible = false;
+
+                    label60.Visible = false;
+                    label61.Visible = false;
+                    label62.Visible = false;
+                    label63.Visible = false;
+                    label64.Visible = false;
+                    addJogadorNome_textbox.Visible = false;
+                    addJogadorIdade_textbox.Visible = false;
+                    addJogadorNacio_textbox.Visible = false;
+                    addJogadorNum_combobox.Visible = false;
+                    addJogadorPosicao_combobox.Visible = false;
+
+                    label68.Visible = true;
+                    jogadorSemClube_combobox.Visible = true;
+                    label69.Visible = true;
+                    jogadorSemClubeNum_comboBox.Visible = true;
+                    jogadorSemClube_combobox.Items.Clear();
+                    jogadorSemClube_combobox.SelectedItem = null;
+
+                    SqlConnection cn1 = getSGBDConnection();
+
+                    if (cn1.State != ConnectionState.Open)
+                        cn1.Open();
+
+                    if (!verifySGBDConnection())
+                        return;
+
+                    SqlCommand cmd1 = new SqlCommand("SELECT * FROM HoqueiPortugues.ufnJogadoresSemClube()", cn1);
+
+                    SqlDataReader reader1 = cmd1.ExecuteReader();
+
+                    while (reader1.Read())
+                    {
+                        Jogador jogador = new Jogador(int.Parse(reader1["ID"].ToString()), reader1["Nome"].ToString());
+                        jogadorSemClube_combobox.Items.Add(jogador);
+                    }
+
                     break;
+
                 default:
                     break;
             }
@@ -1945,6 +2038,7 @@ namespace Final_Project
         private void clubeAntigo_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             addJogadorOutroClube_comboBox.Enabled = true;
+            addJogadorOutroClubeNumCamisola_combobox.Enabled = true;
 
             SqlConnection cn1 = getSGBDConnection();
 
@@ -2020,7 +2114,7 @@ namespace Final_Project
                     }
                     break;
                 case "Adicionar jogador de outro clube":
-                    if(clubeAntigo_comboBox.SelectedItem != null && addJogadorOutroClube_comboBox.SelectedItem != null)
+                    if(clubeAntigo_comboBox.SelectedItem != null && addJogadorOutroClube_comboBox.SelectedItem != null && addJogadorOutroClubeNumCamisola_combobox != null)
                     {
                         SqlConnection cn = getSGBDConnection();
                         cn.Open();
@@ -2028,6 +2122,7 @@ namespace Final_Project
                         SqlCommand cmd = new SqlCommand("HoqueiPortugues.contratarJogadorClube", cn);
                         cmd.Parameters.AddWithValue("@Jogador_ID", ((Jogador)addJogadorOutroClube_comboBox.SelectedItem).ID);
                         cmd.Parameters.AddWithValue("@Nome", ((Jogador)addJogadorOutroClube_comboBox.SelectedItem).Nome);
+                        cmd.Parameters.AddWithValue("@NumeroCamisola", int.Parse(addJogadorOutroClubeNumCamisola_combobox.SelectedItem.ToString()));
                         cmd.Parameters.AddWithValue("@Clube_Novo", int.Parse(((Equipa)listBoxEquipas.SelectedItem).ID));
                         cmd.Parameters.AddWithValue("@Clube_Antigo", int.Parse(((Equipa)clubeAntigo_comboBox.SelectedItem).ID));
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -2066,6 +2161,49 @@ namespace Final_Project
 
                     break;
                 case "Adicionar jogador sem clube":
+                    if(jogadorSemClube_combobox.SelectedItem != null && jogadorSemClubeNum_comboBox.SelectedItem != null)
+                    {
+
+                        SqlConnection cn = getSGBDConnection();
+                        cn.Open();
+
+                        SqlCommand cmd = new SqlCommand("HoqueiPortugues.contratarJogadorSemClube", cn);
+                        cmd.Parameters.AddWithValue("@Jogador_ID", ((Jogador)jogadorSemClube_combobox.SelectedItem).ID);
+                        cmd.Parameters.AddWithValue("@NumeroCamisola", int.Parse(jogadorSemClubeNum_comboBox.SelectedItem.ToString()));
+                        cmd.Parameters.AddWithValue("@Clube_Novo", int.Parse(((Equipa)listBoxEquipas.SelectedItem).ID));
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Failed to add Jogador in database. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            cn.Close();
+                            MessageBox.Show("Jogador adicionado com sucesso!");
+                            panelAddJogador.Visible = false;
+                            dataGridViewJC.Visible = true;
+                            dataGridViewGR.Visible = true;
+                            dataGridViewT.Visible = true;
+                            jogadoresCampo_label.Visible = true;
+                            guardaRedes_label.Visible = true;
+                            treinadores_label.Visible = true;
+                            addJogador_button.Visible = true;
+                            addTreinador_button.Visible = true;
+                            removerJogador_button.Visible = true;
+                            removerTreinador_button.Visible = true;
+                            label56.Visible = true;
+                            label57.Visible = true;
+                            loadClubeEquipa();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Preencha todos os campos!");
+                    }
 
                     break;
                 default:

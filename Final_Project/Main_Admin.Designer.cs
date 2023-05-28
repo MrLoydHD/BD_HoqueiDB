@@ -261,6 +261,12 @@ namespace Final_Project
             this.label66 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.addJogadorOutroClube_comboBox = new System.Windows.Forms.ComboBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.addJogadorOutroClubeNumCamisola_combobox = new System.Windows.Forms.ComboBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.jogadorSemClube_combobox = new System.Windows.Forms.ComboBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.jogadorSemClubeNum_comboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelClassificacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -2613,7 +2619,6 @@ namespace Final_Project
             // 
             // panelEquipas
             // 
-            this.panelEquipas.Controls.Add(this.panelAddJogador);
             this.panelEquipas.Controls.Add(this.removerTecnico_button);
             this.panelEquipas.Controls.Add(this.addTecnico_button);
             this.panelEquipas.Controls.Add(this.removerTreinador_button);
@@ -2647,14 +2652,20 @@ namespace Final_Project
             // 
             // panelAddJogador
             // 
+            this.panelAddJogador.Controls.Add(this.label68);
             this.panelAddJogador.Controls.Add(this.label66);
             this.panelAddJogador.Controls.Add(this.label65);
             this.panelAddJogador.Controls.Add(this.addJogadorGuardar_button);
+            this.panelAddJogador.Controls.Add(this.jogadorSemClubeNum_comboBox);
+            this.panelAddJogador.Controls.Add(this.addJogadorOutroClubeNumCamisola_combobox);
             this.panelAddJogador.Controls.Add(this.addJogadorNum_combobox);
+            this.panelAddJogador.Controls.Add(this.jogadorSemClube_combobox);
             this.panelAddJogador.Controls.Add(this.addJogadorOutroClube_comboBox);
             this.panelAddJogador.Controls.Add(this.comboBox2);
             this.panelAddJogador.Controls.Add(this.clubeAntigo_comboBox);
             this.panelAddJogador.Controls.Add(this.addJogadorPosicao_combobox);
+            this.panelAddJogador.Controls.Add(this.label69);
+            this.panelAddJogador.Controls.Add(this.label67);
             this.panelAddJogador.Controls.Add(this.label64);
             this.panelAddJogador.Controls.Add(this.label63);
             this.panelAddJogador.Controls.Add(this.label62);
@@ -2667,7 +2678,7 @@ namespace Final_Project
             this.panelAddJogador.Controls.Add(this.label59);
             this.panelAddJogador.Controls.Add(this.comboBoxAddJogador);
             this.panelAddJogador.Controls.Add(this.label58);
-            this.panelAddJogador.Location = new System.Drawing.Point(0, 0);
+            this.panelAddJogador.Location = new System.Drawing.Point(2, 96);
             this.panelAddJogador.Name = "panelAddJogador";
             this.panelAddJogador.Size = new System.Drawing.Size(1088, 668);
             this.panelAddJogador.TabIndex = 34;
@@ -3316,14 +3327,278 @@ namespace Final_Project
             this.addJogadorOutroClube_comboBox.Enabled = false;
             this.addJogadorOutroClube_comboBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addJogadorOutroClube_comboBox.FormattingEnabled = true;
-            this.addJogadorOutroClube_comboBox.Items.AddRange(new object[] {
-            "Jogador de Campo",
-            "Guarda-Redes"});
             this.addJogadorOutroClube_comboBox.Location = new System.Drawing.Point(421, 280);
             this.addJogadorOutroClube_comboBox.Name = "addJogadorOutroClube_comboBox";
             this.addJogadorOutroClube_comboBox.Size = new System.Drawing.Size(239, 31);
             this.addJogadorOutroClube_comboBox.TabIndex = 17;
             this.addJogadorOutroClube_comboBox.Visible = false;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Location = new System.Drawing.Point(185, 361);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(204, 28);
+            this.label67.TabIndex = 16;
+            this.label67.Text = "Número da camisola:";
+            this.label67.Visible = false;
+            // 
+            // addJogadorOutroClubeNumCamisola_combobox
+            // 
+            this.addJogadorOutroClubeNumCamisola_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.addJogadorOutroClubeNumCamisola_combobox.Enabled = false;
+            this.addJogadorOutroClubeNumCamisola_combobox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addJogadorOutroClubeNumCamisola_combobox.FormattingEnabled = true;
+            this.addJogadorOutroClubeNumCamisola_combobox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99"});
+            this.addJogadorOutroClubeNumCamisola_combobox.Location = new System.Drawing.Point(421, 360);
+            this.addJogadorOutroClubeNumCamisola_combobox.Name = "addJogadorOutroClubeNumCamisola_combobox";
+            this.addJogadorOutroClubeNumCamisola_combobox.Size = new System.Drawing.Size(72, 31);
+            this.addJogadorOutroClubeNumCamisola_combobox.TabIndex = 17;
+            this.addJogadorOutroClubeNumCamisola_combobox.Visible = false;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Location = new System.Drawing.Point(298, 204);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(91, 28);
+            this.label68.TabIndex = 19;
+            this.label68.Text = "Jogador:";
+            this.label68.Visible = false;
+            // 
+            // jogadorSemClube_combobox
+            // 
+            this.jogadorSemClube_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.jogadorSemClube_combobox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogadorSemClube_combobox.FormattingEnabled = true;
+            this.jogadorSemClube_combobox.Location = new System.Drawing.Point(421, 206);
+            this.jogadorSemClube_combobox.Name = "jogadorSemClube_combobox";
+            this.jogadorSemClube_combobox.Size = new System.Drawing.Size(239, 31);
+            this.jogadorSemClube_combobox.TabIndex = 17;
+            this.jogadorSemClube_combobox.Visible = false;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.Location = new System.Drawing.Point(185, 278);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(204, 28);
+            this.label69.TabIndex = 16;
+            this.label69.Text = "Número da camisola:";
+            this.label69.Visible = false;
+            // 
+            // jogadorSemClubeNum_comboBox
+            // 
+            this.jogadorSemClubeNum_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.jogadorSemClubeNum_comboBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogadorSemClubeNum_comboBox.FormattingEnabled = true;
+            this.jogadorSemClubeNum_comboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99"});
+            this.jogadorSemClubeNum_comboBox.Location = new System.Drawing.Point(421, 280);
+            this.jogadorSemClubeNum_comboBox.Name = "jogadorSemClubeNum_comboBox";
+            this.jogadorSemClubeNum_comboBox.Size = new System.Drawing.Size(72, 31);
+            this.jogadorSemClubeNum_comboBox.TabIndex = 17;
+            this.jogadorSemClubeNum_comboBox.Visible = false;
             // 
             // Main_Admin
             // 
@@ -3337,6 +3612,7 @@ namespace Final_Project
             this.Controls.Add(this.calendario_button);
             this.Controls.Add(this.classificacaoButton);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panelAddJogador);
             this.Controls.Add(this.panelEquipas);
             this.Controls.Add(this.panelCalendario);
             this.Controls.Add(this.panelClassificacao);
@@ -3612,5 +3888,11 @@ namespace Final_Project
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.ComboBox addJogadorOutroClube_comboBox;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox addJogadorOutroClubeNumCamisola_combobox;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.ComboBox jogadorSemClube_combobox;
+        private System.Windows.Forms.ComboBox jogadorSemClubeNum_comboBox;
+        private System.Windows.Forms.Label label69;
     }
 }
