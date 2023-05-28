@@ -53,6 +53,7 @@ namespace Final_Project
             panelEquipas.Visible = false;
             panelAdicionarJogo.Visible = false;
             editarResultadoPanel.Visible = false;
+            panelJogadores.Visible = false;
             panelClassificacao.Visible = true;
             loadClassificacao();
         }
@@ -121,6 +122,7 @@ namespace Final_Project
             panelAdicionarJogo.Visible = false;
             editarResultadoPanel.Visible = false;
             panelClassificacao.Visible = false;
+            panelJogadores.Visible = false;
             loadJornada(0);
         }
 
@@ -223,6 +225,7 @@ namespace Final_Project
             panelAdicionarJogo.Visible = false;
             editarResultadoPanel.Visible = false;
             panelClassificacao.Visible = false;
+            panelJogadores.Visible = false;
             loadDetalhesJogo(jogoID);
         }
 
@@ -364,6 +367,7 @@ namespace Final_Project
             panelAdicionarJogo.Visible = false;
             editarResultadoPanel.Visible = false;
             panelClassificacao.Visible = false;
+            panelJogadores.Visible = false;
             loadJornada(jornada);
         }
 
@@ -429,6 +433,7 @@ namespace Final_Project
             ButtonData buttonData = new ButtonData(jogoID, jornada);
             guardarJogo.Tag = buttonData;
 
+            panelJogadores.Visible = false;
             panelClassificacao.Visible = false;
             panelCalendario.Visible = false;
             panelDetalhes.Visible = false;
@@ -631,6 +636,7 @@ namespace Final_Project
             GR_casa_combobox.Text = "";
             TPR_casa_combobox.Text = "";
             TAD_casa_combobox.Text = "";
+            panelJogadores.Visible = false;
             panelClassificacao.Visible = false;
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
@@ -692,6 +698,7 @@ namespace Final_Project
             GR_fora_combobox.Text = "";
             TPR_fora_combobox.Text = "";
             TAD_fora_combobox.Text = "";
+            panelJogadores.Visible = false;
             panelClassificacao.Visible = false;
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
@@ -781,6 +788,7 @@ namespace Final_Project
             arbitro2_combobox.Text = "";
             resultadoEquipaCasa_textbox.Text = "";
             resultadoEquipaFora_textbox.Text = "";
+            panelJogadores.Visible = false;
             panelClassificacao.Visible = false;
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
@@ -848,6 +856,7 @@ namespace Final_Project
             arbitro2_combobox.Items.Clear();
             arbitro1_combobox.Text = "";
             arbitro2_combobox.Text = "";
+            panelJogadores.Visible = false;
             panelClassificacao.Visible = false;
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
@@ -1146,6 +1155,7 @@ namespace Final_Project
             arbitro2_combobox.Text = "";
             resultadoEquipaCasa_textbox.Text = "";
             resultadoEquipaFora_textbox.Text = "";
+            panelJogadores.Visible = false;
             panelClassificacao.Visible = false;
             panelCalendario.Visible = true;
             panelDetalhes.Visible = false;
@@ -1595,6 +1605,10 @@ namespace Final_Project
         private void Equipa_button_Click(object sender, EventArgs e)
         {
             panelEquipas.Visible = true;
+            panelJogadores.Visible = false;
+            panelClassificacao.Visible = false;
+            panelCalendario.Visible = false;
+            panelDetalhes.Visible = false;
             equipasEquipa_button.Visible = false;
             equipasTecnicos_button.Visible = false;
             equipasJogos_button.Visible = false;
@@ -2520,6 +2534,8 @@ namespace Final_Project
                 removerTecnico_comboBox.Items.Add(tecnico);
             }
 
+            reader.Close();
+            cn.Close();
         }
 
         private void retrocederRemoverTecnico_button_Click(object sender, EventArgs e)
@@ -2564,8 +2580,216 @@ namespace Final_Project
 
         private void jogadores_Click(object sender, EventArgs e)
         {
-
+            panelEquipas.Visible = false;
+            panelJogadores.Visible = true;
+            panelClassificacao.Visible = false;
+            panelCalendario.Visible = false;
+            panelDetalhes.Visible = false;
         }
 
+        private void jogadoresJC_button_Click(object sender, EventArgs e)
+        {
+            panelJogadoresCampo.Visible = true;
+            panelVerGR.Visible = false;
+            nomeJC_texbox.Text = "";
+            ordenarPorJC_comboBox.SelectedItem = null;
+            clubeJC_comboBox.SelectedItem = null;
+            nacionalidadeJC_comboBox.SelectedItem = null;
+
+            SqlConnection cn = getSGBDConnection();
+            cn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT DISTINCT J.Nacionalidade FROM HoqueiPortugues.Jogador AS J INNER JOIN HoqueiPortugues.Jogador_Campo AS JC ON J.ID = JC.Jogador_ID", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                nacionalidadeJC_comboBox.Items.Add(reader["Nacionalidade"].ToString());
+            }
+
+            reader.Close();
+            cn.Close();
+
+            SqlConnection cn1 = getSGBDConnection();
+            cn1.Open();
+
+            SqlCommand cmd1 = new SqlCommand("SELECT Nome FROM HoqueiPortugues.Clube", cn1);
+
+            SqlDataReader reader1 = cmd1.ExecuteReader();
+
+            while (reader1.Read())
+            {
+                clubeJC_comboBox.Items.Add(reader1["Nome"].ToString());
+            }
+
+            reader1.Close();
+            cn1.Close();
+
+            loadJCDefault();
+        }
+
+        private void loadJCDefault()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand("SELECT J.Nome AS JogadorNome, C.Nome AS ClubeNome, JC.Golos_marcados, JC.Assists, J.advertencias, J.cartoes_azuis, J.cartoes_vermelhos, JC.Penaltis_marcados, JC.Livres_diretos_marcados FROM HoqueiPortugues.Jogador AS J INNER JOIN HoqueiPortugues.Jogador_Campo AS JC ON J.ID = JC.Jogador_ID INNER JOIN HoqueiPortugues.Clube AS C ON J.Clube_ID = C.ID", cn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            DataTable dataTable = new DataTable();
+
+            dataTable.Load(reader);
+
+            reader.Close();
+
+            dataGridViewVerJC.DataSource = dataTable;
+
+            cn.Close();
+        }
+
+        private void pesquisarJC_Click(object sender, EventArgs e)
+        {
+            if(nomeJC_texbox.Text != "" || ordenarPorJC_comboBox.SelectedItem != null || clubeJC_comboBox.SelectedItem != null || nacionalidadeJC_comboBox.SelectedItem != null)
+            {
+                cn = getSGBDConnection();
+                cn.Open();
+
+                using (SqlCommand command = new SqlCommand("HoqueiPortugues.PesquisaJogadoresCampo", cn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@nome", nomeJC_texbox.Text);
+                    command.Parameters.AddWithValue("@orderby", ordenarPorJC_comboBox.SelectedItem);
+                    command.Parameters.AddWithValue("@nome_clube", clubeJC_comboBox.SelectedItem);
+                    command.Parameters.AddWithValue("@nacionalidade", nacionalidadeJC_comboBox.SelectedItem);
+
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    DataTable dataTable = new DataTable();
+
+                    dataTable.Load(reader);
+
+                    reader.Close();
+
+                    dataGridViewVerJC.DataSource = dataTable;
+                }
+
+                // Renomear colunas e alterar largura
+                //dataGridView1.Columns[0].HeaderText = "Posição";
+                //dataGridView1.Columns[0].Width = 60;
+
+                cn.Close();
+            }
+            else
+            {
+                loadJCDefault();
+            }
+        }
+
+        private void jogadoresGR_button_Click(object sender, EventArgs e)
+        {
+            panelJogadoresCampo.Visible = false;
+            panelVerGR.Visible = true;
+            nomeGR_textBox.Text = "";
+            ordenarPorGR_comboBox.SelectedItem = null;
+            clubeGR_comboBox.SelectedItem = null;
+            nacionalidadeGR_comboBox.SelectedItem = null;
+
+            SqlConnection cn = getSGBDConnection();
+            cn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT DISTINCT J.Nacionalidade FROM HoqueiPortugues.Jogador AS J INNER JOIN HoqueiPortugues.Jogador_GuardaRedes AS GR ON J.ID = GR.Jogador_ID", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                nacionalidadeGR_comboBox.Items.Add(reader["Nacionalidade"].ToString());
+            }
+
+            reader.Close();
+            cn.Close();
+
+            SqlConnection cn1 = getSGBDConnection();
+            cn1.Open();
+
+            SqlCommand cmd1 = new SqlCommand("SELECT Nome FROM HoqueiPortugues.Clube", cn1);
+
+            SqlDataReader reader1 = cmd1.ExecuteReader();
+
+            while (reader1.Read())
+            {
+                clubeGR_comboBox.Items.Add(reader1["Nome"].ToString());
+            }
+
+            reader1.Close();
+            cn1.Close();
+
+            loadGRDefault();
+        }
+
+        private void loadGRDefault()
+        {
+            SqlConnection cn1 = getSGBDConnection();
+            cn1.Open();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd1 = new SqlCommand("SELECT J.Nome AS JogadorNome, C.Nome AS ClubeNome, GR.Golos_sofridos, J.advertencias, J.cartoes_azuis, J.cartoes_vermelhos, GR.Penaltis_defendidos, GR.Livres_diretos_defendidos FROM HoqueiPortugues.Jogador AS J INNER JOIN HoqueiPortugues.Jogador_GuardaRedes AS GR ON J.ID = GR.Jogador_ID INNER JOIN HoqueiPortugues.Clube AS C ON J.Clube_ID = C.ID", cn1);
+            SqlDataReader reader1 = cmd1.ExecuteReader();
+
+            DataTable dataTable1 = new DataTable();
+
+            dataTable1.Load(reader1);
+
+            reader1.Close();
+
+            dataGridViewVerGR.DataSource = dataTable1;
+
+            cn.Close();
+        }
+
+        private void pesquisarGR_Click(object sender, EventArgs e)
+        {
+            if (nomeGR_textBox.Text != "" || ordenarPorGR_comboBox.SelectedItem != null || clubeGR_comboBox.SelectedItem != null || nacionalidadeGR_comboBox.SelectedItem != null)
+            {
+                cn = getSGBDConnection();
+                cn.Open();
+
+                using (SqlCommand command = new SqlCommand("HoqueiPortugues.PesquisaGuardaRedes", cn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@nome", nomeGR_textBox.Text);
+                    command.Parameters.AddWithValue("@orderby", ordenarPorGR_comboBox.SelectedItem);
+                    command.Parameters.AddWithValue("@nome_clube", clubeGR_comboBox.SelectedItem);
+                    command.Parameters.AddWithValue("@nacionalidade", nacionalidadeGR_comboBox.SelectedItem);
+
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    DataTable dataTable = new DataTable();
+
+                    dataTable.Load(reader);
+
+                    reader.Close();
+
+                    dataGridViewVerGR.DataSource = dataTable;
+                }
+
+                // Renomear colunas e alterar largura
+                //dataGridView1.Columns[0].HeaderText = "Posição";
+                //dataGridView1.Columns[0].Width = 60;
+
+                cn.Close();
+            }
+            else
+            {
+                loadGRDefault();
+            }
+        }
     }
 }
