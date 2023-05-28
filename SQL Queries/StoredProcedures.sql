@@ -1,5 +1,5 @@
---use p4g7;
-use Test_Hoquei;
+use p4g7;
+--use Test_Hoquei;
 go
 
 -- This file is a SQL script that creates the schema for the HoqueiPortugues database.
@@ -944,7 +944,7 @@ CREATE PROCEDURE HoqueiPortugues.obterJogadoresPorJogo
     @Jogo_ID int
 AS
 BEGIN
- SELECT J.Clube_C_ID AS ClubeID, Jog.Nome AS NomeJogador 
+ SELECT J.Clube_C_ID AS ClubeID, Jog.Nome AS NomeJogador, Jog.Posicao
     FROM HoqueiPortugues.Jogo J
     JOIN HoqueiPortugues.Plantel P ON J.Plantel_C_ID = P.ID 
     JOIN HoqueiPortugues.Plantel_Jogadores PJ ON P.ID = PJ.Plantel_ID
@@ -953,7 +953,7 @@ BEGIN
 
     UNION
 
-    SELECT J.Clube_F_ID AS ClubeID, Jog.Nome AS NomeJogador 
+    SELECT J.Clube_F_ID AS ClubeID, Jog.Nome AS NomeJogador, Jog.Posicao
     FROM HoqueiPortugues.Jogo J
     JOIN HoqueiPortugues.Plantel P ON J.Plantel_F_ID = P.ID 
     JOIN HoqueiPortugues.Plantel_Jogadores PJ ON P.ID = PJ.Plantel_ID
