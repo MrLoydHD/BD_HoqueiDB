@@ -55,6 +55,12 @@ namespace Final_Project
             editarResultadoPanel.Visible = false;
             panelJogadores.Visible = false;
             panelClassificacao.Visible = true;
+            panelAddJogador.Visible = false;
+            panelAddTreinador.Visible = false;
+            panelAddTecnico.Visible = false;
+            panelRemoverJogador.Visible = false;
+            panelRemoverTreinador.Visible = false;
+            panelRemoverTecnico.Visible = false;
             loadClassificacao();
         }
 
@@ -123,6 +129,12 @@ namespace Final_Project
             editarResultadoPanel.Visible = false;
             panelClassificacao.Visible = false;
             panelJogadores.Visible = false;
+            panelAddJogador.Visible = false;
+            panelAddTreinador.Visible = false;
+            panelAddTecnico.Visible = false;
+            panelRemoverJogador.Visible = false;
+            panelRemoverTreinador.Visible = false;
+            panelRemoverTecnico.Visible = false;
             loadJornada(0);
         }
 
@@ -226,6 +238,12 @@ namespace Final_Project
             editarResultadoPanel.Visible = false;
             panelClassificacao.Visible = false;
             panelJogadores.Visible = false;
+            panelAddJogador.Visible = false;
+            panelAddTreinador.Visible = false;
+            panelAddTecnico.Visible = false;
+            panelRemoverJogador.Visible = false;
+            panelRemoverTreinador.Visible = false;
+            panelRemoverTecnico.Visible = false;
             loadDetalhesJogo(jogoID);
         }
 
@@ -368,6 +386,12 @@ namespace Final_Project
             editarResultadoPanel.Visible = false;
             panelClassificacao.Visible = false;
             panelJogadores.Visible = false;
+            panelAddJogador.Visible = false;
+            panelAddTreinador.Visible = false;
+            panelAddTecnico.Visible = false;
+            panelRemoverJogador.Visible = false;
+            panelRemoverTreinador.Visible = false;
+            panelRemoverTecnico.Visible = false;
             loadJornada(jornada);
         }
 
@@ -1632,6 +1656,12 @@ namespace Final_Project
             dataGridViewTec.Visible = false;
             addTecnico_button.Visible = false;
             removerTecnico_button.Visible = false;
+            panelAddJogador.Visible = false;
+            panelAddTreinador.Visible = false;
+            panelAddTecnico.Visible = false;
+            panelRemoverJogador.Visible = false;
+            panelRemoverTreinador.Visible = false;
+            panelRemoverTecnico.Visible = false;
             loadEquipas();
         }
 
@@ -1866,6 +1896,7 @@ namespace Final_Project
         private void addJogador_button_Click(object sender, EventArgs e)
         {
             panelAddJogador.Visible = true;
+            panelEquipas.Visible = false;
             // mete os elementos da pagina anterior invisiveis
             label56.Visible = false;
             label57.Visible = false;
@@ -2081,7 +2112,7 @@ namespace Final_Project
            switch(comboBoxAddJogador.SelectedItem)
             {
                 case "Adicionar um novo jogador":
-                    if(addJogadorNome_textbox.Text != "" || addJogadorIdade_textbox.Text != "" || addJogadorNacio_textbox.Text != "" || addJogadorNum_combobox.SelectedItem != null || addJogadorPosicao_combobox.SelectedItem != null)
+                    if(addJogadorNome_textbox.Text != "" && addJogadorIdade_textbox.Text != "" && int.TryParse(addJogadorIdade_textbox.Text, out int num) && addJogadorNacio_textbox.Text != "" && addJogadorNum_combobox.SelectedItem != null && addJogadorPosicao_combobox.SelectedItem != null)
                     {
                         SqlConnection cn = getSGBDConnection();
                         cn.Open();
@@ -2120,6 +2151,7 @@ namespace Final_Project
                             label56.Visible = true;
                             label57.Visible = true;
                             loadClubeEquipa();
+                            panelEquipas.Visible = true;
                         }
                     }
                     else
@@ -2128,7 +2160,7 @@ namespace Final_Project
                     }
                     break;
                 case "Adicionar jogador de outro clube":
-                    if(clubeAntigo_comboBox.SelectedItem != null && addJogadorOutroClube_comboBox.SelectedItem != null && addJogadorOutroClubeNumCamisola_combobox != null)
+                    if(clubeAntigo_comboBox.SelectedItem != null && addJogadorOutroClube_comboBox.SelectedItem != null && addJogadorOutroClubeNumCamisola_combobox.SelectedItem != null)
                     {
                         SqlConnection cn = getSGBDConnection();
                         cn.Open();
@@ -2166,6 +2198,7 @@ namespace Final_Project
                             label56.Visible = true;
                             label57.Visible = true;
                             loadClubeEquipa();
+                            panelEquipas.Visible = true;
                         }
                     }
                     else
@@ -2212,6 +2245,7 @@ namespace Final_Project
                             label56.Visible = true;
                             label57.Visible = true;
                             loadClubeEquipa();
+                            panelEquipas.Visible = true;
                         }
                     }
                     else
@@ -2241,11 +2275,13 @@ namespace Final_Project
             label56.Visible = true;
             label57.Visible = true;
             loadClubeEquipa();
+            panelEquipas.Visible = true;
         }
 
         private void removerJogador_button_Click(object sender, EventArgs e)
         {
             panelRemoverJogador.Visible = true;
+            panelEquipas.Visible = false;
             removerJogador_comboBox.Items.Clear();
             // mete os elementos da pagina anterior invisiveis
             label56.Visible = false;
@@ -2321,6 +2357,7 @@ namespace Final_Project
                     label56.Visible = true;
                     label57.Visible = true;
                     loadClubeEquipa();
+                    panelEquipas.Visible = true;
                 }
             }
         }
@@ -2341,11 +2378,13 @@ namespace Final_Project
             label56.Visible = true;
             label57.Visible = true;
             loadClubeEquipa();
+            panelEquipas.Visible = true;
         }
 
         private void addTreinador_button_Click(object sender, EventArgs e)
         {
             panelAddTreinador.Visible = true;
+            panelEquipas.Visible = false;
             // mete os elementos da pagina anterior invisiveis
             label56.Visible = false;
             label57.Visible = false;
@@ -2570,6 +2609,7 @@ namespace Final_Project
                             label56.Visible = true;
                             label57.Visible = true;
                             loadClubeEquipa();
+                            panelEquipas.Visible = true;
                         }
                     }
                     else
@@ -2616,6 +2656,7 @@ namespace Final_Project
                             label56.Visible = true;
                             label57.Visible = true;
                             loadClubeEquipa();
+                            panelEquipas.Visible = true;
                         }
                     }
                     else
@@ -2659,6 +2700,7 @@ namespace Final_Project
                             label56.Visible = true;
                             label57.Visible = true;
                             loadClubeEquipa();
+                            panelEquipas.Visible = true;
                         }
                     }
                     else
@@ -2686,10 +2728,12 @@ namespace Final_Project
             label56.Visible = true;
             label57.Visible = true;
             loadClubeEquipa();
+            panelEquipas.Visible = true;
         }
 
         private void removerTreinador_button_Click(object sender, EventArgs e)
         {
+            panelEquipas.Visible = false;
             panelRemoverTreinador.Visible = true;
             removerTreinador_combox.Items.Clear();
             // mete os elementos da pagina anterior invisiveis
@@ -2766,6 +2810,7 @@ namespace Final_Project
                     label56.Visible = true;
                     label57.Visible = true;
                     loadClubeEquipa();
+                    panelEquipas.Visible = true;
                 }
             }
         }
@@ -2786,11 +2831,13 @@ namespace Final_Project
             label56.Visible = true;
             label57.Visible = true;
             loadClubeEquipa();
+            panelEquipas.Visible = true;
         }
 
         private void addTecnico_button_Click(object sender, EventArgs e)
         {
             panelAddTecnico.Visible = true;
+            panelEquipas.Visible = false;
             nomeTecnico_textBox.Text = "";
             nacionalidadeTecnico_textbox.Text = "";
             idadeTecnico_textBox.Text = "";
@@ -2840,6 +2887,7 @@ namespace Final_Project
                     label56.Visible = true;
                     label57.Visible = true;
                     loadTecnicos();
+                    panelEquipas.Visible = true;
                 }
             }
         }
@@ -2850,11 +2898,13 @@ namespace Final_Project
             label56.Visible = true;
             label57.Visible = true;
             loadTecnicos();
+            panelEquipas.Visible = true;
         }
 
         private void removerTecnico_button_Click(object sender, EventArgs e)
         {
             panelRemoverTecnico.Visible = true;
+            panelEquipas.Visible = false;
             removerTecnico_comboBox.Items.Clear();
 
             SqlConnection cn = getSGBDConnection();
@@ -2884,6 +2934,7 @@ namespace Final_Project
             label56.Visible = true;
             label57.Visible = true;
             loadTecnicos();
+            panelEquipas.Visible = true;
         }
 
         private void removerTecnicoGuardar_button_Click(object sender, EventArgs e)
@@ -2913,6 +2964,7 @@ namespace Final_Project
                     label56.Visible = true;
                     label57.Visible = true;
                     loadTecnicos();
+                    panelEquipas.Visible = true;
                 }
             }
         }
@@ -2927,6 +2979,12 @@ namespace Final_Project
             panelClassificacao.Visible = false;
             panelCalendario.Visible = false;
             panelDetalhes.Visible = false;
+            panelAddJogador.Visible = false;
+            panelAddTreinador.Visible = false;
+            panelAddTecnico.Visible = false;
+            panelRemoverJogador.Visible = false;
+            panelRemoverTreinador.Visible = false;
+            panelRemoverTecnico.Visible = false;
         }
 
         private void jogadoresJC_button_Click(object sender, EventArgs e)
@@ -2937,6 +2995,8 @@ namespace Final_Project
             ordenarPorJC_comboBox.SelectedItem = null;
             clubeJC_comboBox.SelectedItem = null;
             nacionalidadeJC_comboBox.SelectedItem = null;
+            nacionalidadeJC_comboBox.Items.Clear();
+            clubeJC_comboBox.Items.Clear();
 
             SqlConnection cn = getSGBDConnection();
             cn.Open();
@@ -3039,6 +3099,8 @@ namespace Final_Project
             ordenarPorGR_comboBox.SelectedItem = null;
             clubeGR_comboBox.SelectedItem = null;
             nacionalidadeGR_comboBox.SelectedItem = null;
+            nacionalidadeGR_comboBox.Items.Clear();
+            clubeGR_comboBox.Items.Clear();
 
             SqlConnection cn = getSGBDConnection();
             cn.Open();

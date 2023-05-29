@@ -413,10 +413,10 @@ namespace Final_Project
             // 
             this.panelClassificacao.Controls.Add(this.dataGridView1);
             this.panelClassificacao.Controls.Add(this.classificacaoLabel);
-            this.panelClassificacao.Location = new System.Drawing.Point(-1, 97);
+            this.panelClassificacao.Location = new System.Drawing.Point(-1, 86);
             this.panelClassificacao.Margin = new System.Windows.Forms.Padding(4);
             this.panelClassificacao.Name = "panelClassificacao";
-            this.panelClassificacao.Size = new System.Drawing.Size(1091, 664);
+            this.panelClassificacao.Size = new System.Drawing.Size(1091, 675);
             this.panelClassificacao.TabIndex = 7;
             this.panelClassificacao.Visible = false;
             // 
@@ -430,8 +430,9 @@ namespace Final_Project
             this.dataGridView1.Location = new System.Drawing.Point(24, 75);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(1041, 500);
+            this.dataGridView1.Size = new System.Drawing.Size(1041, 511);
             this.dataGridView1.TabIndex = 8;
             // 
             // classificacaoLabel
@@ -2846,6 +2847,7 @@ namespace Final_Project
             this.dataGridViewTec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTec.Location = new System.Drawing.Point(335, 132);
             this.dataGridViewTec.Name = "dataGridViewTec";
+            this.dataGridViewTec.ReadOnly = true;
             this.dataGridViewTec.RowHeadersWidth = 51;
             this.dataGridViewTec.RowTemplate.Height = 24;
             this.dataGridViewTec.Size = new System.Drawing.Size(598, 155);
@@ -2868,6 +2870,7 @@ namespace Final_Project
             this.dataGridViewT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewT.Location = new System.Drawing.Point(335, 562);
             this.dataGridViewT.Name = "dataGridViewT";
+            this.dataGridViewT.ReadOnly = true;
             this.dataGridViewT.RowHeadersWidth = 51;
             this.dataGridViewT.RowTemplate.Height = 24;
             this.dataGridViewT.Size = new System.Drawing.Size(617, 106);
@@ -2890,6 +2893,7 @@ namespace Final_Project
             this.dataGridViewGR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGR.Location = new System.Drawing.Point(335, 384);
             this.dataGridViewGR.Name = "dataGridViewGR";
+            this.dataGridViewGR.ReadOnly = true;
             this.dataGridViewGR.RowHeadersWidth = 51;
             this.dataGridViewGR.RowTemplate.Height = 24;
             this.dataGridViewGR.Size = new System.Drawing.Size(617, 140);
@@ -2912,6 +2916,7 @@ namespace Final_Project
             this.dataGridViewJC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewJC.Location = new System.Drawing.Point(335, 132);
             this.dataGridViewJC.Name = "dataGridViewJC";
+            this.dataGridViewJC.ReadOnly = true;
             this.dataGridViewJC.RowHeadersWidth = 51;
             this.dataGridViewJC.RowTemplate.Height = 24;
             this.dataGridViewJC.Size = new System.Drawing.Size(617, 202);
@@ -2975,6 +2980,7 @@ namespace Final_Project
             this.dataGridViewJogosEquipa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewJogosEquipa.Location = new System.Drawing.Point(319, 84);
             this.dataGridViewJogosEquipa.Name = "dataGridViewJogosEquipa";
+            this.dataGridViewJogosEquipa.ReadOnly = true;
             this.dataGridViewJogosEquipa.RowHeadersWidth = 51;
             this.dataGridViewJogosEquipa.RowTemplate.Height = 24;
             this.dataGridViewJogosEquipa.Size = new System.Drawing.Size(754, 462);
@@ -4130,11 +4136,11 @@ namespace Final_Project
             // 
             // panelJogadores
             // 
-            this.panelJogadores.Controls.Add(this.panelVerGR);
             this.panelJogadores.Controls.Add(this.panelJogadoresCampo);
             this.panelJogadores.Controls.Add(this.jogadoresGR_button);
             this.panelJogadores.Controls.Add(this.jogadoresJC_button);
             this.panelJogadores.Controls.Add(this.label81);
+            this.panelJogadores.Controls.Add(this.panelVerGR);
             this.panelJogadores.Location = new System.Drawing.Point(2, 79);
             this.panelJogadores.Name = "panelJogadores";
             this.panelJogadores.Size = new System.Drawing.Size(1082, 674);
@@ -4164,6 +4170,7 @@ namespace Final_Project
             this.dataGridViewVerGR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVerGR.Location = new System.Drawing.Point(15, 72);
             this.dataGridViewVerGR.Name = "dataGridViewVerGR";
+            this.dataGridViewVerGR.ReadOnly = true;
             this.dataGridViewVerGR.RowHeadersWidth = 51;
             this.dataGridViewVerGR.RowTemplate.Height = 24;
             this.dataGridViewVerGR.Size = new System.Drawing.Size(1040, 517);
@@ -4292,6 +4299,7 @@ namespace Final_Project
             this.dataGridViewVerJC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVerJC.Location = new System.Drawing.Point(15, 72);
             this.dataGridViewVerJC.Name = "dataGridViewVerJC";
+            this.dataGridViewVerJC.ReadOnly = true;
             this.dataGridViewVerJC.RowHeadersWidth = 51;
             this.dataGridViewVerJC.RowTemplate.Height = 24;
             this.dataGridViewVerJC.Size = new System.Drawing.Size(1040, 517);
@@ -4834,12 +4842,6 @@ namespace Final_Project
             this.Controls.Add(this.calendario_button);
             this.Controls.Add(this.classificacaoButton);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panelAddTreinador);
-            this.Controls.Add(this.panelClassificacao);
-            this.Controls.Add(this.panelAdicionarJogo);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panelRemoverTreinador);
-            this.Controls.Add(this.panelRemoverJogador);
             this.Controls.Add(this.panelJogadores);
             this.Controls.Add(this.panelRemoverTecnico);
             this.Controls.Add(this.panelAddTecnico);
@@ -4847,6 +4849,12 @@ namespace Final_Project
             this.Controls.Add(this.panelDetalhes);
             this.Controls.Add(this.panelEquipas);
             this.Controls.Add(this.panelCalendario);
+            this.Controls.Add(this.panelAddTreinador);
+            this.Controls.Add(this.panelClassificacao);
+            this.Controls.Add(this.panelAdicionarJogo);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelRemoverTreinador);
+            this.Controls.Add(this.panelRemoverJogador);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main_Admin";
             this.Text = "Main_Admin";
