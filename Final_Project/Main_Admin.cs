@@ -2859,7 +2859,7 @@ namespace Final_Project
 
         private void adicionarTecnicoGuardar_button_Click(object sender, EventArgs e)
         {
-            if(nomeTecnico_textBox.Text != "" && nacionalidadeTecnico_textbox.Text != "" && idadeTecnico_textBox.Text != "" && especialidade_textBox.Text != "")
+            if(nomeTecnico_textBox.Text != "" && nacionalidadeTecnico_textbox.Text != "" && idadeTecnico_textBox.Text != "" && especialidade_textBox.Text != "" && int.TryParse(idadeTecnico_textBox.Text, out int idade))
             {
                 SqlConnection cn = getSGBDConnection();
                 cn.Open();
@@ -2889,6 +2889,10 @@ namespace Final_Project
                     loadTecnicos();
                     panelEquipas.Visible = true;
                 }
+            }
+            else
+            {
+                MessageBox.Show("Preencha todos os campos corretamente!");
             }
         }
 

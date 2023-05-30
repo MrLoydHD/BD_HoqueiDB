@@ -289,28 +289,6 @@ BEGIN
             RAISERROR('Clube não existe', 16, 1);
             RETURN;
         END
-    
-    --Verifica se o clube já tem 3 treinadores
-    IF (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_ID) >= 3
-    BEGIN
-        RAISERROR('O clube já tem 3 treinadores', 16, 1);
-        RETURN;
-    END
-
-        -- Verifica se o clube já tem 2 treinadores principais e o novo treinador é um treinador principal
-    IF (@tipo = 'principal' AND (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_ID AND Tipo_treinador = 'principal') >= 2)
-        BEGIN
-            RAISERROR('O clube já tem 2 treinadores principais', 16, 1);
-            RETURN;
-        END
-
-    -- Verifica se o clube já tem 2 treinadores adjuntos e o novo treinador é um treinador adjunto
-    IF (@tipo = 'adjunto' AND (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_ID AND Tipo_treinador = 'adjunto') >= 2)
-        BEGIN
-            RAISERROR('O clube já tem 2 treinadores adjuntos', 16, 1);
-            RETURN;
-        END
-
     DECLARE @Treinador_ID int;
 
     SET @Treinador_ID = (SELECT MAX(ID) FROM HoqueiPortugues.Treinador) + 1;
@@ -343,26 +321,6 @@ BEGIN
     IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Clube WHERE ID = @Clube_Novo)
         BEGIN
             RAISERROR('Clube não existe', 16, 1);
-            RETURN;
-        END
-
-    --Veririfica se o clube de onde saiu ficaria apenas com um treinador principal e um treinador adjunto
-    IF (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_Antigo AND Tipo_treinador = 'Principal') = 1 AND (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_Antigo AND Tipo_treinador = 'Adjunto') = 1
-        BEGIN
-            RAISERROR('O clube não pode ficar só com um treinador principal ou só um adjunto', 16, 1);
-            RETURN;
-        END
-
-    IF (SELECT COUNT(*) FROM HoqueiPortugues.Treinador WHERE Clube_ID = @Clube_Novo) > 3
-        BEGIN
-            RAISERROR('O clube já tem 3 treinadores', 16, 1);
-            RETURN;
-        END
-
-    --Verifica se o treinador pertence ao clube
-    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Treinador WHERE ID = @Treinador_ID AND Clube_ID = @Clube_Antigo)
-        BEGIN
-            RAISERROR('Treinador não pertence ao clube', 16, 1);
             RETURN;
         END
     ELSE

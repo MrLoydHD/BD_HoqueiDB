@@ -1,4 +1,4 @@
-use Test_Hoquei;
+use p4g7;
 go
 
 /*
