@@ -623,8 +623,10 @@ namespace Final_Project
 
             if (!verifySGBDConnection())
                 return;
-
-            SqlCommand cmd = new SqlCommand("SELECT ID, Nome FROM HoqueiPortugues.Arbitro", cn);
+            int jornadaSelecionada = int.Parse(comboBox1.SelectedItem.ToString());
+            SqlCommand cmd = new SqlCommand("SELECT A.ID, A.Nome FROM HoqueiPortugues.Arbitro AS A WHERE A.ID NOT IN (SELECT EA.Arbitro_ID FROM HoqueiPortugues.e_arbitrado AS EA INNER JOIN HoqueiPortugues.Jogo AS J ON EA.Jogo_ID = J.ID WHERE J.Jornada = @JornadaDesejada)", cn);
+            cmd.Parameters.AddWithValue("@JornadaDesejada", jornadaSelecionada);
+            
             SqlDataReader reader = cmd.ExecuteReader();
 
             proximo3_button.Tag = jogoID;
@@ -988,18 +990,17 @@ namespace Final_Project
                 finally
                 {
                     cn3.Close();
+                    panelAdicionarPlantelCasa.Visible = false;
+                    panelAdicionarPlantelFora.Visible = true;
+                    loadAddPlantel(idJogo, "F");
+
+                    cn1.Close();
                 }
             }
             else
             {
                 MessageBox.Show("Por favor selecione todos os jogadores e treinadores");
             }
-
-            panelAdicionarPlantelCasa.Visible = false;
-            panelAdicionarPlantelFora.Visible = true;
-            loadAddPlantel(idJogo, "F");
-
-            cn1.Close();
         }
 
         private void proximo2_button_Click(object sender, EventArgs e)
@@ -1096,18 +1097,18 @@ namespace Final_Project
                 finally
                 {
                     cn3.Close();
+
+                    panelAdicionarPlantelFora.Visible = false;
+                    panelAdicionarArbitros.Visible = true;
+                    loadAddArbitros(idJogo);
+
+                    cn1.Close();
                 }
             }
             else
             {
                 MessageBox.Show("Por favor selecione todos os jogadores e treinadores");
             }
-
-            panelAdicionarPlantelFora.Visible = false;
-            panelAdicionarArbitros.Visible = true;
-            loadAddArbitros(idJogo);
-
-            cn1.Close();
         }
 
         private void guardarJogo_Click(object sender, EventArgs e)
@@ -1138,60 +1139,60 @@ namespace Final_Project
                 finally
                 {
                     cn.Close();
+
+                    JC1_casa_combobox.Items.Clear();
+                    JC2_casa_combobox.Items.Clear();
+                    JC3_casa_combobox.Items.Clear();
+                    JC4_casa_combobox.Items.Clear();
+                    GR_casa_combobox.Items.Clear();
+                    TPR_casa_combobox.Items.Clear();
+                    TAD_casa_combobox.Items.Clear();
+                    JC1_casa_combobox.Text = "";
+                    JC2_casa_combobox.Text = "";
+                    JC3_casa_combobox.Text = "";
+                    JC4_casa_combobox.Text = "";
+                    GR_casa_combobox.Text = "";
+                    TPR_casa_combobox.Text = "";
+                    TAD_casa_combobox.Text = "";
+                    JC1_fora_combobox.Items.Clear();
+                    JC2_fora_combobox.Items.Clear();
+                    JC3_fora_combobox.Items.Clear();
+                    JC4_fora_combobox.Items.Clear();
+                    GR_fora_combobox.Items.Clear();
+                    TPR_fora_combobox.Items.Clear();
+                    TAD_fora_combobox.Items.Clear();
+                    JC1_fora_combobox.Text = "";
+                    JC2_fora_combobox.Text = "";
+                    JC3_fora_combobox.Text = "";
+                    JC4_fora_combobox.Text = "";
+                    GR_fora_combobox.Text = "";
+                    TPR_fora_combobox.Text = "";
+                    TAD_fora_combobox.Text = "";
+                    arbitro1_combobox.Items.Clear();
+                    arbitro2_combobox.Items.Clear();
+                    arbitro1_combobox.Text = "";
+                    arbitro2_combobox.Text = "";
+                    resultadoEquipaCasa_textbox.Text = "";
+                    resultadoEquipaFora_textbox.Text = "";
+                    panelJogadores.Visible = false;
+                    panelClassificacao.Visible = false;
+                    panelCalendario.Visible = true;
+                    panelDetalhes.Visible = false;
+                    panelAdicionarJogo.Visible = false;
+                    panelEquipas.Visible = false;
+                    classificacaoButton.Visible = true;
+                    calendario_button.Visible = true;
+                    Equipa_button.Visible = true;
+                    jogadores.Visible = true;
+                    pictureBox1.Visible = true;
+
+                    loadJornada(jornada);
                 }
             }
             else
             {
                 MessageBox.Show("Por favor insira um resultado válido");
             }
-
-            JC1_casa_combobox.Items.Clear();
-            JC2_casa_combobox.Items.Clear();
-            JC3_casa_combobox.Items.Clear();
-            JC4_casa_combobox.Items.Clear();
-            GR_casa_combobox.Items.Clear();
-            TPR_casa_combobox.Items.Clear();
-            TAD_casa_combobox.Items.Clear();
-            JC1_casa_combobox.Text = "";
-            JC2_casa_combobox.Text = "";
-            JC3_casa_combobox.Text = "";
-            JC4_casa_combobox.Text = "";
-            GR_casa_combobox.Text = "";
-            TPR_casa_combobox.Text = "";
-            TAD_casa_combobox.Text = "";
-            JC1_fora_combobox.Items.Clear();
-            JC2_fora_combobox.Items.Clear();
-            JC3_fora_combobox.Items.Clear();
-            JC4_fora_combobox.Items.Clear();
-            GR_fora_combobox.Items.Clear();
-            TPR_fora_combobox.Items.Clear();
-            TAD_fora_combobox.Items.Clear();
-            JC1_fora_combobox.Text = "";
-            JC2_fora_combobox.Text = "";
-            JC3_fora_combobox.Text = "";
-            JC4_fora_combobox.Text = "";
-            GR_fora_combobox.Text = "";
-            TPR_fora_combobox.Text = "";
-            TAD_fora_combobox.Text = "";
-            arbitro1_combobox.Items.Clear();
-            arbitro2_combobox.Items.Clear();
-            arbitro1_combobox.Text = "";
-            arbitro2_combobox.Text = "";
-            resultadoEquipaCasa_textbox.Text = "";
-            resultadoEquipaFora_textbox.Text = "";
-            panelJogadores.Visible = false;
-            panelClassificacao.Visible = false;
-            panelCalendario.Visible = true;
-            panelDetalhes.Visible = false;
-            panelAdicionarJogo.Visible = false;
-            panelEquipas.Visible = false;
-            classificacaoButton.Visible = true;
-            calendario_button.Visible = true;
-            Equipa_button.Visible = true;
-            jogadores.Visible = true;
-            pictureBox1.Visible = true;
-
-            loadJornada(jornada);
         }
 
         private void proximo3_button_Click(object sender, EventArgs e)
@@ -2131,28 +2132,28 @@ namespace Final_Project
                         }
                         catch (Exception ex)
                         {
-                            throw new Exception("Failed to add Jogador in database. \n ERROR MESSAGE: \n" + ex.Message);
+                            MessageBox.Show("Já existe um jogador com esse número!");
+                            return;
                         }
-                        finally
-                        {
-                            cn.Close();
-                            MessageBox.Show("Jogador adicionado com sucesso!");
-                            panelAddJogador.Visible = false;
-                            dataGridViewJC.Visible = true;
-                            dataGridViewGR.Visible = true;
-                            dataGridViewT.Visible = true;
-                            jogadoresCampo_label.Visible = true;
-                            guardaRedes_label.Visible = true;
-                            treinadores_label.Visible = true;
-                            addJogador_button.Visible = true;
-                            addTreinador_button.Visible = true;
-                            removerJogador_button.Visible = true;
-                            removerTreinador_button.Visible = true;
-                            label56.Visible = true;
-                            label57.Visible = true;
-                            loadClubeEquipa();
-                            panelEquipas.Visible = true;
-                        }
+                        
+                        cn.Close();
+                        MessageBox.Show("Jogador adicionado com sucesso!");
+                        panelAddJogador.Visible = false;
+                        dataGridViewJC.Visible = true;
+                        dataGridViewGR.Visible = true;
+                        dataGridViewT.Visible = true;
+                        jogadoresCampo_label.Visible = true;
+                        guardaRedes_label.Visible = true;
+                        treinadores_label.Visible = true;
+                        addJogador_button.Visible = true;
+                        addTreinador_button.Visible = true;
+                        removerJogador_button.Visible = true;
+                        removerTreinador_button.Visible = true;
+                        label56.Visible = true;
+                        label57.Visible = true;
+                        loadClubeEquipa();
+                        panelEquipas.Visible = true;
+                       
                     }
                     else
                     {
