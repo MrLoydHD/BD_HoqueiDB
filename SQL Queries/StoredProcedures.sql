@@ -10,10 +10,6 @@ RETORNAR AS CLASSIFICAÇÕES DOS CLUBES DA LIGA PORTUGUESA DE HOQUEI EM PATINS
 */
 
 -- Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.calcularClassificacao', 'P') IS NOT NULL
-    DROP PROCEDURE HoqueiPortugues.calcularClassificacao;
-GO
-
 
 CREATE PROCEDURE HoqueiPortugues.calcularClassificacao AS 
 BEGIN
@@ -77,8 +73,6 @@ CONTRATAR UM JOGADOR QUE NÃO ESTEJA NA BASE DE DADOS (ESTRANGEIRO)
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.contratarJogador', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarJogador;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.contratarJogador 
     @Nome AS varchar(50), @Idade AS int, @Posicao AS varchar(50), @Nacionalidade AS varchar(50), @Num_camisola AS int, @Clube_ID AS int
@@ -130,16 +124,11 @@ GO
 EXEC HoqueiPortugues.contratarJogador 'Jogador1', 20, 'Jogador de Campo', 'Portugal', 100, 1
 GO
 
-select * from HoqueiPortugues.Jogador
-Where Clube_ID = 1
-
 /*
 CONTRATAR UM JOGADOR A OUTRO CLUBE
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.contratarJogadorClube', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarJogadorClube;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.contratarJogadorClube 
     @Jogador_ID AS int , @Nome AS varchar(50), @NumeroCamisola int, @Clube_Antigo AS int, @Clube_Novo AS int
@@ -172,16 +161,11 @@ BEGIN
 END;
 GO
 
-EXEC HoqueiPortugues.contratarJogadorClube 199, 'Jogador1', 1, 2
-
-
 /*
 JOGADOR SAI DO CLUBE PASSANDO A ESTAR SEM CLUBE
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.jogadorSemClube', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.jogadorSemClube;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.jogadorSemClube 
     @Jogador_ID AS int , @Clube_ID AS int
@@ -219,14 +203,13 @@ BEGIN
             UPDATE HoqueiPortugues.Jogador SET Clube_ID = NULL, Num_camisola = NULL WHERE ID = @Jogador_ID AND Clube_ID = @Clube_ID;
         END
 END;
+GO
 
 /*
 CONTRATAR UM JOGADOR QUE NÃO TENHA CLUBE
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.contratarJogadorSemClube', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarJogadorSemClube;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.contratarJogadorSemClube 
     @Jogador_ID AS int , @Clube_Novo AS int, @NumeroCamisola int
@@ -257,16 +240,13 @@ BEGIN
             UPDATE HoqueiPortugues.Jogador SET Clube_ID = @Clube_Novo, Num_camisola=@NumeroCamisola WHERE ID = @Jogador_ID AND Clube_ID IS NULL;
         END
 END;
-
-EXEC HoqueiPortugues.contratarJogadorSemClube 199, 2
+GO
 
 /*
 CONTRATAR UM TREINADOR QUE NÃO ESTEJA NA BASE DE DADOS (ESTRANGEIRO)
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.contratarTreinador', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarTreinador;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.contratarTreinador 
     @Nome AS varchar(50), @Idade AS int, @Tipo_treinador AS varchar(50), @Nacionalidade AS varchar(50), @Clube_ID AS int
@@ -286,14 +266,13 @@ BEGIN
     VALUES (@Treinador_ID, @Nome, @Idade, @Tipo_treinador, @Nacionalidade, @Clube_ID);
 
 END
+GO
 
 /*
 CONTRATAR UM TREINADOR A OUTRO CLUBE
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.contratarTreinadorClube', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarTreinadorClube;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.contratarTreinadorClube 
     @Treinador_ID AS int , @Nome AS varchar(50), @Clube_Antigo AS int, @Clube_Novo AS int
@@ -317,14 +296,13 @@ BEGIN
             UPDATE HoqueiPortugues.Treinador SET Clube_ID = @Clube_Novo WHERE ID = @Treinador_ID AND Clube_ID = @Clube_Antigo;
         END
 END;
+GO
 
 /*
 TREINADOR SAI DO CLUBE PASSANDO A FICAR SEM CLUBE
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.treinadorSemClube', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.treinadorSemClube;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.treinadorSemClube 
     @Treinador_ID AS int , @Clube_ID AS int
@@ -355,14 +333,13 @@ BEGIN
             UPDATE HoqueiPortugues.Treinador SET Clube_ID = NULL WHERE ID = @Treinador_ID AND Clube_ID = @Clube_ID;
         END
 END;
+GO
 
 /*
 CONTRATAR UM JOGADOR QUE NÃO TENHA CLUBE
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.contratarTreinadorSemClube', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.contratarTreinadorSemClube;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.contratarTreinadorSemClube 
     @Treinador_ID AS int , @Clube_Novo AS int
@@ -393,14 +370,13 @@ BEGIN
             UPDATE HoqueiPortugues.Treinador SET Clube_ID = @Clube_Novo WHERE ID = @Treinador_ID AND Clube_ID IS NULL;
         END
 END;
+GO
 
 /*
 ADICIONAR ESPECIALISTA TÉCNICO
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.adicionarEspecialistaTecnico', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.adicionarEspecialistaTecnico;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.adicionarEspecialistaTecnico 
     @Nome varchar(50) , 
@@ -430,8 +406,6 @@ REMOVER ESPECIALISTA TÉCNICO
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.removerEspecialistaTecnico', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.removerEspecialistaTecnico;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.removerEspecialistaTecnico 
     @Especialista_ID AS int , 
@@ -462,13 +436,12 @@ BEGIN
     DELETE FROM HoqueiPortugues.Especialista_Tecnico WHERE ID = @Especialista_ID;
 END
 GO
+
 /*
 SIMULAR JOGO
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.simularJogo', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.simularJogo;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.simularJogo 
     @Jogo_ID AS int , @Resultado_F AS int, @Resultado_C AS int
@@ -659,8 +632,6 @@ PESQUISAR JOGADORES DE CAMPO E ORDENÁ-LOS POR DIFERENTES ESTATISTICAS
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.PesquisaJogadoresCampo', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.PesquisaJogadoresCampo;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.PesquisaJogadoresCampo
     @nome varchar(50),
@@ -696,8 +667,6 @@ PESQUISAR GUARDA REDES E ORDENÁ-LOS POR DIFERENTES ESTATISTICAS
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.PesquisaGuardaRedes', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.PesquisaGuardaRedes;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.PesquisaGuardaRedes
     @nome varchar(50),
@@ -733,31 +702,27 @@ ELIMINAR O ÚLTTIMO PLANTEL CRIADO
 
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.STeliminarUltimoPlantel', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.STeliminarUltimoPlantel;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.STeliminarUltimoPlantel 
 AS
 BEGIN 
     DELETE TOP (1) FROM HoqueiPortugues.Plantel WHERE ID = (SELECT MAX(ID) FROM HoqueiPortugues.Plantel);
-END
+END;
 GO
 
-EXEC HoqueiPortugues.STeliminarUltimoPlantel;
 
 /*
 ELIMINAR OS DOIS ÚLTIMOS PLANTEIS CRIADOS
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.STeliminarUltimosPlanteis', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.STeliminarUltimosPlanteis;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.STeliminarUltimosPlanteis
 AS
 BEGIN 
     DELETE TOP (2) FROM HoqueiPortugues.Plantel WHERE ID IN (SELECT TOP (2) ID FROM HoqueiPortugues.Plantel ORDER BY ID DESC);
-END
+END;
+GO
 
 
 /*
@@ -765,8 +730,6 @@ ADICIONAR ÁRBITROS A UM JOGO
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.adicionarArbitros', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.adicionarArbitros;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.adicionarArbitros 
     @Jogo_ID AS int , @ArbitroPrincipal_ID AS int, @ArbitroAuxiliar_ID AS int
@@ -786,16 +749,12 @@ BEGIN
 END;
 GO
 
-EXEC HoqueiPortugues.adicionarArbitros @Jogo_ID = 21, @ArbitroPrincipal_ID = 1, @ArbitroAuxiliar_ID = 2;
-
 
 /*
 ELIMINAR OS ÁRBITROS DO ÚLTIMO JOGO
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.eliminarArbitros', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.eliminarArbitros;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.eliminarArbitros 
     @Jogo_ID AS int
@@ -810,8 +769,6 @@ Dar update ao resultado de um jogo que já tenha acontecido
 */
 
 --Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.updateResultado', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.updateResultado;
-GO
 
 CREATE PROCEDURE HoqueiPortugues.updateResultado 
     @Jogo_ID AS int , @Resultado_F AS int, @Resultado_C AS int
@@ -833,125 +790,125 @@ GO
 
 
 
-/*QUERO PASSAR ISTO PARA UDF*/
+-- /*QUERO PASSAR ISTO PARA UDF*/
 
 
-/*
-Obter os treinadores por jogo
-*/
+-- /*
+-- Obter os treinadores por jogo
+-- */
 
---Exclui o procedimento se ele já existir
+-- --Exclui o procedimento se ele já existir
 
-IF OBJECT_ID('HoqueiPortugues.obterTreinadoresPorJogo', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.obterTreinadoresPorJogo;
-GO
+-- IF OBJECT_ID('HoqueiPortugues.obterTreinadoresPorJogo', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.obterTreinadoresPorJogo;
+-- GO
 
-CREATE PROCEDURE HoqueiPortugues.obterTreinadoresPorJogo
-    @Jogo_ID int
-AS
-BEGIN
-    SELECT Clube_C_ID AS ClubeID, Treinador.Nome AS NomeTreinador, Treinador.Tipo_treinador 
-    FROM HoqueiPortugues.Jogo 
-    JOIN HoqueiPortugues.Plantel ON Jogo.Plantel_C_ID = Plantel.ID 
-    JOIN HoqueiPortugues.Plantel_Treinadores ON Plantel.ID = Plantel_Treinadores.Plantel_ID
-    JOIN HoqueiPortugues.Treinador ON Plantel_Treinadores.Treinador_ID = Treinador.ID
-    WHERE Jogo.ID = @Jogo_ID
-    UNION
-    SELECT Clube_F_ID AS ClubeID, Treinador.Nome AS NomeTreinador, Treinador.Tipo_treinador 
-    FROM HoqueiPortugues.Jogo 
-    JOIN HoqueiPortugues.Plantel ON Jogo.Plantel_F_ID = Plantel.ID 
-    JOIN HoqueiPortugues.Plantel_Treinadores ON Plantel.ID = Plantel_Treinadores.Plantel_ID
-    JOIN HoqueiPortugues.Treinador ON Plantel_Treinadores.Treinador_ID = Treinador.ID
-    WHERE Jogo.ID = @Jogo_ID;
-END
-GO
-
-
-EXEC HoqueiPortugues.obterTreinadoresPorJogo @Jogo_ID = 1;
+-- CREATE PROCEDURE HoqueiPortugues.obterTreinadoresPorJogo
+--     @Jogo_ID int
+-- AS
+-- BEGIN
+--     SELECT Clube_C_ID AS ClubeID, Treinador.Nome AS NomeTreinador, Treinador.Tipo_treinador 
+--     FROM HoqueiPortugues.Jogo 
+--     JOIN HoqueiPortugues.Plantel ON Jogo.Plantel_C_ID = Plantel.ID 
+--     JOIN HoqueiPortugues.Plantel_Treinadores ON Plantel.ID = Plantel_Treinadores.Plantel_ID
+--     JOIN HoqueiPortugues.Treinador ON Plantel_Treinadores.Treinador_ID = Treinador.ID
+--     WHERE Jogo.ID = @Jogo_ID
+--     UNION
+--     SELECT Clube_F_ID AS ClubeID, Treinador.Nome AS NomeTreinador, Treinador.Tipo_treinador 
+--     FROM HoqueiPortugues.Jogo 
+--     JOIN HoqueiPortugues.Plantel ON Jogo.Plantel_F_ID = Plantel.ID 
+--     JOIN HoqueiPortugues.Plantel_Treinadores ON Plantel.ID = Plantel_Treinadores.Plantel_ID
+--     JOIN HoqueiPortugues.Treinador ON Plantel_Treinadores.Treinador_ID = Treinador.ID
+--     WHERE Jogo.ID = @Jogo_ID;
+-- END
+-- GO
 
 
-/*
-Obter os Jogadores por jogo
-*/
+-- EXEC HoqueiPortugues.obterTreinadoresPorJogo @Jogo_ID = 1;
 
---Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.obterJogadoresPorJogo', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.obterJogadoresPorJogo;
-GO
 
-CREATE PROCEDURE HoqueiPortugues.obterJogadoresPorJogo
-    @Jogo_ID int
-AS
-BEGIN
- SELECT J.Clube_C_ID AS ClubeID, Jog.Nome AS NomeJogador, Jog.Posicao
-    FROM HoqueiPortugues.Jogo J
-    JOIN HoqueiPortugues.Plantel P ON J.Plantel_C_ID = P.ID 
-    JOIN HoqueiPortugues.Plantel_Jogadores PJ ON P.ID = PJ.Plantel_ID
-    JOIN HoqueiPortugues.Jogador Jog ON PJ.Jogador_ID = Jog.ID
-    WHERE J.ID = @Jogo_ID
+-- /*
+-- Obter os Jogadores por jogo
+-- */
 
-    UNION
+-- --Exclui o procedimento se ele já existir
+-- IF OBJECT_ID('HoqueiPortugues.obterJogadoresPorJogo', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.obterJogadoresPorJogo;
+-- GO
 
-    SELECT J.Clube_F_ID AS ClubeID, Jog.Nome AS NomeJogador, Jog.Posicao
-    FROM HoqueiPortugues.Jogo J
-    JOIN HoqueiPortugues.Plantel P ON J.Plantel_F_ID = P.ID 
-    JOIN HoqueiPortugues.Plantel_Jogadores PJ ON P.ID = PJ.Plantel_ID
-    JOIN HoqueiPortugues.Jogador Jog ON PJ.Jogador_ID = Jog.ID
-    WHERE J.ID = @Jogo_ID;
-END;
-GO
+-- CREATE PROCEDURE HoqueiPortugues.obterJogadoresPorJogo
+--     @Jogo_ID int
+-- AS
+-- BEGIN
+--  SELECT J.Clube_C_ID AS ClubeID, Jog.Nome AS NomeJogador, Jog.Posicao
+--     FROM HoqueiPortugues.Jogo J
+--     JOIN HoqueiPortugues.Plantel P ON J.Plantel_C_ID = P.ID 
+--     JOIN HoqueiPortugues.Plantel_Jogadores PJ ON P.ID = PJ.Plantel_ID
+--     JOIN HoqueiPortugues.Jogador Jog ON PJ.Jogador_ID = Jog.ID
+--     WHERE J.ID = @Jogo_ID
 
-EXEC HoqueiPortugues.uspGetJogadoresPorJogo @Jogo_ID = 1;
-GO
+--     UNION
 
-/*
-Consultar dados do jogo
-*/
+--     SELECT J.Clube_F_ID AS ClubeID, Jog.Nome AS NomeJogador, Jog.Posicao
+--     FROM HoqueiPortugues.Jogo J
+--     JOIN HoqueiPortugues.Plantel P ON J.Plantel_F_ID = P.ID 
+--     JOIN HoqueiPortugues.Plantel_Jogadores PJ ON P.ID = PJ.Plantel_ID
+--     JOIN HoqueiPortugues.Jogador Jog ON PJ.Jogador_ID = Jog.ID
+--     WHERE J.ID = @Jogo_ID;
+-- END;
+-- GO
 
-IF OBJECT_ID('HoqueiPortugues.consultarJogo', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.consultarJogo;
-GO
+-- EXEC HoqueiPortugues.uspGetJogadoresPorJogo @Jogo_ID = 1;
+-- GO
 
-CREATE PROCEDURE HoqueiPortugues.consultarJogo 
-    @Jogo_ID AS int
-AS
-BEGIN
-    SELECT DISTINCT Jogo.ID, Jogo.Jornada, Pavilhao.Nome AS NomePavilhao, 
-        ClubeCasa.Nome AS NomeClubeCasa, ClubeFora.Nome AS NomeClubeFora, 
-        ClubeCasa.ID AS ClubeCasaID, ClubeFora.ID AS ClubeForaID, 
-        Jogo.Resultado_C, Jogo.Resultado_F, 
-        Arbitro.Nome AS ArbitroNome, 
-        Jogo.Data_hora
-    FROM HoqueiPortugues.Jogo
-    JOIN HoqueiPortugues.e_arbitrado ON Jogo.ID = HoqueiPortugues.e_arbitrado.Jogo_ID
-    JOIN HoqueiPortugues.Arbitro ON e_arbitrado.Arbitro_ID = Arbitro.ID
-    JOIN HoqueiPortugues.Pavilhao ON Jogo.Pavilhao_ID = Pavilhao.ID
-    JOIN HoqueiPortugues.Clube AS ClubeCasa ON Jogo.Clube_C_ID = ClubeCasa.ID
-    JOIN HoqueiPortugues.Clube AS ClubeFora ON Jogo.Clube_F_ID = ClubeFora.ID
-    WHERE Jogo.ID = @Jogo_ID 
-END
+-- /*
+-- Consultar dados do jogo
+-- */
 
-EXEC HoqueiPortugues.consultarJogo @Jogo_ID = 1
+-- IF OBJECT_ID('HoqueiPortugues.consultarJogo', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.consultarJogo;
+-- GO
 
-/*
-Ver calendário de jogos de uma equipa
-*/
+-- CREATE PROCEDURE HoqueiPortugues.consultarJogo 
+--     @Jogo_ID AS int
+-- AS
+-- BEGIN
+--     SELECT DISTINCT Jogo.ID, Jogo.Jornada, Pavilhao.Nome AS NomePavilhao, 
+--         ClubeCasa.Nome AS NomeClubeCasa, ClubeFora.Nome AS NomeClubeFora, 
+--         ClubeCasa.ID AS ClubeCasaID, ClubeFora.ID AS ClubeForaID, 
+--         Jogo.Resultado_C, Jogo.Resultado_F, 
+--         Arbitro.Nome AS ArbitroNome, 
+--         Jogo.Data_hora
+--     FROM HoqueiPortugues.Jogo
+--     JOIN HoqueiPortugues.e_arbitrado ON Jogo.ID = HoqueiPortugues.e_arbitrado.Jogo_ID
+--     JOIN HoqueiPortugues.Arbitro ON e_arbitrado.Arbitro_ID = Arbitro.ID
+--     JOIN HoqueiPortugues.Pavilhao ON Jogo.Pavilhao_ID = Pavilhao.ID
+--     JOIN HoqueiPortugues.Clube AS ClubeCasa ON Jogo.Clube_C_ID = ClubeCasa.ID
+--     JOIN HoqueiPortugues.Clube AS ClubeFora ON Jogo.Clube_F_ID = ClubeFora.ID
+--     WHERE Jogo.ID = @Jogo_ID 
+-- END
 
---Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.verCalendarioEquipa', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.verCalendarioEquipa;
-GO
+-- EXEC HoqueiPortugues.consultarJogo @Jogo_ID = 1
 
-CREATE PROCEDURE HoqueiPortugues.verCalendarioEquipa 
-    @Clube_ID AS int
-AS
-BEGIN
-    SELECT Jogo.Jornada,
-        ClubeCasa.Nome AS NomeClubeCasa, ClubeFora.Nome AS NomeClubeFora, 
-        Jogo.Resultado_C, Jogo.Resultado_F, 
-        Pavilhao.Nome AS NomePavilhao, 
-        Jogo.Data_hora
-    FROM HoqueiPortugues.Jogo
-    JOIN HoqueiPortugues.Pavilhao ON Jogo.Pavilhao_ID = Pavilhao.ID
-    JOIN HoqueiPortugues.Clube AS ClubeCasa ON Jogo.Clube_C_ID = ClubeCasa.ID
-    JOIN HoqueiPortugues.Clube AS ClubeFora ON Jogo.Clube_F_ID = ClubeFora.ID
-    WHERE ClubeCasa.ID = @Clube_ID OR ClubeFora.ID = @Clube_ID
+-- /*
+-- Ver calendário de jogos de uma equipa
+-- */
 
-END;
-GO
+-- --Exclui o procedimento se ele já existir
+-- IF OBJECT_ID('HoqueiPortugues.verCalendarioEquipa', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.verCalendarioEquipa;
+-- GO
+
+-- CREATE PROCEDURE HoqueiPortugues.verCalendarioEquipa 
+--     @Clube_ID AS int
+-- AS
+-- BEGIN
+--     SELECT Jogo.Jornada,
+--         ClubeCasa.Nome AS NomeClubeCasa, ClubeFora.Nome AS NomeClubeFora, 
+--         Jogo.Resultado_C, Jogo.Resultado_F, 
+--         Pavilhao.Nome AS NomePavilhao, 
+--         Jogo.Data_hora
+--     FROM HoqueiPortugues.Jogo
+--     JOIN HoqueiPortugues.Pavilhao ON Jogo.Pavilhao_ID = Pavilhao.ID
+--     JOIN HoqueiPortugues.Clube AS ClubeCasa ON Jogo.Clube_C_ID = ClubeCasa.ID
+--     JOIN HoqueiPortugues.Clube AS ClubeFora ON Jogo.Clube_F_ID = ClubeFora.ID
+--     WHERE ClubeCasa.ID = @Clube_ID OR ClubeFora.ID = @Clube_ID
+
+-- END;
+-- GO
