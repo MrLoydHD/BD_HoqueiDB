@@ -58,17 +58,17 @@
     <Compile Include="Login_Register.Designer.cs">
       <DependentUpon>Login_Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main_Admin.Designer.cs">
       <DependentUpon>Main_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Client.designer.cs">
+      <DependentUpon>Main_Client.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,11 +77,11 @@
     <EmbeddedResource Include="Login_Register.resx">
       <DependentUpon>Login_Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main_Admin.resx">
       <DependentUpon>Main_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Client.resx">
+      <DependentUpon>Main_Client.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
