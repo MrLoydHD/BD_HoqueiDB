@@ -1,10 +1,9 @@
 USE p4g7;
 GO
-
-
 -- This file is responsible for creating the tables and the foreign keys of the HoqueiPortugues database.
 -- It is meant to be run on Microsoft SQL Server Management Studio.
 -- Its not designed to be runned multiple times
+
 DROP TABLE IF EXISTS HoqueiPortugues.Plantel_Jogadores;
 DROP TABLE IF EXISTS HoqueiPortugues.Plantel_Treinadores;
 DROP TABLE IF EXISTS HoqueiPortugues.e_arbitrado;
@@ -58,7 +57,6 @@ CREATE TABLE HoqueiPortugues.Jogador(
     advertencias int NOT NULL,
     cartoes_azuis int NOT NULL,
     cartoes_vermelhos int NOT NULL, 
-    --inapto BIT NOT NULL, 
 );
 GO
 

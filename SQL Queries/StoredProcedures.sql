@@ -5,12 +5,8 @@ go
 -- This file is a SQL script that creates the schema for the HoqueiPortugues database.
 -- It is meant to be run on Microsoft SQL Server Management Studio.
 
-
-
-
 /*
-PAGINA CLASSIFICAÇÃO
-Retorna a classificação dos clubes
+RETORNAR AS CLASSIFICAÇÕES DOS CLUBES DA LIGA PORTUGUESA DE HOQUEI EM PATINS
 */
 
 -- Exclui o procedimento se ele já existir
@@ -75,12 +71,9 @@ BEGIN
 END;
 GO
 
-EXEC HoqueiPortugues.calcularClassificacao;
-GO
-
 
 /*
-Contratar um jogador do estrangeiro DONE
+CONTRATAR UM JOGADOR QUE NÃO ESTEJA NA BASE DE DADOS (ESTRANGEIRO)
 */
 
 --Exclui o procedimento se ele já existir
@@ -98,12 +91,7 @@ BEGIN
             RETURN;
         END
 
-	-- IF (@Num_camisola < 1 OR @Num_camisola > 99)                             Passar para o front-end
-    -- BEGIN
-    --    RAISERROR('Numero da camisola inválido (1-99)', 16, 1);
-    --    RETURN;
-    -- END
-
+    -- Verifica se a posição é válida
     IF (@Posicao != 'Jogador de Campo' AND @Posicao != 'Guarda-Redes')  --Tb nao sei se é melhor passar para o front-end
     BEGIN
         RAISERROR('Posição inválida', 16, 1);
@@ -128,6 +116,7 @@ BEGIN
         INSERT INTO HoqueiPortugues.Jogador_Campo(Jogador_ID, Golos_marcados, Assists, Penaltis_marcados, Livres_diretos_marcados) 
         VALUES (@Jogador_ID, 0, 0 , 0 , 0);
         END 
+    -- Se for um guarda-redes
         IF @Posicao = 'Guarda-Redes'
         BEGIN
             INSERT INTO HoqueiPortugues.Jogador_GuardaRedes(Jogador_ID, Golos_sofridos, Penaltis_defendidos, Livres_diretos_defendidos) 
@@ -145,7 +134,7 @@ select * from HoqueiPortugues.Jogador
 Where Clube_ID = 1
 
 /*
-Contratar um jogador de outro clube DONE
+CONTRATAR UM JOGADOR A OUTRO CLUBE
 */
 
 --Exclui o procedimento se ele já existir
@@ -187,7 +176,7 @@ EXEC HoqueiPortugues.contratarJogadorClube 199, 'Jogador1', 1, 2
 
 
 /*
-Jogador sai do clube passando a estar sem clube
+JOGADOR SAI DO CLUBE PASSANDO A ESTAR SEM CLUBE
 */
 
 --Exclui o procedimento se ele já existir
@@ -232,7 +221,7 @@ BEGIN
 END;
 
 /*
-Contratar um jogador que não tem clube
+CONTRATAR UM JOGADOR QUE NÃO TENHA CLUBE
 */
 
 --Exclui o procedimento se ele já existir
@@ -272,7 +261,7 @@ END;
 EXEC HoqueiPortugues.contratarJogadorSemClube 199, 2
 
 /*
-Contratar um treinador do estrangeiro
+CONTRATAR UM TREINADOR QUE NÃO ESTEJA NA BASE DE DADOS (ESTRANGEIRO)
 */
 
 --Exclui o procedimento se ele já existir
@@ -299,7 +288,7 @@ BEGIN
 END
 
 /*
-Contratar um treinador de outro clube
+CONTRATAR UM TREINADOR A OUTRO CLUBE
 */
 
 --Exclui o procedimento se ele já existir
@@ -330,7 +319,7 @@ BEGIN
 END;
 
 /*
-Treinador sai do clube passando a estar sem clube
+TREINADOR SAI DO CLUBE PASSANDO A FICAR SEM CLUBE
 */
 
 --Exclui o procedimento se ele já existir
@@ -368,7 +357,7 @@ BEGIN
 END;
 
 /*
-Contratar um treinador que não tem clube
+CONTRATAR UM JOGADOR QUE NÃO TENHA CLUBE
 */
 
 --Exclui o procedimento se ele já existir
@@ -406,7 +395,7 @@ BEGIN
 END;
 
 /*
-Adicionar especialista técnico a equipa
+ADICIONAR ESPECIALISTA TÉCNICO
 */
 
 --Exclui o procedimento se ele já existir
@@ -437,7 +426,7 @@ END
 GO
 
 /*
-Remover um especialista técnio
+REMOVER ESPECIALISTA TÉCNICO
 */
 
 --Exclui o procedimento se ele já existir
@@ -474,7 +463,7 @@ BEGIN
 END
 GO
 /*
-Simular jogo dando como input o resultado
+SIMULAR JOGO
 */
 
 --Exclui o procedimento se ele já existir
@@ -527,7 +516,6 @@ BEGIN
     DECLARE @CounterC int = 0;
     DECLARE @NumberOfPlayersF int;
     DECLARE @NumberOfPlayersC int;
-
 
 
     -- Distribuir as advertencias, cartoes azuis e cartoes vermelhos pelos jogadores da equipa de fora
@@ -666,34 +654,8 @@ END;
 GO
 
 
-EXEC HoqueiPortugues.simularJogo @Jogo_ID = 21, @Resultado_F = 8, @Resultado_C = 3, @Plantel_F_ID = 29, @Plantel_C_ID = 30;
-GO
-SELECT * FROM HoqueiPortugues.Jogador_Campo
-INNER JOIN HoqueiPortugues.Jogador ON Jogador.ID = Jogador_Campo.Jogador_ID
-WHERE Clube_ID = 1
-GO
-
--- SELECT * FROM HoqueiPortugues.Jogador_Campo
--- INNER JOIN HoqueiPortugues.Jogador ON Jogador.ID = Jogador_Campo.Jogador_ID
--- WHERE Clube_ID = 6
--- GO
-
--- SELECT * FROM HoqueiPortugues.Jogador_GuardaRedes
--- INNER JOIN HoqueiPortugues.Jogador ON Jogador.ID = Jogador_GuardaRedes.Jogador_ID
--- WHERE Clube_ID = 6
--- GO
-
--- SELECT * FROM HoqueiPortugues.Jogador_GuardaRedes
--- INNER JOIN HoqueiPortugues.Jogador ON Jogador.ID = Jogador_GuardaRedes.Jogador_ID
--- WHERE Clube_ID = 1
--- GO
-
--- SELECT * FROM HoqueiPortugues.Jogo
--- WHERE ID = 21
-
-
 /*
-Pesquisar e ordenar jogadores de campo por diferentes estatisticas
+PESQUISAR JOGADORES DE CAMPO E ORDENÁ-LOS POR DIFERENTES ESTATISTICAS
 */
 
 --Exclui o procedimento se ele já existir
@@ -728,10 +690,9 @@ BEGIN
 END;
 GO
 
-EXEC HoqueiPortugues.PesquisaJogadoresCampo @nome = 'Ma', @orderby = 'Golos Marcados';
 
 /*
-Pesquisar e ordenar guarda redes por diferentes estatisticas
+PESQUISAR GUARDA REDES E ORDENÁ-LOS POR DIFERENTES ESTATISTICAS
 */
 
 --Exclui o procedimento se ele já existir
@@ -767,7 +728,7 @@ GO
 
 
 /*
-Eliminar o ultimo plantel criado
+ELIMINAR O ÚLTTIMO PLANTEL CRIADO
 */
 
 
@@ -785,7 +746,7 @@ GO
 EXEC HoqueiPortugues.STeliminarUltimoPlantel;
 
 /*
-Eliminar os dois ultimos planteis criados
+ELIMINAR OS DOIS ÚLTIMOS PLANTEIS CRIADOS
 */
 
 --Exclui o procedimento se ele já existir
@@ -800,7 +761,7 @@ END
 
 
 /*
-Adicionar árbitros ao jogo
+ADICIONAR ÁRBITROS A UM JOGO
 */
 
 --Exclui o procedimento se ele já existir
@@ -829,7 +790,7 @@ EXEC HoqueiPortugues.adicionarArbitros @Jogo_ID = 21, @ArbitroPrincipal_ID = 1, 
 
 
 /*
-Eliminar os árbitros do ultimo jogo
+ELIMINAR OS ÁRBITROS DO ÚLTIMO JOGO
 */
 
 --Exclui o procedimento se ele já existir
@@ -843,6 +804,36 @@ BEGIN
     DELETE TOP (2) FROM HoqueiPortugues.e_arbitrado WHERE Jogo_ID = @Jogo_ID;
 END
 GO 
+
+/*
+Dar update ao resultado de um jogo que já tenha acontecido
+*/
+
+--Exclui o procedimento se ele já existir
+IF OBJECT_ID('HoqueiPortugues.updateResultado', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.updateResultado;
+GO
+
+CREATE PROCEDURE HoqueiPortugues.updateResultado 
+    @Jogo_ID AS int , @Resultado_F AS int, @Resultado_C AS int
+AS
+BEGIN
+    --Verifica se o jogo já aconteceu
+    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Jogo WHERE ID = @Jogo_ID AND JogoRealizado = 1)
+        BEGIN
+            RAISERROR('Jogo ainda não aconteceu', 16, 1);
+            RETURN;
+        END
+
+    UPDATE HoqueiPortugues.Jogo 
+    SET Resultado_F = @Resultado_F, 
+    Resultado_C = @Resultado_C
+    WHERE ID = @Jogo_ID;
+END;
+GO
+
+
+
+/*QUERO PASSAR ISTO PARA UDF*/
 
 
 /*
@@ -938,32 +929,6 @@ BEGIN
 END
 
 EXEC HoqueiPortugues.consultarJogo @Jogo_ID = 1
-
-/*
-Dar update ao resultado de um jogo que já tenha acontecido
-*/
-
---Exclui o procedimento se ele já existir
-IF OBJECT_ID('HoqueiPortugues.updateResultado', 'P') IS NOT NULL DROP PROCEDURE HoqueiPortugues.updateResultado;
-GO
-
-CREATE PROCEDURE HoqueiPortugues.updateResultado 
-    @Jogo_ID AS int , @Resultado_F AS int, @Resultado_C AS int
-AS
-BEGIN
-    --Verifica se o jogo já aconteceu
-    IF NOT EXISTS (SELECT * FROM HoqueiPortugues.Jogo WHERE ID = @Jogo_ID AND JogoRealizado = 1)
-        BEGIN
-            RAISERROR('Jogo ainda não aconteceu', 16, 1);
-            RETURN;
-        END
-
-    UPDATE HoqueiPortugues.Jogo 
-    SET Resultado_F = @Resultado_F, 
-    Resultado_C = @Resultado_C
-    WHERE ID = @Jogo_ID;
-END;
-GO
 
 /*
 Ver calendário de jogos de uma equipa

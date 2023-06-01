@@ -59,6 +59,7 @@ INSERT INTO HoqueiPortugues.Arbitro VALUES (20, 'Alberto Ferrari', 44, 'Auxiliar
 go
 
 /*Especialista Técnico insertion*/
+
 --Clube 1
 INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (1, 'Manuel Pereira', 45, 'Mecânico', 'Portugal', 1);
 INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (2, 'João Alves', 42, 'Massagista', 'Portugal', 1);
@@ -418,6 +419,7 @@ INSERT INTO HoqueiPortugues.Plantel VALUES (25,13)
 INSERT INTO HoqueiPortugues.Plantel VALUES (26,12)
 INSERT INTO HoqueiPortugues.Plantel VALUES (27,10)
 INSERT INTO HoqueiPortugues.Plantel VALUES (28,14)
+
 --Teste (1vs6)
 -- INSERT INTO HoqueiPortugues.Plantel VALUES (29,1)
 -- INSERT INTO HoqueiPortugues.Plantel VALUES (30,6)
