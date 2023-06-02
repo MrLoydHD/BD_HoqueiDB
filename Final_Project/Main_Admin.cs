@@ -2175,28 +2175,28 @@ namespace Final_Project
                         }
                         catch (Exception ex)
                         {
-                            throw new Exception("Failed to add Jogador in database. \n ERROR MESSAGE: \n" + ex.Message);
+                            MessageBox.Show("Já existe um jogador com esse número!");
+                            return;
                         }
-                        finally
-                        {
-                            cn.Close();
-                            MessageBox.Show("Jogador adicionado com sucesso!");
-                            panelAddJogador.Visible = false;
-                            dataGridViewJC.Visible = true;
-                            dataGridViewGR.Visible = true;
-                            dataGridViewT.Visible = true;
-                            jogadoresCampo_label.Visible = true;
-                            guardaRedes_label.Visible = true;
-                            treinadores_label.Visible = true;
-                            addJogador_button.Visible = true;
-                            addTreinador_button.Visible = true;
-                            removerJogador_button.Visible = true;
-                            removerTreinador_button.Visible = true;
-                            label56.Visible = true;
-                            label57.Visible = true;
-                            loadClubeEquipa();
-                            panelEquipas.Visible = true;
-                        }
+                       
+                        cn.Close();
+                        MessageBox.Show("Jogador adicionado com sucesso!");
+                        panelAddJogador.Visible = false;
+                        dataGridViewJC.Visible = true;
+                        dataGridViewGR.Visible = true;
+                        dataGridViewT.Visible = true;
+                        jogadoresCampo_label.Visible = true;
+                        guardaRedes_label.Visible = true;
+                        treinadores_label.Visible = true;
+                        addJogador_button.Visible = true;
+                        addTreinador_button.Visible = true;
+                        removerJogador_button.Visible = true;
+                        removerTreinador_button.Visible = true;
+                        label56.Visible = true;
+                        label57.Visible = true;
+                        loadClubeEquipa();
+                        panelEquipas.Visible = true;
+                        
                     }
                     else
                     {
@@ -2222,28 +2222,28 @@ namespace Final_Project
                         }
                         catch (Exception ex)
                         {
-                            throw new Exception("Failed to add Jogador in database. \n ERROR MESSAGE: \n" + ex.Message);
+                            MessageBox.Show("Já existe um jogador com esse número!");
+                            return;
                         }
-                        finally
-                        {
-                            cn.Close();
-                            MessageBox.Show("Jogador adicionado com sucesso!");
-                            panelAddJogador.Visible = false;
-                            dataGridViewJC.Visible = true;
-                            dataGridViewGR.Visible = true;
-                            dataGridViewT.Visible = true;
-                            jogadoresCampo_label.Visible = true;
-                            guardaRedes_label.Visible = true;
-                            treinadores_label.Visible = true;
-                            addJogador_button.Visible = true;
-                            addTreinador_button.Visible = true;
-                            removerJogador_button.Visible = true;
-                            removerTreinador_button.Visible = true;
-                            label56.Visible = true;
-                            label57.Visible = true;
-                            loadClubeEquipa();
-                            panelEquipas.Visible = true;
-                        }
+                       
+                        cn.Close();
+                        MessageBox.Show("Jogador adicionado com sucesso!");
+                        panelAddJogador.Visible = false;
+                        dataGridViewJC.Visible = true;
+                        dataGridViewGR.Visible = true;
+                        dataGridViewT.Visible = true;
+                        jogadoresCampo_label.Visible = true;
+                        guardaRedes_label.Visible = true;
+                        treinadores_label.Visible = true;
+                        addJogador_button.Visible = true;
+                        addTreinador_button.Visible = true;
+                        removerJogador_button.Visible = true;
+                        removerTreinador_button.Visible = true;
+                        label56.Visible = true;
+                        label57.Visible = true;
+                        loadClubeEquipa();
+                        panelEquipas.Visible = true;
+                       
                     }
                     else
                     {

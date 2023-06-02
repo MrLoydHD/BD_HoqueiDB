@@ -18,24 +18,24 @@ GO
 
 
 
-IF OBJECT_ID('HoqueiPortugues.fnObterTreinadoresPorJogo', 'FN') IS NOT NULL
+IF OBJECT_ID('HoqueiPortugues.fnObterTreinadoresPorJogo') IS NOT NULL
     DROP FUNCTION HoqueiPortugues.fnObterTreinadoresPorJogo;
 GO
 
 
 
-IF OBJECT_ID('HoqueiPortugues.fnObterJogadoresPorJogo', 'FN') IS NOT NULL
+IF OBJECT_ID('HoqueiPortugues.fnObterJogadoresPorJogo') IS NOT NULL
     DROP FUNCTION HoqueiPortugues.fnObterJogadoresPorJogo;
 GO
 
 
 
-IF OBJECT_ID('HoqueiPortugues.fnConsultarJogo', 'FN') IS NOT NULL
+IF OBJECT_ID('HoqueiPortugues.fnConsultarJogo') IS NOT NULL
     DROP FUNCTION HoqueiPortugues.fnConsultarJogo;
 GO
 
 
 
-IF OBJECT_ID('HoqueiPortugues.fnVerCalendarioEquipa', 'FN') IS NOT NULL
+IF OBJECT_ID('HoqueiPortugues.fnVerCalendarioEquipa') IS NOT NULL
     DROP FUNCTION HoqueiPortugues.fnVerCalendarioEquipa;
 GO
