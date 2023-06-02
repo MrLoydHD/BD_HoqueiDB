@@ -232,22 +232,19 @@ namespace Final_Project
             SqlConnection cn2 = getSGBDConnection();
             cn2.Open();
 
-            SqlCommand cmd = new SqlCommand("HoqueiPortugues.consultarJogo", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("SELECT * FROM HoqueiPortugues.fnConsultarJogo(@Jogo_ID)", cn);
 
             cmd.Parameters.AddWithValue("@Jogo_ID", jogoID);
 
             SqlDataReader reader = cmd.ExecuteReader();
 
-            SqlCommand cmd1 = new SqlCommand("HoqueiPortugues.obterJogadoresPorJogo", cn1);
-            cmd1.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM HoqueiPortugues.fnObterJogadoresPorJogo(@Jogo_ID)", cn1);
 
             cmd1.Parameters.AddWithValue("@Jogo_ID", jogoID);
 
             SqlDataReader reader1 = cmd1.ExecuteReader();
 
-            SqlCommand cmd2 = new SqlCommand("HoqueiPortugues.obterTreinadoresPorJogo", cn2);
-            cmd2.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd2 = new SqlCommand("SELECT * FROM HoqueiPortugues.fnObterTreinadoresPorJogo(@Jogo_ID)", cn2);
 
             cmd2.Parameters.AddWithValue("@Jogo_ID", jogoID);
 
@@ -454,9 +451,8 @@ namespace Final_Project
             cn = getSGBDConnection();
             cn.Open();
 
-            using (SqlCommand command = new SqlCommand("HoqueiPortugues.verCalendarioEquipa", cn))
+            using (SqlCommand command = new SqlCommand("SELECT * FROM HoqueiPortugues.fnVerCalendarioEquipa(@Clube_ID)", cn))
             {
-                command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@Clube_ID", clubeID);
 
                 SqlDataReader reader = command.ExecuteReader();

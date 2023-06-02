@@ -39,7 +39,6 @@ GO
 Obter os treinadores que participaram num jogo
 */
 
-
 CREATE FUNCTION HoqueiPortugues.fnObterTreinadoresPorJogo(@Jogo_ID int)
 RETURNS TABLE 
 AS 
