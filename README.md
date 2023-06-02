@@ -9,7 +9,7 @@ This project consists in a database for a hockey league (1º liga Portuguesa) an
   1. Open the file Main_Admin.cs
   2. Change the connection string to your connection string (Between Brackets)
   ```
-    return new SqlConnection("data source= <<tcp:mednat.ieeta.pt\\SQLSERVER,8101>>;initial catalog=<<p4g7>>;uid=<<p4g7;password=2040900925@HJ>>");
+    return new SqlConnection("data source= <<>>;initial catalog=<<>>;uid=<<>>");
   ```
   3. Save the file
   4. The same process must be done in the file Main_Client.cs
