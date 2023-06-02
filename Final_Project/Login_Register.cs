@@ -52,12 +52,15 @@ namespace Final_Project
                 new Main_Admin().Show();
                 this.Hide();
             }
+            else if(textBox2.Text == "admin" && textBox1.Text != "1234")
+            {
+                MessageBox.Show("Password de Admin Incorreta!");
+            }
             else
             {
                 new Main_Client().Show();
                 this.Hide();
             }
-
         }
     }
 }

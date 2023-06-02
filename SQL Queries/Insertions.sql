@@ -36,358 +36,358 @@ insert into HoqueiPortugues.Pavilhao values (14, 'Pavilhão Desportivo Municipal
 go
 
 /*Arbitro insertion*/
-INSERT INTO HoqueiPortugues.Arbitro VALUES (1, 'João Silva', 45, 'Principal', 'Português');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (2, 'Antonio Soares', 47, 'Auxiliar', 'Português');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (3, 'Miguel Santos', 40, 'Principal', 'Português');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (4, 'Pedro Gomes', 52, 'Auxiliar', 'Português');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (5, 'Carlos Pereira', 50, 'Principal', 'Português');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (6, 'Manuel Costa', 43, 'Auxiliar', 'Português');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (7, 'Ricardo Rocha', 46, 'Principal', 'Português');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (8, 'Diogo Oliveira', 44, 'Auxiliar', 'Português');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (9, 'Paulo Almeida', 49, 'Principal', 'Português');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (10, 'Rui Marques', 41, 'Auxiliar', 'Português');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (11, 'Luis Gomez', 50, 'Principal', 'Espanhol');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (12, 'Carlos Sanchez', 47, 'Auxiliar', 'Espanhol');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (13, 'Antonio Guerra', 52, 'Principal', 'Espanhol');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (14, 'Ricardo Morales', 46, 'Auxiliar', 'Espanhol');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (15, 'Miguel Cortes', 45, 'Principal', 'Espanhol');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (16, 'Pedro Navarro', 49, 'Auxiliar', 'Espanhol');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (17, 'Mario Rossi', 51, 'Principal', 'Italiano');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (18, 'Luca Bianchi', 47, 'Auxiliar', 'Italiano');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (19, 'Giuseppe Conte', 53, 'Principal', 'Italiano');
-INSERT INTO HoqueiPortugues.Arbitro VALUES (20, 'Alberto Ferrari', 44, 'Auxiliar', 'Italiano');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (1, 'João Silva', 45, 'Principal', 'Portuguesa');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (2, 'Antonio Soares', 47, 'Auxiliar', 'Portuguesa');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (3, 'Miguel Santos', 40, 'Principal', 'Portuguesa');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (4, 'Pedro Gomes', 52, 'Auxiliar', 'Portuguesa');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (5, 'Carlos Pereira', 50, 'Principal', 'Portuguesa');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (6, 'Manuel Costa', 43, 'Auxiliar', 'Portuguesa');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (7, 'Ricardo Rocha', 46, 'Principal', 'Portuguesa');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (8, 'Diogo Oliveira', 44, 'Auxiliar', 'Portuguesa');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (9, 'Paulo Almeida', 49, 'Principal', 'Portuguesa');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (10, 'Rui Marques', 41, 'Auxiliar', 'Portuguesa');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (11, 'Luis Gomez', 50, 'Principal', 'Espanhola');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (12, 'Carlos Sanchez', 47, 'Auxiliar', 'Espanhola');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (13, 'Antonio Guerra', 52, 'Principal', 'Espanhola');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (14, 'Ricardo Morales', 46, 'Auxiliar', 'Espanhola');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (15, 'Miguel Cortes', 45, 'Principal', 'Espanhola');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (16, 'Pedro Navarro', 49, 'Auxiliar', 'Espanhola');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (17, 'Mario Rossi', 51, 'Principal', 'Italiana');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (18, 'Luca Bianchi', 47, 'Auxiliar', 'Italiana');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (19, 'Giuseppe Conte', 53, 'Principal', 'Italiana');
+INSERT INTO HoqueiPortugues.Arbitro VALUES (20, 'Alberto Ferrari', 44, 'Auxiliar', 'Italiana');
 go
 
 /*Especialista Técnico insertion*/
 
 --Clube 1
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (1, 'Manuel Pereira', 45, 'Mecânico', 'Português', 1);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (2, 'João Alves', 42, 'Massagista', 'Português', 1);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (3, 'Pedro Silva', 40, 'Fisioterapeuta', 'Português', 1);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (1, 'Manuel Pereira', 45, 'Mecânico', 'Portuguesa', 1);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (2, 'João Alves', 42, 'Massagista', 'Portuguesa', 1);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (3, 'Pedro Silva', 40, 'Fisioterapeuta', 'Portuguesa', 1);
 go
 --Clube 2
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (4, 'Carlos Ferreira', 46, 'Mecânico', 'Português', 2);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (5, 'Ricardo Santos', 43, 'Massagista', 'Espanhol', 2);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (6, 'Fernando Costa', 41, 'Fisioterapeuta', 'Espanhol', 2);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (4, 'Carlos Ferreira', 46, 'Mecânico', 'Portuguesa', 2);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (5, 'Ricardo Santos', 43, 'Massagista', 'Espanhola', 2);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (6, 'Fernando Costa', 41, 'Fisioterapeuta', 'Espanhola', 2);
 go
 --Clube 3
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (7, 'Guilherme Sousa', 48, 'Mecânico', 'Português', 3);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (8, 'Rodrigo Almeida', 44, 'Massagista', 'Português', 3);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (9, 'André Gonçalves', 42, 'Fisioterapeuta', 'Português', 3);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (7, 'Guilherme Sousa', 48, 'Mecânico', 'Portuguesa', 3);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (8, 'Rodrigo Almeida', 44, 'Massagista', 'Portuguesa', 3);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (9, 'André Gonçalves', 42, 'Fisioterapeuta', 'Portuguesa', 3);
 go
 --Clube 4
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (10, 'Luís Ribeiro', 47, 'Mecânico', 'Espanhol', 4);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (11, 'Felipe Monteiro', 45, 'Massagista', 'Espanhol', 4);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (12, 'Miguel Ferreira', 43, 'Fisioterapeuta', 'Espanhol', 4);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (10, 'Luís Ribeiro', 47, 'Mecânico', 'Espanhola', 4);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (11, 'Felipe Monteiro', 45, 'Massagista', 'Espanhola', 4);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (12, 'Miguel Ferreira', 43, 'Fisioterapeuta', 'Espanhola', 4);
 go
 --Clube 5
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (13, 'António Soares', 49, 'Mecânico', 'Francês', 5);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (14, 'Francisco Gomes', 46, 'Massagista', 'Francês', 5);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (15, 'Rui Santos', 44, 'Fisioterapeuta', 'Francês', 5);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (13, 'António Soares', 49, 'Mecânico', 'Francesa', 5);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (14, 'Francisco Gomes', 46, 'Massagista', 'Francesa', 5);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (15, 'Rui Santos', 44, 'Fisioterapeuta', 'Francesa', 5);
 go
 --Clube 6
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (16, 'Tiago Martins', 48, 'Mecânico', 'Argentino', 6);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (17, 'João Paulo', 45, 'Massagista', 'Argentino', 6);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (18, 'Leonardo Silva', 43, 'Fisioterapeuta', 'Argentino', 6);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (16, 'Tiago Martins', 48, 'Mecânico', 'Argentina', 6);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (17, 'João Paulo', 45, 'Massagista', 'Argentina', 6);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (18, 'Leonardo Silva', 43, 'Fisioterapeuta', 'Argentina', 6);
 go
 --Clube 7
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (19, 'Bruno Oliveira', 47, 'Mecânico', 'Português', 7);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (20, 'Gabriel Santos', 44, 'Massagista', 'Português', 7);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (21, 'Diogo Pinto', 42, 'Fisioterapeuta', 'Português', 7);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (19, 'Bruno Oliveira', 47, 'Mecânico', 'Portuguesa', 7);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (20, 'Gabriel Santos', 44, 'Massagista', 'Portuguesa', 7);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (21, 'Diogo Pinto', 42, 'Fisioterapeuta', 'Portuguesa', 7);
 go
 --Clube 8
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (22, 'Carlos Costa', 46, 'Mecânico', 'Espanhol', 8);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (23, 'José Almeida', 43, 'Massagista', 'Espanhol', 8);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (24, 'Rafael Pereira', 41, 'Fisioterapeuta', 'Espanhol', 8);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (22, 'Carlos Costa', 46, 'Mecânico', 'Espanhola', 8);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (23, 'José Almeida', 43, 'Massagista', 'Espanhola', 8);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (24, 'Rafael Pereira', 41, 'Fisioterapeuta', 'Espanhola', 8);
 go
 --Clube 9
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (25, 'Daniel Mendes', 49, 'Mecânico', 'Francês', 9);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (26, 'Gustavo Rocha', 46, 'Massagista', 'Francês', 9);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (27, 'Eduardo Silva', 44, 'Fisioterapeuta', 'Francês', 9);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (25, 'Daniel Mendes', 49, 'Mecânico', 'Francesa', 9);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (26, 'Gustavo Rocha', 46, 'Massagista', 'Francesa', 9);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (27, 'Eduardo Silva', 44, 'Fisioterapeuta', 'Francesa', 9);
 go
 --Clube 10
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (28, 'Lucas Fernandes', 48, 'Mecânico', 'Argentino', 10);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (29, 'Mateus Rodrigues', 45, 'Massagista', 'Argentino', 10);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (30, 'Ricardo Teixeira', 43, 'Fisioterapeuta', 'Argentino', 10);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (28, 'Lucas Fernandes', 48, 'Mecânico', 'Argentina', 10);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (29, 'Mateus Rodrigues', 45, 'Massagista', 'Argentina', 10);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (30, 'Ricardo Teixeira', 43, 'Fisioterapeuta', 'Argentina', 10);
 go
 --Clube 11
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (31, 'Fábio Guedes', 47, 'Mecânico', 'Português', 11);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (32, 'Hugo Dias', 44, 'Massagista', 'Português', 11);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (33, 'Igor Costa', 42, 'Fisioterapeuta', 'Português', 11);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (31, 'Fábio Guedes', 47, 'Mecânico', 'Portuguesa', 11);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (32, 'Hugo Dias', 44, 'Massagista', 'Portuguesa', 11);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (33, 'Igor Costa', 42, 'Fisioterapeuta', 'Portuguesa', 11);
 go
 --Clube 12
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (34, 'Juliano César', 46, 'Mecânico', 'Espanhol', 12);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (35, 'Leandro Lopes', 43, 'Massagista', 'Espanhol', 12);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (36, 'Marcelo Ribeiro', 41, 'Fisioterapeuta', 'Espanhol', 12);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (34, 'Juliano César', 46, 'Mecânico', 'Espanhola', 12);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (35, 'Leandro Lopes', 43, 'Massagista', 'Espanhola', 12);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (36, 'Marcelo Ribeiro', 41, 'Fisioterapeuta', 'Espanhola', 12);
 go
 --Clube 13
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (37, 'Nelson Duarte', 49, 'Mecânico', 'Francês', 13);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (38, 'Otávio Araújo', 46, 'Massagista', 'Francês', 13);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (39, 'Paulo Henrique', 44, 'Fisioterapeuta', 'Francês', 13);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (37, 'Nelson Duarte', 49, 'Mecânico', 'Francesa', 13);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (38, 'Otávio Araújo', 46, 'Massagista', 'Francesa', 13);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (39, 'Paulo Henrique', 44, 'Fisioterapeuta', 'Francesa', 13);
 go
 --Clube 14
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (40, 'Quintino Ferreira', 48, 'Mecânico', 'Argentino', 14);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (41, 'Rubens Cardoso', 45, 'Massagista', 'Argentino', 14);
-INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (42, 'Sérgio Alves', 43, 'Fisioterapeuta', 'Argentino', 14);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (40, 'Quintino Ferreira', 48, 'Mecânico', 'Argentina', 14);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (41, 'Rubens Cardoso', 45, 'Massagista', 'Argentina', 14);
+INSERT INTO HoqueiPortugues.Especialista_Tecnico VALUES (42, 'Sérgio Alves', 43, 'Fisioterapeuta', 'Argentina', 14);
 go
 
 
 /*Jogador insertion*/
 --Clube 1
-INSERT INTO HoqueiPortugues.Jogador VALUES (1, 'Francisco Santos', 25, 'Guarda-Redes', 'Português', 1, 1, 0, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (2, 'Pedro Gomes', 28, 'Guarda-Redes', 'Português', 2, 1, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (3, 'Carlos Silva', 30, 'Guarda-Redes', 'Espanhol', 3, 1, 0, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (4, 'André Soares', 27, 'Guarda-Redes', 'Português', 4, 1, 2, 2, 1);
-INSERT INTO HoqueiPortugues.Jogador VALUES (5, 'João Rodrigues', 22, 'Jogador de Campo', 'Português', 5, 1, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (6, 'Miguel Nunes', 26, 'Jogador de Campo', 'Português', 6, 1, 3, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (7, 'Ricardo Silva', 24, 'Jogador de Campo', 'Português', 7, 1, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (8, 'Gustavo Ferreira', 29, 'Jogador de Campo', 'Português', 8, 1, 4, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (9, 'Fernando Souza', 23, 'Jogador de Campo', 'Português', 9, 1, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (10, 'Rafael Costa', 24, 'Jogador de Campo', 'Espanhol', 10, 1, 3, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (11, 'Leonardo Alves', 26, 'Jogador de Campo', 'Português', 11, 1, 3, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (12, 'Roberto Rodrigues', 25, 'Jogador de Campo', 'Espanhol', 12, 1, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (13, 'Tiago Martins', 28, 'Jogador de Campo', 'Português', 13, 1, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (14, 'Bruno Pinto', 27, 'Jogador de Campo', 'Português', 14, 1, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (1, 'Francisco Santos', 25, 'Guarda-Redes', 'Portuguesa', 1, 1, 0, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (2, 'Pedro Gomes', 28, 'Guarda-Redes', 'Portuguesa', 2, 1, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (3, 'Carlos Silva', 30, 'Guarda-Redes', 'Espanhola', 3, 1, 0, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (4, 'André Soares', 27, 'Guarda-Redes', 'Portuguesa', 4, 1, 2, 2, 1);
+INSERT INTO HoqueiPortugues.Jogador VALUES (5, 'João Rodrigues', 22, 'Jogador de Campo', 'Portuguesa', 5, 1, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (6, 'Miguel Nunes', 26, 'Jogador de Campo', 'Portuguesa', 6, 1, 3, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (7, 'Ricardo Silva', 24, 'Jogador de Campo', 'Portuguesa', 7, 1, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (8, 'Gustavo Ferreira', 29, 'Jogador de Campo', 'Portuguesa', 8, 1, 4, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (9, 'Fernando Souza', 23, 'Jogador de Campo', 'Portuguesa', 9, 1, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (10, 'Rafael Costa', 24, 'Jogador de Campo', 'Espanhola', 10, 1, 3, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (11, 'Leonardo Alves', 26, 'Jogador de Campo', 'Portuguesa', 11, 1, 3, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (12, 'Roberto Rodrigues', 25, 'Jogador de Campo', 'Espanhola', 12, 1, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (13, 'Tiago Martins', 28, 'Jogador de Campo', 'Portuguesa', 13, 1, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (14, 'Bruno Pinto', 27, 'Jogador de Campo', 'Portuguesa', 14, 1, 1, 0, 0);
 go
 --Clube 2
-INSERT INTO HoqueiPortugues.Jogador VALUES (15, 'Luis Gomes', 30, 'Guarda-Redes', 'Português', 1, 2, 0, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (16, 'Antonio Silva', 28, 'Guarda-Redes', 'Espanhol', 2, 2, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (17, 'David Costa', 32, 'Guarda-Redes', 'Português', 3, 2, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (18, 'Alberto Santos', 29, 'Guarda-Redes', 'Espanhol', 4, 2, 2, 2, 1);
-INSERT INTO HoqueiPortugues.Jogador VALUES (19, 'Hugo Rodrigues', 22, 'Jogador de Campo', 'Português', 5, 2, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (20, 'Gabriel Nunes', 24, 'Jogador de Campo', 'Português', 6, 2, 3, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (21, 'Victor Lima', 25, 'Jogador de Campo', 'Português', 7, 2, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (22, 'Marcos Ferreira', 28, 'Jogador de Campo', 'Espanhol', 8, 2, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (23, 'Diogo Souza', 24, 'Jogador de Campo', 'Português', 9, 2, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (24, 'Adriano Costa', 26, 'Jogador de Campo', 'Espanhol', 10, 2, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (25, 'Alexandre Alves', 24, 'Jogador de Campo', 'Português', 11, 2, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (26, 'Ricardo Rodrigues', 23, 'Jogador de Campo', 'Português', 12, 2, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (27, 'Igor Martins', 26, 'Jogador de Campo', 'Espanhol', 13, 2, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (28, 'Edgar Pinto', 25, 'Jogador de Campo', 'Português', 14, 2, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (15, 'Luis Gomes', 30, 'Guarda-Redes', 'Portuguesa', 1, 2, 0, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (16, 'Antonio Silva', 28, 'Guarda-Redes', 'Espanhola', 2, 2, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (17, 'David Costa', 32, 'Guarda-Redes', 'Portuguesa', 3, 2, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (18, 'Alberto Santos', 29, 'Guarda-Redes', 'Espanhola', 4, 2, 2, 2, 1);
+INSERT INTO HoqueiPortugues.Jogador VALUES (19, 'Hugo Rodrigues', 22, 'Jogador de Campo', 'Portuguesa', 5, 2, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (20, 'Gabriel Nunes', 24, 'Jogador de Campo', 'Portuguesa', 6, 2, 3, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (21, 'Victor Lima', 25, 'Jogador de Campo', 'Portuguesa', 7, 2, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (22, 'Marcos Ferreira', 28, 'Jogador de Campo', 'Espanhola', 8, 2, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (23, 'Diogo Souza', 24, 'Jogador de Campo', 'Portuguesa', 9, 2, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (24, 'Adriano Costa', 26, 'Jogador de Campo', 'Espanhola', 10, 2, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (25, 'Alexandre Alves', 24, 'Jogador de Campo', 'Portuguesa', 11, 2, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (26, 'Ricardo Rodrigues', 23, 'Jogador de Campo', 'Portuguesa', 12, 2, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (27, 'Igor Martins', 26, 'Jogador de Campo', 'Espanhola', 13, 2, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (28, 'Edgar Pinto', 25, 'Jogador de Campo', 'Portuguesa', 14, 2, 1, 2, 0);
 go
 --Clube 3
 INSERT INTO HoqueiPortugues.Jogador VALUES (29, 'Franco Ramos', 30, 'Guarda-Redes', 'Argentina', 1, 3, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (30, 'Enrique Sanchez', 29, 'Guarda-Redes', 'Espanhol', 2, 3, 0, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (31, 'Marco Rossi', 33, 'Guarda-Redes', 'Italiano', 3, 3, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (32, 'Diego Fernández', 28, 'Guarda-Redes', 'Espanhol', 4, 3, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (33, 'José Ferreira', 25, 'Jogador de Campo', 'Português', 5, 3, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (34, 'Luís Almeida', 24, 'Jogador de Campo', 'Português', 6, 3, 3, 2, 1);
+INSERT INTO HoqueiPortugues.Jogador VALUES (30, 'Enrique Sanchez', 29, 'Guarda-Redes', 'Espanhola', 2, 3, 0, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (31, 'Marco Rossi', 33, 'Guarda-Redes', 'Italiana', 3, 3, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (32, 'Diego Fernández', 28, 'Guarda-Redes', 'Espanhola', 4, 3, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (33, 'José Ferreira', 25, 'Jogador de Campo', 'Portuguesa', 5, 3, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (34, 'Luís Almeida', 24, 'Jogador de Campo', 'Portuguesa', 6, 3, 3, 2, 1);
 INSERT INTO HoqueiPortugues.Jogador VALUES (35, 'Rodrigo Silva', 26, 'Jogador de Campo', 'Brasil', 7, 3, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (36, 'Manuel Gomez', 27, 'Jogador de Campo', 'Espanhol', 8, 3, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (37, 'Eduardo Pereira', 23, 'Jogador de Campo', 'Português', 9, 3, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (38, 'Carlos Martins', 22, 'Jogador de Campo', 'Português', 10, 3, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (39, 'Pedro Sousa', 25, 'Jogador de Campo', 'Português', 11, 3, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (40, 'Sérgio Gonçalves', 27, 'Jogador de Campo', 'Português', 12, 3, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (41, 'Jorge Oliveira', 24, 'Jogador de Campo', 'Português', 13, 3, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (42, 'Miguel Pinto', 26, 'Jogador de Campo', 'Português', 14, 3, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (36, 'Manuel Gomez', 27, 'Jogador de Campo', 'Espanhola', 8, 3, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (37, 'Eduardo Pereira', 23, 'Jogador de Campo', 'Portuguesa', 9, 3, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (38, 'Carlos Martins', 22, 'Jogador de Campo', 'Portuguesa', 10, 3, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (39, 'Pedro Sousa', 25, 'Jogador de Campo', 'Portuguesa', 11, 3, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (40, 'Sérgio Gonçalves', 27, 'Jogador de Campo', 'Portuguesa', 12, 3, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (41, 'Jorge Oliveira', 24, 'Jogador de Campo', 'Portuguesa', 13, 3, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (42, 'Miguel Pinto', 26, 'Jogador de Campo', 'Portuguesa', 14, 3, 2, 0, 0);
 go
 --Clube 4
-INSERT INTO HoqueiPortugues.Jogador VALUES (43, 'Sebastián Torres', 28, 'Guarda-Redes', 'Espanhol', 1, 4, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (44, 'André Correia', 31, 'Guarda-Redes', 'Português', 2, 4, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (45, 'Luca Bianchi', 29, 'Guarda-Redes', 'Italiano', 3, 4, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (46, 'Davide Ferraro', 30, 'Guarda-Redes', 'Italiano', 4, 4, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (47, 'João Silva', 26, 'Jogador de Campo', 'Português', 5, 4, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (48, 'Miguel Antunes', 24, 'Jogador de Campo', 'Português', 6, 4, 3, 2, 1);
+INSERT INTO HoqueiPortugues.Jogador VALUES (43, 'Sebastián Torres', 28, 'Guarda-Redes', 'Espanhola', 1, 4, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (44, 'André Correia', 31, 'Guarda-Redes', 'Portuguesa', 2, 4, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (45, 'Luca Bianchi', 29, 'Guarda-Redes', 'Italiana', 3, 4, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (46, 'Davide Ferraro', 30, 'Guarda-Redes', 'Italiana', 4, 4, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (47, 'João Silva', 26, 'Jogador de Campo', 'Portuguesa', 5, 4, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (48, 'Miguel Antunes', 24, 'Jogador de Campo', 'Portuguesa', 6, 4, 3, 2, 1);
 INSERT INTO HoqueiPortugues.Jogador VALUES (49, 'Rodrigo Almeida', 25, 'Jogador de Campo', 'Brasil', 7, 4, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (50, 'Carlos Sánchez', 27, 'Jogador de Campo', 'Espanhol', 8, 4, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (51, 'Bruno Ferreira', 22, 'Jogador de Campo', 'Português', 9, 4, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (52, 'Pedro Cardoso', 24, 'Jogador de Campo', 'Português', 10, 4, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (53, 'Nuno Lopes', 23, 'Jogador de Campo', 'Português', 11, 4, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (54, 'Ricardo Pereira', 28, 'Jogador de Campo', 'Português', 12, 4, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (55, 'Diogo Costa', 24, 'Jogador de Campo', 'Português', 13, 4, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (56, 'Gonçalo Silva', 27, 'Jogador de Campo', 'Português', 14, 4, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (50, 'Carlos Sánchez', 27, 'Jogador de Campo', 'Espanhola', 8, 4, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (51, 'Bruno Ferreira', 22, 'Jogador de Campo', 'Portuguesa', 9, 4, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (52, 'Pedro Cardoso', 24, 'Jogador de Campo', 'Portuguesa', 10, 4, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (53, 'Nuno Lopes', 23, 'Jogador de Campo', 'Portuguesa', 11, 4, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (54, 'Ricardo Pereira', 28, 'Jogador de Campo', 'Portuguesa', 12, 4, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (55, 'Diogo Costa', 24, 'Jogador de Campo', 'Portuguesa', 13, 4, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (56, 'Gonçalo Silva', 27, 'Jogador de Campo', 'Portuguesa', 14, 4, 2, 0, 0);
 go
 --Clube 5
-INSERT INTO HoqueiPortugues.Jogador VALUES (57, 'Vitor Santos', 27, 'Guarda-Redes', 'Português', 1, 5, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (58, 'Adrián Paredes', 31, 'Guarda-Redes', 'Espanhol', 2, 5, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (59, 'Fabio Mancini', 29, 'Guarda-Redes', 'Italiano', 3, 5, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (60, 'Jorge Fernández', 30, 'Guarda-Redes', 'Espanhol', 4, 5, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (61, 'Pedro Dias', 26, 'Jogador de Campo', 'Português', 5, 5, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (62, 'Tomás Pires', 24, 'Jogador de Campo', 'Português', 6, 5, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (63, 'Renato Carvalho', 23, 'Jogador de Campo', 'Português', 7, 5, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (64, 'António Teixeira', 25, 'Jogador de Campo', 'Português', 8, 5, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (65, 'Francisco Guerreiro', 23, 'Jogador de Campo', 'Português', 9, 5, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (66, 'Ricardo Gomes', 24, 'Jogador de Campo', 'Português', 10, 5, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (67, 'Mário Lopes', 24, 'Jogador de Campo', 'Português', 11, 5, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (68, 'Carlos Monteiro', 28, 'Jogador de Campo', 'Português', 12, 5, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (69, 'João Oliveira', 26, 'Jogador de Campo', 'Português', 13, 5, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (70, 'José Almeida', 27, 'Jogador de Campo', 'Português', 14, 5, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (57, 'Vitor Santos', 27, 'Guarda-Redes', 'Portuguesa', 1, 5, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (58, 'Adrián Paredes', 31, 'Guarda-Redes', 'Espanhola', 2, 5, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (59, 'Fabio Mancini', 29, 'Guarda-Redes', 'Italiana', 3, 5, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (60, 'Jorge Fernández', 30, 'Guarda-Redes', 'Espanhola', 4, 5, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (61, 'Pedro Dias', 26, 'Jogador de Campo', 'Portuguesa', 5, 5, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (62, 'Tomás Pires', 24, 'Jogador de Campo', 'Portuguesa', 6, 5, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (63, 'Renato Carvalho', 23, 'Jogador de Campo', 'Portuguesa', 7, 5, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (64, 'António Teixeira', 25, 'Jogador de Campo', 'Portuguesa', 8, 5, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (65, 'Francisco Guerreiro', 23, 'Jogador de Campo', 'Portuguesa', 9, 5, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (66, 'Ricardo Gomes', 24, 'Jogador de Campo', 'Portuguesa', 10, 5, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (67, 'Mário Lopes', 24, 'Jogador de Campo', 'Portuguesa', 11, 5, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (68, 'Carlos Monteiro', 28, 'Jogador de Campo', 'Portuguesa', 12, 5, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (69, 'João Oliveira', 26, 'Jogador de Campo', 'Portuguesa', 13, 5, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (70, 'José Almeida', 27, 'Jogador de Campo', 'Portuguesa', 14, 5, 2, 1, 0);
 go
 --Clube 6
-INSERT INTO HoqueiPortugues.Jogador VALUES (71, 'Ricardo Silva', 27, 'Guarda-Redes', 'Português', 1, 6, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (72, 'António Gomes', 31, 'Guarda-Redes', 'Espanhol', 2, 6, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (73, 'Miguel Costa', 29, 'Guarda-Redes', 'Português', 3, 6, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (74, 'Pedro Santos', 30, 'Guarda-Redes', 'Português', 4, 6, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (75, 'João Alves', 26, 'Jogador de Campo', 'Português', 5, 6, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (76, 'Miguel Almeida', 24, 'Jogador de Campo', 'Português', 6, 6, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (77, 'Ricardo Carvalho', 23, 'Jogador de Campo', 'Português', 7, 6, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (78, 'Roy Biento', 25, 'Jogador de Campo', 'Espanhol', 8, 6, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (79, 'Francisco Costa', 23, 'Jogador de Campo', 'Português', 9, 6, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (80, 'Ricardo Costa', 24, 'Jogador de Campo', 'Português', 10, 6, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (81, 'Mário Cardoso', 24, 'Jogador de Campo', 'Português', 11, 6, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (82, 'Carlos Silva', 28, 'Jogador de Campo', 'Português', 12, 6, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (83, 'Rui Oliveira', 26, 'Jogador de Campo', 'Português', 13, 6, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (84, 'Diogo Almeida', 27, 'Jogador de Campo', 'Português', 14, 6, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (71, 'Ricardo Silva', 27, 'Guarda-Redes', 'Portuguesa', 1, 6, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (72, 'António Gomes', 31, 'Guarda-Redes', 'Espanhola', 2, 6, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (73, 'Miguel Costa', 29, 'Guarda-Redes', 'Portuguesa', 3, 6, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (74, 'Pedro Santos', 30, 'Guarda-Redes', 'Portuguesa', 4, 6, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (75, 'João Alves', 26, 'Jogador de Campo', 'Portuguesa', 5, 6, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (76, 'Miguel Almeida', 24, 'Jogador de Campo', 'Portuguesa', 6, 6, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (77, 'Ricardo Carvalho', 23, 'Jogador de Campo', 'Portuguesa', 7, 6, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (78, 'Roy Biento', 25, 'Jogador de Campo', 'Espanhola', 8, 6, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (79, 'Francisco Costa', 23, 'Jogador de Campo', 'Portuguesa', 9, 6, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (80, 'Ricardo Costa', 24, 'Jogador de Campo', 'Portuguesa', 10, 6, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (81, 'Mário Cardoso', 24, 'Jogador de Campo', 'Portuguesa', 11, 6, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (82, 'Carlos Silva', 28, 'Jogador de Campo', 'Portuguesa', 12, 6, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (83, 'Rui Oliveira', 26, 'Jogador de Campo', 'Portuguesa', 13, 6, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (84, 'Diogo Almeida', 27, 'Jogador de Campo', 'Portuguesa', 14, 6, 2, 1, 0);
 go
 --Clube 7
-INSERT INTO HoqueiPortugues.Jogador VALUES (85, 'Carlos Pereira', 28, 'Guarda-Redes', 'Português', 1, 7, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (86, 'Javier Martinez', 31, 'Guarda-Redes', 'Espanhol', 2, 7, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (87, 'Gonçalo Teixeira', 29, 'Guarda-Redes', 'Português', 3, 7, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (88, 'Pablo Ruiz', 30, 'Guarda-Redes', 'Espanhol', 4, 7, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (89, 'Luis Rodriguez', 26, 'Jogador de Campo', 'Espanhol', 5, 7, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (90, 'Lucas Fernandez', 24, 'Jogador de Campo', 'Argentino', 6, 7, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (91, 'Hugo Soares', 23, 'Jogador de Campo', 'Português', 7, 7, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (92, 'Mateo Aguero', 25, 'Jogador de Campo', 'Argentino', 8, 7, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (93, 'Gabriel Santos', 23, 'Jogador de Campo', 'Português', 9, 7, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (94, 'Sérgio Oliveira', 24, 'Jogador de Campo', 'Português', 10, 7, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (95, 'André Alves', 24, 'Jogador de Campo', 'Português', 11, 7, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (96, 'Julien Leblanc', 28, 'Jogador de Campo', 'Francês', 12, 7, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (97, 'Rui Cardoso', 26, 'Jogador de Campo', 'Português', 13, 7, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (98, 'António Ferreira', 27, 'Jogador de Campo', 'Português', 14, 7, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (85, 'Carlos Pereira', 28, 'Guarda-Redes', 'Portuguesa', 1, 7, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (86, 'Javier Martinez', 31, 'Guarda-Redes', 'Espanhola', 2, 7, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (87, 'Gonçalo Teixeira', 29, 'Guarda-Redes', 'Portuguesa', 3, 7, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (88, 'Pablo Ruiz', 30, 'Guarda-Redes', 'Espanhola', 4, 7, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (89, 'Luis Rodriguez', 26, 'Jogador de Campo', 'Espanhola', 5, 7, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (90, 'Lucas Fernandez', 24, 'Jogador de Campo', 'Argentina', 6, 7, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (91, 'Hugo Soares', 23, 'Jogador de Campo', 'Portuguesa', 7, 7, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (92, 'Mateo Aguero', 25, 'Jogador de Campo', 'Argentina', 8, 7, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (93, 'Gabriel Santos', 23, 'Jogador de Campo', 'Portuguesa', 9, 7, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (94, 'Sérgio Oliveira', 24, 'Jogador de Campo', 'Portuguesa', 10, 7, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (95, 'André Alves', 24, 'Jogador de Campo', 'Portuguesa', 11, 7, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (96, 'Julien Leblanc', 28, 'Jogador de Campo', 'Francesa', 12, 7, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (97, 'Rui Cardoso', 26, 'Jogador de Campo', 'Portuguesa', 13, 7, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (98, 'António Ferreira', 27, 'Jogador de Campo', 'Portuguesa', 14, 7, 2, 1, 0);
 go
 --Clube 8
-INSERT INTO HoqueiPortugues.Jogador VALUES (99, 'Vitor Martins', 26, 'Guarda-Redes', 'Português', 1, 8, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (100, 'Fernando Santos', 30, 'Guarda-Redes', 'Espanhol', 2, 8, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (101, 'Paulo Ferreira', 27, 'Guarda-Redes', 'Português', 3, 8, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (102, 'Diego Lopez', 29, 'Guarda-Redes', 'Espanhol', 4, 8, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (103, 'Manuel Almeida', 25, 'Jogador de Campo', 'Português', 5, 8, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (104, 'Luis Pereira', 26, 'Jogador de Campo', 'Português', 6, 8, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (105, 'Pedro Costa', 23, 'Jogador de Campo', 'Português', 7, 8, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (106, 'Carlos Silva', 24, 'Jogador de Campo', 'Português', 8, 8, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (107, 'Joaquim Rodrigues', 22, 'Jogador de Campo', 'Português', 9, 8, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (108, 'Alfredo Gonzalez', 26, 'Jogador de Campo', 'Espanhol', 10, 8, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (109, 'Tiago Ribeiro', 24, 'Jogador de Campo', 'Português', 11, 8, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (110, 'João Santos', 25, 'Jogador de Campo', 'Português', 12, 8, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (111, 'Daniel Marques', 26, 'Jogador de Campo', 'Português', 13, 8, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (112, 'Nuno Silva', 27, 'Jogador de Campo', 'Português', 14, 8, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (99, 'Vitor Martins', 26, 'Guarda-Redes', 'Portuguesa', 1, 8, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (100, 'Fernando Santos', 30, 'Guarda-Redes', 'Espanhola', 2, 8, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (101, 'Paulo Ferreira', 27, 'Guarda-Redes', 'Portuguesa', 3, 8, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (102, 'Diego Lopez', 29, 'Guarda-Redes', 'Espanhola', 4, 8, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (103, 'Manuel Almeida', 25, 'Jogador de Campo', 'Portuguesa', 5, 8, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (104, 'Luis Pereira', 26, 'Jogador de Campo', 'Portuguesa', 6, 8, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (105, 'Pedro Costa', 23, 'Jogador de Campo', 'Portuguesa', 7, 8, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (106, 'Carlos Silva', 24, 'Jogador de Campo', 'Portuguesa', 8, 8, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (107, 'Joaquim Rodrigues', 22, 'Jogador de Campo', 'Portuguesa', 9, 8, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (108, 'Alfredo Gonzalez', 26, 'Jogador de Campo', 'Espanhola', 10, 8, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (109, 'Tiago Ribeiro', 24, 'Jogador de Campo', 'Portuguesa', 11, 8, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (110, 'João Santos', 25, 'Jogador de Campo', 'Portuguesa', 12, 8, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (111, 'Daniel Marques', 26, 'Jogador de Campo', 'Portuguesa', 13, 8, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (112, 'Nuno Silva', 27, 'Jogador de Campo', 'Portuguesa', 14, 8, 2, 1, 0);
 go
 --Clube 9 
-INSERT INTO HoqueiPortugues.Jogador VALUES (113, 'Tomás Pereira', 27, 'Guarda-Redes', 'Português', 1, 9, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (114, 'José Costa', 30, 'Guarda-Redes', 'Espanhol', 2, 9, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (115, 'Francisco Rodrigues', 28, 'Guarda-Redes', 'Português', 3, 9, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (116, 'Miguel Almeida', 29, 'Guarda-Redes', 'Espanhol', 4, 9, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (117, 'Diogo Ferreira', 26, 'Jogador de Campo', 'Português', 5, 9, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (118, 'Carlos Martins', 24, 'Jogador de Campo', 'Português', 6, 9, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (119, 'Pedro Almeida', 22, 'Jogador de Campo', 'Português', 7, 9, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (120, 'Daniel Santos', 24, 'Jogador de Campo', 'Português', 8, 9, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (121, 'António Soares', 22, 'Jogador de Campo', 'Português', 9, 9, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (122, 'Manuel Ferreira', 25, 'Jogador de Campo', 'Espanhol', 10, 9, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (123, 'Joaquim Costa', 24, 'Jogador de Campo', 'Português', 11, 9, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (124, 'Ricardo Santos', 23, 'Jogador de Campo', 'Português', 12, 9, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (125, 'André Silva', 26, 'Jogador de Campo', 'Português', 13, 9, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (126, 'Nuno Almeida', 28, 'Jogador de Campo', 'Português', 14, 9, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (113, 'Tomás Pereira', 27, 'Guarda-Redes', 'Portuguesa', 1, 9, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (114, 'José Costa', 30, 'Guarda-Redes', 'Espanhola', 2, 9, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (115, 'Francisco Rodrigues', 28, 'Guarda-Redes', 'Portuguesa', 3, 9, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (116, 'Miguel Almeida', 29, 'Guarda-Redes', 'Espanhola', 4, 9, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (117, 'Diogo Ferreira', 26, 'Jogador de Campo', 'Portuguesa', 5, 9, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (118, 'Carlos Martins', 24, 'Jogador de Campo', 'Portuguesa', 6, 9, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (119, 'Pedro Almeida', 22, 'Jogador de Campo', 'Portuguesa', 7, 9, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (120, 'Daniel Santos', 24, 'Jogador de Campo', 'Portuguesa', 8, 9, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (121, 'António Soares', 22, 'Jogador de Campo', 'Portuguesa', 9, 9, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (122, 'Manuel Ferreira', 25, 'Jogador de Campo', 'Espanhola', 10, 9, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (123, 'Joaquim Costa', 24, 'Jogador de Campo', 'Portuguesa', 11, 9, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (124, 'Ricardo Santos', 23, 'Jogador de Campo', 'Portuguesa', 12, 9, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (125, 'André Silva', 26, 'Jogador de Campo', 'Portuguesa', 13, 9, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (126, 'Nuno Almeida', 28, 'Jogador de Campo', 'Portuguesa', 14, 9, 2, 1, 0);
 go
 --Clube 10
-INSERT INTO HoqueiPortugues.Jogador VALUES (127, 'Luis Ferreira', 27, 'Guarda-Redes', 'Português', 1, 10, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (128, 'Francisco Almeida', 29, 'Guarda-Redes', 'Espanhol', 2, 10, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (129, 'Pedro Rodrigues', 28, 'Guarda-Redes', 'Português', 3, 10, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (130, 'Manuel Silva', 30, 'Guarda-Redes', 'Espanhol', 4, 10, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (131, 'Carlos Ferreira', 24, 'Jogador de Campo', 'Português', 5, 10, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (132, 'José Martins', 26, 'Jogador de Campo', 'Português', 6, 10, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (133, 'Joaquim Costa', 22, 'Jogador de Campo', 'Português', 7, 10, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (134, 'Nuno Soares', 23, 'Jogador de Campo', 'Português', 8, 10, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (135, 'António Pereira', 21, 'Jogador de Campo', 'Português', 9, 10, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (136, 'Diogo Costa', 26, 'Jogador de Campo', 'Espanhol', 10, 10, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (137, 'Tomás Santos', 23, 'Jogador de Campo', 'Português', 11, 10, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (138, 'Francisco Soares', 24, 'Jogador de Campo', 'Português', 12, 10, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (139, 'Pedro Almeida', 25, 'Jogador de Campo', 'Português', 13, 10, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (140, 'Carlos Costa', 27, 'Jogador de Campo', 'Português', 14, 10, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (127, 'Luis Ferreira', 27, 'Guarda-Redes', 'Portuguesa', 1, 10, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (128, 'Francisco Almeida', 29, 'Guarda-Redes', 'Espanhola', 2, 10, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (129, 'Pedro Rodrigues', 28, 'Guarda-Redes', 'Portuguesa', 3, 10, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (130, 'Manuel Silva', 30, 'Guarda-Redes', 'Espanhola', 4, 10, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (131, 'Carlos Ferreira', 24, 'Jogador de Campo', 'Portuguesa', 5, 10, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (132, 'José Martins', 26, 'Jogador de Campo', 'Portuguesa', 6, 10, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (133, 'Joaquim Costa', 22, 'Jogador de Campo', 'Portuguesa', 7, 10, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (134, 'Nuno Soares', 23, 'Jogador de Campo', 'Portuguesa', 8, 10, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (135, 'António Pereira', 21, 'Jogador de Campo', 'Portuguesa', 9, 10, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (136, 'Diogo Costa', 26, 'Jogador de Campo', 'Espanhola', 10, 10, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (137, 'Tomás Santos', 23, 'Jogador de Campo', 'Portuguesa', 11, 10, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (138, 'Francisco Soares', 24, 'Jogador de Campo', 'Portuguesa', 12, 10, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (139, 'Pedro Almeida', 25, 'Jogador de Campo', 'Portuguesa', 13, 10, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (140, 'Carlos Costa', 27, 'Jogador de Campo', 'Portuguesa', 14, 10, 2, 1, 0);
 go
 --Clube 11
-INSERT INTO HoqueiPortugues.Jogador VALUES (141, 'Miguel Silva', 28, 'Guarda-Redes', 'Português', 1, 11, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (142, 'Paulo Costa', 30, 'Guarda-Redes', 'Espanhol', 2, 11, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (143, 'Joaquim Ferreira', 29, 'Guarda-Redes', 'Português', 3, 11, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (144, 'Manuel Pereira', 28, 'Guarda-Redes', 'Espanhol', 4, 11, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (145, 'Rui Martins', 25, 'Jogador de Campo', 'Português', 5, 11, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (146, 'Daniel Almeida', 24, 'Jogador de Campo', 'Português', 6, 11, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (147, 'Tomás Rodrigues', 23, 'Jogador de Campo', 'Português', 7, 11, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (148, 'André Ferreira', 23, 'Jogador de Campo', 'Português', 8, 11, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (149, 'José Pereira', 21, 'Jogador de Campo', 'Português', 9, 11, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (150, 'Pedro Santos', 25, 'Jogador de Campo', 'Espanhol', 10, 11, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (151, 'Carlos Rodrigues', 23, 'Jogador de Campo', 'Português', 11, 11, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (152, 'Francisco Almeida', 24, 'Jogador de Campo', 'Português', 12, 11, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (153, 'Ricardo Soares', 24, 'Jogador de Campo', 'Português', 13, 11, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (154, 'Nuno Costa', 27, 'Jogador de Campo', 'Português', 14, 11, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (141, 'Miguel Silva', 28, 'Guarda-Redes', 'Portuguesa', 1, 11, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (142, 'Paulo Costa', 30, 'Guarda-Redes', 'Espanhola', 2, 11, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (143, 'Joaquim Ferreira', 29, 'Guarda-Redes', 'Portuguesa', 3, 11, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (144, 'Manuel Pereira', 28, 'Guarda-Redes', 'Espanhola', 4, 11, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (145, 'Rui Martins', 25, 'Jogador de Campo', 'Portuguesa', 5, 11, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (146, 'Daniel Almeida', 24, 'Jogador de Campo', 'Portuguesa', 6, 11, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (147, 'Tomás Rodrigues', 23, 'Jogador de Campo', 'Portuguesa', 7, 11, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (148, 'André Ferreira', 23, 'Jogador de Campo', 'Portuguesa', 8, 11, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (149, 'José Pereira', 21, 'Jogador de Campo', 'Portuguesa', 9, 11, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (150, 'Pedro Santos', 25, 'Jogador de Campo', 'Espanhola', 10, 11, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (151, 'Carlos Rodrigues', 23, 'Jogador de Campo', 'Portuguesa', 11, 11, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (152, 'Francisco Almeida', 24, 'Jogador de Campo', 'Portuguesa', 12, 11, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (153, 'Ricardo Soares', 24, 'Jogador de Campo', 'Portuguesa', 13, 11, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (154, 'Nuno Costa', 27, 'Jogador de Campo', 'Portuguesa', 14, 11, 2, 1, 0);
 go
 --Clube 12
-INSERT INTO HoqueiPortugues.Jogador VALUES (155, 'Luis Almeida', 28, 'Guarda-Redes', 'Português', 1, 12, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (156, 'Paulo Rodrigues', 31, 'Guarda-Redes', 'Espanhol', 2, 12, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (157, 'Manuel Costa', 28, 'Guarda-Redes', 'Português', 3, 12, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (158, 'Carlos Ferreira', 29, 'Guarda-Redes', 'Espanhol', 4, 12, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (159, 'Miguel Martins', 25, 'Jogador de Campo', 'Português', 5, 12, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (160, 'Joaquim Almeida', 23, 'Jogador de Campo', 'Português', 6, 12, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (161, 'Pedro Costa', 21, 'Jogador de Campo', 'Português', 7, 12, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (162, 'António Silva', 22, 'Jogador de Campo', 'Português', 8, 12, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (163, 'Francisco Santos', 21, 'Jogador de Campo', 'Português', 9, 12, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (164, 'Diogo Almeida', 26, 'Jogador de Campo', 'Espanhol', 10, 12, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (165, 'Tomás Pereira', 23, 'Jogador de Campo', 'Português', 11, 12, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (166, 'José Costa', 24, 'Jogador de Campo', 'Português', 12, 12, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (167, 'Rui Almeida', 25, 'Jogador de Campo', 'Português', 13, 12, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (168, 'Manuel Santos', 26, 'Jogador de Campo', 'Português', 14, 12, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (155, 'Luis Almeida', 28, 'Guarda-Redes', 'Portuguesa', 1, 12, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (156, 'Paulo Rodrigues', 31, 'Guarda-Redes', 'Espanhola', 2, 12, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (157, 'Manuel Costa', 28, 'Guarda-Redes', 'Portuguesa', 3, 12, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (158, 'Carlos Ferreira', 29, 'Guarda-Redes', 'Espanhola', 4, 12, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (159, 'Miguel Martins', 25, 'Jogador de Campo', 'Portuguesa', 5, 12, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (160, 'Joaquim Almeida', 23, 'Jogador de Campo', 'Portuguesa', 6, 12, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (161, 'Pedro Costa', 21, 'Jogador de Campo', 'Portuguesa', 7, 12, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (162, 'António Silva', 22, 'Jogador de Campo', 'Portuguesa', 8, 12, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (163, 'Francisco Santos', 21, 'Jogador de Campo', 'Portuguesa', 9, 12, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (164, 'Diogo Almeida', 26, 'Jogador de Campo', 'Espanhola', 10, 12, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (165, 'Tomás Pereira', 23, 'Jogador de Campo', 'Portuguesa', 11, 12, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (166, 'José Costa', 24, 'Jogador de Campo', 'Portuguesa', 12, 12, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (167, 'Rui Almeida', 25, 'Jogador de Campo', 'Portuguesa', 13, 12, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (168, 'Manuel Santos', 26, 'Jogador de Campo', 'Portuguesa', 14, 12, 2, 1, 0);
 go
 
 --Clube 13
-INSERT INTO HoqueiPortugues.Jogador VALUES (169, 'Lucas Almeida', 29, 'Guarda-Redes', 'Português', 1, 13, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (170, 'Tiago Silva', 32, 'Guarda-Redes', 'Espanhol', 2, 13, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (171, 'Hugo Martins', 29, 'Guarda-Redes', 'Português', 3, 13, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (172, 'Francisco Soares', 31, 'Guarda-Redes', 'Espanhol', 4, 13, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (173, 'Gonçalo Pereira', 26, 'Jogador de Campo', 'Português', 5, 13, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (174, 'Rafael Almeida', 23, 'Jogador de Campo', 'Português', 6, 13, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (175, 'Rodrigo Costa', 24, 'Jogador de Campo', 'Português', 7, 13, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (176, 'Miguel Ferreira', 25, 'Jogador de Campo', 'Espanhol', 8, 13, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (177, 'Sérgio Santos', 23, 'Jogador de Campo', 'Português', 9, 13, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (178, 'Vítor Almeida', 24, 'Jogador de Campo', 'Espanhol', 10, 13, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (179, 'Pedro Soares', 24, 'Jogador de Campo', 'Português', 11, 13, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (180, 'João Rodrigues', 27, 'Jogador de Campo', 'Português', 12, 13, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (181, 'Ricardo Costa', 25, 'Jogador de Campo', 'Português', 13, 13, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (182, 'António Almeida', 26, 'Jogador de Campo', 'Português', 14, 13, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (169, 'Lucas Almeida', 29, 'Guarda-Redes', 'Portuguesa', 1, 13, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (170, 'Tiago Silva', 32, 'Guarda-Redes', 'Espanhola', 2, 13, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (171, 'Hugo Martins', 29, 'Guarda-Redes', 'Portuguesa', 3, 13, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (172, 'Francisco Soares', 31, 'Guarda-Redes', 'Espanhola', 4, 13, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (173, 'Gonçalo Pereira', 26, 'Jogador de Campo', 'Portuguesa', 5, 13, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (174, 'Rafael Almeida', 23, 'Jogador de Campo', 'Portuguesa', 6, 13, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (175, 'Rodrigo Costa', 24, 'Jogador de Campo', 'Portuguesa', 7, 13, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (176, 'Miguel Ferreira', 25, 'Jogador de Campo', 'Espanhola', 8, 13, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (177, 'Sérgio Santos', 23, 'Jogador de Campo', 'Portuguesa', 9, 13, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (178, 'Vítor Almeida', 24, 'Jogador de Campo', 'Espanhola', 10, 13, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (179, 'Pedro Soares', 24, 'Jogador de Campo', 'Portuguesa', 11, 13, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (180, 'João Rodrigues', 27, 'Jogador de Campo', 'Portuguesa', 12, 13, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (181, 'Ricardo Costa', 25, 'Jogador de Campo', 'Portuguesa', 13, 13, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (182, 'António Almeida', 26, 'Jogador de Campo', 'Portuguesa', 14, 13, 2, 1, 0);
 go
 --Clube 14
-INSERT INTO HoqueiPortugues.Jogador VALUES (183, 'Carlos Costa', 27, 'Guarda-Redes', 'Português', 1, 14, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (184, 'João Martins', 31, 'Guarda-Redes', 'Espanhol', 2, 14, 2, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (185, 'Pedro Almeida', 29, 'Guarda-Redes', 'Português', 3, 14, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (186, 'Miguel Santos', 30, 'Guarda-Redes', 'Português', 4, 14, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (187, 'Ricardo Pereira', 26, 'Jogador de Campo', 'Português', 5, 14, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (188, 'André Almeida', 24, 'Jogador de Campo', 'Português', 6, 14, 3, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (189, 'Tiago Costa', 23, 'Jogador de Campo', 'Português', 7, 14, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (190, 'José Ferreira', 25, 'Jogador de Campo', 'Espanhol', 8, 14, 2, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (191, 'Daniel Santos', 23, 'Jogador de Campo', 'Português', 9, 14, 1, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (192, 'Rodrigo Almeida', 24, 'Jogador de Campo', 'Espanhol', 10, 14, 2, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (193, 'Luís Soares', 24, 'Jogador de Campo', 'Português', 11, 14, 1, 1, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (194, 'Francisco Rodrigues', 28, 'Jogador de Campo', 'Português', 12, 14, 3, 0, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (195, 'Mário Almeida', 26, 'Jogador de Campo', 'Português', 13, 14, 1, 2, 0);
-INSERT INTO HoqueiPortugues.Jogador VALUES (196, 'Bruno Costa', 27, 'Jogador de Campo', 'Português', 14, 14, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (183, 'Carlos Costa', 27, 'Guarda-Redes', 'Portuguesa', 1, 14, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (184, 'João Martins', 31, 'Guarda-Redes', 'Espanhola', 2, 14, 2, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (185, 'Pedro Almeida', 29, 'Guarda-Redes', 'Portuguesa', 3, 14, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (186, 'Miguel Santos', 30, 'Guarda-Redes', 'Portuguesa', 4, 14, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (187, 'Ricardo Pereira', 26, 'Jogador de Campo', 'Portuguesa', 5, 14, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (188, 'André Almeida', 24, 'Jogador de Campo', 'Portuguesa', 6, 14, 3, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (189, 'Tiago Costa', 23, 'Jogador de Campo', 'Portuguesa', 7, 14, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (190, 'José Ferreira', 25, 'Jogador de Campo', 'Espanhola', 8, 14, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (191, 'Daniel Santos', 23, 'Jogador de Campo', 'Portuguesa', 9, 14, 1, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (192, 'Rodrigo Almeida', 24, 'Jogador de Campo', 'Espanhola', 10, 14, 2, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (193, 'Luís Soares', 24, 'Jogador de Campo', 'Portuguesa', 11, 14, 1, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (194, 'Francisco Rodrigues', 28, 'Jogador de Campo', 'Portuguesa', 12, 14, 3, 0, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (195, 'Mário Almeida', 26, 'Jogador de Campo', 'Portuguesa', 13, 14, 1, 2, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (196, 'Bruno Costa', 27, 'Jogador de Campo', 'Portuguesa', 14, 14, 2, 1, 0);
 go
 
 /*Treinador insertion*/
-INSERT INTO HoqueiPortugues.Treinador VALUES (1, 'Jorge Silva', 45, 'Principal', 'Português', 1);
-INSERT INTO HoqueiPortugues.Treinador VALUES (2, 'Antonio Soares', 47, 'Adjunto', 'Português', 1);
-INSERT INTO HoqueiPortugues.Treinador VALUES (3, 'Miguel Santos', 40, 'Principal', 'Português', 2);
-INSERT INTO HoqueiPortugues.Treinador VALUES (4, 'Pedro Gomes', 52, 'Adjunto', 'Português', 2);
-INSERT INTO HoqueiPortugues.Treinador VALUES (5, 'Carlos Pereira', 50, 'Principal', 'Português', 3);
-INSERT INTO HoqueiPortugues.Treinador VALUES (6, 'Manuel Costa', 43, 'Adjunto', 'Português', 3);
-INSERT INTO HoqueiPortugues.Treinador VALUES (7, 'Ricardo Rocha', 46, 'Principal', 'Português', 4);
-INSERT INTO HoqueiPortugues.Treinador VALUES (8, 'Diogo Oliveira', 44, 'Adjunto', 'Português', 4);
-INSERT INTO HoqueiPortugues.Treinador VALUES (9, 'Paulo Almeida', 49, 'Principal', 'Português', 5);
-INSERT INTO HoqueiPortugues.Treinador VALUES (10, 'Rui Marques', 41, 'Adjunto', 'Português', 5);
-INSERT INTO HoqueiPortugues.Treinador VALUES (11, 'Luis Gomez', 50, 'Principal', 'Espanhol', 6);
-INSERT INTO HoqueiPortugues.Treinador VALUES (12, 'Carlos Sanchez', 47, 'Adjunto', 'Espanhol', 6);
-INSERT INTO HoqueiPortugues.Treinador VALUES (13, 'Antonio Guerra', 52, 'Principal', 'Espanhol', 7);
-INSERT INTO HoqueiPortugues.Treinador VALUES (14, 'Ricardo Morales', 46, 'Adjunto', 'Espanhol', 7);
-INSERT INTO HoqueiPortugues.Treinador VALUES (15, 'Miguel Cortes', 45, 'Principal', 'Espanhol', 8);
-INSERT INTO HoqueiPortugues.Treinador VALUES (16, 'Pedro Navarro', 49, 'Adjunto', 'Espanhol', 8);
-INSERT INTO HoqueiPortugues.Treinador VALUES (17, 'Mario Rossi', 51, 'Principal', 'Italiano', 9);
-INSERT INTO HoqueiPortugues.Treinador VALUES (18, 'Luca Bianchi', 47, 'Adjunto', 'Italiano', 9);
-INSERT INTO HoqueiPortugues.Treinador VALUES (19, 'Giuseppe Conte', 53, 'Principal', 'Italiano', 10);
-INSERT INTO HoqueiPortugues.Treinador VALUES (20, 'Alberto Ferrari', 44, 'Adjunto', 'Italiano', 10);
-INSERT INTO HoqueiPortugues.Treinador VALUES (21, 'Ricardo Costa', 45, 'Principal', 'Português', 11);
-INSERT INTO HoqueiPortugues.Treinador VALUES (22, 'João Santos', 47, 'Adjunto', 'Português', 11);
-INSERT INTO HoqueiPortugues.Treinador VALUES (23, 'Miguel Silva', 40, 'Principal', 'Português', 12);
-INSERT INTO HoqueiPortugues.Treinador VALUES (24, 'Tomás Silveira', 52, 'Adjunto', 'Português', 12);
-INSERT INTO HoqueiPortugues.Treinador VALUES (25, 'Ricardo Ares', 50, 'Principal', 'Português', 13);
-INSERT INTO HoqueiPortugues.Treinador VALUES (26, 'Diogo Santos', 43, 'Adjunto', 'Português', 13);
-INSERT INTO HoqueiPortugues.Treinador VALUES (27, 'Luís Sousa', 46, 'Principal', 'Português', 14);
-INSERT INTO HoqueiPortugues.Treinador VALUES (28, 'João Silva', 44, 'Adjunto', 'Português', 14);
+INSERT INTO HoqueiPortugues.Treinador VALUES (1, 'Jorge Silva', 45, 'Principal', 'Portuguesa', 1);
+INSERT INTO HoqueiPortugues.Treinador VALUES (2, 'Antonio Soares', 47, 'Adjunto', 'Portuguesa', 1);
+INSERT INTO HoqueiPortugues.Treinador VALUES (3, 'Miguel Santos', 40, 'Principal', 'Portuguesa', 2);
+INSERT INTO HoqueiPortugues.Treinador VALUES (4, 'Pedro Gomes', 52, 'Adjunto', 'Portuguesa', 2);
+INSERT INTO HoqueiPortugues.Treinador VALUES (5, 'Carlos Pereira', 50, 'Principal', 'Portuguesa', 3);
+INSERT INTO HoqueiPortugues.Treinador VALUES (6, 'Manuel Costa', 43, 'Adjunto', 'Portuguesa', 3);
+INSERT INTO HoqueiPortugues.Treinador VALUES (7, 'Ricardo Rocha', 46, 'Principal', 'Portuguesa', 4);
+INSERT INTO HoqueiPortugues.Treinador VALUES (8, 'Diogo Oliveira', 44, 'Adjunto', 'Portuguesa', 4);
+INSERT INTO HoqueiPortugues.Treinador VALUES (9, 'Paulo Almeida', 49, 'Principal', 'Portuguesa', 5);
+INSERT INTO HoqueiPortugues.Treinador VALUES (10, 'Rui Marques', 41, 'Adjunto', 'Portuguesa', 5);
+INSERT INTO HoqueiPortugues.Treinador VALUES (11, 'Luis Gomez', 50, 'Principal', 'Espanhola', 6);
+INSERT INTO HoqueiPortugues.Treinador VALUES (12, 'Carlos Sanchez', 47, 'Adjunto', 'Espanhola', 6);
+INSERT INTO HoqueiPortugues.Treinador VALUES (13, 'Antonio Guerra', 52, 'Principal', 'Espanhola', 7);
+INSERT INTO HoqueiPortugues.Treinador VALUES (14, 'Ricardo Morales', 46, 'Adjunto', 'Espanhola', 7);
+INSERT INTO HoqueiPortugues.Treinador VALUES (15, 'Miguel Cortes', 45, 'Principal', 'Espanhola', 8);
+INSERT INTO HoqueiPortugues.Treinador VALUES (16, 'Pedro Navarro', 49, 'Adjunto', 'Espanhola', 8);
+INSERT INTO HoqueiPortugues.Treinador VALUES (17, 'Mario Rossi', 51, 'Principal', 'Italiana', 9);
+INSERT INTO HoqueiPortugues.Treinador VALUES (18, 'Luca Bianchi', 47, 'Adjunto', 'Italiana', 9);
+INSERT INTO HoqueiPortugues.Treinador VALUES (19, 'Giuseppe Conte', 53, 'Principal', 'Italiana', 10);
+INSERT INTO HoqueiPortugues.Treinador VALUES (20, 'Alberto Ferrari', 44, 'Adjunto', 'Italiana', 10);
+INSERT INTO HoqueiPortugues.Treinador VALUES (21, 'Ricardo Costa', 45, 'Principal', 'Portuguesa', 11);
+INSERT INTO HoqueiPortugues.Treinador VALUES (22, 'João Santos', 47, 'Adjunto', 'Portuguesa', 11);
+INSERT INTO HoqueiPortugues.Treinador VALUES (23, 'Miguel Silva', 40, 'Principal', 'Portuguesa', 12);
+INSERT INTO HoqueiPortugues.Treinador VALUES (24, 'Tomás Silveira', 52, 'Adjunto', 'Portuguesa', 12);
+INSERT INTO HoqueiPortugues.Treinador VALUES (25, 'Ricardo Ares', 50, 'Principal', 'Portuguesa', 13);
+INSERT INTO HoqueiPortugues.Treinador VALUES (26, 'Diogo Santos', 43, 'Adjunto', 'Portuguesa', 13);
+INSERT INTO HoqueiPortugues.Treinador VALUES (27, 'Luís Sousa', 46, 'Principal', 'Portuguesa', 14);
+INSERT INTO HoqueiPortugues.Treinador VALUES (28, 'João Silva', 44, 'Adjunto', 'Portuguesa', 14);
 GO
 
 /* Plantel insertion */
