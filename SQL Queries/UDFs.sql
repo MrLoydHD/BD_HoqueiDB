@@ -1,13 +1,10 @@
-use Test_Hoquei;
+use p4g7;
 go 
 
 /*
 UFDF que retorna os jogadores que não têm clube
 */
 
-IF OBJECT_ID('HoqueiPortugues.ufnJogadoresSemClube') IS NOT NULL
-    DROP FUNCTION HoqueiPortugues.ufnJogadoresSemClube;
-GO
 
 CREATE FUNCTION HoqueiPortugues.ufnJogadoresSemClube()
 RETURNS TABLE
@@ -22,9 +19,6 @@ GO
 UFDF que retorna os treinadores que não têm clube
 */
 
-IF OBJECT_ID('HoqueiPortugues.ufnTreinadoresSemClube') IS NOT NULL
-    DROP FUNCTION HoqueiPortugues.ufnTreinadoresSemClube;
-GO
 
 CREATE FUNCTION HoqueiPortugues.ufnTreinadoresSemClube()
 RETURNS TABLE
@@ -66,6 +60,7 @@ GO
 Obter jogadores de um que participaram num jogo
 */
 
+
 CREATE FUNCTION HoqueiPortugues.fnObterJogadoresPorJogo(@Jogo_ID int)
 RETURNS TABLE 
 AS 
@@ -95,6 +90,7 @@ GO
 Consultar dados de dum jogo
 */
 
+
 CREATE FUNCTION HoqueiPortugues.fnConsultarJogo(@Jogo_ID int)
 RETURNS TABLE 
 AS 
@@ -121,6 +117,7 @@ GO
 /*
 Ver o calendário de jogos de uma equipa
 */
+
 
 CREATE FUNCTION HoqueiPortugues.fnVerCalendarioEquipa(@Clube_ID int)
 RETURNS TABLE 
