@@ -172,7 +172,7 @@ INSERT INTO HoqueiPortugues.Jogador VALUES (31, 'Marco Rossi', 33, 'Guarda-Redes
 INSERT INTO HoqueiPortugues.Jogador VALUES (32, 'Diego Fernández', 28, 'Guarda-Redes', 'Espanhola', 4, 3, 2, 1, 0);
 INSERT INTO HoqueiPortugues.Jogador VALUES (33, 'José Ferreira', 25, 'Jogador de Campo', 'Portuguesa', 5, 3, 1, 1, 0);
 INSERT INTO HoqueiPortugues.Jogador VALUES (34, 'Luís Almeida', 24, 'Jogador de Campo', 'Portuguesa', 6, 3, 3, 2, 1);
-INSERT INTO HoqueiPortugues.Jogador VALUES (35, 'Rodrigo Silva', 26, 'Jogador de Campo', 'Brasil', 7, 3, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (35, 'Rodrigo Silva', 26, 'Jogador de Campo', 'Brasileira', 7, 3, 2, 1, 0);
 INSERT INTO HoqueiPortugues.Jogador VALUES (36, 'Manuel Gomez', 27, 'Jogador de Campo', 'Espanhola', 8, 3, 1, 2, 0);
 INSERT INTO HoqueiPortugues.Jogador VALUES (37, 'Eduardo Pereira', 23, 'Jogador de Campo', 'Portuguesa', 9, 3, 2, 1, 0);
 INSERT INTO HoqueiPortugues.Jogador VALUES (38, 'Carlos Martins', 22, 'Jogador de Campo', 'Portuguesa', 10, 3, 1, 0, 0);
@@ -188,7 +188,7 @@ INSERT INTO HoqueiPortugues.Jogador VALUES (45, 'Luca Bianchi', 29, 'Guarda-Rede
 INSERT INTO HoqueiPortugues.Jogador VALUES (46, 'Davide Ferraro', 30, 'Guarda-Redes', 'Italiana', 4, 4, 2, 1, 0);
 INSERT INTO HoqueiPortugues.Jogador VALUES (47, 'João Silva', 26, 'Jogador de Campo', 'Portuguesa', 5, 4, 1, 1, 0);
 INSERT INTO HoqueiPortugues.Jogador VALUES (48, 'Miguel Antunes', 24, 'Jogador de Campo', 'Portuguesa', 6, 4, 3, 2, 1);
-INSERT INTO HoqueiPortugues.Jogador VALUES (49, 'Rodrigo Almeida', 25, 'Jogador de Campo', 'Brasil', 7, 4, 2, 1, 0);
+INSERT INTO HoqueiPortugues.Jogador VALUES (49, 'Rodrigo Almeida', 25, 'Jogador de Campo', 'Brasileira', 7, 4, 2, 1, 0);
 INSERT INTO HoqueiPortugues.Jogador VALUES (50, 'Carlos Sánchez', 27, 'Jogador de Campo', 'Espanhola', 8, 4, 1, 2, 0);
 INSERT INTO HoqueiPortugues.Jogador VALUES (51, 'Bruno Ferreira', 22, 'Jogador de Campo', 'Portuguesa', 9, 4, 2, 1, 0);
 INSERT INTO HoqueiPortugues.Jogador VALUES (52, 'Pedro Cardoso', 24, 'Jogador de Campo', 'Portuguesa', 10, 4, 1, 0, 0);
