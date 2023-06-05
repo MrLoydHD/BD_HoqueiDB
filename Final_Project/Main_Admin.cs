@@ -301,7 +301,10 @@ namespace Final_Project
                 J.ClubeCasaID = reader["ClubeCasaID"].ToString();
                 J.ClubeForaID = reader["ClubeForaID"].ToString();
 
-                arbitros_textbox[i].Text = J.ArbitroNome;
+                if(i < arbitros_textbox.Count)
+                {
+                    arbitros_textbox[i].Text = J.ArbitroNome;
+                }
                 dataHora_textbox.Text = J.Data_hora;
                 jornada_textbox.Text = J.Jornada;
                 pavilhao_textbox.Text = J.NomePavilhao;
