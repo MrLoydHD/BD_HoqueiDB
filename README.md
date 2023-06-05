@@ -67,4 +67,5 @@ _Don't need to run SQL_DDL.sql because every time you run the file it will resta
   - Joaquim Rosa (109089)  -- 50%
   - Hugo Correia (108215) -- 50%
 
-  Read the final report for more information about the project (PT-PT)
+  Read the final report for more information about the project [Base de Dados Hoquei](https://github.com/MrLoydHD/BD_HoqueiDB/blob/main/Base%20de%20Dados%20Hoquei.pdf)
+ (PT-PT)
