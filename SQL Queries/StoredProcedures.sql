@@ -299,7 +299,7 @@ AS
 BEGIN
     DECLARE @Plantel_F_ID int, @Plantel_C_ID int;
 
-    SELECT TOP 2 @Plantel_F_ID = ID, @Plantel_C_ID = LAG(ID,1,0) OVER (ORDER BY ID)
+    SELECT TOP 2 @Plantel_C_ID = ID, @Plantel_F_ID = ID + 1
     FROM HoqueiPortugues.Plantel
     ORDER BY ID DESC;
 
